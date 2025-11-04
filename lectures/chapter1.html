@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第1章 土的物理性质及工程分类 - 土力学课程网站</title>
+    <!-- 引入Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- 自定义CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        /* 章节页面特定样式 */
+        .chapter-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
+        .chapter-nav {
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        
+        .knowledge-point {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+            border-left: 3px solid #3498db;
+        }
+        
+        .note-box {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 4px;
+            padding: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .formula {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 4px;
+            text-align: center;
+            margin: 1rem 0;
+            font-family: "Courier New", monospace;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <i class="fas fa-landmark mr-2"></i>土力学
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#course-info">课程简介</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../index.html#lectures">授课内容</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#materials">教学资料</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#exercises">习题与实验</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#resources">参考资源</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#contact">联系我们</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <header class="jumbotron jumbotron-fluid py-5">
+        <div class="container">
+            <h1 class="display-5">第1章 土的物理性质及工程分类</h1>
+            <p class="lead">土力学基础理论 - 物理性质指标与工程特性</p>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <!-- 章节导航 -->
+        <div class="chapter-nav">
+            <h3 class="mb-3">章节导航</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <ul class="list-unstyled">
+                        <li><a href="#section1-1" class="text-primary">1.1 土的形成与结构</a></li>
+                        <li><a href="#section1-2" class="text-primary">1.2 土的三相组成</a></li>
+                        <li><a href="#section1-3" class="text-primary">1.3 土的物理性质指标</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <ul class="list-unstyled">
+                        <li><a href="#section1-4" class="text-primary">1.4 土的物理状态指标</a></li>
+                        <li><a href="#section1-5" class="text-primary">1.5 土的工程分类</a></li>
+                        <li><a href="../exercises/chapter1-exercises.html" class="text-success">章节习题</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-4">
+                <a href="index.html" class="btn btn-outline-primary btn-sm">返回章节列表</a>
+                <a href="chapter2.html" class="btn btn-primary btn-sm float-end">下一章 <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+
+        <!-- 章节内容 -->
+        <div class="chapter-content">
+            <!-- 1.1 土的形成与结构 -->
+            <section id="section1-1" class="mb-5">
+                <h2 class="section-title">1.1 土的形成与结构</h2>
+                <p>土是地球表面岩石经风化、剥蚀、搬运、沉积等地质作用形成的松散沉积物。</p>
+                
+                <div class="knowledge-point">
+                    <h4>1.1.1 风化作用</h4>
+                    <p>风化作用分为物理风化、化学风化和生物风化：</p>
+                    <ul>
+                        <li><strong>物理风化</strong>：岩石在温度变化、冻融循环等物理因素作用下破碎</li>
+                        <li><strong>化学风化</strong>：岩石与水、氧气等发生化学反应而分解</li>
+                        <li><strong>生物风化</strong>：植物根系生长、动物活动等对岩石的破坏</li>
+                    </ul>
+                </div>
+                
+                <div class="knowledge-point">
+                    <h4>1.1.2 土的结构</h4>
+                    <p>土的结构分为单粒结构、蜂窝结构和絮状结构：</p>
+                    <ul>
+                        <li><strong>单粒结构</strong>：粗粒土（如砂、砾）的主要结构形式</li>
+                        <li><strong>蜂窝结构</strong>：粉土的常见结构形式</li>
+                        <li><strong>絮状结构</strong>：黏土的典型结构形式</li>
+                    </ul>
+                </div>
+                
+                <div class="note-box">
+                    <h5><i class="fas fa-sticky-note text-warning"></i> 注意</h5>
+                    <p>土的结构对其工程性质有显著影响。例如，絮状结构的黏土具有较高的压缩性和较低的强度。</p>
+                </div>
+            </section>
+
+            <!-- 1.2 土的三相组成 -->
+            <section id="section1-2" class="mb-5">
+                <h2 class="section-title">1.2 土的三相组成</h2>
+                <p>土是由固体颗粒、水和气体组成的三相体系。</p>
+                
+                <div class="knowledge-point">
+                    <h4>1.2.1 固体颗粒</h4>
+                    <p>固体颗粒是土的主要组成部分，决定了土的基本性质。</p>
+                    <ul>
+                        <li><strong>粒径</strong>：颗粒的大小，通常用筛析法或沉降法测定</li>
+                        <li><strong>颗粒级配</strong>：土中各粒组的相对含量，用级配曲线表示</li>
+                        <li><strong>矿物成分</strong>：原生矿物（如石英、长石）和次生矿物（如黏土矿物）</li>
+                    </ul>
+                </div>
+                
+                <div class="knowledge-point">
+                    <h4>1.2.2 土中水</h4>
+                    <p>土中的水按物理化学作用分为：</p>
+                    <ul>
+                        <li><strong>结合水</strong>：强结合水（吸着水）和弱结合水（薄膜水）</li>
+                        <li><strong>自由水</strong>：重力水和毛细水</li>
+                    </ul>
+                </div>
+                
+                <div class="knowledge-point">
+                    <h4>1.2.3 土中气体</h4>
+                    <p>土中的气体主要有：</p>
+                    <ul>
+                        <li><strong>自由气体</strong>：与大气相连通的气体</li>
+                        <li><strong>封闭气体</strong>：被土颗粒或水膜包围的气体</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 1.3 土的物理性质指标 -->
+            <section id="section1-3" class="mb-5">
+                <h2 class="section-title">1.3 土的物理性质指标</h2>
+                <p>土的物理性质指标反映了土的三相组成比例关系，是土力学计算的基础。</p>
+                
+                <div class="knowledge-point">
+                    <h4>1.3.1 基本物理性质指标</h4>
+                    <ul>
+                        <li><strong>土粒比重（Gs）</strong>：土粒质量与同体积4℃水的质量之比</li>
+                        <li><strong>天然密度（ρ）</strong>：土的总质量与总体积之比</li>
+                        <li><strong>干密度（ρd）</strong>：土的固体颗粒质量与总体积之比</li>
+                        <li><strong>含水率（w）</strong>：土中水的质量与固体颗粒质量之比</li>
+                        <li><strong>孔隙比（e）</strong>：土中孔隙体积与固体颗粒体积之比</li>
+                        <li><strong>孔隙率（n）</strong>：土中孔隙体积与总体积之比</li>
+                        <li><strong>饱和度（Sr）</strong>：土中水的体积与孔隙体积之比</li>
+                    </ul>
+                </div>
+                
+                <div class="formula">
+                    孔隙比 e = V_v / V_s
+                </div>
+                
+                <div class="formula">
+                    孔隙率 n = V_v / V × 100%
+                </div>
+                
+                <div class="formula">
+                    饱和度 S_r = V_w / V_v × 100%
+                </div>
+                
+                <div class="note-box">
+                    <h5><i class="fas fa-lightbulb text-warning"></i> 要点</h5>
+                    <p>这些物理性质指标之间可以相互换算，掌握它们之间的关系对于土力学计算非常重要。</p>
+                </div>
+            </section>
+
+            <!-- 1.4 土的物理状态指标 -->
+            <section id="section1-4" class="mb-5">
+                <h2 class="section-title">1.4 土的物理状态指标</h2>
+                <p>土的物理状态指标反映了土的软硬、松密等物理状态。</p>
+                
+                <div class="knowledge-point">
+                    <h4>1.4.1 无黏性土的密实度</h4>
+                    <p>无黏性土（如砂土）的密实度指标：</p>
+                    <ul>
+                        <li><strong>孔隙比</strong>：孔隙比越小，土越密实</li>
+                        <li><strong>相对密实度（Dr）</strong>：反映砂土在天然状态下的密实程度</li>
+                        <li><strong>标准贯入试验锤击数（N）</strong>：现场测试指标</li>
+                    </ul>
+                </div>
+                
+                <div class="formula">
+                    相对密实度 D_r = (e_max - e) / (e_max - e_min)
+                </div>
+                
+                <div class="knowledge-point">
+                    <h4>1.4.2 黏性土的稠度状态</h4>
+                    <p>黏性土的稠度状态指标：</p>
+                    <ul>
+                        <li><strong>液限（wL）</strong>：土从可塑状态过渡到流动状态的界限含水率</li>
+                        <li><strong>塑限（wP）</strong>：土从半固体状态过渡到可塑状态的界限含水率</li>
+                        <li><strong>缩限（wS）</strong>：土从固体状态过渡到半固体状态的界限含水率</li>
+                        <li><strong>塑性指数（IP）</strong>：液限与塑限的差值</li>
+                        <li><strong>液性指数（IL）</strong>：表示黏性土软硬程度的指标</li>
+                    </ul>
+                </div>
+                
+                <div class="formula">
+                    塑性指数 I_P = w_L - w_P
+                </div>
+                
+                <div class="formula">
+                    液性指数 I_L = (w - w_P) / (w_L - w_P)
+                </div>
+            </section>
+
+            <!-- 1.5 土的工程分类 -->
+            <section id="section1-5" class="mb-5">
+                <h2 class="section-title">1.5 土的工程分类</h2>
+                <p>土的工程分类是根据土的颗粒组成、塑性指数等指标将土分为不同的类别，以便于工程应用。</p>
+                
+                <div class="knowledge-point">
+                    <h4>1.5.1 《建筑地基基础设计规范》（GB 50007-2011）分类方法</h4>
+                    <p>根据颗粒级配和塑性指数，土分为：</p>
+                    <ul>
+                        <li><strong>岩石</strong>：未风化或微风化的岩石</li>
+                        <li><strong>碎石土</strong>：粒径大于2mm的颗粒含量超过总质量50%的土</li>
+                        <li><strong>砂土</strong>：粒径大于2mm的颗粒含量不超过总质量50%，且粒径大于0.075mm的颗粒含量超过总质量50%的土</li>
+                        <li><strong>粉土</strong>：粒径大于0.075mm的颗粒含量不超过总质量50%，且塑性指数IP≤10的土</li>
+                        <li><strong>黏性土</strong>：塑性指数IP>10的土</li>
+                        <li><strong>特殊性土</strong>：软土、人工填土、膨胀土等</li>
+                    </ul>
+                </div>
+                
+                <div class="knowledge-point">
+                    <h4>1.5.2 国外分类方法简介</h4>
+                    <ul>
+                        <li><strong>USCS（美国统一土分类系统）</strong></li>
+                        <li><strong>AASHTO（美国公路与运输协会）分类系统</strong></li>
+                    </ul>
+                </div>
+                
+                <div class="note-box">
+                    <h5><i class="fas fa-info-circle text-warning"></i> 知识拓展</h5>
+                    <p>不同的工程领域可能采用不同的土分类标准，实际工程中应根据具体情况选择合适的分类方法。</p>
+                </div>
+            </section>
+
+            <!-- 本章小结 -->
+            <section class="mb-5">
+                <h2 class="section-title">本章小结</h2>
+                <div class="card">
+                    <div class="card-body">
+                        <ul>
+                            <li>土是由固体颗粒、水和气体组成的三相体系</li>
+                            <li>土的物理性质指标反映了土的三相组成比例关系</li>
+                            <li>无黏性土的密实度和黏性土的稠度状态是重要的物理状态指标</li>
+                            <li>土的工程分类是工程应用的基础</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 课后作业 -->
+            <section>
+                <h2 class="section-title">课后作业</h2>
+                <div class="card">
+                    <div class="card-body">
+                        <ol>
+                            <li>简述土的三相组成及其对土工程性质的影响</li>
+                            <li>推导孔隙比、孔隙率和饱和度之间的关系</li>
+                            <li>解释塑性指数和液性指数的物理意义</li>
+                            <li>根据《建筑地基基础设计规范》，简述土的分类体系</li>
+                            <li>某土样的天然含水率为22%，土粒比重为2.65，天然密度为1.85g/cm³，计算该土样的孔隙比、孔隙率和饱和度</li>
+                        </ol>
+                        <a href="../exercises/chapter1-exercises.html" class="btn btn-primary mt-3">查看详细习题</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>关于课程</h4>
+                    <p>《土力学》是土木工程专业的核心课程，本网站提供课程相关的教学资源和学习资料。</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>快速链接</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="../index.html#course-info" class="text-white">课程简介</a></li>
+                        <li><a href="../index.html#lectures" class="text-white">授课内容</a></li>
+                        <li><a href="../index.html#materials" class="text-white">教学资料</a></li>
+                        <li><a href="../index.html#exercises" class="text-white">习题与实验</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4>版权信息</h4>
+                    <p>&copy; 2023 土木工程学院 土力学课程组</p>
+                    <p>All rights reserved.</p>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-12 text-center">
+                    <p>技术支持：教育技术中心</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 引入Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- 自定义JS -->
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>
