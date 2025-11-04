@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>土力学 - 精品课程网站</title>
+    <!-- 引入Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- 自定义CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- 自定义CSS已移至外部文件 -->
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-landmark mr-2"></i>土力学
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#course-info">课程简介</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#lectures">授课内容</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#materials">教学资料</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#exercises">习题与实验</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#resources">参考资源</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">联系我们</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 首页横幅 -->
+    <header class="jumbotron">
+        <div class="container text-center">
+            <h1 class="display-4 mb-4">土力学</h1>
+            <p class="lead mb-5">国家一流本科课程 | 土木工程专业核心课程</p>
+            <div class="row justify-content-center">
+                <div class="col-auto">
+                    <a href="#course-info" class="btn btn-light btn-lg mr-3">了解课程</a>
+                </div>
+                <div class="col-auto">
+                    <a href="#lectures" class="btn btn-outline-light btn-lg">查看教学内容</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 课程特色 -->
+    <section class="section bg-light" id="course-features">
+        <div class="container">
+            <h2 class="section-title text-center">课程特色</h2>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="course-feature">
+                        <i class="fas fa-award"></i>
+                        <h3>一流课程</h3>
+                        <p>国家一流本科课程建设点，教学质量有保障</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="course-feature">
+                        <i class="fas fa-book"></i>
+                        <h3>理论与实践</h3>
+                        <p>注重理论与工程实践相结合，培养解决实际问题的能力</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="course-feature">
+                        <i class="fas fa-flask"></i>
+                        <h3>实验教学</h3>
+                        <p>完善的实验教学体系，培养学生的动手能力和创新思维</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="course-feature">
+                        <i class="fas fa-laptop-code"></i>
+                        <h3>现代教育技术</h3>
+                        <p>采用先进的教学手段，提供丰富的在线学习资源</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 课程简介 -->
+    <section class="section" id="course-info">
+        <div class="container">
+            <h2 class="section-title text-center">课程简介</h2>
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <p class="lead mb-4">土力学是土木工程专业的一门重要专业基础课，主要研究土的物理力学性质及其在工程中的应用。</p>
+                    <p class="mb-4">本课程系统地介绍土的形成与分类、土的物理性质及工程分类、土的渗透性与渗流、土中应力计算、土的压缩性与地基沉降、土的抗剪强度、土压力理论、地基承载力、土坡稳定分析等内容。</p>
+                    <p class="mb-4">通过本课程的学习，学生将掌握土力学的基本理论和分析方法，为后续的地基基础、基坑工程、边坡工程等专业课程的学习奠定坚实的基础，同时培养学生运用土力学知识解决实际工程问题的能力。</p>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">课程目标</h3>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><i class="fas fa-check-circle text-success mr-2"></i>掌握土的物理力学性质及其工程应用</li>
+                                <li class="list-group-item"><i class="fas fa-check-circle text-success mr-2"></i>理解土力学的基本理论和分析方法</li>
+                                <li class="list-group-item"><i class="fas fa-check-circle text-success mr-2"></i>具备解决地基基础工程实际问题的能力</li>
+                                <li class="list-group-item"><i class="fas fa-check-circle text-success mr-2"></i>培养学生的工程思维和创新意识</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">先修课程</h3>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><i class="fas fa-book text-primary mr-2"></i>理论力学</li>
+                                <li class="list-group-item"><i class="fas fa-book text-primary mr-2"></i>材料力学</li>
+                                <li class="list-group-item"><i class="fas fa-book text-primary mr-2"></i>结构力学</li>
+                                <li class="list-group-item"><i class="fas fa-book text-primary mr-2"></i>工程地质</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 授课教师 -->
+    <section class="section bg-light" id="instructors">
+        <div class="container">
+            <h2 class="section-title text-center">授课教师</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="instructor-card">
+                        <img src="https://via.placeholder.com/150" alt="张明教授" class="instructor-img">
+                        <h3>张明</h3>
+                        <p class="text-muted">教授 / 博导</p>
+                        <p>土木工程学院院长，国家杰青，长期从事土力学与地基基础工程的教学与科研工作。</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="instructor-card">
+                        <img src="https://via.placeholder.com/150" alt="李华副教授" class="instructor-img">
+                        <h3>李华</h3>
+                        <p class="text-muted">副教授</p>
+                        <p>土木工程学院，主要研究方向为土动力学与岩土地震工程，具有丰富的教学经验。</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="instructor-card">
+                        <img src="https://via.placeholder.com/150" alt="王强讲师" class="instructor-img">
+                        <h3>王强</h3>
+                        <p class="text-muted">讲师</p>
+                        <p>土木工程学院，主要研究方向为环境岩土工程，负责本课程的实验教学工作。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 授课内容 -->
+    <section class="section" id="lectures">
+        <div class="container">
+            <h2 class="section-title text-center">授课内容</h2>
+            <div class="row">
+                <!-- 第1章 -->
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="card-title">第1章 土的物理性质及工程分类</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">1.1 土的形成与结构</li>
+                                <li class="list-group-item">1.2 土的三相组成</li>
+                                <li class="list-group-item">1.3 土的物理性质指标</li>
+                                <li class="list-group-item">1.4 土的物理状态指标</li>
+                                <li class="list-group-item">1.5 土的工程分类</li>
+                            </ul>
+                            <a href="lectures/chapter1.html" class="btn btn-primary mt-3">查看详情</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 第2章 -->
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="card-title">第2章 土的渗透性与渗流</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">2.1 土的渗透性</li>
+                                <li class="list-group-item">2.2 达西定律</li>
+                                <li class="list-group-item">2.3 渗透系数的测定</li>
+                                <li class="list-group-item">2.4 二维渗流与流网</li>
+                                <li class="list-group-item">2.5 渗透破坏与防治</li>
+                            </ul>
+                            <a href="lectures/chapter2.html" class="btn btn-primary mt-3">查看详情</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 第3章 -->
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="card-title">第3章 土中应力计算</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">3.1 土中自重应力</li>
+                                <li class="list-group-item">3.2 基底压力</li>
+                                <li class="list-group-item">3.3 地基附加应力</li>
+                                <li class="list-group-item">3.4 应力路径</li>
+                            </ul>
+                            <a href="lectures/chapter3.html" class="btn btn-primary mt-3">查看详情</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 第4章 -->
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="card-title">第4章 土的压缩性与地基沉降</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">4.1 土的压缩性</li>
+                                <li class="list-group-item">4.2 地基最终沉降量计算</li>
+                                <li class="list-group-item">4.3 地基沉降与时间的关系</li>
+                                <li class="list-group-item">4.4 地基容许沉降量</li>
+                            </ul>
+                            <a href="lectures/chapter4.html" class="btn btn-primary mt-3">查看详情</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="lectures/index.html" class="btn btn-primary btn-lg">查看全部章节</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 教学资料 -->
+    <section class="section bg-light" id="materials">
+        <div class="container">
+            <h2 class="section-title text-center">教学资料</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="https://via.placeholder.com/400x200?text=教材" class="card-img-top" alt="教材">
+                        <div class="card-body">
+                            <h3 class="card-title">推荐教材</h3>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">《土力学》(第5版) - 李广信等</li>
+                                <li class="list-group-item">《土力学地基基础》(第4版) - 陈希哲</li>
+                                <li class="list-group-item">《土力学原理》(第2版) - 周景星等</li>
+                            </ul>
+                            <a href="course-materials/textbooks.html" class="btn btn-primary mt-3">查看详情</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="https://via.placeholder.com/400x200?text=课件" class="card-img-top" alt="课件">
+                        <div class="card-body">
+                            <h3 class="card-title">授课课件</h3>
+                            <p class="card-text">提供各章节的PPT课件，帮助学生预习和复习。</p>
+                            <a href="course-materials/ppt.html" class="btn btn-primary mt-3">下载课件</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="https://via.placeholder.com/400x200?text=教学大纲" class="card-img-top" alt="教学大纲">
+                        <div class="card-body">
+                            <h3 class="card-title">教学大纲</h3>
+                            <p class="card-text">课程教学大纲、教学计划和考核方式等重要资料。</p>
+                            <a href="course-materials/syllabus.html" class="btn btn-primary mt-3">查看详情</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 习题与实验 -->
+    <section class="section" id="exercises">
+        <div class="container">
+            <h2 class="section-title text-center">习题与实验</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="card-title">习题集</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">各章节配套习题，帮助学生巩固所学知识。</p>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <a href="exercises/chapter1-exercises.html">第1章 习题</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="exercises/chapter2-exercises.html">第2章 习题</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="exercises/chapter3-exercises.html">第3章 习题</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="exercises/chapter4-exercises.html">第4章 习题</a>
+                                </li>
+                            </ul>
+                            <a href="exercises/index.html" class="btn btn-primary mt-3">查看全部习题</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="card-title">实验教学</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">土力学实验指导书及实验报告模板。</p>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <a href="exercises/experiment1.html">实验一：土的物理性质试验</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="exercises/experiment2.html">实验二：渗透试验</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="exercises/experiment3.html">实验三：压缩试验</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="exercises/experiment4.html">实验四：直剪试验</a>
+                                </li>
+                            </ul>
+                            <a href="exercises/experiments.html" class="btn btn-primary mt-3">查看全部实验</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 参考资源 -->
+    <section class="section bg-light" id="resources">
+        <div class="container">
+            <h2 class="section-title text-center">参考资源</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">
+                                <i class="fas fa-book text-primary mr-2"></i>推荐阅读
+                            </h3>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">《Advanced Soil Mechanics》 - Braja M. Das</li>
+                                <li class="list-group-item">《土力学》 - 黄文熙</li>
+                                <li class="list-group-item">《地基基础设计规范》(GB 50007-2011)</li>
+                                <li class="list-group-item">《建筑地基处理技术规范》(JGJ 79-2012)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">
+                                <i class="fas fa-external-link-alt text-primary mr-2"></i>网络资源
+                            </h3>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <a href="#" target="_blank">中国土木工程学会</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="#" target="_blank">岩土工程学报</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="#" target="_blank">土木工程网</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="#" target="_blank">国家精品课程资源网</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <section class="section" id="contact">
+        <div class="container">
+            <h2 class="section-title text-center">联系我们</h2>
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">联系方式</h3>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <i class="fas fa-map-marker-alt text-primary mr-2"></i>
+                                    地址：土木工程学院楼A501室
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fas fa-phone text-primary mr-2"></i>
+                                    电话：010-12345678
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fas fa-envelope text-primary mr-2"></i>
+                                    邮箱：soilmechanics@example.edu.cn
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fas fa-clock text-primary mr-2"></i>
+                                    办公时间：周一至周五 9:00-17:00
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>关于课程</h4>
+                    <p>《土力学》是土木工程专业的核心课程，本网站提供课程相关的教学资源和学习资料。</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>快速链接</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="#course-info" class="text-white">课程简介</a></li>
+                        <li><a href="#lectures" class="text-white">授课内容</a></li>
+                        <li><a href="#materials" class="text-white">教学资料</a></li>
+                        <li><a href="#exercises" class="text-white">习题与实验</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4>版权信息</h4>
+                    <p>&copy; 2023 土木工程学院 土力学课程组</p>
+                    <p>All rights reserved.</p>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-12 text-center">
+                    <p>技术支持：教育技术中心</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 引入Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- 自定义JS -->
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
