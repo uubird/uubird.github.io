@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生留言区 - 土力学课程网站</title>
+    <!-- 引入Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- 自定义CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .feedback-container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .message-card {
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .message-card:hover {
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+        .message-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .message-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 1rem;
+        }
+        .message-time {
+            color: #6c757d;
+            font-size: 0.875rem;
+        }
+        .reply-card {
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+            margin-left: 2rem;
+            margin-top: 1rem;
+        }
+        .submit-btn {
+            background-color: #3498db;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+        .submit-btn:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-landmark mr-2"></i>土力学
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#course-info">课程简介</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#lectures">授课内容</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#materials">教学资料</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#exercises">习题与实验</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#resources">参考资源</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contact">联系我们</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="feedback.html">学生留言</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <header class="jumbotron jumbotron-fluid py-5">
+        <div class="container">
+            <h1 class="display-5">学生留言区</h1>
+            <p class="lead">在这里提问、讨论和分享学习心得，与老师和同学形成良好的互动</p>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <div class="row">
+            <!-- 留言表单 -->
+            <div class="col-md-5 mb-5">
+                <div class="feedback-container">
+                    <h2 class="section-title mb-4">提交留言</h2>
+                    <form id="feedbackForm">
+                        <div class="mb-3">
+                            <label for="studentName" class="form-label">姓名</label>
+                            <input type="text" class="form-control" id="studentName" placeholder="请输入您的姓名" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="studentId" class="form-label">学号</label>
+                            <input type="text" class="form-control" id="studentId" placeholder="请输入您的学号" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="messageTitle" class="form-label">留言标题</label>
+                            <input type="text" class="form-control" id="messageTitle" placeholder="请输入留言标题" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="messageContent" class="form-label">留言内容</label>
+                            <textarea class="form-control" id="messageContent" rows="5" placeholder="请输入您的问题或建议..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary submit-btn w-100">提交留言</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- 留言展示 -->
+            <div class="col-md-7">
+                <div class="feedback-container">
+                    <h2 class="section-title mb-4">留言列表</h2>
+                    <div id="messagesContainer">
+                        <!-- 留言将通过JavaScript动态加载 -->
+                        <div class="text-center py-5" id="loadingIndicator">
+                            <div class="spinner-border" role="status">
+                                <span class="visually-hidden">加载中...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>关于课程</h4>
+                    <p>《土力学》是土木工程专业的核心课程，本网站提供课程相关的教学资源和学习资料。</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>快速链接</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html#course-info" class="text-white">课程简介</a></li>
+                        <li><a href="index.html#lectures" class="text-white">授课内容</a></li>
+                        <li><a href="index.html#materials" class="text-white">教学资料</a></li>
+                        <li><a href="index.html#exercises" class="text-white">习题与实验</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4>版权信息</h4>
+                    <p>&copy; 2025 岩土教研室土力学教学团队</p>
+                    <p>All rights reserved.</p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- 引入Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- 数据管理模块 -->
+    <script src="assets/js/dataManager.js"></script>
+    <!-- 身份验证脚本 -->
+    <script src="assets/js/auth.js"></script>
+    
+    <!-- 留言表单处理脚本 -->
+    <script>
+        // 加载留言列表
+        async function loadMessages() {
+            try {
+                // 从JSON文件加载留言数据
+                const response = await fetch('assets/data/messages.json');
+                const data = await response.json();
+                
+                // 对留言按时间倒序排序
+                const sortedMessages = data.messages.sort((a, b) => 
+                    new Date(b.timestamp) - new Date(a.timestamp)
+                );
+                
+                // 清空现有留言
+                const messagesContainer = document.getElementById('messagesContainer');
+                messagesContainer.innerHTML = '';
+                
+                // 渲染所有留言
+                sortedMessages.forEach(message => {
+                    renderMessage(message);
+                });
+            } catch (error) {
+                console.error('加载留言失败:', error);
+            }
+        }
+        
+        // 渲染单条留言
+        function renderMessage(message) {
+            const messagesContainer = document.getElementById('messagesContainer');
+            
+            // 构建回复HTML
+            const replyHTML = message.reply ? `
+                <!-- 老师回复 -->
+                <div class="card reply-card">
+                    <div class="card-header message-header">
+                        <div style="display: flex; align-items: center;">
+                            <img src="https://via.placeholder.com/40" alt="教师头像" class="message-avatar">
+                            <div>
+                                <h4 class="card-title h6 mb-0">${message.reply.teacher}</h4>
+                                <span class="message-time">${message.reply.timestamp}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">${message.reply.content}</p>
+                    </div>
+                </div>
+            ` : '';
+            
+            const messageHTML = `
+                <div class="card message-card">
+                    <div class="card-header message-header">
+                        <div style="display: flex; align-items: center;">
+                            <img src="https://via.placeholder.com/40" alt="用户头像" class="message-avatar">
+                            <div>
+                                <h4 class="card-title h6 mb-0">${message.studentName} - ${message.className}</h4>
+                                <span class="message-time">${message.timestamp}</span>
+                            </div>
+                        </div>
+                        <span class="badge ${message.status === '已回复' ? 'bg-primary' : 'bg-secondary'}">${message.status}</span>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title mb-2">${message.title}</h5>
+                        <p class="card-text">${message.content}</p>
+                        ${replyHTML}
+                    </div>
+                </div>
+            `;
+            
+            messagesContainer.insertAdjacentHTML('beforeend', messageHTML);
+        }
+        
+        // 表单提交处理
+        document.getElementById('feedbackForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // 获取表单数据
+            const name = document.getElementById('studentName').value;
+            const id = document.getElementById('studentId').value;
+            const title = document.getElementById('messageTitle').value;
+            const content = document.getElementById('messageContent').value;
+            
+            // 显示验证中状态
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 验证中...';
+            
+            // 清除之前的错误提示
+            const errorElement = document.getElementById('authError');
+            if (errorElement) errorElement.remove();
+            
+            // 验证学生身份
+            const validationResult = await StudentAuth.validateStudent(name, id);
+            
+            if (validationResult.valid) {
+                // 验证成功，创建新留言
+                const newMessage = {
+                    id: StudentAuth.generateId(),
+                    studentName: name,
+                    studentId: id,
+                    className: validationResult.student.class,
+                    title: title,
+                    content: content,
+                    timestamp: StudentAuth.getCurrentTime(),
+                    status: '待回复'
+                };
+                
+                try {
+                    // 这里只是前端模拟，实际应用需要发送到后端API
+                    console.log('保存新留言:', newMessage);
+                    
+                    // 渲染新留言到列表顶部
+                    const messagesContainer = document.getElementById('messagesContainer');
+                    const oldHTML = messagesContainer.innerHTML;
+                    renderMessage(newMessage);
+                    
+                    // 清空表单
+                    this.reset();
+                    
+                    // 显示成功提示
+                    alert('留言提交成功！老师会尽快回复您。');
+                } catch (error) {
+                    console.error('提交留言失败:', error);
+                    alert('提交失败，请稍后重试');
+                }
+            } else {
+                // 验证失败，显示错误提示
+                const errorDiv = document.createElement('div');
+                errorDiv.id = 'authError';
+                errorDiv.className = 'alert alert-danger mt-3';
+                errorDiv.role = 'alert';
+                errorDiv.textContent = '身份验证失败，请确认姓名和学号是否正确匹配';
+                this.appendChild(errorDiv);
+            }
+            
+            // 恢复按钮状态
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnText;
+        });
+        
+        // 页面加载时加载留言列表
+        window.addEventListener('DOMContentLoaded', loadMessages);
+        
+        // 添加CSS动画
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

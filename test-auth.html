@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生身份验证测试</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #333;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .success {
+            color: green;
+            border-color: green;
+            background-color: #e6ffe6;
+        }
+        .error {
+            color: red;
+            border-color: red;
+            background-color: #ffe6e6;
+        }
+        button {
+            margin-top: 10px;
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        pre {
+            white-space: pre-wrap;
+            font-family: inherit;
+        }
+    </style>
+</head>
+<body>
+    <h1>学生身份验证测试</h1>
+    <div>
+        <p>测试学生：杜沛霖</p>
+        <p>学号：202359501317</p>
+        <button id="testBtn">开始测试</button>
+    </div>
+    
+    <div id="result" class="result">
+        点击上方按钮开始测试...
+    </div>
+
+    <script>
+        // 模拟的学生数据（直接从students.json复制）
+        const mockStudentsData = {
+            "students": [
+                {
+                    "name": "杜沛霖",
+                    "studentId": "202359501317",
+                    "class": "土231-3"
+                }
+                // 只包含我们要测试的学生
+            ]
+        };
+        
+        // 模拟DataManager的验证函数
+        function validateStudent(name, studentId) {
+            console.log('执行验证:', {name, studentId});
+            const student = mockStudentsData.students.find(s => s.name === name && s.studentId === studentId);
+            return {
+                valid: !!student,
+                student: student || null
+            };
+        }
+        
+        document.getElementById('testBtn').addEventListener('click', function() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.textContent = '正在验证...';
+            
+            try {
+                const name = '杜沛霖';
+                const studentId = '202359501317';
+                
+                // 直接搜索学生
+                const student = mockStudentsData.students.find(s => s.name === name && s.studentId === studentId);
+                
+                if (student) {
+                    resultDiv.innerHTML = `<pre>验证成功！
+姓名：${student.name}
+学号：${student.studentId}
+班级：${student.class}</pre>`;
+                    resultDiv.className = 'result success';
+                } else {
+                    resultDiv.textContent = '验证失败：未找到匹配的学生信息';
+                    resultDiv.className = 'result error';
+                }
+                
+                // 测试验证函数
+                resultDiv.innerHTML += '<hr>';
+                
+                const validationResult = validateStudent(name, studentId);
+                if (validationResult.valid) {
+                    resultDiv.innerHTML += `<pre class="success">验证函数测试成功！
+姓名：${validationResult.student.name}
+学号：${validationResult.student.studentId}
+班级：${validationResult.student.class}</pre>`;
+                } else {
+                    resultDiv.innerHTML += '<p class="error">验证函数测试失败：未找到匹配的学生信息</p>';
+                }
+                
+                // 显示修复后的代码逻辑
+                resultDiv.innerHTML += '<hr>';
+                resultDiv.innerHTML += `
+                <div>
+                    <h3>修复后的验证逻辑</h3>
+                    <pre>const student = students.find(s => s.name === name && s.studentId === studentId);</pre>
+                    <p>现在使用正确的字段名 <strong>studentId</strong> 而不是 <strong>id</strong></p>
+                </div>
+                `;
+                
+            } catch (error) {
+                resultDiv.textContent = `测试出错: ${error.message}`;
+                resultDiv.className = 'result error';
+                console.error('测试错误:', error);
+            }
+        });
+        
+        // 自动运行测试
+        window.onload = function() {
+            setTimeout(() => {
+                document.getElementById('testBtn').click();
+            }, 1000);
+        };
+    </script>
+</body>
+</html>
