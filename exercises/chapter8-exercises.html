@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第8章习题 - 地基处理 - 土力学课程网站</title>
+    <!-- 引入Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- 自定义CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        .exercise-container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .question-card {
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #3498db;
+        }
+        .answer-card {
+            display: none;
+            background-color: #f8f9fa;
+            border-left: 4px solid #28a745;
+        }
+        .toggle-btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .toggle-btn:hover {
+            background-color: #2980b9;
+        }
+        .section-title {
+            color: #2c3e50;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #3498db;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <i class="fas fa-landmark mr-2"></i>土力学
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#course-info">课程简介</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#lectures">授课内容</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#materials">教学资料</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../index.html#exercises">习题与实验</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#resources">参考资源</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#contact">联系我们</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../feedback.html">学生留言</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <header class="jumbotron jumbotron-fluid py-5">
+        <div class="container">
+            <h1 class="display-5">第8章 地基处理 - 习题</h1>
+            <p class="lead">通过练习题掌握地基处理技术的原理和应用</p>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <div class="exercise-container">
+            <!-- 习题说明 -->
+            <div class="mb-5">
+                <h2 class="section-title">习题说明</h2>
+                <p>本章习题涵盖地基处理的基本概念、各类地基处理方法的原理、设计计算和工程应用等内容。通过这些习题，你将掌握地基处理技术的选择和应用。</p>
+            </div>
+
+            <!-- 一、概念题 -->
+            <section class="mb-5">
+                <h2 class="section-title">一、概念题</h2>
+                
+                <!-- 概念题1 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">1. 什么是软弱地基？常见的软弱地基类型有哪些？简述软弱地基的工程特性。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer1')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer1">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>软弱地基：</strong>指主要由淤泥、淤泥质土、冲填土、杂填土或其他高压缩性土层构成的地基。这些地基通常具有低强度、高压缩性和低渗透性等特点，难以满足建筑物对地基承载力和变形的要求。</p>
+                        <p><strong>常见的软弱地基类型：</strong></p>
+                        <ol>
+                            <li><strong>淤泥和淤泥质土：</strong>
+                                <ul>
+                                    <li><strong>形成：</strong>在静水或缓慢流水环境中沉积，经生物化学作用形成的粘性土</li>
+                                    <li><strong>特点：</strong>天然含水量高、孔隙比大、压缩性高、强度低</li>
+                                    <li><strong>分布：</strong>沿海、湖泊、河流等地区</li>
+                                </ul>
+                            </li>
+                            <li><strong>冲填土：</strong>
+                                <ul>
+                                    <li><strong>形成：</strong>由水力冲填泥沙形成的土</li>
+                                    <li><strong>特点：</strong>颗粒组成不均匀、结构松散、压缩性高</li>
+                                    <li><strong>分布：</strong>沿海围垦地区、水库库区等</li>
+                                </ul>
+                            </li>
+                            <li><strong>杂填土：</strong>
+                                <ul>
+                                    <li><strong>形成：</strong>人类活动堆填的建筑垃圾、工业废料、生活垃圾等</li>
+                                    <li><strong>特点：</strong>成分复杂、分布不均匀、性质不稳定</li>
+                                    <li><strong>分布：</strong>城市建筑工地、工业园区等</li>
+                                </ul>
+                            </li>
+                            <li><strong>饱和松散砂土：</strong>
+                                <ul>
+                                    <li><strong>形成：</strong>松散的砂层在地下水作用下处于饱和状态</li>
+                                    <li><strong>特点：</strong>抗剪强度低，地震时易发生液化</li>
+                                    <li><strong>分布：</strong>河流冲积平原、三角洲等地区</li>
+                                </ul>
+                            </li>
+                            <li><strong>泥炭土：</strong>
+                                <ul>
+                                    <li><strong>形成：</strong>由植物残体在缺氧条件下分解不完全形成的有机土</li>
+                                    <li><strong>特点：</strong>有机质含量高、压缩性极高、强度极低</li>
+                                    <li><strong>分布：</strong>沼泽、湿地等地区</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        <p><strong>软弱地基的工程特性：</strong></p>
+                        <ol>
+                            <li><strong>低强度：</strong>
+                                <ul>
+                                    <li>地基承载力特征值低，通常小于100kPa</li>
+                                    <li>抗剪强度低，在荷载作用下容易发生剪切破坏</li>
+                                </ul>
+                            </li>
+                            <li><strong>高压缩性：</strong>
+                                <ul>
+                                    <li>压缩系数大，地基沉降量大</li>
+                                    <li>沉降持续时间长，工后沉降大</li>
+                                </ul>
+                            </li>
+                            <li><strong>低渗透性：</strong>
+                                <ul>
+                                    <li>孔隙水不易排出，固结过程缓慢</li>
+                                    <li>地基处理和加固时间长</li>
+                                </ul>
+                            </li>
+                            <li><strong>不均匀性：</strong>
+                                <ul>
+                                    <li>土层分布不均匀，物理力学性质变化大</li>
+                                    <li>容易导致不均匀沉降</li>
+                                </ul>
+                            </li>
+                            <li><strong>高灵敏度：</strong>
+                                <ul>
+                                    <li>结构破坏后强度显著降低</li>
+                                    <li>施工扰动会严重影响地基土的性质</li>
+                                </ul>
+                            </li>
+                            <li><strong>地震液化：</strong>
+                                <ul>
+                                    <li>饱和松散砂土在地震作用下容易发生液化</li>
+                                    <li>液化后地基承载力丧失，造成建筑物破坏</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- 概念题2 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">2. 地基处理的目的是什么？简述地基处理方法的分类及各类方法的适用条件。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer2')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer2">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>地基处理的目的：</strong></p>
+                        <ol>
+                            <li><strong>提高地基承载力：</strong>通过各种方法增强地基土的强度，使其能够承受上部结构的荷载</li>
+                            <li><strong>减少地基沉降：</strong>降低地基土的压缩性，减少建筑物的沉降量和不均匀沉降</li>
+                            <li><strong>改善地基土的渗透性：</strong>加速地基土的排水固结，提高地基的稳定性</li>
+                            <li><strong>增强地基的抗液化能力：</strong>防止或减轻地震时地基土的液化现象</li>
+                            <li><strong>改善地基土的动力特性：</strong>减少振动对建筑物的影响</li>
+                            <li><strong>消除或减少特殊土的不良特性：</strong>如消除湿陷性黄土的湿陷性、膨胀土的胀缩性等</li>
+                        </ol>
+                        <p><strong>地基处理方法的分类及适用条件：</strong></p>
+                        <ol>
+                            <li><strong>置换法：</strong>
+                                <ul>
+                                    <li><strong>原理：</strong>挖除软弱土层，换填强度较高的材料</li>
+                                    <li><strong>常用方法：</strong>
+                                        <ul>
+                                            <li>砂（石）垫层</li>
+                                            <li>灰土垫层</li>
+                                            <li>素土垫层</li>
+                                            <li>矿渣垫层</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>适用条件：</strong>软弱土层厚度较薄（一般小于3m），适合浅层处理</li>
+                                </ul>
+                            </li>
+                            <li><strong>排水固结法：</strong>
+                                <ul>
+                                    <li><strong>原理：</strong>通过增加排水途径，加速地基土的排水固结</li>
+                                    <li><strong>常用方法：</strong>
+                                        <ul>
+                                            <li>堆载预压法</li>
+                                            <li>真空预压法</li>
+                                            <li>真空-堆载联合预压法</li>
+                                            <li>电渗排水法</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>适用条件：</strong>淤泥、淤泥质土、冲填土等饱和软弱粘性土地基</li>
+                                </ul>
+                            </li>
+                            <li><strong>振密、挤密法：</strong>
+                                <ul>
+                                    <li><strong>原理：</strong>通过振动或挤密，提高地基土的密实度</li>
+                                    <li><strong>常用方法：</strong>
+                                        <ul>
+                                            <li>强夯法</li>
+                                            <li>振冲挤密法</li>
+                                            <li>土（或灰土）桩挤密法</li>
+                                            <li>砂桩挤密法</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>适用条件：</strong>松散砂土、粉土、杂填土等地基</li>
+                                </ul>
+                            </li>
+                            <li><strong>置换及拌入法：</strong>
+                                <ul>
+                                    <li><strong>原理：</strong>在地基中形成增强体，与天然地基形成复合地基</li>
+                                    <li><strong>常用方法：</strong>
+                                        <ul>
+                                            <li>振冲置换法（碎石桩）</li>
+                                            <li>水泥土搅拌桩法</li>
+                                            <li>高压喷射注浆法</li>
+                                            <li>石灰桩法</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>适用条件：</strong>各种软弱地基，尤其是淤泥、淤泥质土、粘性土等地基</li>
+                                </ul>
+                            </li>
+                            <li><strong>化学加固法：</strong>
+                                <ul>
+                                    <li><strong>原理：</strong>通过化学反应，改善地基土的物理力学性质</li>
+                                    <li><strong>常用方法：</strong>
+                                        <ul>
+                                            <li>注浆法（水泥浆、化学浆液）</li>
+                                            <li>硅化法</li>
+                                            <li>碱液法</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>适用条件：</strong>各种软弱地基，尤其是已有建筑物地基加固和防渗处理</li>
+                                </ul>
+                            </li>
+                            <li><strong>加筋法：</strong>
+                                <ul>
+                                    <li><strong>原理：</strong>在地基中铺设加筋材料，提高地基的承载能力和稳定性</li>
+                                    <li><strong>常用方法：</strong>
+                                        <ul>
+                                            <li>土工合成材料加筋法</li>
+                                            <li>土锚法</li>
+                                            <li>土钉法</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>适用条件：</strong>软土地基、填土路基、边坡加固等</li>
+                                </ul>
+                            </li>
+                            <li><strong>热学法：</strong>
+                                <ul>
+                                    <li><strong>原理：</strong>通过加热或冻结，改变地基土的物理力学性质</li>
+                                    <li><strong>常用方法：</strong>
+                                        <ul>
+                                            <li>冻结法</li>
+                                            <li>烧结法</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>适用条件：</strong>特殊条件下的地基处理，如深基坑支护、隧道工程等</li>
+                                </ul>
+                            </li>
+                            <li><strong>其他方法：</strong>
+                                <ul>
+                                    <li><strong>降水法：</strong>降低地下水位，提高地基土的有效应力和强度</li>
+                                    <li><strong>托换技术：</strong>对已有建筑物地基进行加固或改造</li>
+                                    <li><strong>桩基础：</strong>将荷载传递到深层好土层或岩层</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- 概念题3 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">3. 什么是复合地基？常见的复合地基类型有哪些？简述复合地基的工作原理。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer3')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer3">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>复合地基：</strong>是指天然地基在地基处理过程中部分土体被增强或被置换，形成由地基土和增强体共同承担荷载的人工地基。复合地基中增强体与地基土形成一个整体，共同承担上部结构传来的荷载。</p>
+                        <p><strong>常见的复合地基类型：</strong></p>
+                        <ol>
+                            <li><strong>散体材料桩复合地基：</strong>
+                                <ul>
+                                    <li><strong>特点：</strong>桩体材料为散体颗粒，如砂、碎石等</li>
+                                    <li><strong>常用类型：</strong>
+                                        <ul>
+                                            <li>碎石桩复合地基</li>
+                                            <li>砂桩复合地基</li>
+                                            <li>矿渣桩复合地基</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><strong>柔性桩复合地基：</strong>
+                                <ul>
+                                    <li><strong>特点：</strong>桩体具有一定的柔性，如水泥土搅拌桩、石灰桩等</li>
+                                    <li><strong>常用类型：</strong>
+                                        <ul>
+                                            <li>水泥土搅拌桩复合地基</li>
+                                            <li>石灰桩复合地基</li>
+                                            <li>灰土桩复合地基</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><strong>刚性桩复合地基：</strong>
+                                <ul>
+                                    <li><strong>特点：</strong>桩体强度较高，刚度较大，如CFG桩、预制混凝土桩等</li>
+                                    <li><strong>常用类型：</strong>
+                                        <ul>
+                                            <li>CFG桩复合地基</li>
+                                            <li>预制混凝土桩复合地基</li>
+                                            <li>钻孔灌注桩复合地基</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><strong>多元复合地基：</strong>
+                                <ul>
+                                    <li><strong>特点：</strong>由两种或两种以上不同类型的增强体组成</li>
+                                    <li><strong>常用类型：</strong>
+                                        <ul>
+                                            <li>碎石桩-水泥土桩复合地基</li>
+                                            <li>CFG桩-水泥土桩复合地基</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ol>
+                        <p><strong>复合地基的工作原理：</strong></p>
+                        <ol>
+                            <li><strong>桩体作用：</strong>
+                                <ul>
+                                    <li><strong>应力集中：</strong>由于桩体的刚度大于地基土，在荷载作用下，桩顶应力大于桩间土应力，形成应力集中现象</li>
+                                    <li><strong>置换作用：</strong>用强度较高的桩体材料置换软弱地基土，提高地基的整体承载力</li>
+                                    <li><strong>排水作用：</strong>散体材料桩（如碎石桩、砂桩）可作为排水通道，加速地基土的排水固结</li>
+                                </ul>
+                            </li>
+                            <li><strong>桩间土作用：</strong>
+                                <ul>
+                                    <li><strong>挤密作用：</strong>施工过程中，桩体材料的挤入使桩间土得到挤密，提高桩间土的强度</li>
+                                    <li><strong>加筋作用：</strong>桩体的存在限制了桩间土的侧向变形，提高了桩间土的承载能力</li>
+                                </ul>
+                            </li>
+                            <li><strong>桩土共同作用：</strong>
+                                <ul>
+                                    <li><strong>协调变形：</strong>在荷载作用下，桩体和桩间土通过褥垫层协调变形，共同承担荷载</li>
+                                    <li><strong>形成整体：</strong>桩体和桩间土形成一个复合体系，其承载力和变形特性优于天然地基</li>
+                                </ul>
+                            </li>
+                            <li><strong>褥垫层作用：</strong>
+                                <ul>
+                                    <li><strong>保证桩土共同作用：</strong>通过褥垫层的变形，使桩体和桩间土能够共同承担荷载</li>
+                                    <li><strong>调整桩土荷载分担比：</strong>通过改变褥垫层的厚度和材料，调整桩体和桩间土的荷载分担比例</li>
+                                    <li><strong>减少桩顶应力集中：</strong>褥垫层可以扩散桩顶应力，减少桩顶应力集中现象</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        <p><strong>复合地基的破坏模式：</strong></p>
+                        <ol>
+                            <li><strong>刺入破坏：</strong>桩体强度较高时，桩体可能刺入褥垫层或穿过桩间土</li>
+                            <li><strong>桩体剪断破坏：</strong>桩体强度不足时，桩体可能发生剪切破坏</li>
+                            <li><strong>桩间土破坏：</strong>桩间土强度不足时，桩间土可能发生剪切破坏</li>
+                            <li><strong>整体剪切破坏：</strong>复合地基可能发生整体剪切破坏</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- 概念题4 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">4. 预压法处理地基的原理是什么？预压法有哪几种类型？简述预压法的适用条件和施工要点。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer4')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer4">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>预压法处理地基的原理：</strong></p>
+                        <p>预压法是在建筑物建造前，在地基上施加预压荷载，使地基土提前完成大部分沉降，同时提高地基土的强度。其基本原理是利用土的排水固结特性，通过增加地基土的有效应力，加速地基土的排水固结过程。</p>
+                        <p>根据太沙基一维固结理论，饱和粘性土的固结度与时间的平方根成正比，与排水距离的平方成反比。预压法通过设置排水系统（如砂井、塑料排水板等），缩短排水距离，加速地基土的固结。</p>
+                        <p><strong>预压法的类型：</strong></p>
+                        <ol>
+                            <li><strong>堆载预压法：</strong>
+                                <ul>
+                                    <li><strong>特点：</strong>在地基上堆置土、砂、石等材料，形成预压荷载</li>
+                                    <li><strong>分类：</strong>
+                                        <ul>
+                                            <li>等载预压：预压荷载等于设计荷载</li>
+                                            <li>超载预压：预压荷载大于设计荷载，以加速固结和减少工后沉降</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><strong>真空预压法：</strong>
+                                <ul>
+                                    <li><strong>特点：</strong>通过抽真空，降低地基中的孔隙水压力，形成负的超静孔隙水压力</li>
+                                    <li><strong>原理：</strong>利用大气压力作为预压荷载，无需堆载材料</li>
+                                </ul>
+                            </li>
+                            <li><strong>真空-堆载联合预压法：</strong>
+                                <ul>
+                                    <li><strong>特点：</strong>同时采用真空预压和堆载预压的方法</li>
+                                    <li><strong>优点：</strong>可以施加更大的预压荷载，加速固结过程</li>
+                                </ul>
+                            </li>
+                            <li><strong>电渗排水法：</strong>
+                                <ul>
+                                    <li><strong>特点：</strong>在地基中插入电极，通以直流电，利用电渗现象加速土中水分的排出</li>
+                                    <li><strong>适用：</strong>低渗透性的粘性土</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        <p><strong>预压法的适用条件：</strong></p>
+                        <ol>
+                            <li><strong>土层条件：</strong>
+                                <ul>
+                                    <li>适用于淤泥、淤泥质土、冲填土等饱和软弱粘性土地基</li>
+                                    <li>对渗透性极低的泥炭土，单独使用预压法效果可能不理想</li>
+                                </ul>
+                            </li>
+                            <li><strong>工程条件：</strong>
+                                <ul>
+                                    <li>适用于工期允许的工程</li>
+                                    <li>适用于对沉降要求严格的建筑物</li>
+                                    <li>堆载预压法需要有足够的堆载材料和场地</li>
+                                </ul>
+                            </li>
+                            <li><strong>环境条件：</strong>
+                                <ul>
+                                    <li>真空预压法适用于无法堆载或堆载困难的场地</li>
+                                    <li>适用于周围环境对沉降和位移要求不严格的场地</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        <p><strong>预压法的施工要点：</strong></p>
+                        <ol>
+                            <li><strong>排水系统设计与施工：</strong>
+                                <ul>
+                                    <li><strong>竖向排水体：</strong>砂井、塑料排水板等，需根据地基土的渗透性和厚度确定间距和深度</li>
+                                    <li><strong>水平排水体：</strong>砂垫层，厚度一般为0.5-1.0m，保证排水畅通</li>
+                                    <li><strong>施工要求：</strong>排水体应穿透软弱土层，到达相对硬层；施工时应避免扰动地基土</li>
+                                </ul>
+                            </li>
+                            <li><strong>密封系统（真空预压法）：</strong>
+                                <ul>
+                                    <li><strong>密封膜：</strong>一般采用不透气的塑料膜，通常铺设2-3层</li>
+                                    <li><strong>密封沟：</strong>在场地周围开挖密封沟，将密封膜埋入沟中并回填粘性土</li>
+                                    <li><strong>施工要求：</strong>密封系统应确保真空度的传递和保持</li>
+                                </ul>
+                            </li>
+                            <li><strong>预压荷载施加：</strong>
+                                <ul>
+                                    <li><strong>堆载预压：</strong>分级加载，每级加载后需观测沉降和孔隙水压力，待稳定后再加载</li>
+                                    <li><strong>真空预压：</strong>抽真空应连续进行，真空度应达到设计要求（一般为80kPa以上）</li>
+                                    <li><strong>加载速率：</strong>应控制加载速率，防止地基发生失稳破坏</li>
+                                </ul>
+                            </li>
+                            <li><strong>监测系统：</strong>
+                                <ul>
+                                    <li><strong>沉降观测：</strong>设置沉降观测点，定期观测地表沉降</li>
+                                    <li><strong>孔隙水压力观测：</strong>设置孔隙水压力计，观测孔隙水压力的消散情况</li>
+                                    <li><strong>水平位移观测：</strong>设置位移桩，观测地基的水平位移</li>
+                                    <li><strong>真空度观测：</strong>真空预压法需观测膜下真空度</li>
+                                </ul>
+                            </li>
+                            <li><strong>预压时间控制：</strong>
+                                <ul>
+                                    <li>根据设计要求的固结度和沉降量确定预压时间</li>
+                                    <li>一般要求地基的固结度达到80%以上</li>
+                                    <li>预压时间可通过计算和现场监测确定</li>
+                                </ul>
+                            </li>
+                            <li><strong>卸载条件：</strong>
+                                <ul>
+                                    <li>当沉降速率小于设计要求（如小于1-2mm/d）</li>
+                                    <li>地基的固结度达到设计要求</li>
+                                    <li>孔隙水压力消散到设计允许值</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 二、计算题 -->
+            <section class="mb-5">
+                <h2 class="section-title">二、计算题</h2>
+                
+                <!-- 计算题1 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">1. 某建筑场地地基为淤泥质土，厚度h=10m，位于不透水层上。采用砂井堆载预压法处理，砂井直径dₙ=0.3m，间距l=1.5m（等边三角形布置），砂井穿透整个软弱土层。已知地基土的水平向渗透系数kₕ=1.0×10⁻⁸m/s，竖向渗透系数kᵥ=1.0×10⁻⁹m/s，压缩系数a=0.001kPa⁻¹，孔隙比e₀=1.8，堆载p=100kPa。试计算地基的最终沉降量和径向固结系数cᵣ。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer5')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer5">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>解：</strong></p>
+                        <p>(1) 计算地基的最终沉降量：</p>
+                        <p>分层总和法计算最终沉降量：</p>
+                        <p>s = (a/(1+e₀)) × p × h</p>
+                        <p>其中：</p>
+                        <p>a = 0.001kPa⁻¹（压缩系数）</p>
+                        <p>e₀ = 1.8（初始孔隙比）</p>
+                        <p>p = 100kPa（堆载压力）</p>
+                        <p>h = 10m（软弱土层厚度）</p>
+                        
+                        <p>代入数值计算：</p>
+                        <p>s = (0.001/(1+1.8)) × 100 × 10 = (0.001/2.8) × 1000 = 0.357m = 357mm</p>
+                        
+                        <p>(2) 计算径向固结系数cᵣ：</p>
+                        <p>径向固结系数cᵣ = kᵥ × Eₛ / γᵧ</p>
+                        <p>其中：</p>
+                        <p>kᵣ = kₕ = 1.0×10⁻⁸m/s（水平向渗透系数）</p>
+                        <p>Eₛ = (1+e₀)/a = (1+1.8)/0.001 = 2800kPa（压缩模量）</p>
+                        <p>γᵧ = 9.81kN/m³（水的重度）</p>
+                        
+                        <p>代入数值计算：</p>
+                        <p>cᵣ = 1.0×10⁻⁸ × 2800 / 9.81 ≈ 2.85×10⁻⁶ m²/s</p>
+                        
+                        <p>也可以用另一种方式计算：</p>
+                        <p>cᵣ = kᵣ × (1+e₀)/ (a × γᵧ)</p>
+                        <p>代入数值计算：</p>
+                        <p>cᵣ = 1.0×10⁻⁸ × (1+1.8) / (0.001 × 9.81) = 1.0×10⁻⁸ × 2.8 / 0.00981 ≈ 2.85×10⁻⁶ m²/s</p>
+                        
+                        <p><strong>答案：</strong>(1) 地基的最终沉降量s=357mm；(2) 径向固结系数cᵣ≈2.85×10⁻⁶m²/s</p>
+                    </div>
+                </div>
+
+                <!-- 计算题2 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">2. 某建筑场地采用CFG桩复合地基处理，CFG桩直径d=0.4m，桩长l=15m，桩间距s=1.6m（正方形布置），单桩承载力特征值Rₐ=800kN。地基土的承载力特征值fₐk=100kPa，桩间土承载力折减系数β=0.8。试计算复合地基的承载力特征值fₛₚₖ。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer6')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer6">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>解：</strong></p>
+                        <p>CFG桩复合地基承载力特征值计算公式：</p>
+                        <p>fₛₚₖ = m×(Rₐ/Aₚ) + β×(1-m)×fₐk</p>
+                        <p>其中：</p>
+                        <p>m - 面积置换率</p>
+                        <p>Rₐ - 单桩承载力特征值(kN)</p>
+                        <p>Aₚ - 桩的截面积(m²)</p>
+                        <p>β - 桩间土承载力折减系数</p>
+                        <p>fₐk - 地基土承载力特征值(kPa)</p>
+                        
+                        <p>(1) 计算桩的截面积Aₚ：</p>
+                        <p>Aₚ = π×d²/4 = π×0.4²/4 = 0.1257 m²</p>
+                        
+                        <p>(2) 计算面积置换率m：</p>
+                        <p>正方形布置时，一根桩承担的处理面积Aₑ = s² = 1.6² = 2.56 m²</p>
+                        <p>面积置换率m = Aₚ/Aₑ = 0.1257/2.56 ≈ 0.0491</p>
+                        
+                        <p>(3) 计算复合地基承载力特征值fₛₚₖ：</p>
+                        <p>fₛₚₖ = 0.0491×(800/0.1257) + 0.8×(1-0.0491)×100</p>
+                        <p>计算第一项：0.0491×(800/0.1257) ≈ 0.0491×6364.4 ≈ 312.5 kPa</p>
+                        <p>计算第二项：0.8×0.9509×100 ≈ 76.1 kPa</p>
+                        <p>fₛₚₖ = 312.5 + 76.1 = 388.6 kPa</p>
+                        
+                        <p><strong>答案：</strong>复合地基的承载力特征值fₛₚₖ≈388.6kPa</p>
+                    </div>
+                </div>
+
+                <!-- 计算题3 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">3. 某建筑物基础底面尺寸为4m×2m，埋深d=1.5m，作用在基础顶面的竖向荷载F=500kN。地基土为淤泥质土，承载力特征值fₐk=80kPa，重度γ=17kN/m³。设计采用砂垫层处理，砂垫层厚度z=2m，砂垫层重度γₛ=18kN/m³，承载力特征值fₛk=150kPa。试计算砂垫层的最小宽度，并验算地基承载力。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer7')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer7">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>解：</strong></p>
+                        <p>(1) 计算基础底面压力pₖ：</p>
+                        <p>基础自重和基础上覆土重G = γ'×A×d（取γ'=20kN/m³）</p>
+                        <p>A = 4×2 = 8 m²</p>
+                        <p>G = 20×8×1.5 = 240 kN</p>
+                        <p>基础底面压力pₖ = (F + G)/A = (500 + 240)/8 = 740/8 = 92.5 kPa</p>
+                        
+                        <p>(2) 计算砂垫层的最小宽度：</p>
+                        <p>砂垫层的扩散角θ，对于砂垫层，取θ=30°</p>
+                        <p>砂垫层底面宽度b' = b + 2×z×tanθ</p>
+                        <p>其中b为基础底面宽度的较小值，b=2m</p>
+                        <p>z=2m（砂垫层厚度）</p>
+                        <p>tanθ=tan30°≈0.577</p>
+                        
+                        <p>代入数值计算：</p>
+                        <p>b' = 2 + 2×2×0.577 = 2 + 2.308 = 4.308 m</p>
+                        <p>取砂垫层宽度为4.5m</p>
+                        
+                        <p>同样计算长度方向：</p>
+                        <p>a' = a + 2×z×tanθ = 4 + 2×2×0.577 = 4 + 2.308 = 6.308 m</p>
+                        <p>取砂垫层长度为6.5m</p>
+                        
+                        <p>(3) 验算砂垫层底面压力：</p>
+                        <p>砂垫层底面压力pₛ = (F + G + Gₛ)/Aₛ</p>
+                        <p>其中Gₛ为砂垫层的重量</p>
+                        <p>Gₛ = γₛ×Aₛ×z</p>
+                        <p>Aₛ = 6.5×4.5 = 29.25 m²</p>
+                        <p>Gₛ = 18×29.25×2 = 1053 kN</p>
+                        
+                        <p>pₛ = (500 + 240 + 1053)/29.25 = 1793/29.25 ≈ 61.3 kPa ≤ fₐk=80 kPa</p>
+                        <p>满足地基承载力要求。</p>
+                        
+                        <p>(4) 验算砂垫层的承载力：</p>
+                        <p>基础底面压力pₖ=92.5 kPa ≤ fₛk=150 kPa</p>
+                        <p>满足砂垫层承载力要求。</p>
+                        
+                        <p><strong>答案：</strong>(1) 砂垫层的最小宽度为4.5m（宽度方向）和6.5m（长度方向）；(2) 地基承载力和砂垫层承载力均满足要求。</p>
+                    </div>
+                </div>
+
+                <!-- 计算题4 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">4. 某场地采用振冲碎石桩处理地基，桩径d=0.8m，桩长l=10m，桩间距s=2.4m（等边三角形布置）。地基土为粉质粘土，天然地基承载力特征值fₐk=120kPa，桩间土承载力折减系数β=0.7，单桩承载力特征值Rₐ=600kN。试计算复合地基的承载力特征值fₛₚₖ。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer8')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer8">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>解：</strong></p>
+                        <p>振冲碎石桩复合地基承载力特征值计算公式：</p>
+                        <p>fₛₚₖ = m×(Rₐ/Aₚ) + β×(1-m)×fₐk</p>
+                        <p>其中：</p>
+                        <p>m - 面积置换率</p>
+                        <p>Rₐ - 单桩承载力特征值(kN)</p>
+                        <p>Aₚ - 桩的截面积(m²)</p>
+                        <p>β - 桩间土承载力折减系数</p>
+                        <p>fₐk - 地基土承载力特征值(kPa)</p>
+                        
+                        <p>(1) 计算桩的截面积Aₚ：</p>
+                        <p>Aₚ = π×d²/4 = π×0.8²/4 = 0.5027 m²</p>
+                        
+                        <p>(2) 计算面积置换率m：</p>
+                        <p>等边三角形布置时，一根桩承担的处理面积Aₑ = (√3/4)×s²</p>
+                        <p>其中s=2.4m（桩间距）</p>
+                        <p>Aₑ = (√3/4)×2.4² ≈ 0.433×5.76 ≈ 2.497 m²</p>
+                        <p>面积置换率m = Aₚ/Aₑ = 0.5027/2.497 ≈ 0.2013</p>
+                        
+                        <p>(3) 计算复合地基承载力特征值fₛₚₖ：</p>
+                        <p>fₛₚₖ = 0.2013×(600/0.5027) + 0.7×(1-0.2013)×120</p>
+                        <p>计算第一项：0.2013×(600/0.5027) ≈ 0.2013×1193.6 ≈ 240.3 kPa</p>
+                        <p>计算第二项：0.7×0.7987×120 ≈ 66.1 kPa</p>
+                        <p>fₛₚₖ = 240.3 + 66.1 = 306.4 kPa</p>
+                        
+                        <p><strong>答案：</strong>复合地基的承载力特征值fₛₚₖ≈306.4kPa</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 三、综合分析题 -->
+            <section class="mb-5">
+                <h2 class="section-title">三、综合分析题</h2>
+                
+                <!-- 综合分析题1 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">1. 试分析比较换填法、预压法、强夯法和复合地基法等常用地基处理方法的优缺点、适用条件和设计要点。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer9')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer9">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>换填法：</strong></p>
+                        <p><strong>优点：</strong></p>
+                        <ul>
+                            <li>施工工艺简单，技术成熟</li>
+                            <li>工期短，见效快</li>
+                            <li>对场地条件要求较低</li>
+                            <li>成本相对较低</li>
+                        </ul>
+                        <p><strong>缺点：</strong></p>
+                        <ul>
+                            <li>仅适用于浅层软弱地基处理</li>
+                            <li>处理深度有限（一般小于3m）</li>
+                            <li>需要大量换填材料</li>
+                            <li>可能对周围环境造成影响（如取土、弃土）</li>
+                        </ul>
+                        <p><strong>适用条件：</strong>
+                            <ul>
+                                <li>软弱土层厚度较薄（一般小于3m）</li>
+                                <li>地下水位较低或采用适当排水措施</li>
+                                <li>有足够的换填材料来源</li>
+                                <li>对工期要求较紧的工程</li>
+                            </ul>
+                        </p>
+                        <p><strong>设计要点：</strong>
+                            <ul>
+                                <li>确定换填材料的种类和性能指标</li>
+                                <li>计算换填厚度和宽度（需考虑应力扩散）</li>
+                                <li>确定换填材料的压实标准</li>
+                                <li>验算下卧层地基承载力</li>
+                            </ul>
+                        </p>
+
+                        <p><strong>预压法：</strong></p>
+                        <p><strong>优点：</strong></p>
+                        <ul>
+                            <li>能有效减少工后沉降</li>
+                            <li>提高地基土的抗剪强度</li>
+                            <li>对环境影响小</li>
+                            <li>真空预压无需堆载材料</li>
+                        </ul>
+                        <p><strong>缺点：</strong></p>
+                        <ul>
+                            <li>预压时间长（通常需要几个月甚至更长）</li>
+                            <li>对渗透性极低的土效果不佳</li>
+                            <li>堆载预压需要大量堆载材料</li>
+                            <li>真空预压密封系统要求高</li>
+                        </ul>
+                        <p><strong>适用条件：</strong>
+                            <ul>
+                                <li>淤泥、淤泥质土、冲填土等饱和软弱粘性土地基</li>
+                                <li>工期允许的工程</li>
+                                <li>对沉降要求严格的建筑物</li>
+                            </ul>
+                        </p>
+                        <p><strong>设计要点：</strong>
+                            <ul>
+                                <li>确定预压荷载大小和加载速率</li>
+                                <li>设计排水系统（竖向排水体间距、深度等）</li>
+                                <li>计算预压时间和最终沉降量</li>
+                                <li>制定监测方案（沉降、孔隙水压力、水平位移等）</li>
+                            </ul>
+                        </p>
+
+                        <p><strong>强夯法：</strong></p>
+                        <p><strong>优点：</strong></p>
+                        <ul>
+                            <li>处理效果显著，提高地基承载力幅度大</li>
+                            <li>适用范围广</li>
+                            <li>施工速度快，工期短</li>
+                            <li>成本相对较低</li>
+                        </ul>
+                        <p><strong>缺点：</strong></p>
+                        <ul>
+                            <li>施工振动大，噪音高，对周围环境影响大</li>
+                            <li>对饱和软粘土效果有限</li>
+                            <li>设备要求高（需要大吨位夯锤）</li>
+                            <li>施工质量控制难度大</li>
+                        </ul>
+                        <p><strong>适用条件：</strong>
+                            <ul>
+                                <li>碎石土、砂土、低饱和度的粘性土和粉土</li>
+                                <li>湿陷性黄土、杂填土等地基</li>
+                                <li>周围环境对振动和噪音不敏感的场地</li>
+                            </ul>
+                        </p>
+                        <p><strong>设计要点：</strong>
+                            <ul>
+                                <li>确定强夯参数（夯锤重量、落距、夯点间距、夯击次数等）</li>
+                                <li>划分强夯区域和夯击遍数</li>
+                                <li>制定施工工艺和质量控制标准</li>
+                                <li>确定检测方法和检测标准</li>
+                            </ul>
+                        </p>
+
+                        <p><strong>复合地基法：</strong></p>
+                        <p><strong>优点：</strong></p>
+                        <ul>
+                            <li>处理效果好，能显著提高地基承载力</li>
+                            <li>减少地基沉降和不均匀沉降</li>
+                            <li>适用范围广，可根据不同地质条件选择不同类型的桩</li>
+                            <li>可用于既有建筑物地基加固</li>
+                        </ul>
+                        <p><strong>缺点：</strong></p>
+                        <ul>
+                            <li>施工工艺复杂，技术要求高</li>
+                            <li>成本相对较高</li>
+                            <li>质量控制难度大</li>
+                            <li>可能产生环境污染（如水泥搅拌桩）</li>
+                        </ul>
+                        <p><strong>适用条件：</strong>
+                            <ul>
+                                <li>各种软弱地基（淤泥、淤泥质土、粘性土、砂土等）</li>
+                                <li>需要提高地基承载力和减少沉降的工程</li>
+                                <li>可根据地质条件和工程要求选择不同类型的复合地基</li>
+                            </ul>
+                        </p>
+                        <p><strong>设计要点：</strong>
+                            <ul>
+                                <li>选择合适的桩型和桩长</li>
+                                <li>确定桩间距和布置方式</li>
+                                <li>计算单桩承载力特征值</li>
+                                <li>计算复合地基承载力特征值</li>
+                                <li>设计褥垫层（厚度、材料等）</li>
+                                <li>制定质量检测方案</li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 综合分析题2 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">2. 某建筑场地位于沿海地区，地基为深厚的淤泥质土层，厚度达20m，承载力特征值仅为50kPa。拟建建筑物为多层住宅，对沉降和不均匀沉降要求严格。试分析该场地的工程地质特点，并提出合适的地基处理方案，说明选择理由和设计要点。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer10')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer10">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>工程地质特点分析：</strong></p>
+                        <ol>
+                            <li><strong>软弱土层深厚：</strong>淤泥质土层厚度达20m，属于深厚软弱地基</li>
+                            <li><strong>承载力低：</strong>地基承载力特征值仅为50kPa，远不能满足多层住宅的要求</li>
+                            <li><strong>压缩性高：</strong>淤泥质土具有高压缩性，若不处理，建筑物沉降量大</li>
+                            <li><strong>渗透性低：</strong>淤泥质土渗透性差，排水固结时间长</li>
+                            <li><strong>位于沿海地区：</strong>可能面临地下水侵蚀、潮汐影响等问题</li>
+                            <li><strong>对沉降要求严格：</strong>多层住宅对不均匀沉降敏感，容易导致墙体开裂等问题</li>
+                        </ol>
+                        
+                        <p><strong>可能的地基处理方案：</strong></p>
+                        
+                        <p><strong>方案一：真空预压法</strong></p>
+                        <p><strong>选择理由：</strong></p>
+                        <ul>
+                            <li>适用于深厚淤泥质土地基</li>
+                            <li>无需堆载材料，施工方便，对周围环境影响小</li>
+                            <li>能有效加速地基土的排水固结，提高地基承载力</li>
+                            <li>可减少工后沉降，满足多层住宅的沉降要求</li>
+                        </ul>
+                        <p><strong>设计要点：</strong></p>
+                        <ul>
+                            <li>设置塑料排水板作为竖向排水体，间距可取0.8-1.2m，深度穿透整个淤泥质土层</li>
+                            <li>铺设水平排水砂垫层，厚度不小于0.5m</li>
+                            <li>设计密封系统，确保真空度达到80kPa以上</li>
+                            <li>预压时间根据设计要求的固结度确定，一般为3-6个月</li>
+                            <li>设置完善的监测系统，监测沉降、孔隙水压力和水平位移</li>
+                        </ul>
+                        
+                        <p><strong>方案二：水泥土搅拌桩复合地基</strong></p>
+                        <p><strong>选择理由：</strong></p>
+                        <ul>
+                            <li>适用于深厚淤泥质土地基</li>
+                            <li>能显著提高地基承载力，减少地基沉降</li>
+                            <li>施工速度快，工期短</li>
+                            <li>对周围环境影响较小</li>
+                        </ul>
+                        <p><strong>设计要点：</strong></p>
+                        <ul>
+                            <li>桩长应穿透淤泥质土层，进入相对硬层</li>
+                            <li>桩径一般为0.5-0.7m，桩间距可取1.0-1.5m（正方形布置）</li>
+                            <li>水泥掺入比一般为15%-20%，确保桩体强度</li>
+                            <li>设计褥垫层，厚度一般为0.2-0.3m，材料可选用中粗砂</li>
+                            <li>计算复合地基承载力特征值，确保满足设计要求</li>
+                            <li>制定桩体质量检测方案，如取芯、静载试验等</li>
+                        </ul>
+                        
+                        <p><strong>方案三：CFG桩复合地基</strong></p>
+                        <p><strong>选择理由：</strong></p>
+                        <ul>
+                            <li>适用于各种软弱地基，包括深厚淤泥质土地基</li>
+                            <li>桩体强度高，复合地基承载力提高幅度大</li>
+                            <li>沉降小，能满足多层住宅的严格要求</li>
+                            <li>施工工艺成熟，质量控制相对容易</li>
+                        </ul>
+                        <p><strong>设计要点：</strong></p>
+                        <ul>
+                            <li>桩长应穿透淤泥质土层，进入相对硬层</li>
+                            <li>桩径一般为0.4-0.6m，桩间距可取1.2-1.8m（正方形布置）</li>
+                            <li>桩体混凝土强度等级一般为C15-C25</li>
+                            <li>设计褥垫层，厚度一般为0.2-0.4m，材料可选用级配砂石</li>
+                            <li>计算单桩和复合地基承载力特征值</li>
+                            <li>进行沉降计算，确保满足设计要求</li>
+                            <li>制定质量检测方案，包括低应变检测、静载试验等</li>
+                        </ul>
+                        
+                        <p><strong>方案四：桩基础</strong></p>
+                        <p><strong>选择理由：</strong></p>
+                        <ul>
+                            <li>适用于深厚软弱地基，可将荷载传递到深层好土层</li>
+                            <li>承载力高，沉降小</li>
+                            <li>对不均匀沉降控制效果好</li>
+                            <li>技术成熟，可靠性高</li>
+                        </ul>
+                        <p><strong>设计要点：</strong></p>
+                        <ul>
+                            <li>选择合适的桩型（如混凝土灌注桩、预制桩等）</li>
+                            <li>确定桩长和桩径，确保桩端进入持力层</li>
+                            <li>计算单桩承载力特征值</li>
+                            <li>进行桩基础沉降计算</li>
+                            <li>设计承台和桩帽</li>
+                            <li>制定桩基础质量检测方案</li>
+                        </ul>
+                        
+                        <p><strong>推荐方案：</strong></p>
+                        <p>考虑到该场地的地质条件、工程要求和经济性，推荐采用<strong>CFG桩复合地基</strong>方案。</p>
+                        <p><strong>推荐理由：</strong></p>
+                        <ol>
+                            <li>CFG桩复合地基能有效提高地基承载力，满足多层住宅的要求</li>
+                            <li>与桩基础相比，成本较低，施工速度快</li>
+                            <li>与预压法相比，工期短，不需要长时间预压</li>
+                            <li>与水泥土搅拌桩相比，桩体强度高，复合地基承载力更高，沉降更小</li>
+                            <li>施工工艺成熟，质量控制相对容易</li>
+                            <li>能有效控制不均匀沉降，满足多层住宅对沉降的严格要求</li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 四、工程实践题 -->
+            <section class="mb-5">
+                <h2 class="section-title">四、工程实践题</h2>
+                
+                <!-- 工程实践题1 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">1. 某建筑场地地基为杂填土，厚度约4m，下卧层为粉质粘土。拟建造一座三层办公楼，柱底荷载为F=600kN，基础埋深d=1.5m。试设计地基处理方案，包括处理方法选择、设计计算和施工要点。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer11')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer11">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>地基处理方案设计：</strong></p>
+                        
+                        <p><strong>一、场地条件分析：</strong></p>
+                        <ul>
+                            <li>地基为杂填土，厚度约4m</li>
+                            <li>下卧层为粉质粘土</li>
+                            <li>拟建造三层办公楼，柱底荷载F=600kN</li>
+                            <li>基础埋深d=1.5m</li>
+                        </ul>
+                        
+                        <p><strong>二、地基处理方法选择：</strong></p>
+                        <p>考虑到杂填土厚度为4m，属于浅层软弱地基，可选择以下处理方法：</p>
+                        <ol>
+                            <li><strong>换填法：</strong>挖除杂填土，换填砂垫层或灰土垫层</li>
+                            <li><strong>强夯法：</strong>对杂填土进行强夯处理，提高其密实度和承载力</li>
+                            <li><strong>挤密桩法：</strong>采用土桩或灰土桩挤密杂填土</li>
+                        </ol>
+                        <p>综合考虑，推荐采用<strong>换填法</strong>处理地基。理由如下：</p>
+                        <ul>
+                            <li>杂填土厚度适中（4m），换填法技术成熟，施工简单</li>
+                            <li>换填后地基承载力和变形性能可靠</li>
+                            <li>工期短，质量容易控制</li>
+                            <li>成本相对较低</li>
+                        </ul>
+                        
+                        <p><strong>三、换填法设计计算：</strong></p>
+                        
+                        <p>1. <strong>换填材料选择：</strong>采用级配良好的中砂或粗砂，压实系数不小于0.95</p>
+                        
+                        <p>2. <strong>换填厚度确定：</strong></p>
+                        <p>换填厚度z=4m，与杂填土厚度相同</p>
+                        
+                        <p>3. <strong>基础底面尺寸计算：</strong></p>
+                        <p>假设采用独立基础，基础尺寸为b×b</p>
+                        <p>基础自重和基础上覆土重G = γ'×b²×d（取γ'=20kN/m³）</p>
+                        <p>基底压力pₖ = (F + G)/b² ≤ fₛk</p>
+                        <p>其中fₛk为砂垫层的承载力特征值，取fₛk=200kPa</p>
+                        
+                        <p>代入数值计算：</p>
+                        <p>(600 + 20×b²×1.5)/b² ≤ 200</p>
+                        <p>600/b² + 30 ≤ 200</p>
+                        <p>600/b² ≤ 170</p>
+                        <p>b² ≥ 600/170 ≈ 3.53</p>
+                        <p>b ≥ 1.88m，取b=2.0m</p>
+                        
+                        <p>4. <strong>换填宽度计算：</strong></p>
+                        <p>砂垫层的扩散角θ，对于砂垫层，取θ=30°</p>
+                        <p>换填底面宽度b' = b + 2×z×tanθ</p>
+                        <p>b' = 2.0 + 2×4×tan30° ≈ 2.0 + 4.62 ≈ 6.62m，取b'=7.0m</p>
+                        
+                        <p>5. <strong>下卧层地基承载力验算：</strong></p>
+                        <p>砂垫层底面压力p_z = (F + G + Gₛ)/Aₛ</p>
+                        <p>其中Gₛ为砂垫层的重量</p>
+                        <p>Gₛ = γₛ×Aₛ×z</p>
+                        <p>Aₛ = 7.0×7.0 = 49 m²</p>
+                        <p>Gₛ = 18×49×4 = 3528 kN</p>
+                        <p>G = 20×4×1.5 = 120 kN</p>
+                        <p>p_z = (600 + 120 + 3528)/49 = 4248/49 ≈ 86.7 kPa</p>
+                        
+                        <p>下卧层顶面附加压力p₀ = p_z - γ₀×(d + z)</p>
+                        <p>其中γ₀为加权平均重度，取γ₀=18kN/m³</p>
+                        <p>p₀ = 86.7 - 18×(1.5 + 4) = 86.7 - 99 = -12.3 kPa < 0</p>
+                        <p>下卧层地基承载力满足要求。</p>
+                        
+                        <p><strong>四、施工要点：</strong></p>
+                        
+                        <p>1. <strong>施工准备：</strong></p>
+                        <ul>
+                            <li>平整场地，清除地表杂物</li>
+                            <li>做好排水系统，防止施工期间场地积水</li>
+                            <li>测量放线，确定换填范围</li>
+                        </ul>
+                        
+                        <p>2. <strong>换填材料质量控制：</strong></p>
+                        <ul>
+                            <li>砂料应级配良好，含泥量不大于5%</li>
+                            <li>不得含有有机质、垃圾等杂物</li>
+                            <li>进场材料应进行检验</li>
+                        </ul>
+                        
+                        <p>3. <strong>分层回填与压实：</strong></p>
+                        <ul>
+                            <li>分层厚度一般为200-300mm</li>
+                            <li>采用机械压实（如振动压路机、平板振动器等）</li>
+                            <li>每层压实后应进行压实系数检测，确保不小于0.95</li>
+                            <li>压实顺序应从两侧向中间进行，注意边缘压实质量</li>
+                        </ul>
+                        
+                        <p>4. <strong>施工监测：</strong></p>
+                        <ul>
+                            <li>监测回填土的含水量，控制在最优含水量附近</li>
+                            <li>监测压实厚度和压实遍数</li>
+                            <li>及时进行压实质量检测</li>
+                        </ul>
+                        
+                        <p>5. <strong>质量检验：</strong></p>
+                        <ul>
+                            <li>采用环刀法或灌砂法检测压实系数</li>
+                            <li>每个分层抽样检验数量应符合规范要求</li>
+                            <li>压实系数不小于0.95</li>
+                        </ul>
+                        
+                        <p>6. <strong>注意事项：</strong></p>
+                        <ul>
+                            <li>施工期间应保护好周围环境，防止扬尘污染</li>
+                            <li>雨天施工应采取防雨措施，防止砂垫层被雨水浸泡</li>
+                            <li>冬季施工应注意防冻，必要时采取保温措施</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 工程实践题2 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">2. 某建筑场地地基为饱和松散砂层，厚度8m，地下水位埋深1m，该地区抗震设防烈度为8度。拟建造一座单层工业厂房，对地基的抗液化能力要求较高。试设计地基处理方案，包括处理方法选择、设计计算和施工要点。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer12')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer12">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>地基处理方案设计：</strong></p>
+                        
+                        <p><strong>一、场地条件分析：</strong></p>
+                        <ul>
+                            <li>地基为饱和松散砂层，厚度8m</li>
+                            <li>地下水位埋深1m</li>
+                            <li>抗震设防烈度为8度</li>
+                            <li>拟建造单层工业厂房，对抗液化能力要求高</li>
+                        </ul>
+                        
+                        <p><strong>二、地基处理方法选择：</strong></p>
+                        <p>考虑到饱和松散砂层在地震作用下容易液化，且厚度较大，可选择以下处理方法：</p>
+                        <ol>
+                            <li><strong>振冲挤密法：</strong>通过振动和挤密，提高砂层的密实度，增强抗液化能力</li>
+                            <li><strong>强夯法：</strong>通过强夯加固，提高砂层的密实度和抗液化能力</li>
+                            <li><strong>挤密碎石桩法：</strong>形成复合地基，提高地基承载力和抗液化能力</li>
+                        </ol>
+                        <p>综合考虑，推荐采用<strong>振冲挤密法</strong>处理地基。理由如下：</p>
+                        <ul>
+                            <li>振冲挤密法特别适用于处理松散砂土地基，可有效提高砂层的密实度</li>
+                            <li>能显著增强地基的抗液化能力，满足8度抗震设防要求</li>
+                            <li>施工速度快，工期短</li>
+                            <li>成本相对较低</li>
+                            <li>技术成熟，质量控制相对容易</li>
+                        </ul>
+                        
+                        <p><strong>三、振冲挤密法设计计算：</strong></p>
+                        
+                        <p>1. <strong>设计参数确定：</strong></p>
+                        <ul>
+                            <li>处理深度：穿透整个松散砂层，取8m</li>
+                            <li>桩径：d=0.7m</li>
+                            <li>桩间距：等边三角形布置，s=2.0m</li>
+                            <li>填料：采用级配良好的碎石，粒径20-50mm</li>
+                        </ul>
+                        
+                        <p>2. <strong>加固范围：</strong></p>
+                        <p>加固范围应超出基础边缘一定距离，一般为处理深度的1/2至2/3，且不小于3m</p>
+                        
+                        <p>3. <strong>面积置换率计算：</strong></p>
+                        <p>等边三角形布置时，一根桩承担的处理面积Aₑ = (√3/4)×s²</p>
+                        <p>Aₑ = (√3/4)×2.0² ≈ 0.433×4 = 1.732 m²</p>
+                        <p>桩的截面积Aₚ = π×d²/4 = π×0.7²/4 ≈ 0.385 m²</p>
+                        <p>面积置换率m = Aₚ/Aₑ = 0.385/1.732 ≈ 0.222</p>
+                        
+                        <p>4. <strong>复合地基承载力特征值计算：</strong></p>
+                        <p>fₛₚₖ = m×fₚₖ + β×(1-m)×fₐk</p>
+                        <p>其中：</p>
+                        <p>fₚₖ为桩体承载力特征值，取500kPa</p>
+                        <p>β为桩间土承载力折减系数，取0.8</p>
+                        <p>fₐk为天然地基承载力特征值，取100kPa</p>
+                        
+                        <p>fₛₚₖ = 0.222×500 + 0.8×(1-0.222)×100 = 111 + 62.2 = 173.2 kPa</p>
+                        
+                        <p>5. <strong>抗液化效果评价：</strong></p>
+                        <p>振冲挤密后，砂层的相对密实度应达到0.75以上，标准贯入试验锤击数应满足抗震要求</p>
+                        
+                        <p><strong>四、施工要点：</strong></p>
+                        
+                        <p>1. <strong>施工准备：</strong></p>
+                        <ul>
+                            <li>平整场地，清除地表杂物</li>
+                            <li>做好排水系统，降低地下水位（如需要）</li>
+                            <li>测量放线，确定桩位</li>
+                            <li>检查振冲设备性能</li>
+                        </ul>
+                        
+                        <p>2. <strong>振冲施工工艺：</strong></p>
+                        <ul>
+                            <li><strong>造孔：</strong>启动振冲器，使其振动下沉到设计深度</li>
+                            <li><strong>清孔：</strong>造孔完成后，提高振冲器，进行清孔</li>
+                            <li><strong>填料加密：</strong>从孔底开始，分层填入碎石，每层填料厚度约0.5m，用振冲器振密</li>
+                            <li><strong>控制参数：</strong>
+                                <ul>
+                                    <li>密实电流：根据地质条件和桩径确定，一般为50-100A</li>
+                                    <li>留振时间：每段填料留振时间一般为30-60s</li>
+                                    <li>填料量：根据设计要求控制每米填料量</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        
+                        <p>3. <strong>施工顺序：</strong></p>
+                        <ul>
+                            <li>宜从中间向外围进行，或由一边向另一边进行</li>
+                            <li>相邻桩施工间隔时间不宜小于24h</li>
+                        </ul>
+                        
+                        <p>4. <strong>施工监测：</strong></p>
+                        <ul>
+                            <li>监测振冲器的电流、留振时间和填料量</li>
+                            <li>监测孔位偏差和孔深</li>
+                            <li>记录施工过程中的异常情况</li>
+                        </ul>
+                        
+                        <p>5. <strong>质量检验：</strong></p>
+                        <ul>
+                            <li><strong>施工过程检验：</strong>检查施工记录，包括密实电流、留振时间、填料量等</li>
+                            <li><strong>竣工验收检验：</strong>
+                                <ul>
+                                    <li>标准贯入试验：检验加固后砂层的密实度</li>
+                                    <li>载荷试验：检验复合地基承载力</li>
+                                    <li>动力触探试验：检验桩体和桩间土的密实度</li>
+                                </ul>
+                            </li>
+                            <li><strong>检验数量：</strong>每个单体工程检验点数量不应少于3点，且不宜少于总桩数的0.5%</li>
+                        </ul>
+                        
+                        <p>6. <strong>注意事项：</strong></p>
+                        <ul>
+                            <li>施工过程中应注意保护周围建筑物和地下管线，控制振动影响</li>
+                            <li>填料应连续供应，确保施工质量</li>
+                            <li>雨天施工应采取防雨措施，防止场地积水</li>
+                            <li>冬季施工应注意防冻，必要时采取保温措施</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>联系我们</h4>
+                    <p>地址：土木馆A401室</p>
+                    <p>电话：0535-6902967</p>
+                    <p>邮箱：jzq@ytu.edu.cn</p>
+                    <p>办公时间：周一至周五 8:00-17:30</p>
+                </div>
+                <div class="col-md-6">
+                    <h4>快速链接</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="../index.html" class="text-white">首页</a></li>
+                        <li><a href="../index.html#course-info" class="text-white">课程简介</a></li>
+                        <li><a href="../index.html#lectures" class="text-white">授课内容</a></li>
+                        <li><a href="../index.html#materials" class="text-white">教学资料</a></li>
+                        <li><a href="../index.html#exercises" class="text-white">习题与实验</a></li>
+                        <li><a href="../feedback.html" class="text-white">学生留言</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <p>&copy; 2025 岩土教研室土力学教学团队</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 引入Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- 引入jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- 自定义JavaScript -->
+    <script>
+        // 切换答案显示/隐藏
+        function toggleAnswer(answerId) {
+            var answerCard = document.getElementById(answerId);
+            var button = answerCard.previousElementSibling.querySelector('.toggle-btn');
+            
+            if (answerCard.style.display === 'none' || answerCard.style.display === '') {
+                answerCard.style.display = 'block';
+                button.innerHTML = '隐藏参考答案 <i class="fas fa-chevron-up ml-1"></i>';
+            } else {
+                answerCard.style.display = 'none';
+                button.innerHTML = '查看参考答案 <i class="fas fa-chevron-down ml-1"></i>';
+            }
+        }
+        
+        // 页面加载完成后执行
+        $(document).ready(function() {
+            // 平滑滚动
+            $('a[href^="#"]').on('click', function(e) {
+                e.preventDefault();
+                var target = $(this).attr('href');
+                $(target).animate({ scrollTop: 0 }, 'slow');
+            });
+            
+            // 导航栏滚动效果
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 50) {
+                    $('.navbar').addClass('bg-dark');
+                    $('.navbar').removeClass('bg-transparent');
+                } else {
+                    $('.navbar').removeClass('bg-dark');
+                    $('.navbar').addClass('bg-transparent');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

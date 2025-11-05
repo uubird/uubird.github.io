@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第1章 习题 - 土力学课程网站</title>
+    <!-- 引入Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- 自定义CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        .exercise-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .exercise-item {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+        }
+        .exercise-item h4 {
+            color: #343a40;
+            margin-bottom: 1rem;
+        }
+        .solution-btn {
+            margin-top: 1rem;
+        }
+        .solution {
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: #e3f2fd;
+            border-radius: 4px;
+            display: none;
+        }
+        .formula {
+            background-color: #f1f3f4;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-align: center;
+            margin: 0.5rem 0;
+            font-family: "Courier New", monospace;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <i class="fas fa-landmark mr-2"></i>土力学
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#course-info">课程简介</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#lectures">授课内容</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#materials">教学资料</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../index.html#exercises">习题与实验</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#resources">参考资源</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#contact">联系我们</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <header class="jumbotron jumbotron-fluid py-5">
+        <div class="container">
+            <h1 class="display-5">第1章 土的物理性质及工程分类 - 习题</h1>
+            <p class="lead">巩固土力学基础理论知识</p>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <!-- 习题说明 -->
+        <div class="card mb-5">
+            <div class="card-body">
+                <h3><i class="fas fa-info-circle text-primary mr-2"></i> 习题说明</h3>
+                <p>本章习题旨在帮助学生掌握土的物理性质指标计算、土的物理状态评价及工程分类方法。请认真完成以下习题，并通过参考答案检验自己的学习效果。</p>
+            </div>
+        </div>
+
+        <!-- 习题内容 -->
+        <div class="exercise-content">
+            <!-- 习题1 -->
+            <div class="exercise-item">
+                <h4>1. 简述土的三相组成及其对土工程性质的影响</h4>
+                <button class="btn btn-outline-primary solution-btn" onclick="toggleSolution('solution1')">查看参考答案</button>
+                <div id="solution1" class="solution">
+                    <h5>参考答案：</h5>
+                    <ol type="a">
+                        <li><strong>土的三相组成：</strong>土由固体颗粒、水和气体组成。固体颗粒是土的骨架，决定土的基本性质；水对土的强度和压缩性有显著影响；气体影响土的渗透性和压缩性。</li>
+                        <li><strong>物理性质指标：</strong>包括土粒比重、密度（天然、干、饱和、有效）、含水率、孔隙比、孔隙率、饱和度等。这些指标之间可以通过三相比例关系相互换算。</li>
+                        <li><strong>级配：</strong>土中各粒组的相对含量。级配良好的土颗粒大小搭配合理，孔隙小，密度大，工程性质好。</li>
+                        <li><strong>界限含水率：</strong>包括液限（流动状态与可塑状态的界限）、塑限（可塑状态与半固体状态的界限）、缩限（半固体状态与固体状态的界限）。它们反映了黏性土的可塑性和软硬程度。</li>
+                        <li><strong>土的分类：</strong>根据《建筑地基基础设计规范》，土分为岩石、碎石土、砂土、粉土、黏性土和特殊性土。分类依据主要是颗粒级配和塑性指数。</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- 习题2 -->
+            <div class="exercise-item">
+                <h4>2. 推导孔隙比、孔隙率和饱和度之间的关系</h4>
+                <button class="btn btn-outline-primary solution-btn" onclick="toggleSolution('solution2')">查看参考答案</button>
+                <div id="solution2" class="solution">
+                    <h5>参考答案：</h5>
+                    <p>孔隙比（e）、孔隙率（n）和饱和度（Sr）之间的关系推导：</p>
+                    <div class="formula">
+                        n = e / (1 + e)
+                    </div>
+                    <p>孔隙率是孔隙体积与总体积的比值，孔隙比是孔隙体积与固体颗粒体积的比值。</p>
+                    <div class="formula">
+                        Sr = Vw / Vv × 100%
+                    </div>
+                    <p>其中Vw是水的体积，Vv是孔隙体积。当土完全饱和时，Sr=100%；当土完全干燥时，Sr=0%。</p>
+                </div>
+            </div>
+            
+            <!-- 习题3 -->
+            <div class="exercise-item">
+                <h4>3. 解释塑性指数和液性指数的物理意义</h4>
+                <button class="btn btn-outline-primary solution-btn" onclick="toggleSolution('solution3')">查看参考答案</button>
+                <div id="solution3" class="solution">
+                    <h5>参考答案：</h5>
+                    <p><strong>塑性指数（IP）：</strong>液限与塑限的差值，IP = wL - wP</p>
+                    <p>物理意义：反映土的可塑性大小，塑性指数越大，土的可塑性越强。塑性指数是黏性土分类的重要指标。</p>
+                    <p><strong>液性指数（IL）：</strong>表示土的天然含水率与塑限的差值与塑性指数的比值，IL = (w - wP) / IP</p>
+                    <p>物理意义：反映黏性土的软硬状态，液性指数越大，土越软。IL≤0时，土处于坚硬状态；0<IL≤0.25时，土处于硬塑状态；0.25<IL≤0.75时，土处于可塑状态；0.75<IL≤1时，土处于软塑状态；IL>1时，土处于流塑状态。</p>
+                </div>
+            </div>
+            
+            <!-- 习题4 -->
+            <div class="exercise-item">
+                <h4>4. 根据《建筑地基基础设计规范》，简述土的分类体系</h4>
+                <button class="btn btn-outline-primary solution-btn" onclick="toggleSolution('solution4')">查看参考答案</button>
+                <div id="solution4" class="solution">
+                    <h5>参考答案：</h5>
+                    <p>根据《建筑地基基础设计规范》（GB 50007-2011），土的分类体系如下：</p>
+                    <ol>
+                        <li><strong>岩石：</strong>颗粒间牢固联结，呈整体或具有节理裂隙的岩体。</li>
+                        <li><strong>碎石土：</strong>粒径大于2mm的颗粒含量超过全重50%的土。根据颗粒级配和形状进一步分为漂石、块石、卵石、碎石、圆砾和角砾。</li>
+                        <li><strong>砂土：</strong>粒径大于2mm的颗粒含量不超过全重50%，且粒径大于0.075mm的颗粒含量超过全重50%的土。根据颗粒级配分为砾砂、粗砂、中砂、细砂和粉砂。</li>
+                        <li><strong>粉土：</strong>粒径大于0.075mm的颗粒含量不超过全重50%，且塑性指数IP≤10的土。</li>
+                        <li><strong>黏性土：</strong>塑性指数IP>10的土。根据塑性指数进一步分为粉质黏土（10<IP≤17）和黏土（IP>17）。</li>
+                        <li><strong>特殊性土：</strong>具有特殊工程性质的土，如淤泥、淤泥质土、红黏土、膨胀土、湿陷性黄土、冻土、盐渍土等。</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <!-- 习题5 -->
+            <div class="exercise-item">
+                <h4>5. 计算题</h4>
+                <p>某土样的天然含水率为22%，土粒比重为2.65，天然密度为1.85g/cm³。计算该土样的孔隙比、孔隙率和饱和度。</p>
+                <button class="btn btn-outline-primary solution-btn" onclick="toggleSolution('solution5')">查看参考答案</button>
+                <div id="solution5" class="solution">
+                    <h5>参考答案：</h5>
+                    <p><strong>已知：</strong>w = 22%，Gs = 2.65，ρ = 1.85g/cm³</p>
+                    
+                    <p>a. 计算干密度（ρd）：</p>
+                    <div class="formula">
+                        ρd = ρ / (1 + w) = 1.85 / (1 + 0.22) = 1.517g/cm³
+                    </div>
+                    
+                    <p>b. 计算孔隙比（e）：</p>
+                    <div class="formula">
+                        e = (Gs × ρw) / ρd - 1 = (2.65 × 1.0) / 1.517 - 1 = 0.747
+                    </div>
+                    
+                    <p>c. 计算孔隙率（n）：</p>
+                    <div class="formula">
+                        n = e / (1 + e) × 100% = 0.747 / (1 + 0.747) × 100% = 42.7%
+                    </div>
+                    
+                    <p>d. 计算饱和度（Sr）：</p>
+                    <div class="formula">
+                        Sr = (w × Gs) / e × 100% = (0.22 × 2.65) / 0.747 × 100% = 78.9%
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 习题导航 -->
+        <div class="mt-5 d-flex justify-content-between">
+            <a href="index.html" class="btn btn-outline-primary">返回习题列表</a>
+            <a href="chapter2-exercises.html" class="btn btn-primary">下一章习题 <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>关于课程</h4>
+                    <p>《土力学》是土木工程专业的核心课程，本网站提供课程相关的教学资源和学习资料。</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>快速链接</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="../index.html#course-info" class="text-white">课程简介</a></li>
+                        <li><a href="../index.html#lectures" class="text-white">授课内容</a></li>
+                        <li><a href="../index.html#materials" class="text-white">教学资料</a></li>
+                        <li><a href="../index.html#exercises" class="text-white">习题与实验</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4>联系我们</h4>
+                    <p>地址：土木馆A401室</p>
+                    <p>电话：0535-6902967</p>
+                    <p>邮箱：jzq@ytu.edu.cn</p>
+                    <p>办公时间：周一至周五 8:00-17:30</p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- 引入Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- 自定义JS -->
+    <script>
+        // 切换答案显示/隐藏
+        function toggleSolution(id) {
+            var solution = document.getElementById(id);
+            if (solution.style.display === "none" || solution.style.display === "") {
+                solution.style.display = "block";
+            } else {
+                solution.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

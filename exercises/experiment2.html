@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实验二：土的界限含水率试验 - 土力学课程网站</title>
+    <!-- 引入Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- 自定义CSS -->
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .navbar {
+            transition: all 0.3s ease;
+        }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        .jumbotron {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 0;
+            margin-bottom: 0;
+        }
+        .section-title {
+            font-weight: bold;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+        }
+        .content-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        .equipment-list, .procedure-list, .data-table {
+            margin-left: 1.5rem;
+        }
+        .data-table th {
+            background-color: #3498db;
+            color: white;
+        }
+        .formula-block {
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        .formula {
+            font-weight: bold;
+            font-style: italic;
+            color: #2c3e50;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            z-index: 999;
+        }
+        .highlight {
+            background-color: #ffffcc;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+        }
+        .image-container {
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .image-caption {
+            font-style: italic;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <i class="fas fa-landmark mr-2"></i>
+                土力学课程
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#course-info">课程简介</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../lectures/index.html">授课内容</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#materials">教学资料</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            学习资源
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="../exercises/index.html">习题</a></li>
+                            <li><a class="dropdown-item active" href="index.html">实验</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../feedback.html">学生留言</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题区 -->
+    <header class="jumbotron">
+        <div class="container text-center">
+            <h1 class="display-4">实验二：土的界限含水率试验</h1>
+            <p class="lead">掌握土的液限、塑限测定方法，了解土的可塑性指标</p>
+        </div>
+    </header>
+
+    <!-- 主要内容区 -->
+    <main class="container py-5">
+        <!-- 实验目的 -->
+        <section class="content-card">
+            <h2 class="section-title">一、实验目的</h2>
+            <ol class="list-decimal pl-5">
+                <li>掌握土的液限、塑限测定方法</li>
+                <li>计算土的塑性指数和液性指数</li>
+                <li>确定土的分类和状态</li>
+                <li>为地基基础设计和施工提供必要的参数</li>
+            </ol>
+        </section>
+
+        <!-- 实验原理 -->
+        <section class="content-card">
+            <h2 class="section-title">二、实验原理</h2>
+            <p>细粒土（黏性土）随着含水率的变化，会呈现出不同的物理状态：固态、半固态、可塑状态和流动状态。这些状态之间的分界含水率称为界限含水率。</p>
+            
+            <h3 class="h5 mt-4">2.1 界限含水率的定义</h3>
+            <div class="formula-block">
+                <p><span class="formula">1. 液限（w_L）</span>：土由可塑状态转变为流动状态时的界限含水率</p>
+                <p><span class="formula">2. 塑限（w_P）</span>：土由半固态转变为可塑状态时的界限含水率</p>
+                <p><span class="formula">3. 缩限（w_S）</span>：土由固态转变为半固态时的界限含水率</p>
+            </div>
+            
+            <h3 class="h5 mt-4">2.2 塑性指标</h3>
+            <div class="formula-block">
+                <p><span class="formula">1. 塑性指数（I_P）</span>：液限与塑限的差值，表示土的可塑性大小</p>
+                <p class="formula">I_P = w_L - w_P</p>
+                
+                <p><span class="formula">2. 液性指数（I_L）</span>：土的天然含水率与塑限的差值除以塑性指数，表示土的软硬状态</p>
+                <p class="formula">I_L = (w - w_P) / I_P</p>
+            </div>
+            
+            <h3 class="h5 mt-4">2.3 试验方法原理</h3>
+            <p><strong>液限试验（圆锥仪法）</strong>：将土样调成均匀的浓糊状，装入试杯中，刮平表面。然后将质量为76g的圆锥仪（锥角30°）在土样表面5秒内自由下落，记录圆锥入土深度。当圆锥入土深度为10mm时的土样含水率即为液限。</p>
+            
+            <p><strong>塑限试验（搓条法）</strong>：将土样调成土团，在毛玻璃板上用手掌搓成直径为3mm的土条，若土条在直径达到3mm时刚好断裂，则此时土样的含水率即为塑限。</p>
+            
+            <div class="image-container">
+                <img src="https://via.placeholder.com/600x400?text=土的物理状态与界限含水率关系图" alt="土的物理状态与界限含水率关系图">
+                <div class="image-caption">图1：土的物理状态与界限含水率关系图</div>
+            </div>
+        </section>
+
+        <!-- 实验设备 -->
+        <section class="content-card">
+            <h2 class="section-title">三、实验设备</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 class="h5 mb-3">3.1 液限试验设备（圆锥仪法）</h3>
+                    <ul class="list-disc equipment-list">
+                        <li>光电式液限仪：包括圆锥仪（质量76g，锥角30°）、电磁装置、显示器等</li>
+                        <li>试杯：直径不小于40mm，高度不小于50mm</li>
+                        <li>调土刀、刮土刀</li>
+                        <li>天平：感量0.01g</li>
+                        <li>烘箱、铝盒、干燥器</li>
+                        <li>蒸馏水瓶、凡士林</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h3 class="h5 mb-3">3.2 塑限试验设备（搓条法）</h3>
+                    <ul class="list-disc equipment-list">
+                        <li>毛玻璃板：尺寸约200mm×200mm</li>
+                        <li>天平：感量0.01g</li>
+                        <li>烘箱、铝盒、干燥器</li>
+                        <li>调土刀、凡士林</li>
+                        <li>蒸馏水瓶</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 实验步骤 -->
+        <section class="content-card">
+            <h2 class="section-title">四、实验步骤</h2>
+            
+            <h3 class="h5 mt-4">4.1 液限试验（圆锥仪法）</h3>
+            <ol class="list-decimal procedure-list">
+                <li>取代表性土样200g，过0.5mm筛，放入蒸发皿中</li>
+                <li>加入适量蒸馏水，用调土刀充分拌和，调成均匀的浓糊状</li>
+                <li>将制备好的土样分层装入试杯中，用力压实，使空气逸出</li>
+                <li>用刮土刀将土样表面刮平，使土样略高于试杯边缘</li>
+                <li>将试杯放在液限仪的升降座上，调整水平</li>
+                <li>提起圆锥仪，使圆锥尖接触土样表面（避免冲击）</li>
+                <li>按动电磁装置，使圆锥仪在5秒内自由下落</li>
+                <li>记录圆锥入土深度（h）</li>
+                <li>用调土刀在圆锥周围取出约10g土样，放入铝盒中，测定含水率</li>
+                <li>重复步骤3-9，制备不同含水率的土样，使圆锥入土深度分别接近10mm（液限）、7mm和13mm左右</li>
+                <li>绘制圆锥入土深度与含水率的关系曲线（h-w曲线），查得圆锥入土深度为10mm时的含水率即为液限</li>
+            </ol>
+            
+            <h3 class="h5 mt-4">4.2 塑限试验（搓条法）</h3>
+            <ol class="list-decimal procedure-list">
+                <li>取代表性土样100g，过0.5mm筛，放入蒸发皿中</li>
+                <li>加入适量蒸馏水，用调土刀充分拌和，使土样达到可塑状态</li>
+                <li>取一小块土样（约8-10g），用手捏成土团</li>
+                <li>将土团放在毛玻璃板上，用手掌轻轻搓揉，使土团逐渐成为土条</li>
+                <li>继续搓揉土条，直到土条直径达到3mm时刚好断裂</li>
+                <li>收集断裂的土条（约3-5g），放入铝盒中，测定含水率</li>
+                <li>重复步骤3-6，至少进行两次平行试验</li>
+                <li>取两次平行试验的平均值作为塑限</li>
+            </ol>
+        </section>
+
+        <!-- 数据记录与处理 -->
+        <section class="content-card">
+            <h2 class="section-title">五、数据记录与处理</h2>
+            
+            <h3 class="h5 mt-4">5.1 液限试验数据记录</h3>
+            <table class="table table-bordered table-striped data-table">
+                <thead>
+                    <tr>
+                        <th>试验编号</th>
+                        <th>圆锥入土深度h(mm)</th>
+                        <th>铝盒质量m₀(g)</th>
+                        <th>铝盒+湿土质量m₁(g)</th>
+                        <th>铝盒+干土质量m₂(g)</th>
+                        <th>含水率w(%)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <p><strong>h-w曲线绘制与液限确定：</strong></p>
+            <p>以含水率为横坐标，圆锥入土深度为纵坐标，绘制h-w关系曲线。从曲线上查得圆锥入土深度为10mm时的含水率即为液限w_L。</p>
+            
+            <h3 class="h5 mt-4">5.2 塑限试验数据记录</h3>
+            <table class="table table-bordered table-striped data-table">
+                <thead>
+                    <tr>
+                        <th>试验编号</th>
+                        <th>铝盒质量m₀(g)</th>
+                        <th>铝盒+湿土质量m₁(g)</th>
+                        <th>铝盒+干土质量m₂(g)</th>
+                        <th>含水率w(%)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                    </tr>
+                    <tr>
+                        <td>平均</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3 class="h5 mt-4">5.3 塑性指标计算</h3>
+            <div class="formula-block">
+                <p><strong>已知数据：</strong></p>
+                <p>液限w_L = _____ %</p>
+                <p>塑限w_P = _____ %</p>
+                <p>天然含水率w = _____ %（可通过其他试验获得）</p>
+                <br>
+                <p><strong>计算过程：</strong></p>
+                <p>塑性指数I_P = w_L - w_P = _____</p>
+                <p>液性指数I_L = (w - w_P) / I_P = _____</p>
+            </div>
+            
+            <h3 class="h5 mt-4">5.4 土的状态判定</h3>
+            <table class="table table-bordered table-striped data-table">
+                <thead>
+                    <tr>
+                        <th>液性指数I_L</th>
+                        <th>土的状态</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>I_L ≤ 0</td>
+                        <td>坚硬</td>
+                    </tr>
+                    <tr>
+                        <td>0 ＜ I_L ≤ 0.25</td>
+                        <td>硬塑</td>
+                    </tr>
+                    <tr>
+                        <td>0.25 ＜ I_L ≤ 0.75</td>
+                        <td>可塑</td>
+                    </tr>
+                    <tr>
+                        <td>0.75 ＜ I_L ≤ 1.0</td>
+                        <td>软塑</td>
+                    </tr>
+                    <tr>
+                        <td>I_L ＞ 1.0</td>
+                        <td>流塑</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- 注意事项 -->
+        <section class="content-card">
+            <h2 class="section-title">六、注意事项</h2>
+            <ol class="list-decimal procedure-list">
+                <li>液限试验时，土样应充分拌和，避免含有空气泡</li>
+                <li>圆锥仪应在5秒内自由下落，避免人为干扰</li>
+                <li>塑限试验时，搓条速度应均匀，用力适中</li>
+                <li>当土条直径接近3mm时，应注意观察断裂情况，避免过度搓揉</li>
+                <li>所有称量操作应迅速，避免水分蒸发影响试验精度</li>
+                <li>试验结束后，应及时清理试验设备，保持实验室整洁</li>
+            </ol>
+        </section>
+
+        <!-- 思考题 -->
+        <section class="content-card">
+            <h2 class="section-title">七、思考题</h2>
+            <ol class="list-decimal procedure-list">
+                <li>为什么细粒土才有液限和塑限？粗粒土是否有界限含水率？</li>
+                <li>塑性指数的大小说明了什么？它对土的工程性质有什么影响？</li>
+                <li>液性指数如何反映土的软硬状态？在工程中有什么应用？</li>
+                <li>界限含水率试验的精度受哪些因素影响？如何提高试验精度？</li>
+                <li>不同成因、不同矿物成分的黏性土，其界限含水率有什么特点？</li>
+            </ol>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>联系我们</h4>
+                    <p>地址：土木馆A401室</p>
+                    <p>电话：0535-6902967</p>
+                    <p>邮箱：jzq@ytu.edu.cn</p>
+                    <p>办公时间：周一至周五 8:00-17:30</p>
+                </div>
+                <div class="col-md-6">
+                    <h4>快速链接</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="../index.html" class="text-white">首页</a></li>
+                        <li><a href="../index.html#course-info" class="text-white">课程简介</a></li>
+                        <li><a href="../lectures/index.html" class="text-white">授课内容</a></li>
+                        <li><a href="../index.html#materials" class="text-white">教学资料</a></li>
+                        <li><a href="../exercises/index.html" class="text-white">习题</a></li>
+                        <li><a href="index.html" class="text-white">实验</a></li>
+                        <li><a href="../feedback.html" class="text-white">学生留言</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <p>&copy; 2025 岩土教研室土力学教学团队</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button id="backToTop" class="back-to-top btn btn-primary rounded-circle" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- 引入Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- 引入jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- 自定义JavaScript -->
+    <script>
+        // 导航栏滚动效果
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 50) {
+                $('.navbar').addClass('bg-dark');
+                $('.navbar').removeClass('bg-transparent');
+            } else {
+                $('.navbar').removeClass('bg-dark');
+                $('.navbar').addClass('bg-transparent');
+            }
+            
+            // 返回顶部按钮显示/隐藏
+            if ($(this).scrollTop() > 300) {
+                $('#backToTop').fadeIn();
+            } else {
+                $('#backToTop').fadeOut();
+            }
+        });
+        
+        // 平滑滚动
+        $('a[href^="#"]').on('click', function(e) {
+            e.preventDefault();
+            var target = $(this).attr('href');
+            $(target).animate({ scrollTop: 0 }, 'slow');
+        });
+    </script>
+</body>
+</html>

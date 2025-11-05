@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实验五：土的渗透性试验 - 土力学课程网站</title>
+    <!-- 引入Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- 自定义CSS -->
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .navbar {
+            transition: all 0.3s ease;
+        }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        .jumbotron {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 3rem 0;
+            margin-bottom: 0;
+        }
+        .section-title {
+            font-weight: bold;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+        }
+        .content-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        .equipment-list, .procedure-list, .data-table {
+            margin-left: 1.5rem;
+        }
+        .data-table th {
+            background-color: #3498db;
+            color: white;
+        }
+        .formula-block {
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        .formula {
+            font-weight: bold;
+            font-style: italic;
+            color: #2c3e50;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            z-index: 999;
+        }
+        .highlight {
+            background-color: #ffffcc;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+        }
+        .image-container {
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .image-caption {
+            font-style: italic;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+        .equipment-img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <i class="fas fa-landmark mr-2"></i>
+                土力学课程
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#course-info">课程简介</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../lectures/index.html">授课内容</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#materials">教学资料</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            学习资源
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="../exercises/index.html">习题</a></li>
+                            <li><a class="dropdown-item active" href="index.html">实验</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../feedback.html">学生留言</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题区 -->
+    <header class="jumbotron">
+        <div class="container text-center">
+            <h1 class="display-4">实验五：土的渗透性试验</h1>
+            <p class="lead">掌握土的渗透系数测定方法，了解达西定律和渗透特性</p>
+        </div>
+    </header>
+
+    <!-- 主要内容区 -->
+    <main class="container py-5">
+        <!-- 实验目的 -->
+        <section class="content-card">
+            <h2 class="section-title">一、实验目的</h2>
+            <ol class="list-decimal pl-5">
+                <li>掌握土的渗透系数测定的基本原理和操作方法</li>
+                <li>学习常水头渗透试验和变水头渗透试验的操作技能</li>
+                <li>测定土的渗透系数k值</li>
+                <li>了解影响土的渗透性的因素</li>
+            </ol>
+        </section>
+
+        <!-- 实验原理 -->
+        <section class="content-card">
+            <h2 class="section-title">二、实验原理</h2>
+            <p>土的渗透性是指水流通过土中孔隙的难易程度，通常用渗透系数k来表示。渗透系数是评价地基、边坡和堤坝等工程渗流问题的重要参数。</p>
+            
+            <h3 class="h5 mt-4">2.1 达西定律</h3>
+            <div class="formula-block">
+                <p><span class="formula">v = k·i</span></p>
+                <p>式中：</p>
+                <ul>
+                    <li>v — 渗透速度(m/s)</li>
+                    <li>k — 渗透系数(m/s)</li>
+                    <li>i — 水力梯度，i = h/L（h为水头差，L为渗流路径长度）</li>
+                </ul>
+                
+                <p>渗透系数k的表达式：</p>
+                <p class="formula">k = Q·L / (A·h·t)</p>
+                <p>式中：</p>
+                <ul>
+                    <li>Q — 时间t内的渗透水量(m³)</li>
+                    <li>A — 土样的截面积(m²)</li>
+                    <li>h — 水头差(m)</li>
+                    <li>L — 渗流路径长度(m)</li>
+                    <li>t — 时间(s)</li>
+                </ul>
+            </div>
+            
+            <h3 class="h5 mt-4">2.2 试验方法</h3>
+            <p>根据土的渗透性不同，渗透试验分为两种方法：</p>
+            <ol class="list-decimal pl-5">
+                <li><strong>常水头渗透试验</strong>：适用于渗透性较大的无粘性土（如砂土、砾石等）</li>
+                <li><strong>变水头渗透试验</strong>：适用于渗透性较小的粘性土</li>
+            </ol>
+            
+            <div class="image-container">
+                <img src="https://via.placeholder.com/600x400?text=常水头渗透试验和变水头渗透试验原理图" alt="常水头渗透试验和变水头渗透试验原理图">
+                <div class="image-caption">图1：常水头渗透试验和变水头渗透试验原理图</div>
+            </div>
+        </section>
+
+        <!-- 实验设备 -->
+        <section class="content-card">
+            <h2 class="section-title">三、实验设备</h2>
+            <div class="row">
+                <div class="col-md-8">
+                    <h3 class="h5 mb-3">3.1 常水头渗透试验设备</h3>
+                    <ul class="list-disc equipment-list">
+                        <li>常水头渗透仪：包括渗透容器、进水管、出水管、测压管等</li>
+                        <li>供水设备：包括高位水箱、溢水管、控制阀等</li>
+                        <li>量杯：测量渗透水量</li>
+                        <li>秒表：记录时间</li>
+                        <li>温度计：测量水温</li>
+                        <li>其他：天平、筛子、搅棒、漏斗等</li>
+                    </ul>
+                    
+                    <h3 class="h5 mb-3 mt-4">3.2 变水头渗透试验设备</h3>
+                    <ul class="list-disc equipment-list">
+                        <li>变水头渗透仪：包括渗透容器、变水头管（细玻璃管）、测压管等</li>
+                        <li>供水设备：包括水箱、控制阀等</li>
+                        <li>秒表：记录时间</li>
+                        <li>温度计：测量水温</li>
+                        <li>其他：天平、筛子、搅棒、漏斗等</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <div class="image-container">
+                        <img src="https://via.placeholder.com/300x300?text=渗透仪设备图" alt="渗透仪设备图" class="equipment-img">
+                        <div class="image-caption">图2：渗透仪设备示意图</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 实验步骤 -->
+        <section class="content-card">
+            <h2 class="section-title">四、实验步骤</h2>
+            
+            <h3 class="h5 mt-4">4.1 常水头渗透试验（适用于砂土）</h3>
+            <ol class="list-decimal procedure-list">
+                <li><strong>试样制备</strong>：
+                    <ul>
+                        <li>取代表性砂样，过2mm筛，洗净，烘干或凉干至适当含水率</li>
+                        <li>测量渗透容器的内径和高度，计算截面积A</li>
+                        <li>将渗透容器固定在试验架上，在容器底部放置一块金属孔板和一张滤纸</li>
+                        <li>分层装入砂样，每层厚度约2-3cm，用捣棒轻轻捣实</li>
+                        <li>装完砂样后，在砂样顶部放置一张滤纸和金属孔板</li>
+                        <li>记录砂样的高度L和质量m</li>
+                    </ul>
+                </li>
+                <li><strong>仪器安装</strong>：
+                    <ul>
+                        <li>安装进水管、出水管和测压管</li>
+                        <li>检查各连接处是否漏水</li>
+                    </ul>
+                </li>
+                <li><strong>试验操作</strong>：
+                    <ul>
+                        <li>打开进水阀，使水缓慢流入渗透容器，直至完全饱和砂样</li>
+                        <li>调整水头，使水头差h保持恒定</li>
+                        <li>待水流稳定后，记录初始测压管读数</li>
+                        <li>用量杯收集一定时间t内的渗透水量Q，同时记录水温</li>
+                        <li>改变水头差，重复步骤3-4，进行3-5次平行试验</li>
+                    </ul>
+                </li>
+            </ol>
+            
+            <h3 class="h5 mt-4">4.2 变水头渗透试验（适用于粘性土）</h3>
+            <ol class="list-decimal procedure-list">
+                <li><strong>试样制备</strong>：
+                    <ul>
+                        <li>取代表性粘性土样，按照压缩试验的土样制备方法准备试样</li>
+                        <li>将制备好的土样放入渗透容器中</li>
+                        <li>记录土样的截面积A和高度L</li>
+                    </ul>
+                </li>
+                <li><strong>仪器安装</strong>：
+                    <ul>
+                        <li>安装渗透容器、变水头管和测压管</li>
+                        <li>检查各连接处是否漏水</li>
+                    </ul>
+                </li>
+                <li><strong>试验操作</strong>：
+                    <ul>
+                        <li>打开进水阀，使水缓慢流入渗透容器，直至完全饱和土样</li>
+                        <li>将变水头管充水至一定高度h₁</li>
+                        <li>记录初始水头h₁和时间t₁</li>
+                        <li>经过一段时间t后，记录最终水头h₂和时间t₂</li>
+                        <li>重复步骤3-4，进行3-5次平行试验</li>
+                    </ul>
+                </li>
+            </ol>
+        </section>
+
+        <!-- 数据记录与处理 -->
+        <section class="content-card">
+            <h2 class="section-title">五、数据记录与处理</h2>
+            
+            <h3 class="h5 mt-4">5.1 常水头渗透试验数据记录</h3>
+            <table class="table table-bordered table-striped data-table">
+                <thead>
+                    <tr>
+                        <th colspan="5">常水头渗透试验</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>土样编号</td>
+                        <td>渗透容器截面积A(cm²)</td>
+                        <td>土样高度L(cm)</td>
+                        <td>土样干密度ρ_d(g/cm³)</td>
+                        <td>水温T(℃)</td>
+                    </tr>
+                    <tr>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <table class="table table-bordered table-striped data-table">
+                <thead>
+                    <tr>
+                        <th>试验次数</th>
+                        <th>水头差h(cm)</th>
+                        <th>时间t(s)</th>
+                        <th>渗透水量Q(cm³)</th>
+                        <th>渗透系数k_cm/s</th>
+                        <th>平均k_cm/s</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td rowspan="3">--</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3 class="h5 mt-4">5.2 变水头渗透试验数据记录</h3>
+            <table class="table table-bordered table-striped data-table">
+                <thead>
+                    <tr>
+                        <th colspan="5">变水头渗透试验</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>土样编号</td>
+                        <td>渗透容器截面积A(cm²)</td>
+                        <td>土样高度L(cm)</td>
+                        <td>变水头管内径d(cm)</td>
+                        <td>水温T(℃)</td>
+                    </tr>
+                    <tr>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <table class="table table-bordered table-striped data-table">
+                <thead>
+                    <tr>
+                        <th>试验次数</th>
+                        <th>初始水头h₁(cm)</th>
+                        <th>初始时间t₁(s)</th>
+                        <th>最终水头h₂(cm)</th>
+                        <th>最终时间t₂(s)</th>
+                        <th>时间差Δt(s)</th>
+                        <th>渗透系数k_cm/s</th>
+                        <th>平均k_cm/s</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td rowspan="3">--</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3 class="h5 mt-4">5.3 数据处理公式</h3>
+            <div class="formula-block">
+                <p><strong>1. 常水头渗透试验渗透系数计算公式：</strong></p>
+                <p class="formula">k = Q·L / (A·h·t)</p>
+                <p>式中：</p>
+                <ul>
+                    <li>Q — 渗透水量(cm³)</li>
+                    <li>L — 土样高度(cm)</li>
+                    <li>A — 土样截面积(cm²)</li>
+                    <li>h — 水头差(cm)</li>
+                    <li>t — 时间(s)</li>
+                </ul>
+                
+                <p><strong>2. 变水头渗透试验渗透系数计算公式：</strong></p>
+                <p class="formula">k = (a·L / (A·Δt))·ln(h₁/h₂) = (2.3·a·L / (A·Δt))·log₁₀(h₁/h₂)</p>
+                <p>式中：</p>
+                <ul>
+                    <li>a — 变水头管截面积(cm²)，a = π·d²/4，d为变水头管内径(cm)</li>
+                    <li>L — 土样高度(cm)</li>
+                    <li>A — 土样截面积(cm²)</li>
+                    <li>h₁ — 初始水头(cm)</li>
+                    <li>h₂ — 最终水头(cm)</li>
+                    <li>Δt — 时间差(s)</li>
+                </ul>
+                
+                <p><strong>3. 温度修正：</strong></p>
+                <p>渗透系数随温度变化而变化，通常应将试验温度下的渗透系数修正为标准温度（20℃）下的渗透系数：</p>
+                <p class="formula">k₂₀ = k_T·η_T / η₂₀</p>
+                <p>式中：</p>
+                <ul>
+                    <li>k₂₀ — 20℃时的渗透系数(cm/s)</li>
+                    <li>k_T — 试验温度T时的渗透系数(cm/s)</li>
+                    <li>η_T — 试验温度T时水的动力粘滞系数(Pa·s)</li>
+                    <li>η₂₀ — 20℃时水的动力粘滞系数(Pa·s)</li>
+                </ul>
+                <p>不同温度下水的动力粘滞系数η值可查表获得。</p>
+            </div>
+        </section>
+
+        <!-- 注意事项 -->
+        <section class="content-card">
+            <h2 class="section-title">六、注意事项</h2>
+            <ol class="list-decimal procedure-list">
+                <li>试验前必须确保土样完全饱和，避免气泡影响试验结果</li>
+                <li>安装渗透仪时，各连接处必须密封良好，防止漏水</li>
+                <li>试验过程中应保持水温恒定，避免温度变化对试验结果的影响</li>
+                <li>常水头试验中，水头差应保持恒定，水流应稳定</li>
+                <li>变水头试验中，变水头管的内径应根据土的渗透性选择合适的尺寸</li>
+                <li>量测渗透水量和时间时，应准确同步</li>
+                <li>试验结束后，应及时清理设备，保持实验室整洁</li>
+            </ol>
+        </section>
+
+        <!-- 思考题 -->
+        <section class="content-card">
+            <h2 class="section-title">七、思考题</h2>
+            <ol class="list-decimal procedure-list">
+                <li>影响土的渗透性的因素有哪些？如何影响？</li>
+                <li>达西定律的适用条件是什么？什么情况下达西定律不适用？</li>
+                <li>常水头渗透试验和变水头渗透试验分别适用于什么类型的土？为什么？</li>
+                <li>为什么要进行温度修正？温度对渗透系数有什么影响？</li>
+                <li>在工程实践中，渗透系数有哪些应用？如何根据渗透系数评价地基的渗流问题？</li>
+            </ol>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>联系我们</h4>
+                    <p>地址：土木馆A401室</p>
+                    <p>电话：0535-6902967</p>
+                    <p>邮箱：jzq@ytu.edu.cn</p>
+                    <p>办公时间：周一至周五 8:00-17:30</p>
+                </div>
+                <div class="col-md-6">
+                    <h4>快速链接</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="../index.html" class="text-white">首页</a></li>
+                        <li><a href="../index.html#course-info" class="text-white">课程简介</a></li>
+                        <li><a href="../lectures/index.html" class="text-white">授课内容</a></li>
+                        <li><a href="../index.html#materials" class="text-white">教学资料</a></li>
+                        <li><a href="../exercises/index.html" class="text-white">习题</a></li>
+                        <li><a href="index.html" class="text-white">实验</a></li>
+                        <li><a href="../feedback.html" class="text-white">学生留言</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <p>&copy; 2025 岩土教研室土力学教学团队</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button id="backToTop" class="back-to-top btn btn-primary rounded-circle" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- 引入Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- 引入jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- 自定义JavaScript -->
+    <script>
+        // 导航栏滚动效果
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 50) {
+                $('.navbar').addClass('bg-dark');
+                $('.navbar').removeClass('bg-transparent');
+            } else {
+                $('.navbar').removeClass('bg-dark');
+                $('.navbar').addClass('bg-transparent');
+            }
+            
+            // 返回顶部按钮显示/隐藏
+            if ($(this).scrollTop() > 300) {
+                $('#backToTop').fadeIn();
+            } else {
+                $('#backToTop').fadeOut();
+            }
+        });
+        
+        // 平滑滚动
+        $('a[href^="#"]').on('click', function(e) {
+            e.preventDefault();
+            var target = $(this).attr('href');
+            $(target).animate({ scrollTop: 0 }, 'slow');
+        });
+    </script>
+</body>
+</html>

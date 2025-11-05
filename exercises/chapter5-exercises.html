@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第5章习题 - 土的抗剪强度 - 土力学课程网站</title>
+    <!-- 引入Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- 自定义CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        .exercise-container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .question-card {
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #3498db;
+        }
+        .answer-card {
+            display: none;
+            background-color: #f8f9fa;
+            border-left: 4px solid #28a745;
+        }
+        .toggle-btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .toggle-btn:hover {
+            background-color: #2980b9;
+        }
+        .section-title {
+            color: #2c3e50;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #3498db;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <i class="fas fa-landmark mr-2"></i>土力学
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#course-info">课程简介</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#lectures">授课内容</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#materials">教学资料</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../index.html#exercises">习题与实验</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#resources">参考资源</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#contact">联系我们</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../feedback.html">学生留言</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <header class="jumbotron jumbotron-fluid py-5">
+        <div class="container">
+            <h1 class="display-5">第5章 土的抗剪强度 - 习题</h1>
+            <p class="lead">通过练习题掌握土的抗剪强度理论和强度指标测试方法</p>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <div class="exercise-container">
+            <!-- 习题说明 -->
+            <div class="mb-5">
+                <h2 class="section-title">习题说明</h2>
+                <p>本章习题涵盖土的抗剪强度理论、强度指标测试方法、抗剪强度指标的应用等内容。通过这些习题，你将掌握土的抗剪强度计算和工程应用。</p>
+            </div>
+
+            <!-- 一、概念题 -->
+            <section class="mb-5">
+                <h2 class="section-title">一、概念题</h2>
+                
+                <!-- 概念题1 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">1. 什么是土的抗剪强度？简述影响土的抗剪强度的主要因素。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer1')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer1">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>土的抗剪强度：</strong>土在剪切荷载作用下抵抗剪切破坏的能力，是土的重要力学性质之一。</p>
+                        <p><strong>影响土的抗剪强度的主要因素：</strong></p>
+                        <ul>
+                            <li><strong>土的组成：</strong>土颗粒的大小、形状、矿物成分、级配等</li>
+                            <li><strong>土的物理状态：</strong>密度（孔隙比）、含水量、饱和度等</li>
+                            <li><strong>应力状态：</strong>法向应力大小、应力历史等</li>
+                            <li><strong>试验条件：</strong>排水条件、剪切速率等</li>
+                            <li><strong>时间因素：</strong>蠕变、长期强度等</li>
+                            <li><strong>扰动程度：</strong>土样扰动会降低抗剪强度</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 概念题2 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">2. 试比较库伦抗剪强度理论和莫尔-库伦强度理论的异同点。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer2')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer2">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>库伦抗剪强度理论：</strong>1776年由法国科学家库伦提出，认为土的抗剪强度由内摩擦力和粘聚力两部分组成，表达式为：τf = σtanφ + c</p>
+                        <p><strong>莫尔-库伦强度理论：</strong>1900年莫尔在库伦理论基础上发展而来，认为土的破坏是剪切破坏，当某一平面上的剪应力达到土的抗剪强度时发生破坏。</p>
+                        <p><strong>相同点：</strong></p>
+                        <ul>
+                            <li>都认为土的抗剪强度由内摩擦力和粘聚力组成</li>
+                            <li>都采用τf = σtanφ + c作为抗剪强度表达式</li>
+                            <li>都适用于一般工程实践</li>
+                        </ul>
+                        <p><strong>不同点：</strong></p>
+                        <ul>
+                            <li><strong>理论基础：</strong>库伦理论是经验公式；莫尔-库伦理论基于应力状态分析</li>
+                            <li><strong>适用条件：</strong>库伦理论假设剪切破坏发生在特定平面；莫尔-库伦理论认为破坏发生在剪应力最大的平面</li>
+                            <li><strong>复杂程度：</strong>库伦理论简单直观；莫尔-库伦理论更全面，考虑了应力状态的影响</li>
+                            <li><strong>应用范围：</strong>莫尔-库伦理论应用范围更广，可用于分析复杂应力状态下的土力学问题</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 概念题3 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">3. 什么是不排水抗剪强度和排水抗剪强度？它们在工程中有什么不同的应用？</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer3')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer3">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>不排水抗剪强度：</strong>在剪切过程中不允许土样排水的条件下测得的抗剪强度，用cu表示，对应的强度指标为不排水内摩擦角φu（通常为0）和粘聚力cu。</p>
+                        <p><strong>排水抗剪强度：</strong>在剪切过程中允许土样充分排水的条件下测得的抗剪强度，对应的强度指标为有效内摩擦角φ'和有效粘聚力c'。</p>
+                        <p><strong>工程应用：</strong></p>
+                        <p><strong>不排水抗剪强度主要应用于：</strong></p>
+                        <ul>
+                            <li>快速施工的短期稳定性分析（如临时边坡、快速加载的地基）</li>
+                            <li>饱和软粘土地基的短期承载力计算</li>
+                            <li>地震作用下的地基液化分析</li>
+                        </ul>
+                        <p><strong>排水抗剪强度主要应用于：</strong></p>
+                        <ul>
+                            <li>长期稳定性分析（如永久性边坡、长期使用的建筑物地基）</li>
+                            <li>正常固结土和超固结土的承载力计算</li>
+                            <li>渗流稳定分析</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 概念题4 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">4. 简述直剪试验和三轴试验的优缺点及适用条件。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer4')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer4">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>直剪试验：</strong></p>
+                        <p><strong>优点：</strong></p>
+                        <ul>
+                            <li>设备简单，操作方便</li>
+                            <li>试样制备容易</li>
+                            <li>测试时间较短</li>
+                            <li>成本较低</li>
+                        </ul>
+                        <p><strong>缺点：</strong></p>
+                        <ul>
+                            <li>剪切面固定，不一定是最弱面</li>
+                            <li>应力状态不均匀</li>
+                            <li>排水条件难以控制</li>
+                            <li>不能测孔隙水压力</li>
+                        </ul>
+                        <p><strong>适用条件：</strong>适用于一般工程勘察和初步设计阶段，尤其适用于渗透性较大的土。</p>
+                        
+                        <p><strong>三轴试验：</strong></p>
+                        <p><strong>优点：</strong></p>
+                        <ul>
+                            <li>应力状态明确，可模拟复杂应力条件</li>
+                            <li>剪切面为最弱面</li>
+                            <li>排水条件可严格控制</li>
+                            <li>可测孔隙水压力</li>
+                            <li>测试结果更可靠</li>
+                        </ul>
+                        <p><strong>缺点：</strong></p>
+                        <ul>
+                            <li>设备复杂，操作技术要求高</li>
+                            <li>试样制备困难</li>
+                            <li>测试时间长</li>
+                            <li>成本较高</li>
+                        </ul>
+                        <p><strong>适用条件：</strong>适用于重要工程、研究工作和复杂地质条件，尤其适用于细粒土和特殊土。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 二、计算题 -->
+            <section class="mb-5">
+                <h2 class="section-title">二、计算题</h2>
+                
+                <!-- 计算题1 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">1. 某粘性土的抗剪强度指标c=20kPa，φ=20°。当作用在土样上的法向应力σ=100kPa时，试计算该土样的抗剪强度τf；当剪应力τ=50kPa时，判断该土样是否会发生剪切破坏。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer5')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer5">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>解：</strong></p>
+                        <p>1. 计算抗剪强度τf：</p>
+                        <p>τf = c + σtanφ = 20 + 100×tan20°</p>
+                        <p>tan20° ≈ 0.3640</p>
+                        <p>τf = 20 + 100×0.3640 = 20 + 36.40 = 56.40 kPa</p>
+                        
+                        <p>2. 判断是否发生剪切破坏：</p>
+                        <p>当剪应力τ=50kPa时，τ &lt; τf（50 &lt; 56.40），所以该土样不会发生剪切破坏。</p>
+                        
+                        <p><strong>答案：</strong>抗剪强度τf=56.40kPa；当剪应力τ=50kPa时，土样不会发生剪切破坏。</p>
+                    </div>
+                </div>
+
+                <!-- 计算题2 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">2. 某地基土为粉质粘土，进行直剪试验，得到四组试验数据如下：</h3>
+                        <table class="table table-sm table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>法向应力σ(kPa)</th>
+                                    <th>剪应力τf(kPa)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>50</td>
+                                    <td>42</td>
+                                </tr>
+                                <tr>
+                                    <td>100</td>
+                                    <td>65</td>
+                                </tr>
+                                <tr>
+                                    <td>150</td>
+                                    <td>88</td>
+                                </tr>
+                                <tr>
+                                    <td>200</td>
+                                    <td>111</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>试通过图解法确定该土的抗剪强度指标c和φ。</p>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer6')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer6">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>解：</strong></p>
+                        <p>根据库伦抗剪强度公式τf = c + σtanφ，通过线性回归分析四组试验数据：</p>
+                        <p>假设τf = a + bσ，其中a = c，b = tanφ</p>
+                        <p>计算线性回归系数：</p>
+                        <p>Σσ = 50 + 100 + 150 + 200 = 500</p>
+                        <p>Στf = 42 + 65 + 88 + 111 = 306</p>
+                        <p>Σσ² = 50² + 100² + 150² + 200² = 2500 + 10000 + 22500 + 40000 = 75000</p>
+                        <p>Σστf = 50×42 + 100×65 + 150×88 + 200×111 = 2100 + 6500 + 13200 + 22200 = 44000</p>
+                        <p>n = 4</p>
+                        <p>斜率b = (nΣστf - ΣσΣτf)/(nΣσ² - (Σσ)²) = (4×44000 - 500×306)/(4×75000 - 500²) = (176000 - 153000)/(300000 - 250000) = 23000/50000 = 0.46</p>
+                        <p>截距a = (Στf - bΣσ)/n = (306 - 0.46×500)/4 = (306 - 230)/4 = 76/4 = 19 kPa</p>
+                        <p>所以，粘聚力c = a = 19 kPa</p>
+                        <p>内摩擦角φ = arctan(b) = arctan(0.46) ≈ 24.7°</p>
+                        <p><strong>答案：</strong>抗剪强度指标c≈19kPa，φ≈24.7°</p>
+                    </div>
+                </div>
+
+                <!-- 计算题3 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">3. 某饱和粘性土进行三轴不固结不排水试验(UU试验)，得到破坏时的轴向应力差(σ1-σ3)=200kPa。试计算该土的不排水抗剪强度cu。若进行三轴固结不排水试验(CU试验)，测得有效内摩擦角φ'=22°，有效粘聚力c'=5kPa，破坏时的孔隙水压力u=80kPa，试计算破坏时的大主应力σ1和小主应力σ3。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer7')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer7">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>解：</strong></p>
+                        <p>1. 计算不排水抗剪强度cu：</p>
+                        <p>对于三轴UU试验，不排水抗剪强度cu = (σ1-σ3)/2 = 200/2 = 100 kPa</p>
+                        
+                        <p>2. 计算CU试验破坏时的大主应力σ1和小主应力σ3：</p>
+                        <p>根据有效应力原理，有效应力σ' = σ - u</p>
+                        <p>破坏时，有效应力满足莫尔-库伦破坏准则：σ1' = σ3'tan²(45°+φ'/2) + 2c'tan(45°+φ'/2)</p>
+                        <p>其中，φ' = 22°，c' = 5 kPa</p>
+                        <p>tan(45°+22°/2) = tan(56°) ≈ 1.4826</p>
+                        <p>tan²(56°) ≈ 2.1981</p>
+                        <p>假设小主应力σ3 = p（围压），则σ3' = σ3 - u = p - 80</p>
+                        <p>σ1' = (p - 80)×2.1981 + 2×5×1.4826 = 2.1981p - 175.848 + 14.826 = 2.1981p - 161.022</p>
+                        <p>又σ1 = σ1' + u = 2.1981p - 161.022 + 80 = 2.1981p - 81.022</p>
+                        <p>轴向应力差σ1 - σ3 = (2.1981p - 81.022) - p = 1.1981p - 81.022</p>
+                        <p>假设围压p = 200 kPa（常见的三轴试验围压），则：</p>
+                        <p>σ1 = 2.1981×200 - 81.022 = 439.62 - 81.022 = 358.598 kPa</p>
+                        <p>σ3 = 200 kPa</p>
+                        <p><strong>答案：</strong>不排水抗剪强度cu=100kPa；破坏时的大主应力σ1≈358.6kPa，小主应力σ3=200kPa（假设围压为200kPa）</p>
+                    </div>
+                </div>
+
+                <!-- 计算题4 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">4. 某土坡高度H=5m，坡角β=30°，土的重度γ=18kN/m³，内摩擦角φ=20°，粘聚力c=10kPa。试计算该土坡的稳定安全系数Fₛ。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer8')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer8">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>解：</strong></p>
+                        <p>采用简单条分法（Fellenius法）计算土坡稳定安全系数：</p>
+                        <p>Fₛ = (抗滑力矩)/(滑动力矩) = (Σ(cΔl + Wcosθtanφ))/ΣWsinθ</p>
+                        <p>对于均质土坡，假设滑动面为圆弧，圆心角为θ，半径为R，则：</p>
+                        <p>简化计算，对于简单土坡，可采用以下公式估算：</p>
+                        <p>Fₛ = (cγH + tanφ)/(tanβ)</p>
+                        <p>其中：c=10kPa，γ=18kN/m³，H=5m，φ=20°，β=30°</p>
+                        <p>tan20°≈0.3640，tan30°≈0.5774</p>
+                        <p>Fₛ = (10×18×5 + 0.3640)/0.5774 （此公式有误，正确计算如下）</p>
+                        <p>正确的简化公式为：Fₛ = (c + γHcos²βtanφ)/(γHsinβcosβ)</p>
+                        <p>计算：</p>
+                        <p>cosβ = cos30°≈0.8660，sinβ=sin30°=0.5</p>
+                        <p>分子：c + γHcos²βtanφ = 10 + 18×5×0.8660²×0.3640 = 10 + 18×5×0.75×0.3640 = 10 + 24.552 = 34.552 kPa</p>
+                        <p>分母：γHsinβcosβ = 18×5×0.5×0.8660 = 39.0 kPa</p>
+                        <p>Fₛ = 34.552/39.0 ≈ 0.886</p>
+                        <p>注：更准确的方法是使用条分法进行计算，但此处采用简化方法进行估算。</p>
+                        <p><strong>答案：</strong>土坡的稳定安全系数Fₛ≈0.89（小于1，土坡不稳定）</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 三、综合分析题 -->
+            <section class="mb-5">
+                <h2 class="section-title">三、综合分析题</h2>
+                
+                <!-- 综合分析题1 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">1. 试分析不同排水条件下土的抗剪强度特性，并说明在工程设计中如何选择合适的抗剪强度指标。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer9')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer9">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>不同排水条件下土的抗剪强度特性：</strong></p>
+                        <ol>
+                            <li><strong>不排水条件（UU试验）：</strong>
+                                <ul>
+                                    <li>剪切过程中孔隙水压力不能消散</li>
+                                    <li>有效应力保持不变</li>
+                                    <li>对于饱和粘性土，不排水内摩擦角φu≈0</li>
+                                    <li>抗剪强度主要由粘聚力cu提供</li>
+                                    <li>抗剪强度随法向应力变化较小</li>
+                                </ul>
+                            </li>
+                            <li><strong>固结不排水条件（CU试验）：</strong>
+                                <ul>
+                                    <li>在围压下完全固结，剪切过程中不排水</li>
+                                    <li>剪切过程中会产生孔隙水压力</li>
+                                    <li>可测得总应力强度指标（cu, φu）和有效应力强度指标（c', φ'）</li>
+                                    <li>抗剪强度随法向应力增加而增加</li>
+                                </ul>
+                            </li>
+                            <li><strong>排水条件（CD试验）：</strong>
+                                <ul>
+                                    <li>剪切过程中孔隙水压力完全消散</li>
+                                    <li>总应力等于有效应力</li>
+                                    <li>测得的是有效应力强度指标（c', φ'）</li>
+                                    <li>抗剪强度随法向应力线性增加</li>
+                                    <li>对于无粘性土，c'≈0，抗剪强度仅由内摩擦力提供</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        <p><strong>工程设计中抗剪强度指标的选择原则：</strong></p>
+                        <ol>
+                            <li><strong>根据加载速率和土的渗透性选择：</strong>
+                                <ul>
+                                    <li>快速加载（如地震、爆破）：采用不排水强度指标</li>
+                                    <li>慢速加载（如建筑物施工）：采用排水强度指标</li>
+                                    <li>透水性大的土（如砂土）：通常采用排水强度指标</li>
+                                    <li>透水性小的土（如粘土）：需根据加载速率选择</li>
+                                </ul>
+                            </li>
+                            <li><strong>根据工程问题的性质选择：</strong>
+                                <ul>
+                                    <li>短期稳定性问题（如临时边坡）：采用不排水强度指标</li>
+                                    <li>长期稳定性问题（如永久性建筑物）：采用排水强度指标</li>
+                                    <li>地基承载力计算：根据荷载性质和时间选择</li>
+                                    <li>边坡稳定分析：考虑施工和使用阶段的不同情况</li>
+                                </ul>
+                            </li>
+                            <li><strong>根据土的类别选择：</strong>
+                                <ul>
+                                    <li>无粘性土：主要考虑内摩擦角φ</li>
+                                    <li>粘性土：同时考虑粘聚力c和内摩擦角φ</li>
+                                    <li>软土：特别注意不排水强度的变化</li>
+                                </ul>
+                            </li>
+                            <li><strong>考虑工程经验和安全系数：</strong>
+                                <ul>
+                                    <li>重要工程：宜采用有效应力强度指标</li>
+                                    <li>可根据类似工程经验调整安全系数</li>
+                                    <li>结合现场测试和室内试验结果综合判断</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- 综合分析题2 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">2. 某基坑工程采用排桩支护，在施工过程中发现支护结构变形过大。试分析可能的原因，并提出相应的处理措施。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer10')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer10">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>可能原因分析：</strong></p>
+                        <ol>
+                            <li><strong>土的抗剪强度指标取值不当：</strong>
+                                <ul>
+                                    <li>勘察数据不准确</li>
+                                    <li>未考虑实际排水条件</li>
+                                    <li>强度指标测试方法不合适</li>
+                                </ul>
+                            </li>
+                            <li><strong>支护结构设计不合理：</strong>
+                                <ul>
+                                    <li>排桩间距过大</li>
+                                    <li>桩径或桩长不足</li>
+                                    <li>支撑系统刚度不够</li>
+                                </ul>
+                            </li>
+                            <li><strong>施工因素：</strong>
+                                <ul>
+                                    <li>开挖速度过快，未分层开挖</li>
+                                    <li>超挖或欠挖</li>
+                                    <li>未及时设置支撑</li>
+                                    <li>桩身施工质量问题</li>
+                                </ul>
+                            </li>
+                            <li><strong>环境因素：</strong>
+                                <ul>
+                                    <li>地下水位变化</li>
+                                    <li>周边建筑物或施工影响</li>
+                                    <li>降雨或振动载荷</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        <p><strong>处理措施：</strong></p>
+                        <ol>
+                            <li><strong>紧急加固措施：</strong>
+                                <ul>
+                                    <li>在排桩内侧增设临时支撑或锚杆</li>
+                                    <li>对变形较大区域进行回填反压</li>
+                                    <li>设置临时降水井，降低地下水位</li>
+                                </ul>
+                            </li>
+                            <li><strong>支护结构加固：</strong>
+                                <ul>
+                                    <li>增加排桩数量或减小桩间距</li>
+                                    <li>增设圈梁或腰梁，增强整体性</li>
+                                    <li>对桩间土进行喷射混凝土护面</li>
+                                </ul>
+                            </li>
+                            <li><strong>调整施工方案：</strong>
+                                <ul>
+                                    <li>放缓开挖速度，严格分层开挖</li>
+                                    <li>加强监测，实行信息化施工</li>
+                                    <li>及时设置支撑，控制无支撑暴露时间</li>
+                                </ul>
+                            </li>
+                            <li><strong>长期处理措施：</strong>
+                                <ul>
+                                    <li>对支护结构进行永久加固</li>
+                                    <li>优化支撑系统布置</li>
+                                    <li>考虑地基处理，提高土的抗剪强度</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 四、工程实践题 -->
+            <section class="mb-5">
+                <h2 class="section-title">四、工程实践题</h2>
+                
+                <!-- 工程实践题1 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">1. 某高速公路路堑边坡高度8m，坡体为粉质粘土，重度γ=19kN/m³，内摩擦角φ=18°，粘聚力c=15kPa。试设计该路堑边坡的合理坡率，并说明如何通过工程措施提高边坡稳定性。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer11')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer11">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>路堑边坡设计方案：</strong></p>
+                        <ol>
+                            <li><strong>确定合理坡率：</strong>
+                                <ul>
+                                    <li>根据土的抗剪强度指标，采用圆弧滑动法计算不同坡率下的稳定安全系数</li>
+                                    <li>对于高速公路路堑，要求稳定安全系数Fₛ≥1.3</li>
+                                    <li>通过计算分析，对于给定条件的粉质粘土，合理坡率约为1:1.5（即β≈33.7°）</li>
+                                </ul>
+                            </li>
+                            <li><strong>分阶设计：</strong>
+                                <ul>
+                                    <li>8m高边坡可分为2阶，每阶高4m，阶宽2m</li>
+                                    <li>每阶边坡坡率均采用1:1.5</li>
+                                    <li>在阶面上设置截水沟，防止雨水冲刷</li>
+                                </ul>
+                            </li>
+                            <li><strong>提高边坡稳定性的工程措施：</strong></li>
+                            <ul>
+                                <li><strong>坡面防护：</strong>
+                                    <ul>
+                                        <li>采用挂网喷射混凝土防护</li>
+                                        <li>铺设三维植被网，种植草皮</li>
+                                        <li>设置浆砌片石护面墙</li>
+                                    </ul>
+                                </li>
+                                <li><strong>排水措施：</strong>
+                                    <ul>
+                                        <li>在边坡顶部设置截水沟</li>
+                                        <li>在边坡体内设置排水孔</li>
+                                        <li>在阶面上设置排水沟</li>
+                                    </ul>
+                                </li>
+                                <li><strong>支挡结构：</strong>
+                                    <ul>
+                                        <li>在边坡底部设置挡土墙</li>
+                                        <li>采用土钉墙或锚杆加固</li>
+                                        <li>设置抗滑桩（如需）</li>
+                                    </ul>
+                                </li>
+                                <li><strong>其他措施：</strong>
+                                    <ul>
+                                        <li>进行边坡监测，设置位移观测点</li>
+                                        <li>控制施工速度，分层开挖</li>
+                                        <li>必要时进行超前支护</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- 工程实践题2 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">2. 某建筑地基为饱和软粘土，厚度10m，不排水抗剪强度cu=30kPa，重度γ=17kN/m³。设计要求地基承载力特征值fₐ≥120kPa。试设计地基处理方案，并计算处理后的地基承载力。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer12')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer12">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>地基处理方案设计：</strong></p>
+                        <ol>
+                            <li><strong>原地基承载力计算：</strong>
+                                <p>对于饱和软粘土，地基承载力特征值fₐ可按以下公式计算：</p>
+                                <p>fₐ = 5.14cu + γd</p>
+                                <p>假设基础埋深d=2m，则：</p>
+                                <p>fₐ = 5.14×30 + 17×2 = 154.2 + 34 = 188.2 kPa</p>
+                                <p>若基础埋深较浅，原地基可能不满足要求，需进行处理。</p>
+                            </li>
+                            <li><strong>地基处理方案：</strong></li>
+                            <ul>
+                                <li><strong>方案一：水泥土搅拌桩复合地基</strong>
+                                    <ul>
+                                        <li>桩径d=500mm，桩长l=8m（穿透软粘土层）</li>
+                                        <li>桩间距s=1.2m，呈等边三角形布置</li>
+                                        <li>置换率m=πd²/(2√3s²)=π×0.5²/(2√3×1.2²)≈0.25</li>
+                                        <li>复合地基承载力特征值fₛₚₖ = m×fₚₖ + (1-m)×fₛₖ</li>
+                                        <li>假设单桩承载力特征值fₚₖ=150kPa，处理后桩间土承载力fₛₖ=80kPa</li>
+                                        <li>fₛₚₖ = 0.25×150 + 0.75×80 = 37.5 + 60 = 97.5 kPa（需调整参数）</li>
+                                        <li>调整桩间距至s=1.0m，置换率m≈0.37</li>
+                                        <li>fₛₚₖ = 0.37×150 + 0.63×80 = 55.5 + 50.4 = 105.9 kPa（仍需调整）</li>
+                                        <li>进一步调整桩长至l=10m，单桩承载力提高至fₚₖ=200kPa</li>
+                                        <li>fₛₚₖ = 0.37×200 + 0.63×80 = 74 + 50.4 = 124.4 kPa（满足要求）</li>
+                                    </ul>
+                                </li>
+                                <li><strong>方案二：预压法处理地基</strong>
+                                    <ul>
+                                        <li>采用真空预压法，预压荷载相当于80kPa</li>
+                                        <li>设置塑料排水板，间距1.0m，深度10m</li>
+                                        <li>预压时间3-4个月</li>
+                                        <li>处理后软粘土的不排水抗剪强度可提高至cu'=cu(1+Δσ/σ'₀)</li>
+                                        <li>假设预压效果良好，cu'=50kPa</li>
+                                        <li>处理后地基承载力fₐ'=5.14×50 + 17×2=257 + 34=291kPa（满足要求）</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <li><strong>推荐方案：</strong>
+                                <p>考虑工期和经济性，推荐采用水泥土搅拌桩复合地基方案，具体参数如下：</p>
+                                <ul>
+                                    <li>桩径：500mm</li>
+                                    <li>桩长：10m</li>
+                                    <li>桩间距：1.0m（等边三角形布置）</li>
+                                    <li>置换率：约37%</li>
+                                    <li>处理后复合地基承载力：≥120kPa</li>
+                                </ul>
+                            </li>
+                            <li><strong>质量检测：</strong>
+                                <ul>
+                                    <li>进行复合地基载荷试验，验证承载力</li>
+                                    <li>检测桩身强度和完整性</li>
+                                    <li>进行沉降观测，确保满足变形要求</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>关于课程</h4>
+                    <p>《土力学》是土木工程专业的核心课程，本网站提供课程相关的教学资源和学习资料。</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>快速链接</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="../index.html#course-info" class="text-white">课程简介</a></li>
+                        <li><a href="../index.html#lectures" class="text-white">授课内容</a></li>
+                        <li><a href="../index.html#materials" class="text-white">教学资料</a></li>
+                        <li><a href="../index.html#exercises" class="text-white">习题与实验</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4>版权信息</h4>
+                    <p>&copy; 2025 岩土教研室土力学教学团队</p>
+                    <p>All rights reserved.</p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- 引入Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- 切换答案显示/隐藏的脚本 -->
+    <script>
+        function toggleAnswer(answerId) {
+            const answerCard = document.getElementById(answerId);
+            const button = answerCard.previousElementSibling.querySelector('button');
+            
+            if (answerCard.style.display === 'none' || answerCard.style.display === '') {
+                answerCard.style.display = 'block';
+                button.innerHTML = '隐藏参考答案 <i class="fas fa-chevron-up ml-1"></i>';
+            } else {
+                answerCard.style.display = 'none';
+                button.innerHTML = '查看参考答案 <i class="fas fa-chevron-down ml-1"></i>';
+            }
+        }
+    </script>
+</body>
+</html>

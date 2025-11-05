@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第2章习题 - 土的渗透性与渗流 - 土力学课程网站</title>
+    <!-- 引入Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- 自定义CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        .exercise-container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .question-card {
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #3498db;
+        }
+        .answer-card {
+            display: none;
+            background-color: #f8f9fa;
+            border-left: 4px solid #28a745;
+        }
+        .toggle-btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .toggle-btn:hover {
+            background-color: #2980b9;
+        }
+        .section-title {
+            color: #2c3e50;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #3498db;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <i class="fas fa-landmark mr-2"></i>土力学
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#course-info">课程简介</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#lectures">授课内容</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#materials">教学资料</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../index.html#exercises">习题与实验</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#resources">参考资源</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#contact">联系我们</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../feedback.html">学生留言</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <header class="jumbotron jumbotron-fluid py-5">
+        <div class="container">
+            <h1 class="display-5">第2章 土的渗透性与渗流 - 习题</h1>
+            <p class="lead">通过练习题巩固土的渗透性与渗流的基本概念和计算方法</p>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <div class="exercise-container">
+            <!-- 习题说明 -->
+            <div class="mb-5">
+                <h2 class="section-title">习题说明</h2>
+                <p>本章习题涵盖土的渗透性基本概念、达西定律、渗透系数测定、二维渗流与流网分析及渗透破坏等内容。通过这些习题，你将掌握土的渗透性计算和工程应用方法。</p>
+            </div>
+
+            <!-- 一、概念题 -->
+            <section class="mb-5">
+                <h2 class="section-title">一、概念题</h2>
+                
+                <!-- 概念题1 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">1. 什么是土的渗透性？影响土的渗透性的主要因素有哪些？</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer1')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer1">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>土的渗透性：</strong>土具有被水等液体透过的性质称为土的渗透性。</p>
+                        <p><strong>影响因素：</strong></p>
+                        <ul>
+                            <li>土的粒度成分与矿物成分：颗粒越粗、不均匀系数越大，渗透性越好</li>
+                            <li>土的密度：土越密实，渗透性越小</li>
+                            <li>土的饱和度：饱和度高时，渗透性大</li>
+                            <li>水的粘滞性：水温越高，粘滞性越小，渗透性越大</li>
+                            <li>土的结构：扰动土的渗透性与原状土不同</li>
+                            <li>应力状态：应力增大，孔隙减小，渗透性降低</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 概念题2 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">2. 简述达西定律的基本内容及其适用条件。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer2')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer2">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>达西定律基本内容：</strong>水在土中的渗流速度与水力梯度成正比。表达式为：v = k*i，其中v为渗流速度，k为渗透系数，i为水力梯度。</p>
+                        <p><strong>适用条件：</strong></p>
+                        <ul>
+                            <li>适用于层流状态的渗流</li>
+                            <li>对于砂土，当雷诺数Re < 1时适用</li>
+                            <li>对于粘土，由于结合水的存在，达西定律需要修正</li>
+                            <li>不适用于强透水的粗颗粒土中的紊流状态</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 概念题3 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">3. 什么是流网？流网有哪些特性？</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer3')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer3">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>流网：</strong>在稳定渗流场中，由一组流线和一组等势线相交组成的网格称为流网。</p>
+                        <p><strong>流网特性：</strong></p>
+                        <ul>
+                            <li>流线与等势线相互垂直</li>
+                            <li>相邻两条流线之间的渗流量相等</li>
+                            <li>相邻两条等势线之间的水头损失相等</li>
+                            <li>流网网格的形状取决于边界条件</li>
+                            <li>在各向同性介质中，流网为正交网格</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 概念题4 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">4. 什么是渗透破坏？渗透破坏的主要形式有哪些？</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer4')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer4">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>渗透破坏：</strong>在渗透水流的作用下，土体中的颗粒发生移动，甚至整体发生滑动，导致地基失稳的现象称为渗透破坏。</p>
+                        <p><strong>主要形式：</strong></p>
+                        <ul>
+                            <li>流土：在向上的渗透水流作用下，表层土局部范围内的土颗粒同时发生悬浮、移动的现象</li>
+                            <li>管涌：在渗透水流作用下，土中的细颗粒在粗颗粒形成的孔隙通道中发生移动、流失的现象</li>
+                            <li>接触冲刷：在两种不同粒径土层的接触面处，细颗粒被冲刷带出土体的现象</li>
+                            <li>接触流失：在两种不同粒径土层的接触面处，细颗粒通过粗颗粒的孔隙流失的现象</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 二、计算题 -->
+            <section class="mb-5">
+                <h2 class="section-title">二、计算题</h2>
+                
+                <!-- 计算题1 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">1. 某常水头渗透试验，土样高度为20cm，截面积为30cm²，试验水头为40cm，经过6分钟后，流出的水量为120cm³。已知土样的饱和度Sr=100%，孔隙比e=0.6，求该土样的渗透系数k。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer5')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer5">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>解：</strong></p>
+                        <p>根据常水头渗透试验计算公式：</p>
+                        <p>k = (Q·L)/(A·h·t)</p>
+                        <p>其中：</p>
+                        <ul>
+                            <li>Q = 120cm³</li>
+                            <li>L = 20cm</li>
+                            <li>A = 30cm²</li>
+                            <li>h = 40cm</li>
+                            <li>t = 6分钟 = 360秒</li>
+                        </ul>
+                        <p>代入公式：</p>
+                        <p>k = (120 × 20)/(30 × 40 × 360) = 2400/432000 = 0.00556 cm/s = 5.56 × 10⁻³ cm/s</p>
+                        <p><strong>答案：</strong>渗透系数k = 5.56 × 10⁻³ cm/s</p>
+                    </div>
+                </div>
+
+                <!-- 计算题2 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">2. 某变水头渗透试验，土样高度为15cm，截面积为20cm²，变水头管的截面积为0.5cm²。初始水头h₁=100cm，经过20分钟后，水头降至h₂=60cm。求该土样的渗透系数k。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer6')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer6">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>解：</strong></p>
+                        <p>根据变水头渗透试验计算公式：</p>
+                        <p>k = (2.3aL)/(A(t₂-t₁)) × lg(h₁/h₂)</p>
+                        <p>其中：</p>
+                        <ul>
+                            <li>a = 0.5cm²</li>
+                            <li>L = 15cm</li>
+                            <li>A = 20cm²</li>
+                            <li>t₂-t₁ = 20分钟 = 1200秒</li>
+                            <li>h₁ = 100cm</li>
+                            <li>h₂ = 60cm</li>
+                        </ul>
+                        <p>代入公式：</p>
+                        <p>k = (2.3 × 0.5 × 15)/(20 × 1200) × lg(100/60)</p>
+                        <p>k = (17.25)/(24000) × lg(1.6667)</p>
+                        <p>k = 0.00071875 × 0.2218</p>
+                        <p>k = 1.59 × 10⁻⁴ cm/s</p>
+                        <p><strong>答案：</strong>渗透系数k = 1.59 × 10⁻⁴ cm/s</p>
+                    </div>
+                </div>
+
+                <!-- 计算题3 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">3. 有一均质土坝，坝长L=100m，坝高H=20m，上游水深h₁=18m，下游水深h₂=2m，土的渗透系数k=5×10⁻⁴ cm/s。试用杜比公式计算通过坝体的渗透流量q。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer7')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer7">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>解：</strong></p>
+                        <p>对于均质土坝，可用杜比公式计算渗流量：</p>
+                        <p>q = k × (h₁² - h₂²)/(2L) × B</p>
+                        <p>其中：</p>
+                        <ul>
+                            <li>k = 5×10⁻⁴ cm/s = 5×10⁻⁶ m/s</li>
+                            <li>h₁ = 18m</li>
+                            <li>h₂ = 2m</li>
+                            <li>L = 100m</li>
+                            <li>B = 坝长 = 100m</li>
+                        </ul>
+                        <p>代入公式：</p>
+                        <p>q = 5×10⁻⁶ × (18² - 2²)/(2×100) × 100</p>
+                        <p>q = 5×10⁻⁶ × (324 - 4)/200 × 100</p>
+                        <p>q = 5×10⁻⁶ × 320/200 × 100</p>
+                        <p>q = 5×10⁻⁶ × 160</p>
+                        <p>q = 8×10⁻⁴ m³/s</p>
+                        <p><strong>答案：</strong>渗透流量q = 8×10⁻⁴ m³/s</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 三、综合分析题 -->
+            <section class="mb-5">
+                <h2 class="section-title">三、综合分析题</h2>
+                
+                <!-- 综合分析题1 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">1. 试分析影响渗透系数测定结果的因素，并说明如何提高测定的准确性。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer8')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer8">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>影响因素：</strong></p>
+                        <ol>
+                            <li><strong>试验装置因素：</strong>
+                                <ul>
+                                    <li>土样尺寸和形状的准确性</li>
+                                    <li>装置的密封性</li>
+                                    <li>测量仪器的精度</li>
+                                </ul>
+                            </li>
+                            <li><strong>土样因素：</strong>
+                                <ul>
+                                    <li>土样的扰动程度</li>
+                                    <li>土样的均匀性</li>
+                                    <li>土样的饱和度</li>
+                                </ul>
+                            </li>
+                            <li><strong>试验条件因素：</strong>
+                                <ul>
+                                    <li>水温的变化</li>
+                                    <li>水头的稳定性</li>
+                                    <li>渗流时间的长短</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        <p><strong>提高准确性的措施：</strong></p>
+                        <ol>
+                            <li>严格控制土样制备过程，减少扰动</li>
+                            <li>确保试验装置的密封性和精度</li>
+                            <li>保持试验过程中水温的稳定</li>
+                            <li>进行多次平行试验，取平均值</li>
+                            <li>对于粘性土，充分饱和土样</li>
+                            <li>选择合适的试验方法（常水头或变水头）</li>
+                            <li>按照规范要求进行操作和数据处理</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- 综合分析题2 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">2. 某基坑工程采用板桩支护，在施工过程中发现坑底出现隆起现象。试分析可能的原因，并提出相应的防治措施。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer9')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer9">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>可能原因：</strong></p>
+                        <ol>
+                            <li><strong>渗透破坏：</strong>
+                                <ul>
+                                    <li>当坑底以下存在承压水层时，向上的渗透力可能导致坑底土发生流土破坏</li>
+                                    <li>板桩插入深度不足，地下水绕过板桩底部进入基坑</li>
+                                </ul>
+                            </li>
+                            <li><strong>支护结构位移：</strong>
+                                <ul>
+                                    <li>板桩强度或刚度不足，产生过大变形</li>
+                                    <li>支撑系统设置不当或失效</li>
+                                </ul>
+                            </li>
+                            <li><strong>土压力作用：</strong>
+                                <ul>
+                                    <li>被动土压力不足，无法抵抗主动土压力</li>
+                                    <li>施工过程中扰动了坑底土，降低了土的强度</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        <p><strong>防治措施：</strong></p>
+                        <ol>
+                            <li><strong>控制渗透：</strong>
+                                <ul>
+                                    <li>增加板桩插入深度，确保进入不透水层</li>
+                                    <li>设置降压井，降低承压水水头</li>
+                                    <li>在坑底设置反滤层，防止细颗粒流失</li>
+                                </ul>
+                            </li>
+                            <li><strong>加强支护：</strong>
+                                <ul>
+                                    <li>增加板桩的刚度和强度</li>
+                                    <li>合理设置支撑系统，控制变形</li>
+                                    <li>采用预应力支撑，提高支护效果</li>
+                                </ul>
+                            </li>
+                            <li><strong>地基处理：</strong>
+                                <ul>
+                                    <li>对坑底土进行加固处理（如注浆、搅拌桩等）</li>
+                                    <li>控制施工速度，减少对地基的扰动</li>
+                                    <li>设置应急措施，如备用排水设备等</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 四、工程实践题 -->
+            <section class="mb-5">
+                <h2 class="section-title">四、工程实践题</h2>
+                
+                <!-- 工程实践题1 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">1. 在某水利工程中，需要确定地基土的渗透系数。现场土层为粉质粘土，试设计一个现场渗透试验方案，并说明试验中的注意事项。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer10')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer10">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>试验方案设计：</strong></p>
+                        <p>对于粉质粘土，建议采用现场钻孔压水试验或抽水试验。以下是钻孔压水试验方案：</p>
+                        <ol>
+                            <li><strong>试验准备：</strong>
+                                <ul>
+                                    <li>选择代表性试验地点</li>
+                                    <li>准备试验设备：钻机、压水设备、流量计、压力计等</li>
+                                    <li>测量地下水位</li>
+                                </ul>
+                            </li>
+                            <li><strong>试验步骤：</strong>
+                                <ul>
+                                    <li>钻孔至预定深度，清除孔底残渣</li>
+                                    <li>安装试验段隔离装置（如栓塞）</li>
+                                    <li>进行洗孔，确保孔壁干净</li>
+                                    <li>分级施加压力（一般3-5级）</li>
+                                    <li>每级压力下记录稳定流量</li>
+                                    <li>整理试验数据</li>
+                                </ul>
+                            </li>
+                            <li><strong>数据处理：</strong>
+                                <ul>
+                                    <li>绘制压力-流量关系曲线</li>
+                                    <li>计算渗透系数k = Q/(2πLH) × ln(R/r)</li>
+                                    <li>其中：Q为流量，L为试验段长度，H为总水头，R为影响半径，r为钻孔半径</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        <p><strong>注意事项：</strong></p>
+                        <ol>
+                            <li>试验前必须充分洗孔，去除孔壁泥皮</li>
+                            <li>确保栓塞密封良好，防止串水</li>
+                            <li>每级压力下必须达到稳定状态（流量变化小于5%）</li>
+                            <li>记录试验过程中的水温，必要时进行温度修正</li>
+                            <li>试验结束后，应恢复地下水位</li>
+                            <li>对于重要工程，应进行多个试验点，取平均值</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- 工程实践题2 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">2. 某建筑场地地基为粉土，地下水位埋深2m，拟采用天然地基方案。试分析该场地可能存在的渗透问题，并提出相应的工程处理措施。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer11')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer11">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>可能存在的渗透问题：</strong></p>
+                        <ol>
+                            <li><strong>流土风险：</strong>
+                                <ul>
+                                    <li>粉土的渗透性中等，在动水压力作用下容易发生流土</li>
+                                    <li>当地下水位上升或地基受扰动时，可能导致地基失稳</li>
+                                </ul>
+                            </li>
+                            <li><strong>不均匀沉降：</strong>
+                                <ul>
+                                    <li>粉土地基在水的作用下，压缩性可能发生变化</li>
+                                    <li>长期渗流可能导致地基土的不均匀变形</li>
+                                </ul>
+                            </li>
+                            <li><strong>冻胀问题：</strong>
+                                <ul>
+                                    <li>粉土在季节性冻土地区，由于毛细管作用，容易发生冻胀</li>
+                                </ul>
+                            </li>
+                            <li><strong>液化风险：</strong>
+                                <ul>
+                                    <li>饱和粉土在地震作用下可能发生液化</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        <p><strong>工程处理措施：</strong></p>
+                        <ol>
+                            <li><strong>地基处理：</strong>
+                                <ul>
+                                    <li>采用换填法，将表层粉土换填为渗透性好的粗颗粒土</li>
+                                    <li>进行强夯处理，提高地基土的密实度和承载力</li>
+                                    <li>采用水泥土搅拌桩等复合地基方法</li>
+                                </ul>
+                            </li>
+                            <li><strong>排水措施：</strong>
+                                <ul>
+                                    <li>设置地表排水系统，防止雨水渗入地基</li>
+                                    <li>在基础周围设置盲沟，降低地下水位</li>
+                                    <li>考虑采用井点降水，控制施工期间的地下水位</li>
+                                </ul>
+                            </li>
+                            <li><strong>防渗措施：</strong>
+                                <ul>
+                                    <li>在基础底面设置防渗层</li>
+                                    <li>对地基土进行化学加固，提高其抗渗性能</li>
+                                </ul>
+                            </li>
+                            <li><strong>结构措施：</strong>
+                                <ul>
+                                    <li>采用筏板基础或箱形基础，减少不均匀沉降</li>
+                                    <li>设置沉降缝，避免应力集中</li>
+                                    <li>在地震区，考虑设置抗震构造措施</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>关于课程</h4>
+                    <p>《土力学》是土木工程专业的核心课程，本网站提供课程相关的教学资源和学习资料。</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>快速链接</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="../index.html#course-info" class="text-white">课程简介</a></li>
+                        <li><a href="../index.html#lectures" class="text-white">授课内容</a></li>
+                        <li><a href="../index.html#materials" class="text-white">教学资料</a></li>
+                        <li><a href="../index.html#exercises" class="text-white">习题与实验</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4>版权信息</h4>
+                    <p>&copy; 2025 岩土教研室土力学教学团队</p>
+                    <p>All rights reserved.</p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- 引入Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- 切换答案显示/隐藏的脚本 -->
+    <script>
+        function toggleAnswer(answerId) {
+            const answerCard = document.getElementById(answerId);
+            const button = answerCard.previousElementSibling.querySelector('button');
+            
+            if (answerCard.style.display === 'none' || answerCard.style.display === '') {
+                answerCard.style.display = 'block';
+                button.innerHTML = '隐藏参考答案 <i class="fas fa-chevron-up ml-1"></i>';
+            } else {
+                answerCard.style.display = 'none';
+                button.innerHTML = '查看参考答案 <i class="fas fa-chevron-down ml-1"></i>';
+            }
+        }
+    </script>
+</body>
+</html>

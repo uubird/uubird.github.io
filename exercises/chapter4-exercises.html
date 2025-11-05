@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第4章习题 - 土的压缩性与地基沉降 - 土力学课程网站</title>
+    <!-- 引入Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- 自定义CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        .exercise-container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .question-card {
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #3498db;
+        }
+        .answer-card {
+            display: none;
+            background-color: #f8f9fa;
+            border-left: 4px solid #28a745;
+        }
+        .toggle-btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .toggle-btn:hover {
+            background-color: #2980b9;
+        }
+        .section-title {
+            color: #2c3e50;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #3498db;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <i class="fas fa-landmark mr-2"></i>土力学
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#course-info">课程简介</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#lectures">授课内容</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#materials">教学资料</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../index.html#exercises">习题与实验</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#resources">参考资源</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#contact">联系我们</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../feedback.html">学生留言</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <header class="jumbotron jumbotron-fluid py-5">
+        <div class="container">
+            <h1 class="display-5">第4章 土的压缩性与地基沉降 - 习题</h1>
+            <p class="lead">通过练习题掌握土的压缩性指标和地基沉降计算方法</p>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <div class="exercise-container">
+            <!-- 习题说明 -->
+            <div class="mb-5">
+                <h2 class="section-title">习题说明</h2>
+                <p>本章习题涵盖土的压缩性指标、地基最终沉降计算、地基沉降与时间关系等内容。通过这些习题，你将掌握地基沉降的计算方法和工程应用。</p>
+            </div>
+
+            <!-- 一、概念题 -->
+            <section class="mb-5">
+                <h2 class="section-title">一、概念题</h2>
+                
+                <!-- 概念题1 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">1. 什么是土的压缩性？土的压缩性指标有哪些？</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer1')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer1">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>土的压缩性：</strong>土在压力作用下体积减小的特性称为土的压缩性。</p>
+                        <p><strong>主要压缩性指标：</strong></p>
+                        <ul>
+                            <li><strong>压缩系数a：</strong>土在侧限条件下，压力变化量与相应的孔隙比变化量的比值</li>
+                            <li><strong>压缩指数C₁：</strong>e-logp曲线中，直线段的斜率</li>
+                            <li><strong>压缩模量Eₛ：</strong>土在侧限条件下，竖向应力与竖向应变的比值</li>
+                            <li><strong>体积压缩系数mᵥ：</strong>土在侧限条件下，单位压力变化引起的体积应变</li>
+                            <li><strong>回弹指数Cᵣ：</strong>土在卸载过程中，e-logp曲线中直线段的斜率</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 概念题2 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">2. 简述分层总和法计算地基最终沉降量的基本步骤。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer2')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer2">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>分层总和法计算地基最终沉降量的基本步骤：</strong></p>
+                        <ol>
+                            <li>选择沉降计算点的位置，计算基底压力和基底附加压力</li>
+                            <li>确定地基压缩层厚度（一般取附加应力等于自重应力的20%处）</li>
+                            <li>将压缩层厚度范围内的地基土分层，每层厚度一般不超过0.4倍基础宽度</li>
+                            <li>计算各分层土的自重应力平均值和附加应力平均值</li>
+                            <li>确定各分层土的压缩性指标（如压缩模量Eₛ）</li>
+                            <li>计算各分层土的压缩量Δsᵢ = (σₛᵢ + σₚᵢ)/(2Eₛᵢ) × hᵢ</li>
+                            <li>将各分层的压缩量相加，得到地基最终沉降量s = ΣΔsᵢ</li>
+                            <li>根据工程经验，乘以沉降计算经验系数ψₛ，得到修正后的沉降量</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- 概念题3 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">3. 什么是土的固结？简述太沙基一维固结理论的基本假设。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer3')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer3">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>土的固结：</strong>饱和土在附加应力作用下，孔隙水逐渐排出，孔隙体积减小，土骨架逐渐承担荷载的过程称为土的固结。</p>
+                        <p><strong>太沙基一维固结理论的基本假设：</strong></p>
+                        <ul>
+                            <li>土是均质、各向同性的饱和土</li>
+                            <li>土的压缩是一维的（竖向压缩）</li>
+                            <li>土的孔隙水渗流服从达西定律</li>
+                            <li>土颗粒和水是不可压缩的</li>
+                            <li>在固结过程中，土的渗透系数k和压缩系数a保持不变</li>
+                            <li>外荷载是一次瞬时施加的</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 概念题4 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">4. 什么是先期固结压力？它对地基沉降计算有什么影响？</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer4')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer4">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>先期固结压力：</strong>土在历史上曾经受到过的最大有效应力称为先期固结压力，用pₑ表示。</p>
+                        <p><strong>对地基沉降计算的影响：</strong></p>
+                        <ul>
+                            <li>根据先期固结压力与当前有效应力的关系，土可分为正常固结土、超固结土和欠固结土</li>
+                            <li>不同固结状态的土具有不同的压缩特性，需要采用不同的压缩性指标</li>
+                            <li>超固结土的压缩性低于正常固结土，欠固结土的压缩性高于正常固结土</li>
+                            <li>在沉降计算中，需要根据土的固结状态选择合适的压缩曲线段</li>
+                            <li>对于超固结土，当附加应力小于超固结压力与当前有效应力之差时，应使用回弹曲线计算</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 二、计算题 -->
+            <section class="mb-5">
+                <h2 class="section-title">二、计算题</h2>
+                
+                <!-- 计算题1 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">1. 某土样的压缩试验数据如下：当压力p=100kPa时，孔隙比e=0.85；当p=200kPa时，孔隙比e=0.81；当p=300kPa时，孔隙比e=0.78；当p=400kPa时，孔隙比e=0.76。试计算该土样的压缩系数a₁-₂和压缩模量Eₛ₁-₂。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer5')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer5">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>解：</strong></p>
+                        <p>计算压缩系数a₁-₂：</p>
+                        <p>a₁-₂ = (e₁ - e₂)/(p₂ - p₁) = (0.85 - 0.81)/(200 - 100) = 0.04/100 = 0.0004 MPa⁻¹</p>
+                        <p>计算压缩模量Eₛ₁-₂：</p>
+                        <p>Eₛ₁-₂ = (1 + e₁)/a₁-₂ = (1 + 0.85)/0.0004 = 1.85/0.0004 = 4625 kPa = 4.625 MPa</p>
+                        <p><strong>答案：</strong>压缩系数a₁-₂ = 0.0004 MPa⁻¹，压缩模量Eₛ₁-₂ = 4.625 MPa</p>
+                    </div>
+                </div>
+
+                <!-- 计算题2 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">2. 某矩形基础底面尺寸为3m×4m，埋深2m，地基土为粉质粘土，压缩模量Eₛ=5MPa，重度γ=18kN/m³。作用在基础顶面的竖向荷载为3000kN。试按分层总和法计算地基最终沉降量（取压缩层厚度为基础宽度的2倍）。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer6')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer6">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>解：</strong></p>
+                        <p>1. 计算基底压力和基底附加压力：</p>
+                        <p>基底面积A = 3m × 4m = 12m²</p>
+                        <p>基础及回填土自重G = 20×12×2 = 480 kN</p>
+                        <p>基底压力p = (F + G)/A = (3000 + 480)/12 = 3480/12 = 290 kPa</p>
+                        <p>基底附加压力p₀ = p - γ₀d = 290 - 18×2 = 290 - 36 = 254 kPa</p>
+                        
+                        <p>2. 确定压缩层厚度：取基础宽度的2倍，即zₙ = 2×3 = 6m</p>
+                        
+                        <p>3. 分层计算（每层厚度取1.5m）：</p>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>分层</th>
+                                    <th>深度范围(m)</th>
+                                    <th>层厚hᵢ(m)</th>
+                                    <th>自重应力σₛᵢ(kPa)</th>
+                                    <th>附加应力σₚᵢ(kPa)</th>
+                                    <th>平均应力(kPa)</th>
+                                    <th>压缩量Δsᵢ(mm)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>2-3.5</td>
+                                    <td>1.5</td>
+                                    <td>(2×18 + 3.5×18)/2 = 49.5</td>
+                                    <td>254×0.8 = 203.2</td>
+                                    <td>(49.5 + 203.2)/2 = 126.35</td>
+                                    <td>(126.35/5000)×1500 = 37.9</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>3.5-5.0</td>
+                                    <td>1.5</td>
+                                    <td>(3.5×18 + 5×18)/2 = 76.5</td>
+                                    <td>254×0.4 = 101.6</td>
+                                    <td>(76.5 + 101.6)/2 = 89.05</td>
+                                    <td>(89.05/5000)×1500 = 26.7</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>5.0-6.5</td>
+                                    <td>1.5</td>
+                                    <td>(5×18 + 6.5×18)/2 = 103.5</td>
+                                    <td>254×0.2 = 50.8</td>
+                                    <td>(103.5 + 50.8)/2 = 77.15</td>
+                                    <td>(77.15/5000)×1500 = 23.1</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <p>4. 计算地基最终沉降量：</p>
+                        <p>s = ΣΔsᵢ = 37.9 + 26.7 + 23.1 = 87.7 mm</p>
+                        <p><strong>答案：</strong>地基最终沉降量约为87.7 mm</p>
+                    </div>
+                </div>
+
+                <!-- 计算题3 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">3. 某饱和粘性土地基，厚度10m，初始孔隙比e₀=0.8，压缩系数a=0.0004 MPa⁻¹，渗透系数k=1×10⁻⁸ cm/s。地面上作用大面积均布荷载p=100kPa。试计算：(1) 地基的最终沉降量；(2) 加荷1年后的固结度；(3) 加荷1年后的沉降量。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer7')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer7">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>解：</strong></p>
+                        <p>(1) 计算地基的最终沉降量：</p>
+                        <p>s = (a/(1 + e₀)) × p × H</p>
+                        <p>其中：a = 0.0004 MPa⁻¹ = 0.0004×10⁻³ kPa⁻¹ = 4×10⁻⁷ kPa⁻¹</p>
+                        <p>e₀ = 0.8，p = 100 kPa，H = 10 m = 10000 mm</p>
+                        <p>s = (4×10⁻⁷/(1 + 0.8)) × 100 × 10000 = (4×10⁻⁷/1.8) × 1000000 = 0.000222 × 1000000 = 222 mm</p>
+                        
+                        <p>(2) 计算加荷1年后的固结度：</p>
+                        <p>固结系数Cᵥ = k(1 + e₀)/(aγw)</p>
+                        <p>其中：k = 1×10⁻⁸ cm/s = 1×10⁻¹⁰ m/s</p>
+                        <p>γw = 10 kN/m³</p>
+                        <p>Cᵥ = 1×10⁻¹⁰×(1 + 0.8)/(4×10⁻⁷×10) = 1×10⁻¹⁰×1.8/(4×10⁻⁶) = 4.5×10⁻⁵ m²/s</p>
+                        <p>时间因数Tᵥ = Cᵥt/H²</p>
+                        <p>其中：t = 1年 = 365×24×3600 = 31536000 s</p>
+                        <p>H = 10m（双面排水）或5m（单面排水，假设为单面排水）</p>
+                        <p>假设为单面排水，H = 5m</p>
+                        <p>Tᵥ = 4.5×10⁻⁵×31536000/(5²) = 4.5×10⁻⁵×31536000/25 = 56.765</p>
+                        <p>对于单面排水，当Tᵥ > 0.1时，固结度U ≈ 1 - 0.81e^(-π²Tᵥ/4)</p>
+                        <p>由于Tᵥ很大，U ≈ 100%</p>
+                        
+                        <p>(3) 加荷1年后的沉降量：</p>
+                        <p>sₜ = U×s = 100%×222 = 222 mm</p>
+                        
+                        <p><strong>答案：</strong></p>
+                        <p>(1) 地基的最终沉降量为222 mm</p>
+                        <p>(2) 加荷1年后的固结度约为100%</p>
+                        <p>(3) 加荷1年后的沉降量约为222 mm</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 三、综合分析题 -->
+            <section class="mb-5">
+                <h2 class="section-title">三、综合分析题</h2>
+                
+                <!-- 综合分析题1 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">1. 试分析影响地基沉降的主要因素，并说明在工程设计中如何减小地基沉降。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer8')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer8">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>影响地基沉降的主要因素：</strong></p>
+                        <ol>
+                            <li><strong>地基土性质：</strong>
+                                <ul>
+                                    <li>土的压缩性：压缩系数、压缩指数等</li>
+                                    <li>土的渗透性：影响固结速度</li>
+                                    <li>土的应力历史：先期固结压力</li>
+                                </ul>
+                            </li>
+                            <li><strong>荷载因素：</strong>
+                                <ul>
+                                    <li>荷载大小：直接影响附加应力</li>
+                                    <li>荷载分布：均匀荷载与不均匀荷载</li>
+                                    <li>荷载施加速率：影响土的固结过程</li>
+                                </ul>
+                            </li>
+                            <li><strong>基础条件：</strong>
+                                <ul>
+                                    <li>基础形式：条形基础、独立基础、筏板基础等</li>
+                                    <li>基础尺寸：影响附加应力分布</li>
+                                    <li>基础埋深：影响基底附加压力</li>
+                                </ul>
+                            </li>
+                            <li><strong>地质条件：</strong>
+                                <ul>
+                                    <li>地基土层分布：均匀性、厚度等</li>
+                                    <li>地下水位：影响土的有效应力</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        <p><strong>减小地基沉降的措施：</strong></p>
+                        <ol>
+                            <li><strong>地基处理：</strong>
+                                <ul>
+                                    <li>采用换填法、强夯法、挤密法等</li>
+                                    <li>使用桩基础或复合地基</li>
+                                    <li>进行预压处理（堆载预压、真空预压）</li>
+                                </ul>
+                            </li>
+                            <li><strong>结构措施：</strong>
+                                <ul>
+                                    <li>增大基础底面积，减小基底压力</li>
+                                    <li>采用刚度较大的基础形式（如筏板基础、箱形基础）</li>
+                                    <li>设置沉降缝，避免不均匀沉降</li>
+                                </ul>
+                            </li>
+                            <li><strong>施工措施：</strong>
+                                <ul>
+                                    <li>控制施工速度，避免快速加载</li>
+                                    <li>合理安排施工顺序</li>
+                                    <li>加强监测，及时调整施工方案</li>
+                                </ul>
+                            </li>
+                            <li><strong>其他措施：</strong>
+                                <ul>
+                                    <li>控制地下水位</li>
+                                    <li>选择合适的建筑场地</li>
+                                    <li>预留沉降量</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- 综合分析题2 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">2. 某建筑物建成后，发现地基沉降超过了设计允许值。试分析可能的原因，并提出相应的处理方案。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer9')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer9">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>可能原因：</strong></p>
+                        <ol>
+                            <li><strong>勘察资料不准确：</strong>
+                                <ul>
+                                    <li>地质勘察深度不足</li>
+                                    <li>未发现软弱下卧层</li>
+                                    <li>土的物理力学指标测试不准确</li>
+                                </ul>
+                            </li>
+                            <li><strong>设计计算误差：</strong>
+                                <ul>
+                                    <li>未考虑实际荷载情况</li>
+                                    <li>沉降计算方法选择不当</li>
+                                    <li>沉降计算经验系数取值不合理</li>
+                                </ul>
+                            </li>
+                            <li><strong>施工质量问题：</strong>
+                                <ul>
+                                    <li>地基处理未达到设计要求</li>
+                                    <li>基础施工质量不合格</li>
+                                    <li>超挖超填现象</li>
+                                </ul>
+                            </li>
+                            <li><strong>使用条件变化：</strong>
+                                <ul>
+                                    <li>实际荷载超过设计荷载</li>
+                                    <li>地下水位变化</li>
+                                    <li>周边环境影响（如相邻建筑施工）</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        <p><strong>处理方案：</strong></p>
+                        <ol>
+                            <li><strong>加固地基：</strong>
+                                <ul>
+                                    <li>采用注浆加固地基</li>
+                                    <li>设置地基加固桩（如微型桩、静压桩等）</li>
+                                    <li>进行地基托换处理</li>
+                                </ul>
+                            </li>
+                            <li><strong>加强上部结构：</strong>
+                                <ul>
+                                    <li>增设圈梁、构造柱</li>
+                                    <li>加固梁、板、柱等承重构件</li>
+                                    <li>采用预应力技术</li>
+                                </ul>
+                            </li>
+                            <li><strong>调整使用条件：</strong>
+                                <ul>
+                                    <li>限制建筑物使用荷载</li>
+                                    <li>控制不均匀荷载</li>
+                                    <li>设置沉降观测点，加强监测</li>
+                                </ul>
+                            </li>
+                            <li><strong>应急处理：</strong>
+                                <ul>
+                                    <li>对于严重沉降，可能需要部分拆除重建</li>
+                                    <li>设置临时支撑</li>
+                                    <li>进行基础纠偏</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 四、工程实践题 -->
+            <section class="mb-5">
+                <h2 class="section-title">四、工程实践题</h2>
+                
+                <!-- 工程实践题1 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">1. 某高层建筑场地地基土层分布为：0-5m为杂填土，5-15m为淤泥质粘土（Eₛ=3MPa），15-25m为粉质粘土（Eₛ=8MPa），25m以下为基岩。建筑物高度80m，采用筏板基础，基础埋深6m。试设计一个地基沉降计算方案，并提出减小地基沉降的工程措施。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer10')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer10">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>地基沉降计算方案：</strong></p>
+                        <ol>
+                            <li><strong>确定计算参数：</strong>
+                                <ul>
+                                    <li>收集建筑物荷载资料，计算基底压力</li>
+                                    <li>进行详细的工程地质勘察，获取各层土的压缩性指标</li>
+                                    <li>确定地基压缩层厚度（考虑应力扩散，计算至基岩顶面）</li>
+                                </ul>
+                            </li>
+                            <li><strong>选择计算方法：</strong>
+                                <ul>
+                                    <li>采用分层总和法计算最终沉降量</li>
+                                    <li>考虑应力历史，区分正常固结土和超固结土</li>
+                                    <li>使用沉降计算经验系数进行修正</li>
+                                </ul>
+                            </li>
+                            <li><strong>计算地基沉降与时间关系：</strong>
+                                <ul>
+                                    <li>采用太沙基一维固结理论计算沉降随时间的发展</li>
+                                    <li>预测建筑物施工期间和使用期间的沉降</li>
+                                </ul>
+                            </li>
+                            <li><strong>验证计算结果：</strong>
+                                <ul>
+                                    <li>与类似工程经验进行对比</li>
+                                    <li>考虑相邻建筑物的影响</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        <p><strong>减小地基沉降的工程措施：</strong></p>
+                        <ol>
+                            <li><strong>地基处理：</strong>
+                                <ul>
+                                    <li>采用桩基础，将荷载传递到深层粉质粘土层或基岩</li>
+                                    <li>对于淤泥质粘土层，可考虑进行预压处理</li>
+                                    <li>采用水泥土搅拌桩等复合地基</li>
+                                </ul>
+                            </li>
+                            <li><strong>基础设计：</strong>
+                                <ul>
+                                    <li>增大筏板基础的刚度</li>
+                                    <li>合理布置筏板厚度，加强整体性</li>
+                                    <li>设置沉降后浇带</li>
+                                </ul>
+                            </li>
+                            <li><strong>结构措施：</strong>
+                                <ul>
+                                    <li>优化上部结构布置，减小不均匀荷载</li>
+                                    <li>增强上部结构的整体刚度</li>
+                                    <li>设置足够的沉降缝</li>
+                                </ul>
+                            </li>
+                            <li><strong>施工控制：</strong>
+                                <ul>
+                                    <li>采用分层施工，控制加载速率</li>
+                                    <li>加强沉降监测，实行信息化施工</li>
+                                    <li>合理安排施工顺序，避免相互影响</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- 工程实践题2 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">2. 某工业厂房采用柱下独立基础，地基为软弱粘性土，压缩模量Eₛ=2.5MPa，厚度12m。在使用过程中，发现厂房不均匀沉降，柱顶倾斜超过允许值。试分析事故原因，并提出加固处理方案。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer11')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer11">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>事故原因分析：</strong></p>
+                        <ol>
+                            <li><strong>地基因素：</strong>
+                                <ul>
+                                    <li>软弱粘性土压缩性高，承载力低</li>
+                                    <li>地基土不均匀，导致不均匀沉降</li>
+                                    <li>可能存在软弱下卧层未被发现</li>
+                                </ul>
+                            </li>
+                            <li><strong>设计因素：</strong>
+                                <ul>
+                                    <li>独立基础底面积不足，基底压力过大</li>
+                                    <li>未考虑厂房荷载的不均匀分布</li>
+                                    <li>沉降计算不准确，未预留足够的沉降量</li>
+                                </ul>
+                            </li>
+                            <li><strong>施工因素：</strong>
+                                <ul>
+                                    <li>基础施工质量不合格</li>
+                                    <li>地基土受到扰动</li>
+                                    <li>未按设计要求进行地基处理</li>
+                                </ul>
+                            </li>
+                            <li><strong>使用因素：</strong>
+                                <ul>
+                                    <li>实际荷载超过设计荷载</li>
+                                    <li>设备布置不均匀</li>
+                                    <li>周边环境变化（如地下水位下降）</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        <p><strong>加固处理方案：</strong></p>
+                        <ol>
+                            <li><strong>基础加固：</strong>
+                                <ul>
+                                    <li>采用基础扩大托换，增加基础底面积</li>
+                                    <li>设置基础联系梁，增强整体性</li>
+                                    <li>对基础进行化学加固（如压力注浆）</li>
+                                </ul>
+                            </li>
+                            <li><strong>地基加固：</strong>
+                                <ul>
+                                    <li>在独立基础下设置微型桩或静压桩</li>
+                                    <li>采用高压喷射注浆形成桩体复合地基</li>
+                                    <li>对地基进行深层搅拌加固</li>
+                                </ul>
+                            </li>
+                            <li><strong>上部结构加固：</strong>
+                                <ul>
+                                    <li>加固柱、梁等承重构件</li>
+                                    <li>增设支撑系统，减小柱顶位移</li>
+                                    <li>进行柱顶纠偏处理</li>
+                                </ul>
+                            </li>
+                            <li><strong>监测与控制：</strong>
+                                <ul>
+                                    <li>设置沉降观测点，进行长期监测</li>
+                                    <li>控制使用荷载，避免超载</li>
+                                    <li>调整设备布置，减小不均匀荷载</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>关于课程</h4>
+                    <p>《土力学》是土木工程专业的核心课程，本网站提供课程相关的教学资源和学习资料。</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>快速链接</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="../index.html#course-info" class="text-white">课程简介</a></li>
+                        <li><a href="../index.html#lectures" class="text-white">授课内容</a></li>
+                        <li><a href="../index.html#materials" class="text-white">教学资料</a></li>
+                        <li><a href="../index.html#exercises" class="text-white">习题与实验</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4>版权信息</h4>
+                    <p>&copy; 2025 岩土教研室土力学教学团队</p>
+                    <p>All rights reserved.</p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- 引入Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- 切换答案显示/隐藏的脚本 -->
+    <script>
+        function toggleAnswer(answerId) {
+            const answerCard = document.getElementById(answerId);
+            const button = answerCard.previousElementSibling.querySelector('button');
+            
+            if (answerCard.style.display === 'none' || answerCard.style.display === '') {
+                answerCard.style.display = 'block';
+                button.innerHTML = '隐藏参考答案 <i class="fas fa-chevron-up ml-1"></i>';
+            } else {
+                answerCard.style.display = 'none';
+                button.innerHTML = '查看参考答案 <i class="fas fa-chevron-down ml-1"></i>';
+            }
+        }
+    </script>
+</body>
+</html>

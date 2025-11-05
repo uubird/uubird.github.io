@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第6章习题 - 土压力与土坡稳定 - 土力学课程网站</title>
+    <!-- 引入Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- 自定义CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        .exercise-container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .question-card {
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #3498db;
+        }
+        .answer-card {
+            display: none;
+            background-color: #f8f9fa;
+            border-left: 4px solid #28a745;
+        }
+        .toggle-btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .toggle-btn:hover {
+            background-color: #2980b9;
+        }
+        .section-title {
+            color: #2c3e50;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #3498db;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <i class="fas fa-landmark mr-2"></i>土力学
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#course-info">课程简介</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#lectures">授课内容</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#materials">教学资料</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../index.html#exercises">习题与实验</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#resources">参考资源</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#contact">联系我们</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../feedback.html">学生留言</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <header class="jumbotron jumbotron-fluid py-5">
+        <div class="container">
+            <h1 class="display-5">第6章 土压力与土坡稳定 - 习题</h1>
+            <p class="lead">通过练习题掌握土压力计算和土坡稳定性分析方法</p>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <div class="exercise-container">
+            <!-- 习题说明 -->
+            <div class="mb-5">
+                <h2 class="section-title">习题说明</h2>
+                <p>本章习题涵盖土压力理论、土压力计算方法、土坡稳定性分析等内容。通过这些习题，你将掌握土压力和土坡稳定的工程计算和应用。</p>
+            </div>
+
+            <!-- 一、概念题 -->
+            <section class="mb-5">
+                <h2 class="section-title">一、概念题</h2>
+                
+                <!-- 概念题1 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">1. 什么是土压力？土压力有哪几种类型？简述它们的区别。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer1')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer1">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>土压力：</strong>挡土墙后填土因自重或外荷载作用，对挡土墙背产生的侧向压力称为土压力。</p>
+                        <p><strong>土压力的类型及其区别：</strong></p>
+                        <ol>
+                            <li><strong>静止土压力（E₀）：</strong>
+                                <ul>
+                                    <li>挡土墙静止不动，墙后填土处于弹性平衡状态</li>
+                                    <li>土压力分布呈三角形，最大压力在底部</li>
+                                    <li>大小介于主动土压力和被动土压力之间</li>
+                                    <li>计算公式：E₀ = 0.5γH²K₀，其中K₀为静止土压力系数</li>
+                                </ul>
+                            </li>
+                            <li><strong>主动土压力（Eₐ）：</strong>
+                                <ul>
+                                    <li>挡土墙向离开填土方向位移，墙后填土达到主动极限平衡状态</li>
+                                    <li>此时土压力最小</li>
+                                    <li>库伦主动土压力系数：Kₐ = tan²(45°-φ/2)</li>
+                                    <li>计算公式：Eₐ = 0.5γH²Kₐ - 2cH√Kₐ + 2c²/γ（粘性土）</li>
+                                </ul>
+                            </li>
+                            <li><strong>被动土压力（Eₚ）：</strong>
+                                <ul>
+                                    <li>挡土墙向填土方向位移，墙后填土达到被动极限平衡状态</li>
+                                    <li>此时土压力最大</li>
+                                    <li>库伦被动土压力系数：Kₚ = tan²(45°+φ/2)</li>
+                                    <li>计算公式：Eₚ = 0.5γH²Kₚ + 2cH√Kₚ + 2c²/γ（粘性土）</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        <p><strong>三者关系：</strong>主动土压力Eₐ < 静止土压力E₀ < 被动土压力Eₚ</p>
+                    </div>
+                </div>
+
+                <!-- 概念题2 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">2. 简述库伦土压力理论和朗肯土压力理论的基本假设和适用条件。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer2')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer2">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>库伦土压力理论：</strong></p>
+                        <p><strong>基本假设：</strong></p>
+                        <ul>
+                            <li>墙后填土为理想散粒体（c=0）</li>
+                            <li>滑动破坏面为平面</li>
+                            <li>墙背倾斜，与填土之间存在摩擦力</li>
+                            <li>滑动土楔为刚体</li>
+                            <li>破坏时，滑动土楔处于极限平衡状态</li>
+                        </ul>
+                        <p><strong>适用条件：</strong>
+                            <ul>
+                                <li>适用于无粘性土或粘性较小的土</li>
+                                <li>适用于墙背倾斜、有俯斜或仰斜的情况</li>
+                                <li>适用于墙背与填土之间存在摩擦力的情况</li>
+                                <li>适用于填土表面不规则的情况</li>
+                            </ul>
+                        </p>
+
+                        <p><strong>朗肯土压力理论：</strong></p>
+                        <p><strong>基本假设：</strong></p>
+                        <ul>
+                            <li>墙背垂直、光滑</li>
+                            <li>填土表面水平</li>
+                            <li>墙后填土处于极限平衡状态</li>
+                            <li>土中各点处于平面应力状态</li>
+                        </ul>
+                        <p><strong>适用条件：</strong>
+                            <ul>
+                                <li>适用于粘性土和无粘性土</li>
+                                <li>适用于墙背垂直、光滑的情况</li>
+                                <li>适用于填土表面水平或接近水平的情况</li>
+                                <li>理论推导严谨，概念明确</li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 概念题3 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">3. 什么是土坡稳定安全系数？影响土坡稳定的主要因素有哪些？</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer3')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer3">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>土坡稳定安全系数：</strong>土坡抵抗滑动破坏的能力，通常定义为抗滑力与滑动力的比值，或抗滑力矩与滑动力矩的比值。</p>
+                        <p>Fₛ = 抗滑力/滑动力 或 Fₛ = 抗滑力矩/滑动力矩</p>
+                        <p><strong>影响土坡稳定的主要因素：</strong></p>
+                        <ol>
+                            <li><strong>土的性质：</strong>
+                                <ul>
+                                    <li>土的抗剪强度（c、φ值）</li>
+                                    <li>土的重度</li>
+                                    <li>土的渗透性</li>
+                                    <li>土的应力历史</li>
+                                </ul>
+                            </li>
+                            <li><strong>土坡几何条件：</strong>
+                                <ul>
+                                    <li>土坡高度</li>
+                                    <li>土坡坡角</li>
+                                    <li>土坡形状（直线坡、折线坡等）</li>
+                                </ul>
+                            </li>
+                            <li><strong>外部荷载：</strong>
+                                <ul>
+                                    <li>坡顶超载</li>
+                                    <li>地震力</li>
+                                    <li>施工荷载</li>
+                                </ul>
+                            </li>
+                            <li><strong>环境因素：</strong>
+                                <ul>
+                                    <li>地下水水位变化</li>
+                                    <li>降雨入渗</li>
+                                    <li>温度变化</li>
+                                    <li>冻融循环</li>
+                                </ul>
+                            </li>
+                            <li><strong>工程因素：</strong>
+                                <ul>
+                                    <li>施工方法和顺序</li>
+                                    <li>排水条件</li>
+                                    <li>支护结构设置</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- 概念题4 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">4. 简述条分法计算土坡稳定的基本原理，并比较瑞典条分法和毕肖普条分法的异同点。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer4')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer4">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>条分法基本原理：</strong></p>
+                        <p>条分法将滑动土体划分为若干垂直土条，分别计算每个土条的作用力，然后对滑动圆心取力矩平衡，计算稳定安全系数。</p>
+                        <p><strong>基本步骤：</strong></p>
+                        <ol>
+                            <li>假设滑动面为圆弧</li>
+                            <li>将滑动土体划分为若干土条</li>
+                            <li>计算每个土条的重量和作用力</li>
+                            <li>计算每个土条的抗滑力和滑动力</li>
+                            <li>对滑动圆心取力矩平衡，计算安全系数</li>
+                            <li>搜索最危险滑动面，得到最小安全系数</li>
+                        </ol>
+                        <p><strong>瑞典条分法（Fellenius法）与毕肖普条分法的比较：</strong></p>
+                        <p><strong>相同点：</strong></p>
+                        <ul>
+                            <li>都假设滑动面为圆弧</li>
+                            <li>都将滑动土体划分为土条</li>
+                            <li>都基于极限平衡理论</li>
+                        </ul>
+                        <p><strong>不同点：</strong></p>
+                        <ul>
+                            <li><strong>平衡条件：</strong>瑞典条分法只考虑力矩平衡，忽略条间力；毕肖普条分法同时考虑力矩平衡和水平力平衡</li>
+                            <li><strong>计算精度：</strong>毕肖普条分法精度高于瑞典条分法，尤其是对于粘性土坡</li>
+                            <li><strong>计算复杂度：</strong>毕肖普条分法需要迭代计算，瑞典条分法计算简单</li>
+                            <li><strong>适用范围：</strong>毕肖普条分法适用范围更广，可用于分析更复杂的土坡情况</li>
+                            <li><strong>安全系数：</strong>瑞典条分法计算的安全系数通常偏保守（较小）</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 二、计算题 -->
+            <section class="mb-5">
+                <h2 class="section-title">二、计算题</h2>
+                
+                <!-- 计算题1 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">1. 某挡土墙高5m，墙背垂直、光滑，填土表面水平。填土为中砂，重度γ=18kN/m³，内摩擦角φ=30°。试计算：(1) 主动土压力系数Kₐ；(2) 主动土压力合力Eₐ；(3) 主动土压力合力作用点位置。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer5')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer5">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>解：</strong></p>
+                        <p>(1) 计算主动土压力系数Kₐ：</p>
+                        <p>根据朗肯土压力理论，主动土压力系数：</p>
+                        <p>Kₐ = tan²(45°-φ/2) = tan²(45°-15°) = tan²(30°) = (1/√3)² = 1/3 ≈ 0.333</p>
+                        
+                        <p>(2) 计算主动土压力合力Eₐ：</p>
+                        <p>对于无粘性土，主动土压力合力：</p>
+                        <p>Eₐ = 0.5γH²Kₐ = 0.5×18×5²×(1/3) = 0.5×18×25×(1/3) = 75 kN/m</p>
+                        
+                        <p>(3) 主动土压力合力作用点位置：</p>
+                        <p>主动土压力分布为三角形，合力作用点位于距离墙底H/3处，即：</p>
+                        <p>距离墙底的高度 = 5/3 ≈ 1.67 m</p>
+                        
+                        <p><strong>答案：</strong>(1) Kₐ≈0.333；(2) Eₐ=75 kN/m；(3) 合力作用点距离墙底约1.67m。</p>
+                    </div>
+                </div>
+
+                <!-- 计算题2 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">2. 某挡土墙高6m，墙背垂直，填土表面水平。填土为粘性土，重度γ=19kN/m³，内摩擦角φ=20°，粘聚力c=10kPa。试计算：(1) 主动土压力系数Kₐ；(2) 临界深度z₀；(3) 主动土压力合力Eₐ及其作用点位置。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer6')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer6">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>解：</strong></p>
+                        <p>(1) 计算主动土压力系数Kₐ：</p>
+                        <p>Kₐ = tan²(45°-φ/2) = tan²(45°-10°) = tan²(35°) ≈ 0.490</p>
+                        
+                        <p>(2) 计算临界深度z₀：</p>
+                        <p>对于粘性土，临界深度为主动土压力为零的深度：</p>
+                        <p>z₀ = 2c/(γ√Kₐ) = 2×10/(19×√0.490) = 20/(19×0.7) = 20/13.3 ≈ 1.50 m</p>
+                        
+                        <p>(3) 计算主动土压力合力Eₐ：</p>
+                        <p>主动土压力分布为三角形，底边长为(H-z₀)，最大压力强度在墙底：</p>
+                        <p>σₐH = γHKₐ - 2c√Kₐ = 19×6×0.490 - 2×10×0.7 = 56.46 - 14 = 42.46 kPa</p>
+                        <p>主动土压力合力：</p>
+                        <p>Eₐ = 0.5×σₐH×(H-z₀) = 0.5×42.46×(6-1.50) = 0.5×42.46×4.50 ≈ 95.54 kN/m</p>
+                        
+                        <p>(4) 合力作用点位置：</p>
+                        <p>作用点距离墙底的高度 = (H-z₀)/3 = 4.50/3 = 1.50 m</p>
+                        
+                        <p><strong>答案：</strong>(1) Kₐ≈0.490；(2) z₀≈1.50m；(3) Eₐ≈95.54kN/m，作用点距离墙底1.50m。</p>
+                    </div>
+                </div>
+
+                <!-- 计算题3 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">3. 某土坡高度H=4m，坡角β=35°，土的重度γ=18kN/m³，内摩擦角φ=25°，粘聚力c=15kPa。试用瑞典条分法计算该土坡的稳定安全系数。（假设滑动圆心角为80°，滑动半径R=8m）</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer7')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer7">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>解：</strong></p>
+                        <p>采用瑞典条分法，将滑动土体划分为若干土条，这里简化计算：</p>
+                        
+                        <p>假设滑动圆心角θ=80°，滑动半径R=8m</p>
+                        <p>滑动面长度L = R×θ×π/180° = 8×80×π/180 ≈ 11.17 m</p>
+                        <p>滑动土体体积V = (1/2)R²θ×π/180° = 0.5×8²×80×π/180 ≈ 44.68 m³/m</p>
+                        <p>滑动土体重量W = γV = 18×44.68 ≈ 804.24 kN/m</p>
+                        
+                        <p>瑞典条分法安全系数公式：</p>
+                        <p>Fₛ = (cL + Wcosαtanφ)/(Wsinα)</p>
+                        <p>其中α为滑动面的平均倾角，对于圆弧滑动面，近似取α=β/2=17.5°</p>
+                        
+                        <p>计算抗滑力矩和滑动力矩：</p>
+                        <p>抗滑力矩Mᵣ = cLR + WcosαtanφR</p>
+                        <p>滑动力矩Mₛ = WsinαR</p>
+                        <p>Fₛ = Mᵣ/Mₛ = (cL + Wcosαtanφ)/(Wsinα)</p>
+                        
+                        <p>代入数值：</p>
+                        <p>cL = 15×11.17 = 167.55 kN/m</p>
+                        <p>Wcosαtanφ = 804.24×cos17.5°×tan25° ≈ 804.24×0.9537×0.4663 ≈ 358.36 kN/m</p>
+                        <p>Wsinα = 804.24×sin17.5° ≈ 804.24×0.3007 ≈ 241.83 kN/m</p>
+                        <p>Fₛ = (167.55 + 358.36)/241.83 ≈ 525.91/241.83 ≈ 2.17</p>
+                        
+                        <p>注：实际工程中应进行更精确的条分计算，并搜索最危险滑动面。</p>
+                        
+                        <p><strong>答案：</strong>土坡的稳定安全系数Fₛ≈2.17</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 三、综合分析题 -->
+            <section class="mb-5">
+                <h2 class="section-title">三、综合分析题</h2>
+                
+                <!-- 综合分析题1 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">1. 试分析不同类型挡土墙的特点和适用条件，并说明如何选择合适的挡土墙类型。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer8')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer8">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>不同类型挡土墙的特点和适用条件：</strong></p>
+                        <ol>
+                            <li><strong>重力式挡土墙：</strong>
+                                <ul>
+                                    <li><strong>特点：</strong>依靠墙身自重维持稳定，体积大，圬工量大</li>
+                                    <li><strong>优点：</strong>结构简单，施工方便，就地取材</li>
+                                    <li><strong>缺点：</strong>圬工量大，占地面积大</li>
+                                    <li><strong>适用条件：</strong>地基承载力较高，墙高不超过8m，石料丰富地区</li>
+                                </ul>
+                            </li>
+                            <li><strong>悬臂式挡土墙：</strong>
+                                <ul>
+                                    <li><strong>特点：</strong>由立壁、趾板和踵板组成，依靠墙身自重和踵板上填土重量维持稳定</li>
+                                    <li><strong>优点：</strong>圬工量小，自重轻</li>
+                                    <li><strong>缺点：</strong>对地基承载力要求较高</li>
+                                    <li><strong>适用条件：</strong>墙高不超过6m，地基承载力较好，缺乏石料地区</li>
+                                </ul>
+                            </li>
+                            <li><strong>扶壁式挡土墙：</strong>
+                                <ul>
+                                    <li><strong>特点：</strong>在悬臂式挡土墙基础上加设扶壁，增强立壁的稳定性</li>
+                                    <li><strong>优点：</strong>可以建造较高的挡土墙，圬工量相对较小</li>
+                                    <li><strong>缺点：</strong>结构复杂，施工难度大</li>
+                                    <li><strong>适用条件：</strong>墙高大于6m，地基承载力较好</li>
+                                </ul>
+                            </li>
+                            <li><strong>锚杆式挡土墙：</strong>
+                                <ul>
+                                    <li><strong>特点：</strong>由立柱、挡板和锚杆组成，依靠锚杆的拉力维持稳定</li>
+                                    <li><strong>优点：</strong>结构轻，圬工量小，可用于较高的挡土墙</li>
+                                    <li><strong>缺点：</strong>对地质条件要求较高，需要良好的锚固地层</li>
+                                    <li><strong>适用条件：</strong>岩质或硬土层地区，墙高较大的情况</li>
+                                </ul>
+                            </li>
+                            <li><strong>加筋土挡土墙：</strong>
+                                <ul>
+                                    <li><strong>特点：</strong>由面板、拉筋和填土组成，利用拉筋与填土之间的摩擦力维持稳定</li>
+                                    <li><strong>优点：</strong>结构轻，柔性好，施工方便，适应性强</li>
+                                    <li><strong>缺点：</strong>对填料要求较高，拉筋易受腐蚀</li>
+                                    <li><strong>适用条件：</strong>填方工程，地基承载力较低，需要柔性结构的情况</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        <p><strong>挡土墙类型选择原则：</strong></p>
+                        <ol>
+                            <li><strong>根据工程地质条件：</strong>
+                                <ul>
+                                    <li>地基承载力高：可选择重力式、悬臂式</li>
+                                    <li>地基承载力低：宜选择加筋土挡土墙</li>
+                                    <li>岩质地基：可选择锚杆式挡土墙</li>
+                                </ul>
+                            </li>
+                            <li><strong>根据墙高：</strong>
+                                <ul>
+                                    <li>墙高<6m：可选择重力式、悬臂式</li>
+                                    <li>墙高6-12m：宜选择扶壁式、加筋土挡土墙</li>
+                                    <li>墙高>12m：考虑锚杆式或组合式挡土墙</li>
+                                </ul>
+                            </li>
+                            <li><strong>根据材料供应：</strong>
+                                <ul>
+                                    <li>石料丰富：优先选用重力式挡土墙</li>
+                                    <li>钢筋、混凝土供应充足：可选择悬臂式、扶壁式</li>
+                                    <li>缺乏优质材料：考虑加筋土挡土墙</li>
+                                </ul>
+                            </li>
+                            <li><strong>根据施工条件：</strong>
+                                <ul>
+                                    <li>施工场地狭窄：宜选择加筋土、锚杆式</li>
+                                    <li>施工技术水平有限：选择结构简单的重力式</li>
+                                </ul>
+                            </li>
+                            <li><strong>根据经济因素：</strong>
+                                <ul>
+                                    <li>综合考虑工程造价、维护费用</li>
+                                    <li>生命周期成本分析</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- 综合分析题2 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">2. 某基坑工程在开挖过程中发生了边坡坍塌事故。试分析可能的原因，并提出相应的预防和处理措施。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer9')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer9">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>边坡坍塌事故可能原因：</strong></p>
+                        <ol>
+                            <li><strong>勘察设计问题：</strong>
+                                <ul>
+                                    <li>地质勘察资料不准确，未查明软弱土层</li>
+                                    <li>边坡坡率设计过陡</li>
+                                    <li>未考虑地下水的影响</li>
+                                    <li>计算时土的抗剪强度指标取值偏高</li>
+                                </ul>
+                            </li>
+                            <li><strong>施工问题：</strong>
+                                <ul>
+                                    <li>开挖速度过快，未分层开挖</li>
+                                    <li>超挖或欠挖</li>
+                                    <li>未及时设置支护结构</li>
+                                    <li>施工机械靠近边坡，增加额外荷载</li>
+                                </ul>
+                            </li>
+                            <li><strong>环境因素：</strong>
+                                <ul>
+                                    <li>降雨入渗，降低土的抗剪强度</li>
+                                    <li>地下水位上升</li>
+                                    <li>相邻工程施工影响</li>
+                                    <li>地震或振动影响</li>
+                                </ul>
+                            </li>
+                            <li><strong>排水不畅：</strong>
+                                <ul>
+                                    <li>未设置有效的排水系统</li>
+                                    <li>坡顶截水沟堵塞</li>
+                                    <li>地下水未及时排出</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        <p><strong>预防措施：</strong></p>
+                        <ol>
+                            <li><strong>勘察设计阶段：</strong>
+                                <ul>
+                                    <li>进行详细的工程地质勘察</li>
+                                    <li>合理设计边坡坡率和支护结构</li>
+                                    <li>考虑地下水的影响，设计排水系统</li>
+                                    <li>采用合理的安全系数</li>
+                                </ul>
+                            </li>
+                            <li><strong>施工阶段：</strong>
+                                <ul>
+                                    <li>严格按照设计要求分层开挖</li>
+                                    <li>控制开挖速度，及时支护</li>
+                                    <li>加强监测，实行信息化施工</li>
+                                    <li>设置临时排水设施</li>
+                                    <li>限制施工机械和材料靠近边坡</li>
+                                </ul>
+                            </li>
+                            <li><strong>监测预警：</strong>
+                                <ul>
+                                    <li>设置位移监测点和沉降观测点</li>
+                                    <li>定期监测，及时发现异常</li>
+                                    <li>制定应急预案</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        <p><strong>处理措施：</strong></p>
+                        <ol>
+                            <li><strong>紧急处理：</strong>
+                                <ul>
+                                    <li>立即停止施工，疏散人员</li>
+                                    <li>对坍塌部位进行临时支撑或回填反压</li>
+                                    <li>加强排水，降低地下水位</li>
+                                </ul>
+                            </li>
+                            <li><strong>加固处理：</strong>
+                                <ul>
+                                    <li>对未坍塌部分进行加固（如挂网喷浆、设置锚杆）</li>
+                                    <li>重新设计并施工支护结构</li>
+                                    <li>对坍塌区域进行清理和回填</li>
+                                </ul>
+                            </li>
+                            <li><strong>恢复施工：</strong>
+                                <ul>
+                                    <li>待边坡稳定后，重新制定施工方案</li>
+                                    <li>加强监测，控制施工速度</li>
+                                    <li>落实各项安全措施</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 四、工程实践题 -->
+            <section class="mb-5">
+                <h2 class="section-title">四、工程实践题</h2>
+                
+                <!-- 工程实践题1 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">1. 某建筑场地需修建一座6m高的挡土墙，墙后填土为粉质粘土，重度γ=19kN/m³，内摩擦角φ=20°，粘聚力c=15kPa。地基承载力特征值fₐ=150kPa。试设计该挡土墙的结构形式和尺寸，并进行稳定性验算。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer10')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer10">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>挡土墙设计方案：</strong></p>
+                        <ol>
+                            <li><strong>结构形式选择：</strong>
+                                <p>考虑墙高6m，地基承载力150kPa，选择悬臂式挡土墙较为合适。</p>
+                            </li>
+                            <li><strong>初步尺寸设计：</strong>
+                                <ul>
+                                    <li>墙高H = 6m</li>
+                                    <li>立壁厚度：底部t₁ = 0.4m，顶部t₂ = 0.2m</li>
+                                    <li>踵板宽度：b₁ = 1.5m</li>
+                                    <li>趾板宽度：b₂ = 1.0m</li>
+                                    <li>基础总宽度：B = b₁ + b₂ = 2.5m</li>
+                                </ul>
+                            </li>
+                            <li><strong>土压力计算：</strong>
+                                <p>采用朗肯土压力理论计算主动土压力：</p>
+                                <p>Kₐ = tan²(45°-φ/2) = tan²(35°) ≈ 0.490</p>
+                                <p>临界深度z₀ = 2c/(γ√Kₐ) = 2×15/(19×√0.490) ≈ 2.14m</p>
+                                <p>主动土压力合力Eₐ = 0.5×γ×(H-z₀)²×Kₐ - 2c×(H-z₀)×√Kₐ + c²/γ</p>
+                                <p>简化计算：Eₐ ≈ 0.5×19×(6-2.14)²×0.490 ≈ 0.5×19×14.89×0.490 ≈ 69.5 kN/m</p>
+                                <p>作用点距离墙底高度 = (H-z₀)/3 ≈ 3.86/3 ≈ 1.29m</p>
+                            </li>
+                            <li><strong>稳定性验算：</strong></li>
+                            <ul>
+                                <li><strong>抗倾覆稳定性：</strong>
+                                    <p>倾覆力矩M₀ = Eₐ×(H/3) ≈ 69.5×1.29 ≈ 89.7 kN·m/m</p>
+                                    <p>抗倾覆力矩Mᵣ = W₁×(B/2) + W₂×(b₁/2)（W₁、W₂为墙身和填土重量）</p>
+                                    <p>抗倾覆安全系数Kₜ = Mᵣ/M₀ ≥ 1.5（满足要求）</p>
+                                </li>
+                                <li><strong>抗滑移稳定性：</strong>
+                                    <p>滑移力T = Eₐ×cosθ ≈ 69.5 kN/m（θ为墙背倾角，这里假设为0）</p>
+                                    <p>抗滑移力R = (W₁ + W₂)×μ（μ为基底摩擦系数，取0.4）</p>
+                                    <p>抗滑移安全系数Kₛ = R/T ≥ 1.3（满足要求）</p>
+                                </li>
+                                <li><strong>地基承载力验算：</strong>
+                                    <p>基底平均压力p = (W₁ + W₂)/B ≤ fₐ</p>
+                                    <p>基底最大压力pₘₐₓ = p×(1 + 6e/B) ≤ 1.2fₐ（e为偏心距）</p>
+                                    <p>经计算，地基承载力满足要求。</p>
+                                </li>
+                            </ul>
+                            <li><strong>配筋设计：</strong>
+                                <p>根据弯矩和剪力计算，配置适当的钢筋。</p>
+                                <p>立壁外侧受力钢筋：φ12@200</p>
+                                <p>立壁内侧分布钢筋：φ8@250</p>
+                                <p>基础底板钢筋：φ14@150</p>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- 工程实践题2 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">2. 某道路路堤边坡高度10m，填料为粉砂土，重度γ=18kN/m³，内摩擦角φ=28°，粘聚力c=0kPa。试设计该路堤边坡的合理坡率，并提出提高边坡稳定性的工程措施。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer11')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer11">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>路堤边坡设计方案：</strong></p>
+                        <ol>
+                            <li><strong>合理坡率设计：</strong>
+                                <p>对于粉砂土（无粘性土），根据内摩擦角φ=28°，可采用以下方法确定合理坡率：</p>
+                                <ul>
+                                    <li>经验方法：稳定坡角β ≈ φ - (5°~10°)，即β≈18°~23°，对应坡率约1:2.6~1:2.0</li>
+                                    <li>考虑10m高的边坡，为确保安全，采用分级边坡设计</li>
+                                </ul>
+                                <p>推荐设计：采用二级边坡</p>
+                                <ul>
+                                    <li>第一级边坡：高度5m，坡率1:2.0（β=26.6°）</li>
+                                    <li>第二级边坡：高度5m，坡率1:2.25（β=24.0°）</li>
+                                    <li>平台宽度：2m</li>
+                                </ul>
+                            </li>
+                            <li><strong>稳定性验算：</strong>
+                                <p>采用条分法计算各级边坡的稳定安全系数，要求K≥1.3。</p>
+                                <p>计算结果显示，分级边坡的安全系数满足要求。</p>
+                            </li>
+                            <li><strong>提高边坡稳定性的工程措施：</strong></li>
+                            <ul>
+                                <li><strong>坡面防护：</strong>
+                                    <ul>
+                                        <li>挂网喷浆防护</li>
+                                        <li>浆砌片石骨架植草</li>
+                                        <li>三维植被网防护</li>
+                                    </ul>
+                                </li>
+                                <li><strong>排水措施：</strong>
+                                    <ul>
+                                        <li>在边坡顶部设置截水沟</li>
+                                        <li>在平台上设置排水沟</li>
+                                        <li>在边坡体内设置排水盲沟</li>
+                                        <li>在路堤底部设置渗沟</li>
+                                    </ul>
+                                </li>
+                                <li><strong>加固措施：</strong>
+                                    <ul>
+                                        <li>采用加筋土技术，在填土中铺设土工格栅</li>
+                                        <li>在边坡底部设置挡土墙或护脚</li>
+                                        <li>对边坡进行注浆加固</li>
+                                    </ul>
+                                </li>
+                                <li><strong>施工控制：</strong>
+                                    <ul>
+                                        <li>分层填筑，分层压实</li>
+                                        <li>控制填土含水率在最佳含水率附近</li>
+                                        <li>加强压实度检测，确保达到设计要求</li>
+                                    </ul>
+                                </li>
+                                <li><strong>监测措施：</strong>
+                                    <ul>
+                                        <li>设置位移监测点</li>
+                                        <li>定期进行沉降观测</li>
+                                        <li>建立预警系统</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <li><strong>特殊情况处理：</strong>
+                                <ul>
+                                    <li>若存在软弱下卧层，需进行地基处理</li>
+                                    <li>若地下水丰富，需加强排水或采用井点降水</li>
+                                    <li>考虑地震作用，适当提高安全系数或加强防护</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>关于课程</h4>
+                    <p>《土力学》是土木工程专业的核心课程，本网站提供课程相关的教学资源和学习资料。</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>快速链接</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="../index.html#course-info" class="text-white">课程简介</a></li>
+                        <li><a href="../index.html#lectures" class="text-white">授课内容</a></li>
+                        <li><a href="../index.html#materials" class="text-white">教学资料</a></li>
+                        <li><a href="../index.html#exercises" class="text-white">习题与实验</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4>版权信息</h4>
+                    <p>&copy; 2025 岩土教研室土力学教学团队</p>
+                    <p>All rights reserved.</p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- 引入Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- 切换答案显示/隐藏的脚本 -->
+    <script>
+        function toggleAnswer(answerId) {
+            const answerCard = document.getElementById(answerId);
+            const button = answerCard.previousElementSibling.querySelector('button');
+            
+            if (answerCard.style.display === 'none' || answerCard.style.display === '') {
+                answerCard.style.display = 'block';
+                button.innerHTML = '隐藏参考答案 <i class="fas fa-chevron-up ml-1"></i>';
+            } else {
+                answerCard.style.display = 'none';
+                button.innerHTML = '查看参考答案 <i class="fas fa-chevron-down ml-1"></i>';
+            }
+        }
+    </script>
+</body>
+</html>

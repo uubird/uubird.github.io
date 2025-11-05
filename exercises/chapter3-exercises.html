@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第3章习题 - 土中应力计算 - 土力学课程网站</title>
+    <!-- 引入Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- 自定义CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        .exercise-container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .question-card {
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #3498db;
+        }
+        .answer-card {
+            display: none;
+            background-color: #f8f9fa;
+            border-left: 4px solid #28a745;
+        }
+        .toggle-btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .toggle-btn:hover {
+            background-color: #2980b9;
+        }
+        .section-title {
+            color: #2c3e50;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #3498db;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <i class="fas fa-landmark mr-2"></i>土力学
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#course-info">课程简介</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#lectures">授课内容</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#materials">教学资料</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../index.html#exercises">习题与实验</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#resources">参考资源</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#contact">联系我们</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../feedback.html">学生留言</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <header class="jumbotron jumbotron-fluid py-5">
+        <div class="container">
+            <h1 class="display-5">第3章 土中应力计算 - 习题</h1>
+            <p class="lead">通过练习题掌握土中应力的计算方法和工程应用</p>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <div class="exercise-container">
+            <!-- 习题说明 -->
+            <div class="mb-5">
+                <h2 class="section-title">习题说明</h2>
+                <p>本章习题涵盖土的自重应力、基底压力、地基附加应力计算等内容。通过这些习题，你将掌握土中应力分布规律和计算方法，为后续学习地基沉降计算打下基础。</p>
+            </div>
+
+            <!-- 一、概念题 -->
+            <section class="mb-5">
+                <h2 class="section-title">一、概念题</h2>
+                
+                <!-- 概念题1 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">1. 什么是土的自重应力？它有什么特点？</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer1')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer1">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>土的自重应力：</strong>由土体自身重量引起的应力称为土的自重应力。</p>
+                        <p><strong>特点：</strong></p>
+                        <ul>
+                            <li>自重应力随深度线性增加</li>
+                            <li>在均匀土层中，自重应力分布曲线为直线</li>
+                            <li>在多层土中，自重应力分布曲线为折线</li>
+                            <li>地下水位以下的土，应采用有效重度计算自重应力</li>
+                            <li>自重应力不会引起地基沉降</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 概念题2 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">2. 什么是基底压力？影响基底压力分布的因素有哪些？</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer2')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer2">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>基底压力：</strong>基础底面与地基土之间的接触压力称为基底压力。</p>
+                        <p><strong>影响因素：</strong></p>
+                        <ul>
+                            <li>基础形状：条形基础、矩形基础、圆形基础等基底压力分布不同</li>
+                            <li>基础刚度：刚性基础与柔性基础的基底压力分布差异较大</li>
+                            <li>荷载大小与分布：中心荷载与偏心荷载对基底压力分布有显著影响</li>
+                            <li>地基土性质：不同土类对基底压力分布的影响不同</li>
+                            <li>基础埋深：埋深越大，基底压力分布越均匀</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 概念题3 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">3. 简述布辛奈斯克解的基本假设及其适用条件。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer3')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer3">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>基本假设：</strong></p>
+                        <ul>
+                            <li>地基土是均质、各向同性的半无限弹性体</li>
+                            <li>地基土表面水平且无限延伸</li>
+                            <li>土的应力-应变关系符合虎克定律</li>
+                            <li>在荷载作用前，地基土中应力为零</li>
+                        </ul>
+                        <p><strong>适用条件：</strong></p>
+                        <ul>
+                            <li>适用于均质弹性地基</li>
+                            <li>适用于应力水平较低，地基土处于弹性变形阶段</li>
+                            <li>对于深厚软土地基，需谨慎使用</li>
+                            <li>不适用于地基土发生塑性变形的情况</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 概念题4 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">4. 什么是附加应力？它与地基沉降有什么关系？</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer4')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer4">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>附加应力：</strong>由建筑物等外荷载在地基土中引起的应力增量称为附加应力。</p>
+                        <p><strong>与地基沉降的关系：</strong></p>
+                        <ul>
+                            <li>附加应力是引起地基沉降的主要原因</li>
+                            <li>地基沉降量与附加应力的大小和分布密切相关</li>
+                            <li>根据附加应力分布和土的压缩特性，可以计算地基沉降</li>
+                            <li>附加应力随深度增加而减小，因此地基沉降主要发生在一定深度范围内</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 二、计算题 -->
+            <section class="mb-5">
+                <h2 class="section-title">二、计算题</h2>
+                
+                <!-- 计算题1 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">1. 某地基土层分布如下：第一层为杂填土，厚度2m，重度γ=17kN/m³；第二层为粉质粘土，厚度3m，重度γ=18kN/m³；第三层为粉土，厚度4m，重度γ=19kN/m³。地下水位埋深3m。试计算地表下6m处的自重应力。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer5')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer5">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>解：</strong></p>
+                        <p>地下水位埋深3m，位于粉质粘土层内（第一层2m + 第二层1m）。</p>
+                        <p>计算各层的自重应力：</p>
+                        <ul>
+                            <li>第一层（杂填土，0-2m）：σ₁ = γ₁h₁ = 17 × 2 = 34 kPa</li>
+                            <li>第二层（粉质粘土，2-3m，地下水位以上）：σ₂ = σ₁ + γ₂h₂ = 34 + 18 × 1 = 52 kPa</li>
+                            <li>第二层（粉质粘土，3-5m，地下水位以下）：计算有效重度γ'₂ = γ₂ - γw = 18 - 10 = 8 kN/m³<br>
+                                σ₃ = σ₂ + γ'₂h'₂ = 52 + 8 × 2 = 68 kPa</li>
+                            <li>第三层（粉土，5-6m，地下水位以下）：计算有效重度γ'₃ = γ₃ - γw = 19 - 10 = 9 kN/m³<br>
+                                σ₄ = σ₃ + γ'₃h'₃ = 68 + 9 × 1 = 77 kPa</li>
+                        </ul>
+                        <p><strong>答案：</strong>地表下6m处的自重应力为77 kPa</p>
+                    </div>
+                </div>
+
+                <!-- 计算题2 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">2. 某矩形基础底面尺寸为4m×6m，作用在基础顶面的竖向荷载为3600kN，基础埋深2m，地基土的重度γ=18kN/m³。试计算中心荷载作用下的基底压力。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer6')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer6">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>解：</strong></p>
+                        <p>基础底面积A = 4m × 6m = 24m²</p>
+                        <p>基础及回填土的自重G = γG × A × d，其中γG取20kN/m³（基础及回填土平均重度）</p>
+                        <p>G = 20 × 24 × 2 = 960 kN</p>
+                        <p>中心荷载作用下的基底压力p = (F + G)/A = (3600 + 960)/24 = 4560/24 = 190 kPa</p>
+                        <p><strong>答案：</strong>中心荷载作用下的基底压力为190 kPa</p>
+                    </div>
+                </div>
+
+                <!-- 计算题3 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">3. 某条形基础宽2m，埋深1.5m，地基土的重度γ=19kN/m³，基础顶面作用的竖向荷载为200kN/m。试计算基底附加压力。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer7')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer7">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>解：</strong></p>
+                        <p>取单位长度（1m）计算：</p>
+                        <p>基底压力p = (F + G)/b = (200 + 20×2×1×1.5)/2 = (200 + 60)/2 = 130 kPa</p>
+                        <p>基底附加压力p₀ = p - γ₀d = 130 - 19×1.5 = 130 - 28.5 = 101.5 kPa</p>
+                        <p><strong>答案：</strong>基底附加压力为101.5 kPa</p>
+                    </div>
+                </div>
+
+                <!-- 计算题4 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">4. 某圆形基础直径为3m，作用在基础中心的竖向荷载为2700kN，基础埋深2m，地基土的重度γ=18kN/m³。试用布辛奈斯克解计算基础中心点下4m深度处的附加应力。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer8')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer8">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>解：</strong></p>
+                        <p>基础底面积A = πr² = π×(3/2)² = 7.069 m²</p>
+                        <p>基础顶面荷载F = 2700 kN</p>
+                        <p>基础及回填土的自重G = 20×7.069×2 = 282.76 kN</p>
+                        <p>基底压力p = (F + G)/A = (2700 + 282.76)/7.069 = 2982.76/7.069 = 422 kPa</p>
+                        <p>基底附加压力p₀ = p - γ₀d = 422 - 18×2 = 422 - 36 = 386 kPa</p>
+                        <p>对于圆形基础中心点，附加应力系数α = 3/[2π(1+(r/z)²)^(5/2)]，其中r为圆形基础半径，z为计算深度</p>
+                        <p>r = 3/2 = 1.5m，z = 4m</p>
+                        <p>r/z = 1.5/4 = 0.375</p>
+                        <p>α = 3/[2π(1+0.375²)^(5/2)] = 3/[2π(1+0.1406)^(2.5)] = 3/[2π×1.1406^(2.5)]</p>
+                        <p>1.1406^2.5 ≈ 1.1406^2 × √1.1406 ≈ 1.301 × 1.068 ≈ 1.390</p>
+                        <p>α ≈ 3/[2π×1.390] ≈ 3/8.73 ≈ 0.344</p>
+                        <p>附加应力σ_z = α×p₀ = 0.344×386 ≈ 132.8 kPa</p>
+                        <p><strong>答案：</strong>基础中心点下4m深度处的附加应力约为132.8 kPa</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 三、综合分析题 -->
+            <section class="mb-5">
+                <h2 class="section-title">三、综合分析题</h2>
+                
+                <!-- 综合分析题1 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">1. 试分析地下水位变化对地基土自重应力的影响，并说明在工程实践中应如何考虑这种影响。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer9')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer9">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>地下水位变化对自重应力的影响：</strong></p>
+                        <ol>
+                            <li><strong>地下水位上升：</strong>
+                                <ul>
+                                    <li>上升范围内的土由原来的天然重度变为有效重度，自重应力减小</li>
+                                    <li>可能导致地基承载力降低</li>
+                                    <li>对于膨胀土，可能引起膨胀变形</li>
+                                    <li>对于湿陷性黄土，可能引起湿陷变形</li>
+                                </ul>
+                            </li>
+                            <li><strong>地下水位下降：</strong>
+                                <ul>
+                                    <li>下降范围内的土由原来的有效重度变为天然重度，自重应力增大</li>
+                                    <li>可能导致地基沉降增加</li>
+                                    <li>对于软土地基，可能加速固结</li>
+                                    <li>可能引起地面沉降</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        <p><strong>工程实践中的考虑：</strong></p>
+                        <ol>
+                            <li>进行详细的工程地质勘察，了解地下水位的历史变化和预测未来变化</li>
+                            <li>在设计中考虑地下水位变化的最不利情况</li>
+                            <li>采取措施控制地下水位，如设置防渗帷幕、排水系统等</li>
+                            <li>对于重要建筑物，进行长期监测</li>
+                            <li>选择合适的基础形式和埋深</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- 综合分析题2 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">2. 某建筑物采用条形基础，在施工过程中发现地基沉降过大。试分析可能的原因，并提出相应的处理措施。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer10')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer10">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>可能原因：</strong></p>
+                        <ol>
+                            <li><strong>地基土承载力不足：</strong>
+                                <ul>
+                                    <li>地基土压缩性高，无法承受上部荷载</li>
+                                    <li>基础底面积太小，基底压力超过地基承载力</li>
+                                </ul>
+                            </li>
+                            <li><strong>附加应力过大：</strong>
+                                <ul>
+                                    <li>建筑物荷载过大</li>
+                                    <li>基础埋深过浅</li>
+                                </ul>
+                            </li>
+                            <li><strong>地基土不均匀：</strong>
+                                <ul>
+                                    <li>地基土存在软弱下卧层</li>
+                                    <li>地基土压缩模量差异较大</li>
+                                </ul>
+                            </li>
+                            <li><strong>施工因素：</strong>
+                                <ul>
+                                    <li>地基土受到扰动</li>
+                                    <li>地下水位变化</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        <p><strong>处理措施：</strong></p>
+                        <ol>
+                            <li><strong>增大基础面积：</strong>
+                                <ul>
+                                    <li>扩大基础底面积，减小基底压力</li>
+                                    <li>改用筏板基础或箱形基础</li>
+                                </ul>
+                            </li>
+                            <li><strong>地基处理：</strong>
+                                <ul>
+                                    <li>采用换填法、强夯法等处理地基</li>
+                                    <li>采用桩基础或复合地基</li>
+                                </ul>
+                            </li>
+                            <li><strong>减小荷载：</strong>
+                                <ul>
+                                    <li>调整建筑物结构，减小上部荷载</li>
+                                    <li>采用轻质材料</li>
+                                </ul>
+                            </li>
+                            <li><strong>其他措施：</strong>
+                                <ul>
+                                    <li>设置沉降缝</li>
+                                    <li>进行预压处理</li>
+                                    <li>加强监测，及时采取补救措施</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 四、工程实践题 -->
+            <section class="mb-5">
+                <h2 class="section-title">四、工程实践题</h2>
+                
+                <!-- 工程实践题1 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">1. 某建筑场地地基土层分布为：0-3m为杂填土（γ=17kN/m³），3-8m为淤泥质粘土（γ=16kN/m³，压缩模量Eₛ=4MPa），8m以下为粉质粘土（γ=19kN/m³）。建筑物采用独立基础，基础底面尺寸为3m×3m，埋深2m，作用在基础顶面的竖向荷载为2000kN。试设计一个地基应力计算方案，并分析地基的沉降趋势。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer11')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer11">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>地基应力计算方案：</strong></p>
+                        <ol>
+                            <li><strong>计算基底压力：</strong>
+                                <ul>
+                                    <li>基础底面积A = 3m × 3m = 9m²</li>
+                                    <li>基础及回填土的自重G = 20×9×2 = 360 kN</li>
+                                    <li>基底压力p = (F + G)/A = (2000 + 360)/9 = 2360/9 = 262.2 kPa</li>
+                                </ul>
+                            </li>
+                            <li><strong>计算基底附加压力：</strong>
+                                <ul>
+                                    <li>基底附加压力p₀ = p - γ₀d = 262.2 - 17×2 = 262.2 - 34 = 228.2 kPa</li>
+                                </ul>
+                            </li>
+                            <li><strong>计算地基附加应力分布：</strong>
+                                <ul>
+                                    <li>采用角点法计算矩形基础下的附加应力</li>
+                                    <li>计算不同深度处的附加应力，确定压缩层厚度</li>
+                                </ul>
+                            </li>
+                            <li><strong>计算地基沉降：</strong>
+                                <ul>
+                                    <li>分层总和法计算地基最终沉降量</li>
+                                    <li>考虑应力历史和沉降计算经验系数</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        <p><strong>地基沉降趋势分析：</strong></p>
+                        <p>根据土层分布和计算结果，该地基沉降趋势主要表现为：</p>
+                        <ol>
+                            <li>由于存在5m厚的淤泥质粘土层（压缩模量低），地基沉降量较大</li>
+                            <li>沉降主要发生在淤泥质粘土层中</li>
+                            <li>由于淤泥质粘土的渗透性低，沉降过程可能持续较长时间</li>
+                            <li>建议采取地基处理措施，如预压、搅拌桩或桩基础等</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- 工程实践题2 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">2. 某桥梁工程采用桩基础，桩径1.2m，桩长20m，桩端持力层为中砂层。已知中砂的承载力特征值fₐk=300kPa，桩周土的侧摩阻力特征值qsik分别为：0-5m为粉质粘土（qsik=20kPa），5-15m为粉土（qsik=15kPa），15-20m为细砂（qsik=30kPa）。试计算单桩竖向承载力特征值，并分析桩基础的受力特点。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer12')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer12">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>单桩竖向承载力特征值计算：</strong></p>
+                        <p>根据《建筑地基基础设计规范》（GB 50007-2011），单桩竖向承载力特征值Rₐ可按下式计算：</p>
+                        <p>Rₐ = qₚₖAₚ + u∑qₛᵢₖlᵢ</p>
+                        <p>其中：</p>
+                        <ul>
+                            <li>qₚₖ = 桩端阻力特征值，取fₐk=300kPa</li>
+                            <li>Aₚ = 桩端面积 = π×(1.2/2)² = 1.131 m²</li>
+                            <li>u = 桩身周长 = π×1.2 = 3.77 m</li>
+                            <li>qₛᵢₖ = 桩周第i层土的侧摩阻力特征值</li>
+                            <li>lᵢ = 桩周第i层土的厚度</li>
+                        </ul>
+                        <p>计算各层土的侧摩阻力：</p>
+                        <ul>
+                            <li>粉质粘土层（0-5m）：u×qₛ₁ₖ×l₁ = 3.77×20×5 = 377 kN</li>
+                            <li>粉土层（5-15m）：u×qₛ₂ₖ×l₂ = 3.77×15×10 = 565.5 kN</li>
+                            <li>细砂层（15-20m）：u×qₛ₃ₖ×l₃ = 3.77×30×5 = 565.5 kN</li>
+                        </ul>
+                        <p>总侧摩阻力：377 + 565.5 + 565.5 = 1508 kN</p>
+                        <p>桩端阻力：qₚₖ×Aₚ = 300×1.131 = 339.3 kN</p>
+                        <p>单桩竖向承载力特征值Rₐ = 1508 + 339.3 = 1847.3 kN</p>
+                        <p><strong>桩基础受力特点分析：</strong></p>
+                        <ol>
+                            <li>桩基础的承载力由桩侧摩阻力和桩端阻力共同提供</li>
+                            <li>本工程中，桩侧摩阻力占总承载力的比例约为81.6%（1508/1847.3），桩端阻力占18.4%</li>
+                            <li>桩侧摩阻力随深度的增加而发挥，但不是线性关系</li>
+                            <li>桩端阻力的发挥需要桩端土发生一定的压缩变形</li>
+                            <li>在荷载作用下，桩身轴力自上而下逐渐减小</li>
+                            <li>桩基础的沉降主要包括桩身压缩和桩端土压缩两部分</li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>关于课程</h4>
+                    <p>《土力学》是土木工程专业的核心课程，本网站提供课程相关的教学资源和学习资料。</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>快速链接</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="../index.html#course-info" class="text-white">课程简介</a></li>
+                        <li><a href="../index.html#lectures" class="text-white">授课内容</a></li>
+                        <li><a href="../index.html#materials" class="text-white">教学资料</a></li>
+                        <li><a href="../index.html#exercises" class="text-white">习题与实验</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4>版权信息</h4>
+                    <p>&copy; 2025 岩土教研室土力学教学团队</p>
+                    <p>All rights reserved.</p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- 引入Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- 切换答案显示/隐藏的脚本 -->
+    <script>
+        function toggleAnswer(answerId) {
+            const answerCard = document.getElementById(answerId);
+            const button = answerCard.previousElementSibling.querySelector('button');
+            
+            if (answerCard.style.display === 'none' || answerCard.style.display === '') {
+                answerCard.style.display = 'block';
+                button.innerHTML = '隐藏参考答案 <i class="fas fa-chevron-up ml-1"></i>';
+            } else {
+                answerCard.style.display = 'none';
+                button.innerHTML = '查看参考答案 <i class="fas fa-chevron-down ml-1"></i>';
+            }
+        }
+    </script>
+</body>
+</html>

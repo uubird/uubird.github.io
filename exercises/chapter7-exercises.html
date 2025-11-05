@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第7章习题 - 地基承载力 - 土力学课程网站</title>
+    <!-- 引入Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- 自定义CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        .exercise-container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .question-card {
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #3498db;
+        }
+        .answer-card {
+            display: none;
+            background-color: #f8f9fa;
+            border-left: 4px solid #28a745;
+        }
+        .toggle-btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .toggle-btn:hover {
+            background-color: #2980b9;
+        }
+        .section-title {
+            color: #2c3e50;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #3498db;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <i class="fas fa-landmark mr-2"></i>土力学
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#course-info">课程简介</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#lectures">授课内容</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#materials">教学资料</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../index.html#exercises">习题与实验</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#resources">参考资源</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#contact">联系我们</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../feedback.html">学生留言</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <header class="jumbotron jumbotron-fluid py-5">
+        <div class="container">
+            <h1 class="display-5">第7章 地基承载力 - 习题</h1>
+            <p class="lead">通过练习题掌握地基承载力理论和计算方法</p>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <div class="exercise-container">
+            <!-- 习题说明 -->
+            <div class="mb-5">
+                <h2 class="section-title">习题说明</h2>
+                <p>本章习题涵盖地基承载力理论、地基承载力计算方法、地基稳定性分析等内容。通过这些习题，你将掌握地基承载力的工程计算和应用。</p>
+            </div>
+
+            <!-- 一、概念题 -->
+            <section class="mb-5">
+                <h2 class="section-title">一、概念题</h2>
+                
+                <!-- 概念题1 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">1. 什么是地基承载力？地基破坏有哪几种模式？简述它们的特点。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer1')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer1">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>地基承载力：</strong>地基所能承受的最大基底压力，即地基在保证其稳定的条件下，满足建筑物沉降要求的地基土单位面积上的荷载能力。</p>
+                        <p><strong>地基破坏的三种模式及其特点：</strong></p>
+                        <ol>
+                            <li><strong>整体剪切破坏（General Shear Failure）：</strong>
+                                <ul>
+                                    <li><strong>特点：</strong>地基土发生整体剪切破坏，形成连续的滑动面</li>
+                                    <li><strong>破坏过程：</strong>
+                                        <ul>
+                                            <li>压密阶段：荷载较小，地基变形主要是压缩变形</li>
+                                            <li>剪切阶段：荷载增大，地基中出现塑性区</li>
+                                            <li>破坏阶段：荷载达到极限值，地基土发生整体剪切破坏，出现明显的滑动面和隆起现象</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>p-s曲线：</strong>有明显的转折点，破坏前沉降较小，破坏后沉降急剧增加</li>
+                                    <li><strong>适用土类：</strong>密实的砂土、坚硬的粘性土</li>
+                                </ul>
+                            </li>
+                            <li><strong>局部剪切破坏（Local Shear Failure）：</strong>
+                                <ul>
+                                    <li><strong>特点：</strong>地基土发生局部剪切破坏，滑动面不延伸到地面</li>
+                                    <li><strong>破坏过程：</strong>
+                                        <ul>
+                                            <li>压密阶段：与整体剪切破坏相似</li>
+                                            <li>剪切阶段：塑性区发展，部分土体发生剪切破坏</li>
+                                            <li>破坏阶段：荷载达到极限值，地基土局部破坏，但不形成连续的滑动面</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>p-s曲线：</strong>没有明显的转折点，沉降随荷载增加而逐渐增大</li>
+                                    <li><strong>适用土类：</strong>中等密度的砂土、粉质粘土</li>
+                                </ul>
+                            </li>
+                            <li><strong>冲剪破坏（Punching Shear Failure）：</strong>
+                                <ul>
+                                    <li><strong>特点：</strong>基础底面下的土体发生竖向剪切破坏，基础似被"冲剪"入土中</li>
+                                    <li><strong>破坏过程：</strong>
+                                        <ul>
+                                            <li>基础周围的土体发生竖向剪切破坏</li>
+                                            <li>基础沉降急剧增加</li>
+                                            <li>不出现明显的滑动面和隆起现象</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>p-s曲线：</strong>没有明显的转折点，沉降随荷载增加而急剧增大</li>
+                                    <li><strong>适用土类：</strong>松散的砂土、软土、饱和松砂</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- 概念题2 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">2. 简述太沙基（Terzaghi）承载力公式的基本假设和适用条件。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer2')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer2">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>太沙基承载力公式的基本假设：</strong></p>
+                        <ol>
+                            <li>地基土是均质、各向同性的半无限体</li>
+                            <li>基础底面是粗糙的，与地基土之间存在摩擦力</li>
+                            <li>基础形状为条形基础（平面应变问题）</li>
+                            <li>荷载是竖直、均匀分布的</li>
+                            <li>地基破坏模式为整体剪切破坏</li>
+                            <li>基础埋深D₀范围内的土体，作为均布超载q=γD₀作用在滑动土体上</li>
+                        </ol>
+                        <p><strong>太沙基承载力公式：</strong></p>
+                        <p>对于条形基础：pᵤ = cNc + γD₀Nq + 0.5γBNγ</p>
+                        <p>对于圆形和方形基础：pᵤ = 1.3cNc + γD₀Nq + 0.4γBNγ</p>
+                        <p>其中：</p>
+                        <ul>
+                            <li>pᵤ - 地基极限承载力(kPa)</li>
+                            <li>c - 地基土的粘聚力(kPa)</li>
+                            <li>γ - 地基土的重度(kN/m³)</li>
+                            <li>D₀ - 基础埋置深度(m)</li>
+                            <li>B - 基础宽度(m)</li>
+                            <li>Nc, Nq, Nγ - 承载力系数，仅与土的内摩擦角φ有关</li>
+                        </ul>
+                        <p><strong>适用条件：</strong></p>
+                        <ol>
+                            <li>适用于整体剪切破坏模式</li>
+                            <li>适用于地基土较均匀的情况</li>
+                            <li>适用于基础底面粗糙的情况</li>
+                            <li>对于局部剪切破坏，可通过修正土的抗剪强度指标（c'=2c/3, φ'=arctan(2tanφ/3)）后使用</li>
+                            <li>对于埋深较大(D₀>2B)的情况，需要进行修正</li>
+                            <li>对于倾斜荷载、水平荷载等情况，需要进行相应的修正</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- 概念题3 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">3. 什么是地基承载力特征值？如何确定地基承载力特征值？</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer3')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer3">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>地基承载力特征值：</strong>指由载荷试验测定的地基土压力变形曲线线性变形段内规定的变形所对应的压力值，其最大值为比例界限值。地基承载力特征值是保证地基稳定和满足建筑物沉降要求的地基承载力设计值。</p>
+                        <p><strong>确定地基承载力特征值的方法：</strong></p>
+                        <ol>
+                            <li><strong>载荷试验法：</strong>
+                                <ul>
+                                    <li>通过现场载荷试验，绘制p-s曲线</li>
+                                    <li>取比例界限值作为地基承载力特征值</li>
+                                    <li>当极限荷载小于比例界限值的2倍时，取极限荷载的一半作为地基承载力特征值</li>
+                                </ul>
+                            </li>
+                            <li><strong>理论公式法：</strong>
+                                <ul>
+                                    <li>使用太沙基、斯肯普顿、梅耶霍夫等承载力理论公式计算极限承载力</li>
+                                    <li>除以安全系数（通常为2-3）得到地基承载力特征值</li>
+                                    <li>fₐ = pᵤ/K（K为安全系数）</li>
+                                </ul>
+                            </li>
+                            <li><strong>规范查表法：</strong>
+                                <ul>
+                                    <li>根据地基土的物理力学性质指标（如标贯击数N、静力触探比贯入阻力pₛ等）</li>
+                                    <li>查相关规范（如《建筑地基基础设计规范》GB 50007）中的表格</li>
+                                    <li>确定地基承载力特征值</li>
+                                </ul>
+                            </li>
+                            <li><strong>经验参数法：</strong>
+                                <ul>
+                                    <li>根据地基土的物理性质指标（如含水量w、孔隙比e、液性指数Iᵢ等）</li>
+                                    <li>结合地区经验，确定地基承载力特征值</li>
+                                </ul>
+                            </li>
+                            <li><strong>其他原位测试方法：</strong>
+                                <ul>
+                                    <li>静力触探试验</li>
+                                    <li>标准贯入试验</li>
+                                    <li>十字板剪切试验</li>
+                                    <li>圆锥动力触探试验</li>
+                                    <li>根据测试结果，通过经验公式计算地基承载力特征值</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        <p><strong>地基承载力特征值的修正：</strong></p>
+                        <p>当基础宽度大于3m或埋置深度大于0.5m时，地基承载力特征值需要进行宽度和深度修正：</p>
+                        <p>fₐ = fₐk + ηᵦγ(b-3) + ηᵈγₘ(d-0.5)</p>
+                        <p>其中：</p>
+                        <ul>
+                            <li>fₐk - 地基承载力特征值(kPa)</li>
+                            <li>ηᵦ, ηᵈ - 基础宽度和埋深的承载力修正系数</li>
+                            <li>γ - 基础底面以下土的重度(kN/m³)</li>
+                            <li>γₘ - 基础底面以上土的加权平均重度(kN/m³)</li>
+                            <li>b - 基础底面宽度(m)，当b<3m时取3m，当b>6m时取6m</li>
+                            <li>d - 基础埋置深度(m)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 概念题4 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">4. 影响地基承载力的主要因素有哪些？如何提高地基承载力？</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer4')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer4">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>影响地基承载力的主要因素：</strong></p>
+                        <ol>
+                            <li><strong>地基土的物理力学性质：</strong>
+                                <ul>
+                                    <li>土的抗剪强度（粘聚力c和内摩擦角φ）</li>
+                                    <li>土的重度γ</li>
+                                    <li>土的压缩性</li>
+                                    <li>土的应力历史</li>
+                                </ul>
+                            </li>
+                            <li><strong>基础条件：</strong>
+                                <ul>
+                                    <li>基础宽度B</li>
+                                    <li>基础埋置深度D₀</li>
+                                    <li>基础形状（条形、方形、圆形等）</li>
+                                    <li>基础刚度</li>
+                                </ul>
+                            </li>
+                            <li><strong>荷载条件：</strong>
+                                <ul>
+                                    <li>荷载类型（竖向、水平、倾斜等）</li>
+                                    <li>荷载分布（均匀、不均匀等）</li>
+                                    <li>荷载大小和变化规律</li>
+                                </ul>
+                            </li>
+                            <li><strong>环境因素：</strong>
+                                <ul>
+                                    <li>地下水水位</li>
+                                    <li>地震作用</li>
+                                    <li>温度变化</li>
+                                    <li>冻融循环</li>
+                                </ul>
+                            </li>
+                            <li><strong>施工因素：</strong>
+                                <ul>
+                                    <li>施工扰动</li>
+                                    <li>排水条件</li>
+                                    <li>加载速率</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        <p><strong>提高地基承载力的方法：</strong></p>
+                        <ol>
+                            <li><strong>换填法：</strong>
+                                <ul>
+                                    <li>挖除软弱土层，换填强度较高的材料（如砂、碎石、灰土等）</li>
+                                    <li>适用于浅层软弱地基处理</li>
+                                </ul>
+                            </li>
+                            <li><strong>预压法：</strong>
+                                <ul>
+                                    <li>堆载预压：在地基上堆载，使地基土提前完成大部分沉降</li>
+                                    <li>真空预压：通过抽真空降低地基中的孔隙水压力</li>
+                                    <li>适用于淤泥、淤泥质土等软弱地基</li>
+                                </ul>
+                            </li>
+                            <li><strong>强夯法：</strong>
+                                <ul>
+                                    <li>用重锤从高处自由落下，对地基进行强力夯实</li>
+                                    <li>适用于碎石土、砂土、低饱和度的粘性土等地基</li>
+                                </ul>
+                            </li>
+                            <li><strong>振冲法：</strong>
+                                <ul>
+                                    <li>利用振动和水冲作用，形成碎石桩或砂桩</li>
+                                    <li>提高地基承载力，减少沉降</li>
+                                </ul>
+                            </li>
+                            <li><strong>挤密桩法：</strong>
+                                <ul>
+                                    <li>通过打入桩管，挤密周围土体，形成复合地基</li>
+                                    <li>常用的有石灰桩、土桩、灰土桩等</li>
+                                </ul>
+                            </li>
+                            <li><strong>化学加固法：</strong>
+                                <ul>
+                                    <li>注浆法：向地基中注入水泥浆、化学浆液等</li>
+                                    <li>深层搅拌法：将水泥等固化剂与地基土搅拌均匀</li>
+                                    <li>适用于处理淤泥、淤泥质土等软弱地基</li>
+                                </ul>
+                            </li>
+                            <li><strong>加筋法：</strong>
+                                <ul>
+                                    <li>在地基中铺设土工合成材料（如土工格栅、土工织物等）</li>
+                                    <li>提高地基承载力，减少不均匀沉降</li>
+                                </ul>
+                            </li>
+                            <li><strong>其他方法：</strong>
+                                <ul>
+                                    <li>降低地下水水位</li>
+                                    <li>采用深基础（如桩基础、沉井基础等）</li>
+                                    <li>调整基础尺寸和埋深</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 二、计算题 -->
+            <section class="mb-5">
+                <h2 class="section-title">二、计算题</h2>
+                
+                <!-- 计算题1 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">1. 某条形基础宽B=3m，埋深D₀=1.5m，地基土为粉质粘土，重度γ=18kN/m³，内摩擦角φ=20°，粘聚力c=15kPa。试用太沙基公式计算地基极限承载力pᵤ。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer5')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer5">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>解：</strong></p>
+                        <p>太沙基条形基础极限承载力公式：</p>
+                        <p>pᵤ = cNc + γD₀Nq + 0.5γBNγ</p>
+                        
+                        <p>根据内摩擦角φ=20°，查太沙基承载力系数表：</p>
+                        <p>Nc = 17.7，Nq = 7.4，Nγ = 5.0</p>
+                        
+                        <p>代入数值计算：</p>
+                        <p>cNc = 15×17.7 = 265.5 kPa</p>
+                        <p>γD₀Nq = 18×1.5×7.4 = 200.4 kPa</p>
+                        <p>0.5γBNγ = 0.5×18×3×5.0 = 135.0 kPa</p>
+                        
+                        <p>地基极限承载力：</p>
+                        <p>pᵤ = 265.5 + 200.4 + 135.0 = 600.9 kPa</p>
+                        
+                        <p><strong>答案：</strong>地基极限承载力pᵤ=600.9kPa</p>
+                    </div>
+                </div>
+
+                <!-- 计算题2 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">2. 某方形基础边长B=2.5m，埋深D₀=2m，地基土为中砂，重度γ=19kN/m³，内摩擦角φ=30°，粘聚力c=0kPa。试用太沙基公式计算地基极限承载力pᵤ，并确定地基承载力特征值fₐ（安全系数K=3）。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer6')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer6">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>解：</strong></p>
+                        <p>(1) 计算地基极限承载力pᵤ：</p>
+                        <p>对于无粘性土(c=0)，太沙基方形基础极限承载力公式：</p>
+                        <p>pᵤ = 1.3cNc + γD₀Nq + 0.4γBNγ</p>
+                        <p>由于c=0，所以pᵤ = γD₀Nq + 0.4γBNγ</p>
+                        
+                        <p>根据内摩擦角φ=30°，查太沙基承载力系数表：</p>
+                        <p>Nq = 18.4，Nγ = 22.4</p>
+                        
+                        <p>代入数值计算：</p>
+                        <p>γD₀Nq = 19×2×18.4 = 699.2 kPa</p>
+                        <p>0.4γBNγ = 0.4×19×2.5×22.4 = 425.6 kPa</p>
+                        
+                        <p>地基极限承载力：</p>
+                        <p>pᵤ = 699.2 + 425.6 = 1124.8 kPa</p>
+                        
+                        <p>(2) 确定地基承载力特征值fₐ：</p>
+                        <p>fₐ = pᵤ/K = 1124.8/3 ≈ 374.9 kPa</p>
+                        
+                        <p><strong>答案：</strong>(1) 地基极限承载力pᵤ=1124.8kPa；(2) 地基承载力特征值fₐ≈374.9kPa</p>
+                    </div>
+                </div>
+
+                <!-- 计算题3 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">3. 某矩形基础，底面尺寸为4m×2m，埋深D₀=1.5m。地基土为粉质粘土，其物理力学性质指标如下：天然重度γ=18kN/m³，内摩擦角φ=18°，粘聚力c=12kPa。试用太沙基公式计算地基极限承载力pᵤ，并进行基础宽度和埋深修正后的地基承载力特征值fₐ（安全系数K=3，假设地基承载力特征值的宽度修正系数ηᵦ=0.3，深度修正系数ηᵈ=1.6）。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer7')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer7">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>解：</strong></p>
+                        <p>(1) 计算地基极限承载力pᵤ：</p>
+                        <p>矩形基础可近似按方形基础计算，太沙基公式：</p>
+                        <p>pᵤ = 1.3cNc + γD₀Nq + 0.4γBNγ</p>
+                        
+                        <p>根据内摩擦角φ=18°，查太沙基承载力系数表：</p>
+                        <p>Nc = 15.4，Nq = 6.5，Nγ = 4.0</p>
+                        
+                        <p>基础宽度取B=2m（较小边长）</p>
+                        
+                        <p>代入数值计算：</p>
+                        <p>1.3cNc = 1.3×12×15.4 = 241.68 kPa</p>
+                        <p>γD₀Nq = 18×1.5×6.5 = 175.5 kPa</p>
+                        <p>0.4γBNγ = 0.4×18×2×4.0 = 57.6 kPa</p>
+                        
+                        <p>地基极限承载力：</p>
+                        <p>pᵤ = 241.68 + 175.5 + 57.6 = 474.78 kPa</p>
+                        
+                        <p>(2) 确定地基承载力特征值fₐk：</p>
+                        <p>fₐk = pᵤ/K = 474.78/3 ≈ 158.26 kPa</p>
+                        
+                        <p>(3) 进行宽度和埋深修正：</p>
+                        <p>fₐ = fₐk + ηᵦγ(b-3) + ηᵈγₘ(d-0.5)</p>
+                        <p>其中：</p>
+                        <p>b = 2m < 3m，取b=3m</p>
+                        <p>γ = 18kN/m³（基底以下土的重度）</p>
+                        <p>γₘ = 18kN/m³（基底以上土的加权平均重度）</p>
+                        <p>d = 1.5m</p>
+                        <p>ηᵦ=0.3，ηᵈ=1.6</p>
+                        
+                        <p>代入数值计算：</p>
+                        <p>ηᵦγ(b-3) = 0.3×18×(3-3) = 0 kPa</p>
+                        <p>ηᵈγₘ(d-0.5) = 1.6×18×(1.5-0.5) = 1.6×18×1 = 28.8 kPa</p>
+                        
+                        <p>修正后的地基承载力特征值：</p>
+                        <p>fₐ = 158.26 + 0 + 28.8 = 187.06 kPa</p>
+                        
+                        <p><strong>答案：</strong>(1) 地基极限承载力pᵤ=474.78kPa；(2) 修正后的地基承载力特征值fₐ≈187.06kPa</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 三、综合分析题 -->
+            <section class="mb-5">
+                <h2 class="section-title">三、综合分析题</h2>
+                
+                <!-- 综合分析题1 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">1. 试分析比较不同地基承载力理论公式（太沙基、斯肯普顿、梅耶霍夫等）的优缺点和适用条件。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer8')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer8">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>太沙基（Terzaghi）承载力公式：</strong></p>
+                        <p><strong>优点：</strong></p>
+                        <ul>
+                            <li>理论推导简单明了，物理概念清晰</li>
+                            <li>考虑了基础底面粗糙度的影响</li>
+                            <li>对不同基础形状（条形、方形、圆形）有不同的修正系数</li>
+                            <li>应用广泛，有丰富的工程经验</li>
+                        </ul>
+                        <p><strong>缺点：</strong></p>
+                        <ul>
+                            <li>假设基础底面完全粗糙，与实际情况有差异</li>
+                            <li>主要适用于整体剪切破坏，对局部剪切破坏需修正参数</li>
+                            <li>对于埋深较大的情况，计算结果不够准确</li>
+                            <li>未考虑基础倾斜、荷载倾斜等复杂情况</li>
+                        </ul>
+                        <p><strong>适用条件：</strong>适用于浅基础（D₀/B≤2），地基土较均匀，基础底面粗糙，以整体剪切破坏为主的情况。</p>
+
+                        <p><strong>斯肯普顿（Skempton）承载力公式：</strong></p>
+                        <p><strong>优点：</strong></p>
+                        <ul>
+                            <li>特别适用于饱和软土地基（φ=0）</li>
+                            <li>考虑了基础形状、埋深的影响</li>
+                            <li>公式形式简单，计算方便</li>
+                        </ul>
+                        <p><strong>缺点：</strong></p>
+                        <ul>
+                            <li>仅适用于φ=0的情况</li>
+                            <li>未考虑基底以上土的抗剪强度</li>
+                            <li>适用范围较窄</li>
+                        </ul>
+                        <p><strong>适用条件：</strong>适用于饱和软土地基（φ=0），浅基础，基础埋深D₀≤2.5B的情况。</p>
+
+                        <p><strong>梅耶霍夫（Meyerhof）承载力公式：</strong></p>
+                        <p><strong>优点：</strong></p>
+                        <ul>
+                            <li>考虑了基础形状、埋深、荷载倾斜等多种因素</li>
+                            <li>适用于较深基础（D₀/B>2）</li>
+                            <li>可用于倾斜基础和倾斜荷载的情况</li>
+                            <li>承载力系数计算更精确</li>
+                        </ul>
+                        <p><strong>缺点：</strong></p>
+                        <ul>
+                            <li>理论推导较复杂</li>
+                            <li>计算参数较多，应用相对复杂</li>
+                        </ul>
+                        <p><strong>适用条件：</strong>适用于深基础，倾斜基础，倾斜荷载，以及地基土强度较高的情况。</p>
+
+                        <p><strong>汉森（Hansen）承载力公式：</strong></p>
+                        <p><strong>优点：</strong></p>
+                        <ul>
+                            <li>考虑了多种因素的修正：基础形状、埋深、荷载倾斜、地面倾斜等</li>
+                            <li>适用范围广</li>
+                            <li>计算结果较为精确</li>
+                        </ul>
+                        <p><strong>缺点：</strong></p>
+                        <ul>
+                            <li>公式复杂，计算参数多</li>
+                            <li>需要较多的修正系数</li>
+                        </ul>
+                        <p><strong>适用条件：</strong>适用于各种形状的基础，倾斜基础，倾斜荷载，地面倾斜等复杂情况。</p>
+
+                        <p><strong>魏锡克（Vesic）承载力公式：</strong></p>
+                        <p><strong>优点：</strong></p>
+                        <ul>
+                            <li>考虑了地基土的压缩性影响</li>
+                            <li>引入了刚度指数，反映地基土的特性</li>
+                            <li>可用于不同破坏模式的情况</li>
+                        </ul>
+                        <p><strong>缺点：</strong></p>
+                        <ul>
+                            <li>公式复杂，参数确定困难</li>
+                            <li>工程应用相对较少</li>
+                        </ul>
+                        <p><strong>适用条件：</strong>适用于考虑地基土压缩性的情况，可用于分析不同破坏模式的地基承载力。</p>
+                    </div>
+                </div>
+
+                <!-- 综合分析题2 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">2. 某建筑场地地基为软土地基，承载力较低。试分析软弱地基对建筑物的影响，并提出相应的地基处理方案和选择依据。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer9')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer9">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>软弱地基对建筑物的影响：</strong></p>
+                        <ol>
+                            <li><strong>承载力不足：</strong>
+                                <ul>
+                                    <li>导致地基失稳，建筑物倾斜或倒塌</li>
+                                    <li>引起基础开裂、沉降过大</li>
+                                </ul>
+                            </li>
+                            <li><strong>沉降过大：</strong>
+                                <ul>
+                                    <li>建筑物产生过大的绝对沉降</li>
+                                    <li>影响建筑物的正常使用</li>
+                                    <li>导致设备无法正常运转</li>
+                                </ul>
+                            </li>
+                            <li><strong>不均匀沉降：</strong>
+                                <ul>
+                                    <li>建筑物产生倾斜、开裂</li>
+                                    <li>影响结构安全和耐久性</li>
+                                    <li>造成门窗变形，无法正常开关</li>
+                                </ul>
+                            </li>
+                            <li><strong>沉降历时过长：</strong>
+                                <ul>
+                                    <li>建筑物沉降持续时间长，影响使用</li>
+                                    <li>需要长期监测和维护</li>
+                                </ul>
+                            </li>
+                            <li><strong>地震作用下的震陷：</strong>
+                                <ul>
+                                    <li>地震时可能产生震陷，加剧建筑物破坏</li>
+                                    <li>影响建筑物的抗震性能</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        <p><strong>地基处理方案：</strong></p>
+                        <ol>
+                            <li><strong>换填法：</strong>
+                                <ul>
+                                    <li><strong>适用条件：</strong>软弱土层厚度较薄（一般小于3m）</li>
+                                    <li><strong>处理效果：</strong>提高地基承载力，减少沉降</li>
+                                    <li><strong>材料选择：</strong>砂石、灰土、素土、矿渣等</li>
+                                </ul>
+                            </li>
+                            <li><strong>预压法：</strong>
+                                <ul>
+                                    <li><strong>堆载预压：</strong>
+                                        <ul>
+                                            <li><strong>适用条件：</strong>淤泥、淤泥质土、冲填土等软弱地基</li>
+                                            <li><strong>处理效果：</strong>加速地基土固结，提高承载力，减少工后沉降</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>真空预压：</strong>
+                                        <ul>
+                                            <li><strong>适用条件：</strong>软土地基，尤其是无法堆载的情况</li>
+                                            <li><strong>处理效果：</strong>无需堆载材料，施工方便，效果好</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><strong>强夯法：</strong>
+                                <ul>
+                                    <li><strong>适用条件：</strong>饱和度较低的粘性土、砂土、碎石土等地基</li>
+                                    <li><strong>处理效果：</strong>提高地基承载力，减少沉降，改善土的抗液化性能</li>
+                                </ul>
+                            </li>
+                            <li><strong>复合地基法：</strong>
+                                <ul>
+                                    <li><strong>碎石桩：</strong>
+                                        <ul>
+                                            <li><strong>适用条件：</strong>松散砂土、粉土、粘性土地基</li>
+                                            <li><strong>处理效果：</strong>挤密地基，提高承载力，减少沉降</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>水泥土搅拌桩：</strong>
+                                        <ul>
+                                            <li><strong>适用条件：</strong>淤泥、淤泥质土、粉土等软弱地基</li>
+                                            <li><strong>处理效果：</strong>形成复合地基，提高承载力，减少沉降</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>CFG桩：</strong>
+                                        <ul>
+                                            <li><strong>适用条件：</strong>各类软弱地基</li>
+                                            <li><strong>处理效果：</strong>提高地基承载力，减少沉降，适用范围广</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><strong>注浆加固法：</strong>
+                                <ul>
+                                    <li><strong>适用条件：</strong>各种软弱地基，尤其是已有建筑物地基加固</li>
+                                    <li><strong>处理效果：</strong>提高地基承载力，减少沉降，止水防渗</li>
+                                </ul>
+                            </li>
+                            <li><strong>桩基础：</strong>
+                                <ul>
+                                    <li><strong>适用条件：</strong>软弱土层较厚，其他处理方法不经济或效果不佳</li>
+                                    <li><strong>处理效果：</strong>将上部荷载传递到深层好土层或岩层</li>
+                                    <li><strong>桩型选择：</strong>预制桩、灌注桩、水泥土搅拌桩等</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        <p><strong>地基处理方案选择依据：</strong></p>
+                        <ol>
+                            <li><strong>地质条件：</strong>
+                                <ul>
+                                    <li>软弱土层的厚度、分布、物理力学性质</li>
+                                    <li>下卧层的情况</li>
+                                    <li>地下水条件</li>
+                                </ul>
+                            </li>
+                            <li><strong>建筑物要求：</strong>
+                                <ul>
+                                    <li>建筑物的性质（重要性、用途）</li>
+                                    <li>荷载大小和分布</li>
+                                    <li>允许沉降和不均匀沉降</li>
+                                </ul>
+                            </li>
+                            <li><strong>施工条件：</strong>
+                                <ul>
+                                    <li>施工场地大小</li>
+                                    <li>施工设备和技术水平</li>
+                                    <li>工期要求</li>
+                                </ul>
+                            </li>
+                            <li><strong>环境条件：</strong>
+                                <ul>
+                                    <li>周围建筑物和地下管线情况</li>
+                                    <li>对周围环境的影响</li>
+                                    <li>噪声、振动、污染等限制</li>
+                                </ul>
+                            </li>
+                            <li><strong>经济因素：</strong>
+                                <ul>
+                                    <li>各方案的工程造价比较</li>
+                                    <li>维护费用</li>
+                                    <li>投资效益分析</li>
+                                </ul>
+                            </li>
+                            <li><strong>工程经验：</strong>
+                                <ul>
+                                    <li>当地类似工程的经验</li>
+                                    <li>成功案例参考</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 四、工程实践题 -->
+            <section class="mb-5">
+                <h2 class="section-title">四、工程实践题</h2>
+                
+                <!-- 工程实践题1 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">1. 某建筑场地地基土为粉质粘土，地基承载力特征值fₐk=120kPa，重度γ=18kN/m³。设计一独立基础，承受上部结构传来的竖向荷载F=400kN，基础埋深D₀=1.5m。试确定基础底面尺寸，并进行地基承载力验算。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer10')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer10">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>解：</strong></p>
+                        <ol>
+                            <li><strong>确定基础底面尺寸：</strong></li>
+                            <p>先进行地基承载力特征值的深度修正：</p>
+                            <p>根据《建筑地基基础设计规范》，粉质粘土的宽度修正系数ηᵦ=0.3，深度修正系数ηᵈ=1.6</p>
+                            <p>fₐ = fₐk + ηᵦγ(b-3) + ηᵈγₘ(d-0.5)</p>
+                            <p>假设基础宽度b<3m，宽度修正为0</p>
+                            <p>γₘ=γ=18kN/m³（基底以上土的加权平均重度）</p>
+                            <p>fₐ = 120 + 0 + 1.6×18×(1.5-0.5) = 120 + 28.8 = 148.8 kPa</p>
+                            
+                            <p>基础底面面积计算：</p>
+                            <p>考虑基础自重和基础上覆土重，取基础及覆土的平均重度γ'=20kN/m³</p>
+                            <p>基底压力pₖ = (F + G)/A ≤ fₐ</p>
+                            <p>其中G = γ'A D₀</p>
+                            
+                            <p>假设基础为方形基础，边长为b，则A = b²</p>
+                            <p>pₖ = (F + γ'A D₀)/A = F/A + γ' D₀ ≤ fₐ</p>
+                            <p>F/A ≤ fₐ - γ' D₀</p>
+                            <p>A ≥ F/(fₐ - γ' D₀) = 400/(148.8 - 20×1.5) = 400/(148.8 - 30) = 400/118.8 ≈ 3.37 m²</p>
+                            <p>取基础边长b=1.85m，则A=1.85×1.85≈3.42 m²>3.37 m²</p>
+                            
+                            <li><strong>地基承载力验算：</strong></li>
+                            <p>计算基底压力：</p>
+                            <p>G = γ'A D₀ = 20×3.42×1.5 = 102.6 kN</p>
+                            <p>pₖ = (F + G)/A = (400 + 102.6)/3.42 ≈ 502.6/3.42 ≈ 146.96 kPa ≤ fₐ=148.8 kPa</p>
+                            <p>满足要求。</p>
+                            
+                            <li><strong>进一步考虑宽度修正：</strong></li>
+                            <p>基础宽度b=1.85m<3m，宽度修正系数为0，无需重新计算。</p>
+                            
+                            <li><strong>最终设计：</strong></li>
+                            <p>基础采用方形基础，边长b=1.85m</p>
+                            <p>基础埋深D₀=1.5m</p>
+                            <p>基底压力pₖ≈146.96kPa≤fₐ=148.8kPa，满足地基承载力要求。</p>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- 工程实践题2 -->
+                <div class="card question-card">
+                    <div class="card-header">
+                        <h3 class="card-title h5">2. 某储罐基础直径为20m，设计容量为5000m³，罐体重G=1000kN，储液重度γ=10kN/m³。地基土为粉质粘土，重度γ=19kN/m³，内摩擦角φ=22°，粘聚力c=18kPa，地基承载力特征值fₐk=180kPa。试确定储罐的安全储液高度，并进行地基承载力验算（假设基础埋深D₀=2m，地基承载力修正系数ηᵦ=0.3，ηᵈ=1.6）。</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="toggle-btn" onclick="toggleAnswer('answer11')">查看参考答案 <i class="fas fa-chevron-down ml-1"></i></button>
+                    </div>
+                </div>
+                <div class="card answer-card" id="answer11">
+                    <div class="card-header">
+                        <h3 class="card-title h5">参考答案</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>解：</strong></p>
+                        <ol>
+                            <li><strong>地基承载力特征值修正：</strong></li>
+                            <p>基础直径B=20m>6m，取B=6m</p>
+                            <p>fₐ = fₐk + ηᵦγ(b-3) + ηᵈγₘ(d-0.5)</p>
+                            <p>其中：</p>
+                            <p>ηᵦ=0.3，ηᵈ=1.6</p>
+                            <p>γ=19kN/m³（基底以下土的重度）</p>
+                            <p>γₘ=19kN/m³（基底以上土的加权平均重度）</p>
+                            <p>d=2m</p>
+                            <p>代入数值计算：</p>
+                            <p>ηᵦγ(b-3) = 0.3×19×(6-3) = 17.1 kPa</p>
+                            <p>ηᵈγₘ(d-0.5) = 1.6×19×(2-0.5) = 45.6 kPa</p>
+                            <p>fₐ = 180 + 17.1 + 45.6 = 242.7 kPa</p>
+                            
+                            <li><strong>计算基础底面面积：</strong></li>
+                            <p>A = π×(B/2)² = π×10² = 314.16 m²</p>
+                            
+                            <li><strong>确定安全储液高度：</strong></li>
+                            <p>设储液高度为h，则储液重量W = γ×V = 10×(π×10²×h) = 10×314.16×h = 3141.6h kN</p>
+                            
+                            <p>基础自重和基础上覆土重G' = γ'×A×D₀（取γ'=20kN/m³）</p>
+                            <p>G' = 20×314.16×2 = 12566.4 kN</p>
+                            
+                            <p>基底压力pₖ = (G + W + G')/A ≤ fₐ</p>
+                            <p>(1000 + 3141.6h + 12566.4)/314.16 ≤ 242.7</p>
+                            <p>13566.4 + 3141.6h ≤ 314.16×242.7</p>
+                            <p>13566.4 + 3141.6h ≤ 76246.6</p>
+                            <p>3141.6h ≤ 62680.2</p>
+                            <p>h ≤ 19.95 m</p>
+                            
+                            <p>考虑储罐设计容量为5000m³，计算对应的高度：</p>
+                            <p>V = π×10²×h = 100πh = 5000</p>
+                            <p>h = 5000/(100π) ≈ 15.92 m < 19.95 m</p>
+                            
+                            <li><strong>地基承载力验算：</strong></li>
+                            <p>当h=15.92m时，储液重量W = 10×5000 = 50000 kN</p>
+                            <p>基底压力pₖ = (1000 + 50000 + 12566.4)/314.16 = 63566.4/314.16 ≈ 202.3 kPa ≤ fₐ=242.7 kPa</p>
+                            <p>满足要求。</p>
+                            
+                            <li><strong>结论：</strong></li>
+                            <p>储罐的安全储液高度为15.92m，此时地基承载力满足要求。</p>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>关于课程</h4>
+                    <p>《土力学》是土木工程专业的核心课程，本网站提供课程相关的教学资源和学习资料。</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>快速链接</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="../index.html#course-info" class="text-white">课程简介</a></li>
+                        <li><a href="../index.html#lectures" class="text-white">授课内容</a></li>
+                        <li><a href="../index.html#materials" class="text-white">教学资料</a></li>
+                        <li><a href="../index.html#exercises" class="text-white">习题与实验</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4>版权信息</h4>
+                    <p>&copy; 2025 岩土教研室土力学教学团队</p>
+                    <p>All rights reserved.</p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- 引入Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- 切换答案显示/隐藏的脚本 -->
+    <script>
+        function toggleAnswer(answerId) {
+            const answerCard = document.getElementById(answerId);
+            const button = answerCard.previousElementSibling.querySelector('button');
+            
+            if (answerCard.style.display === 'none' || answerCard.style.display === '') {
+                answerCard.style.display = 'block';
+                button.innerHTML = '隐藏参考答案 <i class="fas fa-chevron-up ml-1"></i>';
+            } else {
+                answerCard.style.display = 'none';
+                button.innerHTML = '查看参考答案 <i class="fas fa-chevron-down ml-1"></i>';
+            }
+        }
+    </script>
+</body>
+</html>
