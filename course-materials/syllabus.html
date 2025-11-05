@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>教学大纲 - 土力学课程网站</title>
+    <!-- 引入Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- 自定义CSS -->
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .navbar {
+            background-color: #2c3e50;
+        }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        .jumbotron {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 3rem 0;
+            margin-bottom: 0;
+        }
+        .section-title {
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+        }
+        .content-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        .table th {
+            background-color: #3498db;
+            color: white;
+        }
+        .important {
+            background-color: #fff9c4;
+            padding: 1rem;
+            border-left: 4px solid #ffc107;
+            margin: 1rem 0;
+        }
+        .objective-item {
+            margin-bottom: 1rem;
+        }
+        .content-chapter {
+            margin-bottom: 1.5rem;
+        }
+        .content-chapter h4 {
+            color: #3498db;
+            margin-bottom: 0.5rem;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <i class="fas fa-landmark mr-2"></i>
+                土力学课程
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#course-info">课程简介</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../lectures/index.html">授课内容</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            教学资料
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="textbooks.html">推荐教材</a></li>
+                            <li><a class="dropdown-item" href="ppt.html">授课课件</a></li>
+                            <li><a class="dropdown-item active" href="syllabus.html">教学大纲</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="resourcesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            学习资源
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="resourcesDropdown">
+                            <li><a class="dropdown-item" href="../exercises/index.html">习题</a></li>
+                            <li><a class="dropdown-item" href="../experiments/index.html">实验</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../feedback.html">学生留言</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题区 -->
+    <header class="jumbotron">
+        <div class="container text-center">
+            <h1 class="display-4">土力学课程教学大纲</h1>
+            <p class="lead">烟台大学土木工程专业核心课程</p>
+        </div>
+    </header>
+
+    <!-- 主要内容区 -->
+    <main class="container py-5">
+        <!-- 课程基本信息 -->
+        <section class="content-card">
+            <h2 class="section-title">一、课程基本信息</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <ul class="list-unstyled">
+                        <li><strong>课程代码：</strong>CIV301</li>
+                        <li><strong>课程名称：</strong>土力学</li>
+                        <li><strong>英文名称：</strong>Soil Mechanics</li>
+                        <li><strong>课程类别：</strong>专业核心课</li>
+                        <li><strong>学　　分：</strong>3.5</li>
+                        <li><strong>总 学 时：</strong>56（理论40，实验16）</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <ul class="list-unstyled">
+                        <li><strong>适用专业：</strong>土木工程</li>
+                        <li><strong>先修课程：</strong>理论力学、材料力学、工程地质</li>
+                        <li><strong>后续课程：</strong>地基基础、基坑工程、边坡工程</li>
+                        <li><strong>开课学院：</strong>土木工程学院</li>
+                        <li><strong>课程负责人：</strong>吉植强 教授</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 课程简介 -->
+        <section class="content-card">
+            <h2 class="section-title">二、课程简介</h2>
+            <p>土力学是土木工程专业的一门重要专业基础课，主要研究土的物理力学性质及其在工程中的应用。本课程系统地介绍土的形成与分类、土的物理性质及工程分类、土的渗透性与渗流、土中应力计算、土的压缩性与地基沉降、土的抗剪强度、土压力理论、地基承载力、土坡稳定分析等内容。</p>
+            <p>通过本课程的学习，学生将掌握土力学的基本理论和分析方法，为后续的地基基础、基坑工程、边坡工程等专业课程的学习奠定坚实的基础，同时培养学生运用土力学知识解决实际工程问题的能力。</p>
+        </section>
+
+        <!-- 课程教学目标 -->
+        <section class="content-card">
+            <h2 class="section-title">三、课程教学目标</h2>
+            
+            <div class="objective-item">
+                <h4>1. 知识目标</h4>
+                <ul class="list-disc pl-5">
+                    <li>掌握土的物理力学性质及其工程分类方法</li>
+                    <li>理解土的渗透性、压缩性和抗剪强度等基本力学特性</li>
+                    <li>掌握土中应力计算、地基沉降计算和土压力计算的基本理论和方法</li>
+                    <li>掌握地基承载力和土坡稳定性分析的基本原理和计算方法</li>
+                    <li>了解地基处理的基本方法和适用条件</li>
+                </ul>
+            </div>
+            
+            <div class="objective-item">
+                <h4>2. 能力目标</h4>
+                <ul class="list-disc pl-5">
+                    <li>能够正确进行土的物理性质试验和力学性质试验</li>
+                    <li>能够运用土力学理论分析和解决地基基础工程中的实际问题</li>
+                    <li>具备查阅相关规范、标准和技术资料的能力</li>
+                    <li>培养学生的工程思维能力和创新意识</li>
+                    <li>提高学生的科学研究能力和团队协作精神</li>
+                </ul>
+            </div>
+            
+            <div class="objective-item">
+                <h4>3. 素质目标</h4>
+                <ul class="list-disc pl-5">
+                    <li>培养学生严谨的科学态度和踏实的工作作风</li>
+                    <li>增强学生的工程责任感和职业素养</li>
+                    <li>培养学生的可持续发展意识和环保意识</li>
+                    <li>树立学生的安全第一、质量至上的工程理念</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 教学内容与学时分配 -->
+        <section class="content-card">
+            <h2 class="section-title">四、教学内容与学时分配</h2>
+            
+            <div class="content-chapter">
+                <h4>第1章 土的物理性质及工程分类（6学时）</h4>
+                <ul class="list-disc pl-5">
+                    <li>土的形成与结构特点</li>
+                    <li>土的三相组成及物理性质指标</li>
+                    <li>土的物理状态指标（含水量、密度、孔隙比等）</li>
+                    <li>土的工程分类方法</li>
+                    <li>土的物理性质试验（2学时实验）</li>
+                </ul>
+            </div>
+            
+            <div class="content-chapter">
+                <h4>第2章 土的渗透性与渗流（6学时）</h4>
+                <ul class="list-disc pl-5">
+                    <li>土的渗透性基本概念</li>
+                    <li>达西定律及其适用条件</li>
+                    <li>渗透系数的测定方法（常水头、变水头试验）</li>
+                    <li>二维渗流与流网</li>
+                    <li>渗透破坏与防治措施</li>
+                    <li>土的渗透性试验（2学时实验）</li>
+                </ul>
+            </div>
+            
+            <div class="content-chapter">
+                <h4>第3章 土中应力计算（6学时）</h4>
+                <ul class="list-disc pl-5">
+                    <li>土中自重应力计算</li>
+                    <li>基底压力计算</li>
+                    <li>地基附加应力计算（集中荷载、矩形荷载、条形荷载）</li>
+                    <li>应力路径的概念</li>
+                </ul>
+            </div>
+            
+            <div class="content-chapter">
+                <h4>第4章 土的压缩性与地基沉降（8学时）</h4>
+                <ul class="list-disc pl-5">
+                    <li>土的压缩性概念及压缩指标</li>
+                    <li>地基最终沉降量计算（分层总和法、规范法）</li>
+                    <li>地基沉降与时间的关系（太沙基固结理论）</li>
+                    <li>地基容许沉降量与沉降控制</li>
+                    <li>土的压缩试验（2学时实验）</li>
+                </ul>
+            </div>
+            
+            <div class="content-chapter">
+                <h4>第5章 土的抗剪强度（8学时）</h4>
+                <ul class="list-disc pl-5">
+                    <li>土的抗剪强度基本概念</li>
+                    <li>库仑定律与摩尔-库仑破坏准则</li>
+                    <li>土的抗剪强度试验（直剪试验、三轴试验）</li>
+                    <li>土的抗剪强度指标的影响因素</li>
+                    <li>土的剪切试验（2学时实验）</li>
+                </ul>
+            </div>
+            
+            <div class="content-chapter">
+                <h4>第6章 土压力与土坡稳定（8学时）</h4>
+                <ul class="list-disc pl-5">
+                    <li>土压力基本概念与分类</li>
+                    <li>朗肯土压力理论</li>
+                    <li>库仑土压力理论</li>
+                    <li>土坡稳定性分析（瑞典条分法、毕肖普法）</li>
+                    <li>影响土坡稳定的因素与防治措施</li>
+                </ul>
+            </div>
+            
+            <div class="content-chapter">
+                <h4>第7章 地基承载力（6学时）</h4>
+                <ul class="list-disc pl-5">
+                    <li>地基承载力基本概念</li>
+                    <li>地基破坏模式</li>
+                    <li>地基极限承载力理论（太沙基公式、汉森公式）</li>
+                    <li>地基承载力特征值的确定方法</li>
+                    <li>地基承载力试验（2学时实验）</li>
+                </ul>
+            </div>
+            
+            <div class="content-chapter">
+                <h4>第8章 地基处理（8学时）</h4>
+                <ul class="list-disc pl-5">
+                    <li>地基处理的基本概念与分类</li>
+                    <li>换填法、预压法、强夯法等常用地基处理方法</li>
+                    <li>复合地基理论与设计</li>
+                    <li>地基处理工程案例分析</li>
+                </ul>
+            </div>
+            
+            <table class="table table-bordered table-striped mt-4">
+                <thead>
+                    <tr>
+                        <th>项目</th>
+                        <th>课时数</th>
+                        <th>占总学时比例</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>理论教学</td>
+                        <td>40</td>
+                        <td>71.4%</td>
+                    </tr>
+                    <tr>
+                        <td>实验教学</td>
+                        <td>16</td>
+                        <td>28.6%</td>
+                    </tr>
+                    <tr>
+                        <td>合计</td>
+                        <td>56</td>
+                        <td>100%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- 教学方法与手段 -->
+        <section class="content-card">
+            <h2 class="section-title">五、教学方法与手段</h2>
+            
+            <h4>1. 教学方法</h4>
+            <ul class="list-disc pl-5">
+                <li><strong>课堂讲授：</strong>系统讲解土力学的基本理论和分析方法</li>
+                <li><strong>案例教学：</strong>结合工程实例，分析土力学原理在实际工程中的应用</li>
+                <li><strong>讨论式教学：</strong>组织学生讨论工程问题，培养学生的分析和解决问题的能力</li>
+                <li><strong>实验教学：</strong>通过动手操作，加深对土力学理论的理解</li>
+                <li><strong>自主学习：</strong>布置课后作业和阅读材料，培养学生的自主学习能力</li>
+            </ul>
+            
+            <h4 class="mt-4">2. 教学手段</h4>
+            <ul class="list-disc pl-5">
+                <li><strong>多媒体教学：</strong>利用PPT、动画等多媒体手段，直观展示土力学概念和原理</li>
+                <li><strong>网络教学平台：</strong>建立课程网站，提供教学资源和在线学习平台</li>
+                <li><strong>虚拟实验：</strong>利用虚拟实验软件，辅助实验教学</li>
+                <li><strong>工程软件：</strong>介绍GeoStudio、Plaxis等专业软件在土力学中的应用</li>
+            </ul>
+        </section>
+
+        <!-- 考核方式与标准 -->
+        <section class="content-card">
+            <h2 class="section-title">六、考核方式与标准</h2>
+            
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>考核项目</th>
+                        <th>权重</th>
+                        <th>考核内容</th>
+                        <th>评分标准</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>平时成绩</td>
+                        <td>30%</td>
+                        <td>考勤、作业、课堂表现</td>
+                        <td>考勤（5%）、作业完成质量（15%）、课堂表现（10%）</td>
+                    </tr>
+                    <tr>
+                        <td>实验成绩</td>
+                        <td>20%</td>
+                        <td>实验操作、实验报告</td>
+                        <td>实验操作规范性（10%）、实验报告质量（10%）</td>
+                    </tr>
+                    <tr>
+                        <td>期末考试</td>
+                        <td>50%</td>
+                        <td>闭卷考试</td>
+                        <td>考核土力学基本理论、分析方法和应用能力</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="important mt-4">
+                <h4>成绩评定标准：</h4>
+                <ul class="list-disc pl-5">
+                    <li>优秀（90-100分）：全面掌握土力学基本理论和分析方法，能够熟练运用所学知识解决复杂工程问题</li>
+                    <li>良好（80-89分）：较好掌握土力学基本理论和分析方法，能够运用所学知识解决一般工程问题</li>
+                    <li>中等（70-79分）：基本掌握土力学基本理论和分析方法，能够解决简单的工程问题</li>
+                    <li>及格（60-69分）：初步掌握土力学基本理论和分析方法，能够完成基本的工程计算</li>
+                    <li>不及格（<60分）：未达到基本要求</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 推荐教材与参考资料 -->
+        <section class="content-card">
+            <h2 class="section-title">七、推荐教材与参考资料</h2>
+            
+            <h4>1. 推荐教材</h4>
+            <ul class="list-disc pl-5">
+                <li>《土力学》(第5版)，李广信、张丙印、于玉贞主编，清华大学出版社，2019年</li>
+                <li>《土力学地基基础》(第4版)，陈希哲主编，清华大学出版社，2013年</li>
+            </ul>
+            
+            <h4 class="mt-4">2. 参考资料</h4>
+            <ul class="list-disc pl-5">
+                <li>《土力学原理》(第2版)，周景星、李广信、张建红等主编，清华大学出版社，2016年</li>
+                <li>《土力学》，黄文熙主编，中国建筑工业出版社，2001年</li>
+                <li>《Advanced Soil Mechanics》(Third Edition)，Braja M. Das著，Taylor & Francis，2010年</li>
+                <li>《地基基础设计规范》(GB 50007-2011)</li>
+                <li>《建筑地基处理技术规范》(JGJ 79-2012)</li>
+                <li>《土工试验方法标准》(GB/T 50123-2019)</li>
+            </ul>
+        </section>
+
+        <!-- 教学大纲说明 -->
+        <section class="content-card">
+            <h2 class="section-title">八、教学大纲说明</h2>
+            <p>本教学大纲适用于土木工程专业本科生《土力学》课程的教学。大纲根据教育部《土木工程专业教学质量国家标准》和学校培养方案的要求制定，涵盖了土力学的基本理论、实验方法和工程应用。</p>
+            
+            <p>教学过程中应注重理论与实践相结合，培养学生的工程思维能力和解决实际问题的能力。根据教学内容的难易程度和学生的实际情况，可适当调整教学进度和内容深度。</p>
+            
+            <p>本大纲将根据学科发展和工程实践的需要，定期进行修订和完善。</p>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>联系我们</h4>
+                    <p>地址：烟台大学土木工程学院</p>
+                    <p>电话：0535-6902967</p>
+                    <p>邮箱：jzq@ytu.edu.cn</p>
+                </div>
+                <div class="col-md-6">
+                    <h4>快速链接</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="../index.html" class="text-white">首页</a></li>
+                        <li><a href="../index.html#course-info" class="text-white">课程简介</a></li>
+                        <li><a href="../lectures/index.html" class="text-white">授课内容</a></li>
+                        <li><a href="../index.html#materials" class="text-white">教学资料</a></li>
+                        <li><a href="../exercises/index.html" class="text-white">习题</a></li>
+                        <li><a href="../experiments/index.html" class="text-white">实验</a></li>
+                        <li><a href="../feedback.html" class="text-white">学生留言</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <p>&copy; 2025 岩土教研室土力学教学团队. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button id="backToTop" class="back-to-top btn btn-primary rounded-circle" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- 引入Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- 引入jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- 自定义JavaScript -->
+    <script>
+        // 返回顶部按钮显示/隐藏
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 300) {
+                $('#backToTop').fadeIn();
+            } else {
+                $('#backToTop').fadeOut();
+            }
+        });
+        
+        // 平滑滚动
+        $('a[href^="#"]').on('click', function(e) {
+            e.preventDefault();
+            var target = $(this).attr('href');
+            $(target).animate({ scrollTop: 0 }, 'slow');
+        });
+    </script>
+</body>
+</html>

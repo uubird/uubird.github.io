@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>推荐教材 - 土力学课程网站</title>
+    <!-- 引入Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- 自定义CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        .textbooks-container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .textbook-card {
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .textbook-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+        .textbook-image {
+            height: 300px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        .section-title {
+            color: #343a40;
+            border-bottom: 2px solid #0d6efd;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .book-info {
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        .book-info:last-child {
+            border-bottom: none;
+        }
+        .book-info strong {
+            color: #0d6efd;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <i class="fas fa-landmark mr-2"></i>土力学
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#course-info">课程简介</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#lectures">授课内容</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../index.html#materials">教学资料</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#exercises">习题与实验</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#resources">参考资源</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#contact">联系我们</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <header class="jumbotron jumbotron-fluid py-5">
+        <div class="container">
+            <h1 class="display-5">推荐教材</h1>
+            <p class="lead">土力学课程的核心参考书籍</p>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <div class="textbooks-container">
+            <h2 class="section-title"><i class="fas fa-book mr-2"></i>教材推荐</h2>
+            
+            <p class="mb-5">本课程推荐以下教材作为主要学习参考资料。这些教材涵盖了土力学的基本理论、计算方法和工程应用，是学习本课程的重要辅助材料。</p>
+            
+            <!-- 教材1 -->
+            <div class="card textbook-card">
+                <div class="row g-0">
+                    <div class="col-md-3">
+                        <img src="../assets/images/textbooks/textbook1.jpg" class="img-fluid textbook-image" alt="《土力学》(第3版)">
+                    </div>
+                    <div class="col-md-9">
+                        <div class="card-body">
+                            <h3 class="card-title">《土力学》(第3版)</h3>
+                            <div class="book-info">
+                                <strong>作者：</strong> 李广信、张丙印、于玉贞
+                            </div>
+                            <div class="book-info">
+                                <strong>出版社：</strong> 清华大学出版社
+                            </div>
+                            <div class="book-info">
+                                <strong>出版时间：</strong> 2022年8月1日
+                            </div>
+                            <div class="book-info">
+                                <strong>ISBN：</strong> 9787302595021
+                            </div>
+                            <div class="book-info">
+                                <strong>定价：</strong> 75元
+                            </div>
+                            <div class="book-info">
+                                <strong>内容简介：</strong>
+                                <p class="mt-2">本书是土力学领域的经典教材，系统介绍了土的物理性质、渗透性、压缩性、抗剪强度、土压力、地基承载力、地基沉降等基本理论和工程应用。第3版在保持原有风格的基础上，更新了部分内容，增加了工程案例和习题。</p>
+                            </div>
+                            <div class="book-info">
+                                <strong>适用章节：</strong> 全部章节
+                            </div>
+                            <div class="mt-4">
+                                <a href="#" class="btn btn-primary" target="_blank"><i class="fas fa-external-link-alt mr-2"></i>查看购买链接</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 教材2 -->
+            <div class="card textbook-card">
+                <div class="row g-0">
+                    <div class="col-md-3">
+                        <img src="../assets/images/textbooks/textbook2.jpg" class="img-fluid textbook-image" alt="《土力学地基基础》(第5版)">
+                    </div>
+                    <div class="col-md-9">
+                        <div class="card-body">
+                            <h3 class="card-title">《土力学地基基础》(第5版)</h3>
+                            <div class="book-info">
+                                <strong>作者：</strong> 陈希哲、叶书麟
+                            </div>
+                            <div class="book-info">
+                                <strong>出版社：</strong> 清华大学出版社
+                            </div>
+                            <div class="book-info">
+                                <strong>出版时间：</strong> 2013年
+                            </div>
+                            <div class="book-info">
+                                <strong>ISBN：</strong> 9787302320739
+                            </div>
+                            <div class="book-info">
+                                <strong>内容简介：</strong>
+                                <p class="mt-2">本书全面介绍了土的物理性质、渗透性、压缩性、抗剪强度、地基应力计算、地基沉降、土压力与挡土墙、地基承载力等内容，并结合工程实例详细讲解了地基基础的设计方法。书中配有大量例题和习题，便于学习和应用。</p>
+                            </div>
+                            <div class="book-info">
+                                <strong>适用章节：</strong> 第3章、第4章、第7章、第8章
+                            </div>
+                            <div class="mt-4">
+                                <a href="#" class="btn btn-primary" target="_blank"><i class="fas fa-external-link-alt mr-2"></i>查看购买链接</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 教材3 -->
+            <div class="card textbook-card">
+                <div class="row g-0">
+                    <div class="col-md-3">
+                        <img src="../assets/images/textbooks/textbook3.jpg" class="img-fluid textbook-image" alt="《土力学原理》 - 赵成刚">
+                    </div>
+                    <div class="col-md-9">
+                        <div class="card-body">
+                            <h3 class="card-title">《土力学原理》</h3>
+                            <div class="book-info">
+                                <strong>作者：</strong> 赵成刚
+                            </div>
+                            <div class="book-info">
+                                <strong>出版社：</strong> 清华大学出版社
+                            </div>
+                            <div class="book-info">
+                                <strong>出版日期：</strong> 2017.08.01
+                            </div>
+                            <div class="book-info">
+                                <strong>定价：</strong> 48元
+                            </div>
+                            <div class="book-info">
+                                <strong>印次：</strong> 2-2
+                            </div>
+                            <div class="book-info">
+                                <strong>ISBN：</strong> 9787512133105
+                            </div>
+                            <div class="book-info">
+                                <strong>内容简介：</strong>
+                                <p class="mt-2">本书系统介绍了土力学的基本理论和工程应用，内容包括土的物理性质、渗透性、压缩性、抗剪强度、土压力、地基承载力等核心内容。本书注重理论与实践相结合，通过工程实例帮助读者理解和应用土力学知识。</p>
+                            </div>
+                            <div class="book-info">
+                                <strong>适用章节：</strong> 第3章、第5章、第6章、第7章
+                            </div>
+                            <div class="mt-4">
+                                <a href="#" class="btn btn-primary" target="_blank"><i class="fas fa-external-link-alt mr-2"></i>查看购买链接</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 推荐阅读 -->
+            <section class="mt-5">
+                <h3 class="section-title"><i class="fas fa-star mr-2"></i>推荐阅读资料</h3>
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">参考书籍</h4>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <strong>《土工试验规程》(SL 237-1999)</strong> - 中华人民共和国水利部
+                            </li>
+                            <li class="list-group-item">
+                                <strong>《建筑地基基础设计规范》(GB 50007-2011)</strong> - 中华人民共和国住房和城乡建设部
+                            </li>
+                            <li class="list-group-item">
+                                <strong>《土力学》(第2版)</strong> - 沈珠江、周健 - 高等教育出版社
+                            </li>
+                            <li class="list-group-item">
+                                <strong>《土力学与地基基础》</strong> - 钱德玲 - 高等教育出版社
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>关于课程</h4>
+                    <p>《土力学》是土木工程专业的核心课程，本网站提供课程相关的教学资源和学习资料。</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>快速链接</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="../index.html#course-info" class="text-white">课程简介</a></li>
+                        <li><a href="../index.html#lectures" class="text-white">授课内容</a></li>
+                        <li><a href="../index.html#materials" class="text-white">教学资料</a></li>
+                        <li><a href="../index.html#exercises" class="text-white">习题与实验</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4>版权信息</h4>
+                    <p>&copy; 2025 岩土教研室土力学教学团队</p>
+                    <p>All rights reserved.</p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- 引入Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

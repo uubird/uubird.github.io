@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>授课课件 - 土力学课程网站</title>
+    <!-- 引入Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- 自定义CSS -->
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .navbar {
+            background-color: #2c3e50;
+        }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        .jumbotron {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 3rem 0;
+            margin-bottom: 0;
+        }
+        .section-title {
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+        }
+        .content-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        .ppt-card {
+            margin-bottom: 1.5rem;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .ppt-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+        .ppt-card-header {
+            background-color: #3498db;
+            color: white;
+            padding: 1rem;
+            font-weight: bold;
+        }
+        .ppt-card-body {
+            padding: 1.5rem;
+        }
+        .ppt-card-footer {
+            background-color: #f8f9fa;
+            padding: 1rem 1.5rem;
+            border-top: 1px solid #e9ecef;
+        }
+        .download-btn {
+            background-color: #28a745;
+            border-color: #28a745;
+        }
+        .download-btn:hover {
+            background-color: #218838;
+            border-color: #1e7e34;
+        }
+        .preview-btn {
+            background-color: #ffc107;
+            border-color: #ffc107;
+            color: #212529;
+        }
+        .preview-btn:hover {
+            background-color: #e0a800;
+            border-color: #d39e00;
+        }
+        .file-info {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+        .file-size {
+            background-color: #e9ecef;
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            margin-left: 1rem;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            z-index: 999;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <i class="fas fa-landmark mr-2"></i>
+                土力学课程
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#course-info">课程简介</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../lectures/index.html">授课内容</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            教学资料
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="textbooks.html">推荐教材</a></li>
+                            <li><a class="dropdown-item active" href="ppt.html">授课课件</a></li>
+                            <li><a class="dropdown-item" href="syllabus.html">教学大纲</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="resourcesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            学习资源
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="resourcesDropdown">
+                            <li><a class="dropdown-item" href="../exercises/index.html">习题</a></li>
+                            <li><a class="dropdown-item" href="../experiments/index.html">实验</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../feedback.html">学生留言</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题区 -->
+    <header class="jumbotron">
+        <div class="container text-center">
+            <h1 class="display-4">授课课件</h1>
+            <p class="lead">土力学课程各章节PPT课件下载</p>
+        </div>
+    </header>
+
+    <!-- 主要内容区 -->
+    <main class="container py-5">
+        <!-- 课件使用说明 -->
+        <section class="content-card">
+            <h2 class="section-title">课件使用说明</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <p>本页面提供土力学课程各章节的PPT课件，可供学生预习和复习使用。所有课件均为教师授课的主要内容，建议学生结合教材进行学习。</p>
+                    <p>课件下载后，建议使用Microsoft PowerPoint或WPS Office打开查看。为了获得最佳观看效果，建议使用2016及以上版本的PowerPoint。</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="bg-warning bg-opacity-10 p-3 rounded">
+                        <h4><i class="fas fa-exclamation-triangle text-warning"></i> 注意事项</h4>
+                        <ul class="list-disc pl-5">
+                            <li>课件仅用于教学目的，请遵守相关版权规定</li>
+                            <li>课件内容可能会根据教学进度进行更新，请关注最新版本</li>
+                            <li>如遇下载问题，请联系课程教师</li>
+                            <li>建议将课件保存至本地，以确保离线时也能正常使用</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 课件列表 -->
+        <section class="content-card">
+            <h2 class="section-title">章节课件</h2>
+            
+            <!-- 第1章 土的物理性质及工程分类 -->
+            <div class="ppt-card">
+                <div class="ppt-card-header">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <i class="fas fa-file-powerpoint mr-2"></i> 第1章 土的物理性质及工程分类
+                        </div>
+                        <div class="col-auto">
+                            <span class="file-size">2.4 MB</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ppt-card-body">
+                    <h5>主要内容：</h5>
+                    <ul class="list-disc pl-5">
+                        <li>土的形成与结构特点</li>
+                        <li>土的三相组成及物理性质指标</li>
+                        <li>土的物理状态指标</li>
+                        <li>土的工程分类方法</li>
+                    </ul>
+                    <p class="file-info mt-2">
+                        <i class="far fa-clock mr-2"></i> 更新时间：2023-09-01
+                    </p>
+                </div>
+                <div class="ppt-card-footer">
+                    <button type="button" class="btn preview-btn mr-2" data-bs-toggle="modal" data-bs-target="#previewModal">
+                        <i class="fas fa-eye mr-2"></i> 在线预览
+                    </button>
+                    <a href="ppt-files/chapter-1-土的物理性质及工程分类.pptx" class="btn download-btn" download>
+                        <i class="fas fa-download mr-2"></i> 下载课件
+                    </a>
+                </div>
+            </div>
+
+            <!-- 第2章 土的渗透性与渗流 -->
+            <div class="ppt-card">
+                <div class="ppt-card-header">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <i class="fas fa-file-powerpoint mr-2"></i> 第2章 土的渗透性与渗流
+                        </div>
+                        <div class="col-auto">
+                            <span class="file-size">3.1 MB</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ppt-card-body">
+                    <h5>主要内容：</h5>
+                    <ul class="list-disc pl-5">
+                        <li>土的渗透性基本概念</li>
+                        <li>达西定律及其适用条件</li>
+                        <li>渗透系数的测定方法</li>
+                        <li>二维渗流与流网</li>
+                        <li>渗透破坏与防治措施</li>
+                    </ul>
+                    <p class="file-info mt-2">
+                        <i class="far fa-clock mr-2"></i> 更新时间：2023-09-08
+                    </p>
+                </div>
+                <div class="ppt-card-footer">
+                    <button type="button" class="btn preview-btn mr-2" data-bs-toggle="modal" data-bs-target="#previewModal">
+                        <i class="fas fa-eye mr-2"></i> 在线预览
+                    </button>
+                    <a href="ppt-files/chapter-2-土的渗透性与渗流.pptx" class="btn download-btn" download>
+                        <i class="fas fa-download mr-2"></i> 下载课件
+                    </a>
+                </div>
+            </div>
+
+            <!-- 第3章 土中应力计算 -->
+            <div class="ppt-card">
+                <div class="ppt-card-header">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <i class="fas fa-file-powerpoint mr-2"></i> 第3章 土中应力计算
+                        </div>
+                        <div class="col-auto">
+                            <span class="file-size">2.8 MB</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ppt-card-body">
+                    <h5>主要内容：</h5>
+                    <ul class="list-disc pl-5">
+                        <li>土中自重应力计算</li>
+                        <li>基底压力计算</li>
+                        <li>地基附加应力计算</li>
+                        <li>应力路径的概念</li>
+                    </ul>
+                    <p class="file-info mt-2">
+                        <i class="far fa-clock mr-2"></i> 更新时间：2023-09-15
+                    </p>
+                </div>
+                <div class="ppt-card-footer">
+                    <button type="button" class="btn preview-btn mr-2" data-bs-toggle="modal" data-bs-target="#previewModal">
+                        <i class="fas fa-eye mr-2"></i> 在线预览
+                    </button>
+                    <a href="ppt-files/chapter-3-土中应力计算.pptx" class="btn download-btn" download>
+                        <i class="fas fa-download mr-2"></i> 下载课件
+                    </a>
+                </div>
+            </div>
+
+            <!-- 第4章 土的压缩性与地基沉降 -->
+            <div class="ppt-card">
+                <div class="ppt-card-header">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <i class="fas fa-file-powerpoint mr-2"></i> 第4章 土的压缩性与地基沉降
+                        </div>
+                        <div class="col-auto">
+                            <span class="file-size">3.5 MB</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ppt-card-body">
+                    <h5>主要内容：</h5>
+                    <ul class="list-disc pl-5">
+                        <li>土的压缩性概念及压缩指标</li>
+                        <li>地基最终沉降量计算</li>
+                        <li>地基沉降与时间的关系</li>
+                        <li>地基容许沉降量与沉降控制</li>
+                    </ul>
+                    <p class="file-info mt-2">
+                        <i class="far fa-clock mr-2"></i> 更新时间：2023-09-22
+                    </p>
+                </div>
+                <div class="ppt-card-footer">
+                    <button type="button" class="btn preview-btn mr-2" data-bs-toggle="modal" data-bs-target="#previewModal">
+                        <i class="fas fa-eye mr-2"></i> 在线预览
+                    </button>
+                    <a href="ppt-files/chapter-4-土的压缩性与地基沉降.pptx" class="btn download-btn" download>
+                        <i class="fas fa-download mr-2"></i> 下载课件
+                    </a>
+                </div>
+            </div>
+
+            <!-- 第5章 土的抗剪强度 -->
+            <div class="ppt-card">
+                <div class="ppt-card-header">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <i class="fas fa-file-powerpoint mr-2"></i> 第5章 土的抗剪强度
+                        </div>
+                        <div class="col-auto">
+                            <span class="file-size">3.2 MB</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ppt-card-body">
+                    <h5>主要内容：</h5>
+                    <ul class="list-disc pl-5">
+                        <li>土的抗剪强度基本概念</li>
+                        <li>库仑定律与摩尔-库仑破坏准则</li>
+                        <li>土的抗剪强度试验</li>
+                        <li>土的抗剪强度指标的影响因素</li>
+                    </ul>
+                    <p class="file-info mt-2">
+                        <i class="far fa-clock mr-2"></i> 更新时间：2023-09-29
+                    </p>
+                </div>
+                <div class="ppt-card-footer">
+                    <button type="button" class="btn preview-btn mr-2" data-bs-toggle="modal" data-bs-target="#previewModal">
+                        <i class="fas fa-eye mr-2"></i> 在线预览
+                    </button>
+                    <a href="ppt-files/chapter-5-土的抗剪强度.pptx" class="btn download-btn" download>
+                        <i class="fas fa-download mr-2"></i> 下载课件
+                    </a>
+                </div>
+            </div>
+
+            <!-- 第6章 土压力与土坡稳定 -->
+            <div class="ppt-card">
+                <div class="ppt-card-header">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <i class="fas fa-file-powerpoint mr-2"></i> 第6章 土压力与土坡稳定
+                        </div>
+                        <div class="col-auto">
+                            <span class="file-size">3.8 MB</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ppt-card-body">
+                    <h5>主要内容：</h5>
+                    <ul class="list-disc pl-5">
+                        <li>土压力基本概念与分类</li>
+                        <li>朗肯土压力理论</li>
+                        <li>库仑土压力理论</li>
+                        <li>土坡稳定性分析</li>
+                        <li>影响土坡稳定的因素与防治措施</li>
+                    </ul>
+                    <p class="file-info mt-2">
+                        <i class="far fa-clock mr-2"></i> 更新时间：2023-10-13
+                    </p>
+                </div>
+                <div class="ppt-card-footer">
+                    <button type="button" class="btn preview-btn mr-2" data-bs-toggle="modal" data-bs-target="#previewModal">
+                        <i class="fas fa-eye mr-2"></i> 在线预览
+                    </button>
+                    <a href="ppt-files/chapter-6-土压力与土坡稳定.pptx" class="btn download-btn" download>
+                        <i class="fas fa-download mr-2"></i> 下载课件
+                    </a>
+                </div>
+            </div>
+
+            <!-- 第7章 地基承载力 -->
+            <div class="ppt-card">
+                <div class="ppt-card-header">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <i class="fas fa-file-powerpoint mr-2"></i> 第7章 地基承载力
+                        </div>
+                        <div class="col-auto">
+                            <span class="file-size">3.3 MB</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ppt-card-body">
+                    <h5>主要内容：</h5>
+                    <ul class="list-disc pl-5">
+                        <li>地基承载力基本概念</li>
+                        <li>地基破坏模式</li>
+                        <li>地基极限承载力理论</li>
+                        <li>地基承载力特征值的确定方法</li>
+                    </ul>
+                    <p class="file-info mt-2">
+                        <i class="far fa-clock mr-2"></i> 更新时间：2023-10-20
+                    </p>
+                </div>
+                <div class="ppt-card-footer">
+                    <button type="button" class="btn preview-btn mr-2" data-bs-toggle="modal" data-bs-target="#previewModal">
+                        <i class="fas fa-eye mr-2"></i> 在线预览
+                    </button>
+                    <a href="ppt-files/chapter-7-地基承载力.pptx" class="btn download-btn" download>
+                        <i class="fas fa-download mr-2"></i> 下载课件
+                    </a>
+                </div>
+            </div>
+
+            <!-- 第8章 地基处理 -->
+            <div class="ppt-card">
+                <div class="ppt-card-header">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <i class="fas fa-file-powerpoint mr-2"></i> 第8章 地基处理
+                        </div>
+                        <div class="col-auto">
+                            <span class="file-size">4.1 MB</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ppt-card-body">
+                    <h5>主要内容：</h5>
+                    <ul class="list-disc pl-5">
+                        <li>地基处理的基本概念与分类</li>
+                        <li>换填法、预压法、强夯法等常用地基处理方法</li>
+                        <li>复合地基理论与设计</li>
+                        <li>地基处理工程案例分析</li>
+                    </ul>
+                    <p class="file-info mt-2">
+                        <i class="far fa-clock mr-2"></i> 更新时间：2023-10-27
+                    </p>
+                </div>
+                <div class="ppt-card-footer">
+                    <button type="button" class="btn preview-btn mr-2" data-bs-toggle="modal" data-bs-target="#previewModal">
+                        <i class="fas fa-eye mr-2"></i> 在线预览
+                    </button>
+                    <a href="ppt-files/chapter-8-地基处理.pptx" class="btn download-btn" download>
+                        <i class="fas fa-download mr-2"></i> 下载课件
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>联系我们</h4>
+                    <p>地址：土木馆A401室</p>
+                    <p>电话：0535-6902967</p>
+                    <p>邮箱：jzq@ytu.edu.cn</p>
+                    <p>办公时间：周一至周五 8:00-17:30</p>
+                </div>
+                <div class="col-md-6">
+                    <h4>快速链接</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="../index.html" class="text-white">首页</a></li>
+                        <li><a href="../index.html#course-info" class="text-white">课程简介</a></li>
+                        <li><a href="../lectures/index.html" class="text-white">授课内容</a></li>
+                        <li><a href="textbooks.html" class="text-white">推荐教材</a></li>
+                        <li><a href="../exercises/index.html" class="text-white">习题</a></li>
+                        <li><a href="../experiments/index.html" class="text-white">实验</a></li>
+                        <li><a href="../feedback.html" class="text-white">学生留言</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <p>&copy; 2025 岩土教研室土力学教学团队. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 在线预览模态框 -->
+    <div class="modal fade" id="previewModal" tabindex="-1" aria-labelledby="previewModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="previewModalLabel">课件在线预览</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center py-5">
+                        <i class="fas fa-file-powerpoint text-primary" style="font-size: 3rem;"></i>
+                        <p class="mt-3">课件预览功能开发中，请下载后查看。</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
+                    <a href="ppt-files/chapter-1-土的物理性质及工程分类.pptx" class="btn download-btn" download>
+                        <i class="fas fa-download mr-2"></i> 下载课件
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 返回顶部按钮 -->
+    <button id="backToTop" class="back-to-top btn btn-primary rounded-circle" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- 引入Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- 引入jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- 自定义JavaScript -->
+    <script>
+        // 返回顶部按钮显示/隐藏
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 300) {
+                $('#backToTop').fadeIn();
+            } else {
+                $('#backToTop').fadeOut();
+            }
+        });
+        
+        // 平滑滚动
+        $('a[href^="#"]').on('click', function(e) {
+            e.preventDefault();
+            var target = $(this).attr('href');
+            $(target).animate({ scrollTop: 0 }, 'slow');
+        });
+        
+        // 动态调整模态框标题
+        $('#previewModal').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget);
+            var chapterName = button.closest('.ppt-card').find('.ppt-card-header').text().trim();
+            $(this).find('.modal-title').text('课件在线预览 - ' + chapterName);
+        });
+    </script>
+</body>
+</html>
