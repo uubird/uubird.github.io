@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实验三：土的压缩试验 - 土力学课程网站</title>
+    <!-- 引入Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- 自定义CSS -->
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .navbar {
+            transition: all 0.3s ease;
+        }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        .jumbotron {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 3rem 0;
+            margin-bottom: 0;
+        }
+        .section-title {
+            font-weight: bold;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+            border-bottom: 2px solid #e74c3c;
+            padding-bottom: 0.5rem;
+        }
+        .content-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        .equipment-list, .procedure-list, .data-table {
+            margin-left: 1.5rem;
+        }
+        .data-table th {
+            background-color: #e74c3c;
+            color: white;
+        }
+        .formula-block {
+            background-color: #f8f9fa;
+            border-left: 4px solid #e74c3c;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        .formula {
+            font-weight: bold;
+            font-style: italic;
+            color: #2c3e50;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            z-index: 999;
+        }
+        .highlight {
+            background-color: #ffffcc;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+        }
+        .image-container {
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .image-caption {
+            font-style: italic;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+        .equipment-img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <i class="fas fa-landmark mr-2"></i>
+                土力学课程
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#course-info">课程简介</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../lectures/index.html">授课内容</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#materials">教学资料</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            学习资源
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="../exercises/index.html">习题</a></li>
+                            <li><a class="dropdown-item active" href="index.html">实验</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../feedback.html">学生留言</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题区 -->
+    <header class="jumbotron">
+        <div class="container text-center">
+            <h1 class="display-4">实验三：土的压缩试验</h1>
+            <p class="lead">掌握土的压缩特性测定方法，了解压缩系数、压缩模量等重要参数</p>
+        </div>
+    </header>
+
+    <!-- 主要内容区 -->
+    <main class="container py-5">
+        <!-- 实验目的 -->
+        <section class="content-card">
+            <h2 class="section-title">一、实验目的</h2>
+            <ol class="list-decimal pl-5">
+                <li>掌握土的压缩试验的基本原理和操作方法</li>
+                <li>测定土的压缩系数、压缩模量、压缩指数等压缩特性指标</li>
+                <li>绘制土的压缩曲线（e-p曲线）和回弹曲线</li>
+                <li>了解土的压缩特性对地基沉降计算的重要性</li>
+            </ol>
+        </section>
+
+        <!-- 实验原理 -->
+        <section class="content-card">
+            <h2 class="section-title">二、实验原理</h2>
+            <p>土的压缩试验是在有侧限条件下，通过分级加载测定土样在竖向压力作用下的压缩变形，从而得到土的压缩特性指标。</p>
+            
+            <h3 class="h5 mt-4">2.1 基本概念</h3>
+            <div class="formula-block">
+                <p><span class="formula">1. 孔隙比（e）</span>：土中孔隙体积与土颗粒体积之比</p>
+                <p><span class="formula">2. 压缩系数（a₁-₂）</span>：在100kPa至200kPa压力范围内，孔隙比减小量与压力增量的比值，表示土的压缩性大小</p>
+                <p class="formula">a₁-₂ = (e₁ - e₂) / (p₂ - p₁)</p>
+                <p><span class="formula">3. 压缩模量（Eₛ）</span>：在有侧限条件下，竖向应力增量与竖向应变增量的比值</p>
+                <p class="formula">Eₛ = (1 + e₀) / a₁-₂</p>
+                <p><span class="formula">4. 压缩指数（C_c）</span>：e-logp曲线直线段的斜率</p>
+                <p class="formula">C_c = (e₁ - e₂) / log(p₂/p₁)</p>
+            </div>
+            
+            <h3 class="h5 mt-4">2.2 压缩性分类</h3>
+            <table class="table table-bordered table-striped data-table">
+                <thead>
+                    <tr>
+                        <th>压缩系数a₁-₂ (MPa⁻¹)</th>
+                        <th>压缩模量Eₛ (MPa)</th>
+                        <th>压缩性分类</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>a₁-₂ ≤ 0.1</td>
+                        <td>Eₛ > 15</td>
+                        <td>低压缩性土</td>
+                    </tr>
+                    <tr>
+                        <td>0.1 < a₁-₂ ≤ 0.5</td>
+                        <td>4 < Eₛ ≤ 15</td>
+                        <td>中压缩性土</td>
+                    </tr>
+                    <tr>
+                        <td>a₁-₂ > 0.5</td>
+                        <td>Eₛ ≤ 4</td>
+                        <td>高压缩性土</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="image-container">
+                <img src="https://via.placeholder.com/600x400?text=土的压缩曲线(e-p曲线)和e-logp曲线" alt="土的压缩曲线(e-p曲线)和e-logp曲线">
+                <div class="image-caption">图1：土的压缩曲线(e-p曲线)和e-logp曲线</div>
+            </div>
+        </section>
+
+        <!-- 实验设备 -->
+        <section class="content-card">
+            <h2 class="section-title">三、实验设备</h2>
+            <div class="row">
+                <div class="col-md-8">
+                    <ul class="list-disc equipment-list">
+                        <li>压缩仪（固结仪）：包括压缩容器、加压装置、量表等</li>
+                        <li>环刀：面积30cm²或50cm²，高度20mm</li>
+                        <li>切土器：包括环刀、导筒、推土器等</li>
+                        <li>天平和砝码：感量0.1g</li>
+                        <li>百分表或位移传感器：量程10mm，精度0.01mm</li>
+                        <li>钢尺：精度1mm</li>
+                        <li>滤纸、钢丝锯、修土刀、凡士林等</li>
+                        <li>干燥器、铝盒、烘箱</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <div class="image-container">
+                        <img src="https://via.placeholder.com/300x300?text=压缩仪设备图" alt="压缩仪设备图" class="equipment-img">
+                        <div class="image-caption">图2：压缩仪设备示意图</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 实验步骤 -->
+        <section class="content-card">
+            <h2 class="section-title">四、实验步骤</h2>
+            
+            <h3 class="h5 mt-4">4.1 土样制备</h3>
+            <ol class="list-decimal procedure-list">
+                <li>取具有代表性的扰动土样200g，放入蒸发皿中</li>
+                <li>根据土样的天然含水率，适当加水或晾干，使土样达到与天然含水率相近的状态</li>
+                <li>将土样充分拌和均匀，密封放置24小时，使水分均匀分布</li>
+                <li>在切土器中制备土样，用环刀（面积30cm²或50cm²）切取原状土样</li>
+                <li>测量环刀内径、高度，计算环刀容积</li>
+                <li>称量环刀和土样的总质量，计算土的密度</li>
+            </ol>
+            
+            <h3 class="h5 mt-4">4.2 压缩试验操作</h3>
+            <ol class="list-decimal procedure-list">
+                <li>将压缩容器的刚性护环、透水石和滤纸放入容器中</li>
+                <li>将制备好的土样（带环刀）放在滤纸上</li>
+                <li>在土样上放置滤纸、透水石和活塞</li>
+                <li>安装百分表或位移传感器，调整初始读数</li>
+                <li>向压缩容器中注入清水，使土样充分饱和</li>
+                <li>按下列压力等级进行加载：12.5、25、50、100、200、400、800kPa（根据需要可调整）</li>
+                <li>每级压力下，按下列时间间隔读取百分表读数：1、4、9、16、25、36、49、64、100、200、400、600、1440分钟（1天后）</li>
+                <li>对于粘性土，每级压力应加载到压缩稳定（即1小时内变形不超过0.01mm）</li>
+                <li>如果需要测定回弹特性，在某级压力下压缩稳定后，可进行卸载试验</li>
+                <li>试验结束后，拆除设备，取出土样，测定试验后的含水率</li>
+            </ol>
+        </section>
+
+        <!-- 数据记录与处理 -->
+        <section class="content-card">
+            <h2 class="section-title">五、数据记录与处理</h2>
+            
+            <h3 class="h5 mt-4">5.1 基本数据记录</h3>
+            <table class="table table-bordered table-striped data-table">
+                <thead>
+                    <tr>
+                        <th colspan="4">基本数据</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>环刀面积A(cm²)</td>
+                        <td>环刀高度h(cm)</td>
+                        <td>土粒比重Gₛ</td>
+                        <td>天然含水率w(%)</td>
+                    </tr>
+                    <tr>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3 class="h5 mt-4">5.2 压缩试验数据记录</h3>
+            <table class="table table-bordered table-striped data-table">
+                <thead>
+                    <tr>
+                        <th rowspan="2">压力p(kPa)</th>
+                        <th rowspan="2">试样高度h₀(mm)</th>
+                        <th colspan="3">百分表读数</th>
+                        <th rowspan="2">变形量s(mm)</th>
+                        <th rowspan="2">试样高度h(mm)</th>
+                        <th rowspan="2">孔隙比e</th>
+                    </tr>
+                    <tr>
+                        <th>加载前</th>
+                        <th>加载后</th>
+                        <th>稳定读数</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>0</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>0</td>
+                        <td>--</td>
+                        <td>e₀ = --</td>
+                    </tr>
+                    <tr>
+                        <td>12.5</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                    </tr>
+                    <tr>
+                        <td>25</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                    </tr>
+                    <tr>
+                        <td>50</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                    </tr>
+                    <tr>
+                        <td>100</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>e₁ = --</td>
+                    </tr>
+                    <tr>
+                        <td>200</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>e₂ = --</td>
+                    </tr>
+                    <tr>
+                        <td>400</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                    </tr>
+                    <tr>
+                        <td>800</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3 class="h5 mt-4">5.3 数据处理公式</h3>
+            <div class="formula-block">
+                <p><strong>1. 初始孔隙比计算：</strong></p>
+                <p class="formula">e₀ = Gₛ(1 + w)γ_w/γ - 1</p>
+                <p>式中：γ为土的天然密度(g/cm³)，γ_w为水的密度(1g/cm³)</p>
+                
+                <p><strong>2. 各级压力下的孔隙比计算：</strong></p>
+                <p class="formula">e = e₀ - (1 + e₀)s/h₀</p>
+                <p>式中：s为土样在某级压力下的压缩变形量(mm)，h₀为土样初始高度(mm)</p>
+                
+                <p><strong>3. 压缩系数计算：</strong></p>
+                <p class="formula">a₁-₂ = (e₁ - e₂)/(p₂ - p₁) = (e₁ - e₂)/(200 - 100)</p>
+                <p>单位：MPa⁻¹（注意压力单位转换：kPa→MPa，除以1000）</p>
+                
+                <p><strong>4. 压缩模量计算：</strong></p>
+                <p class="formula">Eₛ = (1 + e₀)/a₁-₂</p>
+                <p>单位：MPa</p>
+                
+                <p><strong>5. 压缩指数计算：</strong></p>
+                <p class="formula">C_c = (e₁ - e₂)/log(p₂/p₁)</p>
+            </div>
+            
+            <h3 class="h5 mt-4">5.4 曲线绘制</h3>
+            <p>根据试验数据，绘制以下曲线：</p>
+            <ol class="list-decimal procedure-list">
+                <li>孔隙比与压力关系曲线（e-p曲线）：以孔隙比e为纵坐标，压力p为横坐标（算术坐标）</li>
+                <li>孔隙比与压力对数关系曲线（e-logp曲线）：以孔隙比e为纵坐标，压力p的常用对数为横坐标</li>
+            </ol>
+        </section>
+
+        <!-- 注意事项 -->
+        <section class="content-card">
+            <h2 class="section-title">六、注意事项</h2>
+            <ol class="list-decimal procedure-list">
+                <li>土样制备时应保持其天然结构，避免扰动</li>
+                <li>安装压缩仪时，应确保各部件对中，避免偏心加载</li>
+                <li>透水石应预先饱和，以保证土样在试验过程中充分排水</li>
+                <li>加载时应缓慢均匀，避免冲击荷载</li>
+                <li>读数应准确及时，特别是初始阶段的变形</li>
+                <li>如需进行回弹试验，卸载应分级进行，每级卸载后也应读取变形量</li>
+                <li>试验结束后，应及时清理设备，保持实验室整洁</li>
+            </ol>
+        </section>
+
+        <!-- 思考题 -->
+        <section class="content-card">
+            <h2 class="section-title">七、思考题</h2>
+            <ol class="list-decimal procedure-list">
+                <li>土的压缩性与哪些因素有关？如何评价土的压缩性？</li>
+                <li>压缩系数、压缩模量和压缩指数各自的物理意义是什么？它们之间有什么关系？</li>
+                <li>什么是先期固结压力？它在工程中有什么重要意义？</li>
+                <li>压缩试验中的变形主要由哪些因素引起？</li>
+                <li>在工程实践中，如何利用压缩试验成果进行地基沉降计算？</li>
+            </ol>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>联系我们</h4>
+                    <p>地址：土木馆A401室</p>
+                    <p>电话：0535-6902967</p>
+                    <p>邮箱：jzq@ytu.edu.cn</p>
+                    <p>办公时间：周一至周五 8:00-17:30</p>
+                </div>
+                <div class="col-md-6">
+                    <h4>快速链接</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="../index.html" class="text-white">首页</a></li>
+                        <li><a href="../index.html#course-info" class="text-white">课程简介</a></li>
+                        <li><a href="../lectures/index.html" class="text-white">授课内容</a></li>
+                        <li><a href="../index.html#materials" class="text-white">教学资料</a></li>
+                        <li><a href="../exercises/index.html" class="text-white">习题</a></li>
+                        <li><a href="index.html" class="text-white">实验</a></li>
+                        <li><a href="../feedback.html" class="text-white">学生留言</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <p>&copy; 2025 岩土教研室土力学教学团队</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button id="backToTop" class="back-to-top btn btn-danger rounded-circle" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- 引入Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- 引入jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- 自定义JavaScript -->
+    <script>
+        // 导航栏滚动效果
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 50) {
+                $('.navbar').addClass('bg-dark');
+                $('.navbar').removeClass('bg-transparent');
+            } else {
+                $('.navbar').removeClass('bg-dark');
+                $('.navbar').addClass('bg-transparent');
+            }
+            
+            // 返回顶部按钮显示/隐藏
+            if ($(this).scrollTop() > 300) {
+                $('#backToTop').fadeIn();
+            } else {
+                $('#backToTop').fadeOut();
+            }
+        });
+        
+        // 平滑滚动
+        $('a[href^="#"]').on('click', function(e) {
+            e.preventDefault();
+            var target = $(this).attr('href');
+            $(target).animate({ scrollTop: 0 }, 'slow');
+        });
+    </script>
+</body>
+</html>

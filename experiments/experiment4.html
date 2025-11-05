@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实验四：土的剪切试验 - 土力学课程网站</title>
+    <!-- 引入Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- 自定义CSS -->
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .navbar {
+            transition: all 0.3s ease;
+        }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        .jumbotron {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            color: #2c3e50;
+            padding: 3rem 0;
+            margin-bottom: 0;
+        }
+        .section-title {
+            font-weight: bold;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+            border-bottom: 2px solid #1abc9c;
+            padding-bottom: 0.5rem;
+        }
+        .content-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        .equipment-list, .procedure-list, .data-table {
+            margin-left: 1.5rem;
+        }
+        .data-table th {
+            background-color: #1abc9c;
+            color: white;
+        }
+        .formula-block {
+            background-color: #f8f9fa;
+            border-left: 4px solid #1abc9c;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        .formula {
+            font-weight: bold;
+            font-style: italic;
+            color: #2c3e50;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            z-index: 999;
+        }
+        .highlight {
+            background-color: #ffffcc;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+        }
+        .image-container {
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .image-caption {
+            font-style: italic;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+        .equipment-img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <i class="fas fa-landmark mr-2"></i>
+                土力学课程
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#course-info">课程简介</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../lectures/index.html">授课内容</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#materials">教学资料</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            学习资源
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="../exercises/index.html">习题</a></li>
+                            <li><a class="dropdown-item active" href="index.html">实验</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../feedback.html">学生留言</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题区 -->
+    <header class="jumbotron">
+        <div class="container text-center">
+            <h1 class="display-4">实验四：土的剪切试验</h1>
+            <p class="lead">掌握土的抗剪强度测定方法，了解库仑定律和强度指标</p>
+        </div>
+    </header>
+
+    <!-- 主要内容区 -->
+    <main class="container py-5">
+        <!-- 实验目的 -->
+        <section class="content-card">
+            <h2 class="section-title">一、实验目的</h2>
+            <ol class="list-decimal pl-5">
+                <li>掌握土的直接剪切试验的基本原理和操作方法</li>
+                <li>测定土的抗剪强度指标（粘聚力c和内摩擦角φ）</li>
+                <li>了解土的抗剪强度特性及其在工程中的重要性</li>
+                <li>绘制剪应力与剪切位移关系曲线及抗剪强度包线</li>
+            </ol>
+        </section>
+
+        <!-- 实验原理 -->
+        <section class="content-card">
+            <h2 class="section-title">二、实验原理</h2>
+            <p>土的剪切试验是测定土的抗剪强度指标的重要方法，直接剪切试验是最常用的一种剪切试验方法。</p>
+            
+            <h3 class="h5 mt-4">2.1 库仑定律</h3>
+            <div class="formula-block">
+                <p><span class="formula">τ_f = c + σ_n tanφ</span></p>
+                <p>式中：</p>
+                <ul>
+                    <li>τ_f — 土的抗剪强度(kPa)</li>
+                    <li>c — 土的粘聚力(kPa)</li>
+                    <li>σ_n — 法向应力(kPa)</li>
+                    <li>φ — 土的内摩擦角(°)</li>
+                </ul>
+            </div>
+            
+            <h3 class="h5 mt-4">2.2 直接剪切试验原理</h3>
+            <p>直接剪切试验是在预定的剪切面上，对土样施加法向压力，然后施加水平剪切力，使土样沿预定剪切面发生剪切破坏。通过对同一种土的几个试样分别施加不同的法向压力，测定破坏时的剪应力，然后根据库仑定律确定土的抗剪强度指标c和φ。</p>
+            
+            <p>直接剪切试验按排水条件可分为三种：</p>
+            <ol class="list-decimal pl-5">
+                <li><strong>快剪（不排水剪）</strong>：在施加法向压力和剪切过程中都不允许土样排水</li>
+                <li><strong>固结快剪</strong>：先让土样在法向压力下充分固结，然后在不排水条件下进行剪切</li>
+                <li><strong>慢剪（排水剪）</strong>：在施加法向压力和剪切过程中都允许土样充分排水</li>
+            </ol>
+            
+            <div class="image-container">
+                <img src="https://via.placeholder.com/600x400?text=直接剪切试验原理图及抗剪强度包线" alt="直接剪切试验原理图及抗剪强度包线">
+                <div class="image-caption">图1：直接剪切试验原理图及抗剪强度包线</div>
+            </div>
+        </section>
+
+        <!-- 实验设备 -->
+        <section class="content-card">
+            <h2 class="section-title">三、实验设备</h2>
+            <div class="row">
+                <div class="col-md-8">
+                    <ul class="list-disc equipment-list">
+                        <li>应变控制式直剪仪：包括剪切盒、垂直加荷装置、水平推动装置、量力环等</li>
+                        <li>环刀：面积30cm²或50cm²，高度20mm</li>
+                        <li>切土器：包括环刀、导筒、推土器等</li>
+                        <li>天平和砝码：感量0.1g</li>
+                        <li>百分表或位移传感器：量程10mm，精度0.01mm</li>
+                        <li>测力计：量力环（根据试验土类选择合适的量力环系数）</li>
+                        <li>秒表、滤纸、钢丝锯、修土刀、凡士林等</li>
+                        <li>干燥器、铝盒、烘箱</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <div class="image-container">
+                        <img src="https://via.placeholder.com/300x300?text=直剪仪设备图" alt="直剪仪设备图" class="equipment-img">
+                        <div class="image-caption">图2：直剪仪设备示意图</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 实验步骤 -->
+        <section class="content-card">
+            <h2 class="section-title">四、实验步骤</h2>
+            
+            <h3 class="h5 mt-4">4.1 土样制备</h3>
+            <ol class="list-decimal procedure-list">
+                <li>取具有代表性的扰动土样500g，放入蒸发皿中</li>
+                <li>根据土样的天然含水率，适当加水或晾干，使土样达到与天然含水率相近的状态</li>
+                <li>将土样充分拌和均匀，密封放置24小时，使水分均匀分布</li>
+                <li>在切土器中制备4个相同的土样，用环刀（面积30cm²或50cm²）切取</li>
+                <li>测量环刀内径、高度，计算环刀容积</li>
+                <li>称量环刀和土样的总质量，计算土的密度</li>
+            </ol>
+            
+            <h3 class="h5 mt-4">4.2 直接剪切试验操作（以快剪为例）</h3>
+            <ol class="list-decimal procedure-list">
+                <li>将剪切盒分为上盒和下盒，在下盒内放置一张滤纸</li>
+                <li>将制备好的土样（带环刀）放入剪切盒中，去除环刀</li>
+                <li>在土样上放置一张滤纸和透水石</li>
+                <li>安装垂直加荷装置，调整垂直变形百分表</li>
+                <li>安装水平推动装置和量力环百分表</li>
+                <li>施加垂直压力（通常采用四级压力：100、200、300、400kPa）</li>
+                <li>立即以每分钟0.8mm的剪切速率进行剪切（快剪不允许排水）</li>
+                <li>在剪切过程中，记录量力环百分表读数和剪切位移，初始阶段可记录频繁些（如每0.1mm记录一次），后期可减少记录次数</li>
+                <li>当剪切位移达到4mm或量力环读数达到峰值后稳定或下降时，停止剪切</li>
+                <li>依次对其他三个土样施加不同的垂直压力，重复步骤2-9</li>
+                <li>试验结束后，拆除设备，取出土样，测定试验后的含水率</li>
+            </ol>
+        </section>
+
+        <!-- 数据记录与处理 -->
+        <section class="content-card">
+            <h2 class="section-title">五、数据记录与处理</h2>
+            
+            <h3 class="h5 mt-4">5.1 基本数据记录</h3>
+            <table class="table table-bordered table-striped data-table">
+                <thead>
+                    <tr>
+                        <th colspan="4">基本数据</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>土样编号</td>
+                        <td>环刀面积A(cm²)</td>
+                        <td>量力环系数K(kPa/0.01mm)</td>
+                        <td>含水率w(%)</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3 class="h5 mt-4">5.2 剪切试验数据记录（以第一个土样为例）</h3>
+            <table class="table table-bordered table-striped data-table">
+                <thead>
+                    <tr>
+                        <th colspan="4">垂直压力σ_n = _____ kPa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>剪切位移Δl(mm)</th>
+                        <th>量力环读数R(0.01mm)</th>
+                        <th>剪应力τ(kPa)</th>
+                        <th>垂直变形(mm)</th>
+                    </tr>
+                    <tr>
+                        <td>0.0</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                    </tr>
+                    <tr>
+                        <td>0.1</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                    </tr>
+                    <tr>
+                        <td>0.2</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                    </tr>
+                    <tr>
+                        <td>0.4</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                    </tr>
+                    <tr>
+                        <td>0.6</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                    </tr>
+                    <tr>
+                        <td>0.8</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                    </tr>
+                    <tr>
+                        <td>1.0</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                    </tr>
+                    <tr>
+                        <td>2.0</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                    </tr>
+                    <tr>
+                        <td>3.0</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                    </tr>
+                    <tr>
+                        <td>4.0</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3 class="h5 mt-4">5.3 数据处理公式</h3>
+            <div class="formula-block">
+                <p><strong>1. 剪应力计算：</strong></p>
+                <p class="formula">τ = K × R / A</p>
+                <p>式中：</p>
+                <ul>
+                    <li>K — 量力环系数(kPa/0.01mm)</li>
+                    <li>R — 量力环读数(0.01mm)</li>
+                    <li>A — 土样面积(cm²)，注意单位转换</li>
+                </ul>
+                
+                <p><strong>2. 抗剪强度确定：</strong></p>
+                <ul>
+                    <li>对于峰值明显的土样，取峰值剪应力作为抗剪强度τ_f</li>
+                    <li>对于无明显峰值的土样，取剪切位移为4mm时的剪应力作为抗剪强度τ_f</li>
+                </ul>
+                
+                <p><strong>3. 抗剪强度指标确定：</strong></p>
+                <p>以法向应力σ_n为横坐标，抗剪强度τ_f为纵坐标，绘制τ_f-σ_n关系曲线（抗剪强度包线），该直线的截距即为粘聚力c，斜率即为内摩擦角φ的正切值tanφ。</p>
+            </div>
+            
+            <h3 class="h5 mt-4">5.4 曲线绘制</h3>
+            <p>根据试验数据，绘制以下曲线：</p>
+            <ol class="list-decimal procedure-list">
+                <li>剪应力与剪切位移关系曲线（τ-Δl曲线）：以剪应力τ为纵坐标，剪切位移Δl为横坐标</li>
+                <li>抗剪强度包线（τ_f-σ_n曲线）：以抗剪强度τ_f为纵坐标，法向应力σ_n为横坐标</li>
+            </ol>
+            
+            <table class="table table-bordered table-striped data-table">
+                <thead>
+                    <tr>
+                        <th colspan="2">抗剪强度试验成果汇总</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>粘聚力c(kPa)</td>
+                        <td>内摩擦角φ(°)</td>
+                    </tr>
+                    <tr>
+                        <td>--</td>
+                        <td>--</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- 注意事项 -->
+        <section class="content-card">
+            <h2 class="section-title">六、注意事项</h2>
+            <ol class="list-decimal procedure-list">
+                <li>土样制备时应保持其天然结构，避免扰动</li>
+                <li>安装剪切盒时，应确保上、下盒对齐，避免偏心加载</li>
+                <li>施加垂直压力时应缓慢均匀，避免冲击荷载</li>
+                <li>快剪试验时，应在施加垂直压力后立即进行剪切，不允许排水</li>
+                <li>剪切速率应严格控制，确保符合试验要求</li>
+                <li>量力环应定期校准，确保读数准确</li>
+                <li>试验结束后，应及时清理设备，保持实验室整洁</li>
+            </ol>
+        </section>
+
+        <!-- 思考题 -->
+        <section class="content-card">
+            <h2 class="section-title">七、思考题</h2>
+            <ol class="list-decimal procedure-list">
+                <li>土的抗剪强度由哪些因素组成？它们各有什么物理意义？</li>
+                <li>为什么要进行不同排水条件下的剪切试验？它们适用于什么工程情况？</li>
+                <li>直接剪切试验有什么优缺点？与三轴剪切试验相比有什么不同？</li>
+                <li>如何根据土的抗剪强度指标评价地基稳定性？</li>
+                <li>在工程实践中，如何选择合适的剪切试验方法？</li>
+            </ol>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>联系我们</h4>
+                    <p>地址：土木馆A401室</p>
+                    <p>电话：0535-6902967</p>
+                    <p>邮箱：jzq@ytu.edu.cn</p>
+                    <p>办公时间：周一至周五 8:00-17:30</p>
+                </div>
+                <div class="col-md-6">
+                    <h4>快速链接</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="../index.html" class="text-white">首页</a></li>
+                        <li><a href="../index.html#course-info" class="text-white">课程简介</a></li>
+                        <li><a href="../lectures/index.html" class="text-white">授课内容</a></li>
+                        <li><a href="../index.html#materials" class="text-white">教学资料</a></li>
+                        <li><a href="../exercises/index.html" class="text-white">习题</a></li>
+                        <li><a href="index.html" class="text-white">实验</a></li>
+                        <li><a href="../feedback.html" class="text-white">学生留言</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <p>&copy; 2025 岩土教研室土力学教学团队</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button id="backToTop" class="back-to-top btn btn-success rounded-circle" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- 引入Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- 引入jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- 自定义JavaScript -->
+    <script>
+        // 导航栏滚动效果
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 50) {
+                $('.navbar').addClass('bg-dark');
+                $('.navbar').removeClass('bg-transparent');
+            } else {
+                $('.navbar').removeClass('bg-dark');
+                $('.navbar').addClass('bg-transparent');
+            }
+            
+            // 返回顶部按钮显示/隐藏
+            if ($(this).scrollTop() > 300) {
+                $('#backToTop').fadeIn();
+            } else {
+                $('#backToTop').fadeOut();
+            }
+        });
+        
+        // 平滑滚动
+        $('a[href^="#"]').on('click', function(e) {
+            e.preventDefault();
+            var target = $(this).attr('href');
+            $(target).animate({ scrollTop: 0 }, 'slow');
+        });
+    </script>
+</body>
+</html>

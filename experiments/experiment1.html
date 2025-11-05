@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实验一：土的基本物理性质试验 - 土力学课程网站</title>
+    <!-- 引入Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- 自定义CSS -->
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .navbar {
+            transition: all 0.3s ease;
+        }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        .jumbotron {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 0;
+            margin-bottom: 0;
+        }
+        .section-title {
+            font-weight: bold;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+        }
+        .content-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        .equipment-list, .procedure-list, .data-table {
+            margin-left: 1.5rem;
+        }
+        .data-table th {
+            background-color: #3498db;
+            color: white;
+        }
+        .formula-block {
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        .formula {
+            font-weight: bold;
+            font-style: italic;
+            color: #2c3e50;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            z-index: 999;
+        }
+        .highlight {
+            background-color: #ffffcc;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <i class="fas fa-landmark mr-2"></i>
+                土力学课程
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#course-info">课程简介</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../lectures/index.html">授课内容</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#materials">教学资料</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            学习资源
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="../exercises/index.html">习题</a></li>
+                            <li><a class="dropdown-item active" href="index.html">实验</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../feedback.html">学生留言</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题区 -->
+    <header class="jumbotron">
+        <div class="container text-center">
+            <h1 class="display-4">实验一：土的基本物理性质试验</h1>
+            <p class="lead">掌握土的密度、含水率、比重等基本物理指标的测定方法</p>
+        </div>
+    </header>
+
+    <!-- 主要内容区 -->
+    <main class="container py-5">
+        <!-- 实验目的 -->
+        <section class="content-card">
+            <h2 class="section-title">一、实验目的</h2>
+            <ol class="list-decimal pl-5">
+                <li>掌握土的密度、含水率、比重等基本物理指标的测定方法</li>
+                <li>学会计算土的孔隙比、孔隙率、饱和度等物理性质指标</li>
+                <li>了解土的三相组成及其相互关系</li>
+                <li>为土的工程分类和工程性质评价提供基本数据</li>
+            </ol>
+        </section>
+
+        <!-- 实验原理 -->
+        <section class="content-card">
+            <h2 class="section-title">二、实验原理</h2>
+            <p>土的基本物理性质指标是反映土的物质组成和结构特性的重要参数。这些指标之间存在着一定的换算关系，可以通过三相草图进行推导。</p>
+            
+            <h3 class="h5 mt-4">2.1 土的三相组成</h3>
+            <p>土是由固体颗粒、水和气体三相组成的体系。土的物理性质指标就是描述这三相物质在数量上和质量上的相对比例关系的参数。</p>
+            
+            <div class="formula-block">
+                <h4 class="h6 mb-2">基本物理指标：</h4>
+                <p><span class="formula">1. 密度（ρ）</span>：单位体积土的质量，单位为g/cm³或kg/m³</p>
+                <p><span class="formula">2. 含水率（w）</span>：土中水的质量与固体颗粒质量的比值，以百分数表示</p>
+                <p><span class="formula">3. 土粒比重（Gₛ）</span>：土粒的质量与同体积4℃时纯水质量的比值，无量纲</p>
+            </div>
+            
+            <div class="formula-block">
+                <h4 class="h6 mb-2">换算指标：</h4>
+                <p><span class="formula">1. 干密度（ρd）</span>：单位体积土中固体颗粒的质量，单位为g/cm³或kg/m³</p>
+                <p><span class="formula">2. 孔隙比（e）</span>：土中孔隙体积与固体颗粒体积的比值，无量纲</p>
+                <p><span class="formula">3. 孔隙率（n）</span>：土中孔隙体积与总体积的比值，以百分数表示</p>
+                <p><span class="formula">4. 饱和度（Sᵣ）</span>：土中水的体积与孔隙体积的比值，以百分数表示</p>
+            </div>
+            
+            <div class="formula-block">
+                <h4 class="h6 mb-2">换算关系：</h4>
+                <p><span class="formula">ρd = ρ / (1 + w)</span></p>
+                <p><span class="formula">e = (Gₛ × ρw × (1 + w)) / ρ - 1</span></p>
+                <p><span class="formula">n = e / (1 + e) × 100%</span></p>
+                <p><span class="formula">Sᵣ = (w × Gₛ) / e × 100%</span></p>
+                <p>式中：ρw为水的密度，取1g/cm³</p>
+            </div>
+        </section>
+
+        <!-- 实验设备 -->
+        <section class="content-card">
+            <h2 class="section-title">三、实验设备</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 class="h5 mb-3">3.1 密度试验设备</h3>
+                    <ul class="list-disc equipment-list">
+                        <li>环刀：内径61.8mm，高20mm，容积约60cm³</li>
+                        <li>天平：感量0.1g</li>
+                        <li>切土刀、钢丝锯、凡士林</li>
+                        <li>玻璃板、秒表</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h3 class="h5 mb-3">3.2 含水率试验设备</h3>
+                    <ul class="list-disc equipment-list">
+                        <li>烘箱：能保持温度105-110℃</li>
+                        <li>天平：感量0.01g</li>
+                        <li>铝盒、干燥器</li>
+                        <li>坩埚钳</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <h3 class="h5 mb-3">3.3 比重试验设备</h3>
+                    <ul class="list-disc equipment-list">
+                        <li>比重瓶：容量100mL或50mL</li>
+                        <li>天平：感量0.001g</li>
+                        <li>恒温水槽：能保持温度20±1℃</li>
+                        <li>真空抽气设备</li>
+                        <li>烘箱、干燥器</li>
+                        <li>温度计：精度0.5℃</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 实验步骤 -->
+        <section class="content-card">
+            <h2 class="section-title">四、实验步骤</h2>
+            
+            <h3 class="h5 mt-4">4.1 密度试验（环刀法）</h3>
+            <ol class="list-decimal procedure-list">
+                <li>用天平称取环刀的质量（m₁），准确至0.1g</li>
+                <li>在环刀内壁涂一薄层凡士林，以减小切土时的摩擦</li>
+                <li>将环刀刃口向下，放在土样上，用切土刀将土样削成略大于环刀的土柱</li>
+                <li>将环刀垂直下压，边压边削，直至土样完全充满环刀</li>
+                <li>用切土刀将环刀两端多余的土削平，擦净环刀外壁</li>
+                <li>用天平称取环刀和土样的总质量（m₂），准确至0.1g</li>
+                <li>计算土的密度：ρ = (m₂ - m₁) / V，其中V为环刀的容积</li>
+            </ol>
+            
+            <h3 class="h5 mt-4">4.2 含水率试验（烘干法）</h3>
+            <ol class="list-decimal procedure-list">
+                <li>用天平称取铝盒的质量（m₀），准确至0.01g</li>
+                <li>取代表性土样约15-30g，放入铝盒中，称取铝盒和土样的总质量（m₁），准确至0.01g</li>
+                <li>将铝盒放入烘箱中，在105-110℃温度下烘干至恒重（一般需要8小时以上）</li>
+                <li>将烘干后的铝盒从烘箱中取出，放入干燥器中冷却至室温</li>
+                <li>称取铝盒和烘干土样的总质量（m₂），准确至0.01g</li>
+                <li>计算土的含水率：w = [(m₁ - m₂) / (m₂ - m₀)] × 100%</li>
+            </ol>
+            
+            <h3 class="h5 mt-4">4.3 比重试验（比重瓶法）</h3>
+            <ol class="list-decimal procedure-list">
+                <li>将比重瓶洗净、烘干，称取比重瓶的质量（m₀），准确至0.001g</li>
+                <li>取代表性土样约10-15g，放入比重瓶中，称取比重瓶和土样的总质量（m₁），准确至0.001g</li>
+                <li>向比重瓶中注入纯水至瓶的一半左右，然后放入真空抽气设备中抽气，排除土样中的空气</li>
+                <li>抽气后，向比重瓶中注满纯水，擦干瓶外水分，称取比重瓶、土样和水的总质量（m₂），准确至0.001g</li>
+                <li>倒出土样，洗净比重瓶，注满纯水，擦干瓶外水分，称取比重瓶和水的总质量（m₃），准确至0.001g</li>
+                <li>记录试验时的水温t℃，查得该温度下水的密度ρwt</li>
+                <li>计算土粒比重：Gₛ = (m₁ - m₀) / [(m₃ - m₀) - (m₂ - m₁)] × Gwt</li>
+                <li>式中：Gwt为t℃时水的比重，Gwt = ρwt / ρw4℃，ρw4℃为4℃时水的密度，取1g/cm³</li>
+            </ol>
+        </section>
+
+        <!-- 数据记录与处理 -->
+        <section class="content-card">
+            <h2 class="section-title">五、数据记录与处理</h2>
+            
+            <h3 class="h5 mt-4">5.1 密度试验数据记录</h3>
+            <table class="table table-bordered table-striped data-table">
+                <thead>
+                    <tr>
+                        <th>试验编号</th>
+                        <th>环刀质量m₁(g)</th>
+                        <th>环刀+土样质量m₂(g)</th>
+                        <th>环刀容积V(cm³)</th>
+                        <th>土的密度ρ(g/cm³)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>60</td>
+                        <td>--</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>60</td>
+                        <td>--</td>
+                    </tr>
+                    <tr>
+                        <td>平均</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>60</td>
+                        <td>--</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3 class="h5 mt-4">5.2 含水率试验数据记录</h3>
+            <table class="table table-bordered table-striped data-table">
+                <thead>
+                    <tr>
+                        <th>试验编号</th>
+                        <th>铝盒质量m₀(g)</th>
+                        <th>铝盒+湿土质量m₁(g)</th>
+                        <th>铝盒+干土质量m₂(g)</th>
+                        <th>含水率w(%)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                    </tr>
+                    <tr>
+                        <td>平均</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3 class="h5 mt-4">5.3 比重试验数据记录</h3>
+            <table class="table table-bordered table-striped data-table">
+                <thead>
+                    <tr>
+                        <th>试验编号</th>
+                        <th>比重瓶质量m₀(g)</th>
+                        <th>比重瓶+土样质量m₁(g)</th>
+                        <th>比重瓶+土样+水质量m₂(g)</th>
+                        <th>比重瓶+水质量m₃(g)</th>
+                        <th>水温t(℃)</th>
+                        <th>土粒比重Gₛ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3 class="h5 mt-4">5.4 物理性质指标计算</h3>
+            <div class="formula-block">
+                <p><strong>已知数据：</strong></p>
+                <p>密度ρ = _____ g/cm³</p>
+                <p>含水率w = _____ %</p>
+                <p>土粒比重Gₛ = _____</p>
+                <br>
+                <p><strong>计算过程：</strong></p>
+                <p>干密度ρd = ρ / (1 + w) = _____ g/cm³</p>
+                <p>孔隙比e = (Gₛ × ρw × (1 + w)) / ρ - 1 = _____</p>
+                <p>孔隙率n = e / (1 + e) × 100% = _____ %</p>
+                <p>饱和度Sᵣ = (w × Gₛ) / e × 100% = _____ %</p>
+            </div>
+        </section>
+
+        <!-- 注意事项 -->
+        <section class="content-card">
+            <h2 class="section-title">六、注意事项</h2>
+            <ol class="list-decimal procedure-list">
+                <li>密度试验时，环刀应垂直下压，避免土样受到扰动</li>
+                <li>含水率试验时，土样应在105-110℃温度下烘干至恒重，避免温度过高导致有机质分解</li>
+                <li>比重试验时，应充分排除土样中的空气，确保试验结果准确</li>
+                <li>所有称量操作应迅速，避免水分蒸发影响试验精度</li>
+                <li>使用天平时，应轻拿轻放，避免损坏仪器</li>
+                <li>试验结束后，应及时清理试验设备，保持实验室整洁</li>
+            </ol>
+        </section>
+
+        <!-- 思考题 -->
+        <section class="content-card">
+            <h2 class="section-title">七、思考题</h2>
+            <ol class="list-decimal procedure-list">
+                <li>土的密度、干密度和饱和密度有什么区别？它们在工程中的应用有什么不同？</li>
+                <li>为什么要进行土的含水率试验？含水率对土的工程性质有什么影响？</li>
+                <li>土粒比重的大小与哪些因素有关？不同类型土的比重一般在什么范围？</li>
+                <li>孔隙比和孔隙率有什么关系？它们如何反映土的密实程度？</li>
+                <li>饱和度的大小说明了什么问题？如何根据饱和度判断土的含水状态？</li>
+            </ol>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>联系我们</h4>
+                    <p>地址：土木馆A401室</p>
+                    <p>电话：0535-6902967</p>
+                    <p>邮箱：jzq@ytu.edu.cn</p>
+                    <p>办公时间：周一至周五 8:00-17:30</p>
+                </div>
+                <div class="col-md-6">
+                    <h4>快速链接</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="../index.html" class="text-white">首页</a></li>
+                        <li><a href="../index.html#course-info" class="text-white">课程简介</a></li>
+                        <li><a href="../lectures/index.html" class="text-white">授课内容</a></li>
+                        <li><a href="../index.html#materials" class="text-white">教学资料</a></li>
+                        <li><a href="../exercises/index.html" class="text-white">习题</a></li>
+                        <li><a href="index.html" class="text-white">实验</a></li>
+                        <li><a href="../feedback.html" class="text-white">学生留言</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+            <p>&copy; 2025 岩土教研室土力学教学团队</p>
+        </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button id="backToTop" class="back-to-top btn btn-primary rounded-circle" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- 引入Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- 引入jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- 自定义JavaScript -->
+    <script>
+        // 导航栏滚动效果
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 50) {
+                $('.navbar').addClass('bg-dark');
+                $('.navbar').removeClass('bg-transparent');
+            } else {
+                $('.navbar').removeClass('bg-dark');
+                $('.navbar').addClass('bg-transparent');
+            }
+            
+            // 返回顶部按钮显示/隐藏
+            if ($(this).scrollTop() > 300) {
+                $('#backToTop').fadeIn();
+            } else {
+                $('#backToTop').fadeOut();
+            }
+        });
+        
+        // 平滑滚动
+        $('a[href^="#"]').on('click', function(e) {
+            e.preventDefault();
+            var target = $(this).attr('href');
+            $(target).animate({ scrollTop: 0 }, 'slow');
+        });
+    </script>
+</body>
+</html>
