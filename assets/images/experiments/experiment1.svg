@@ -1,0 +1,48 @@
+<svg width="400" height="200" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="400" height="200" fill="#f8f9fa" rx="4" ry="4"/>
+  
+  <!-- 实验台 -->
+  <rect x="50" y="150" width="300" height="10" fill="#6c757d"/>
+  <rect x="190" y="100" width="20" height="50" fill="#6c757d"/>
+  
+  <!-- 天平 -->
+  <rect x="100" y="120" width="60" height="5" fill="#495057"/>
+  <rect x="125" y="110" width="10" height="10" fill="#495057"/>
+  <circle cx="105" cy="125" r="15" fill="#0dcaf0"/>
+  <circle cx="155" cy="125" r="15" fill="#0dcaf0"/>
+  
+  <!-- 土样 -->
+  <rect x="250" y="130" width="40" height="20" rx="2" ry="2" fill="#8b5a2b"/>
+  <text x="270" y="145" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">土样</text>
+  
+  <!-- 烧杯 -->
+  <path d="M320,130 L350,130 L345,150 L325,150 Z" fill="#6610f2"/>
+  <line x1="325" y1="130" x2="325" y2="150" stroke="#6610f2" stroke-width="1"/>
+  <line x1="330" y1="130" x2="330" y2="150" stroke="#6610f2" stroke-width="1"/>
+  <line x1="335" y1="130" x2="335" y2="150" stroke="#6610f2" stroke-width="1"/>
+  <line x1="340" y1="130" x2="340" y2="150" stroke="#6610f2" stroke-width="1"/>
+  
+  <!-- 实验标题 -->
+  <text x="200" y="40" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#212529" text-anchor="middle">土的物理性质试验</text>
+  
+  <!-- 图标元素：三角瓶 -->
+  <path d="M80,70 L100,70 L95,100 L85,100 Z" fill="#0d6efd"/>
+  <path d="M90,70 L90,60 L100,60 L100,70" fill="#0d6efd"/>
+  
+  <!-- 图标元素：测试管 -->
+  <rect x="140" y="70" width="10" height="30" fill="#198754"/>
+  <rect x="135" y="95" width="20" height="5" fill="#198754"/>
+  
+  <!-- 图标元素：量杯 -->
+  <path d="M190,70 L210,70 L205,100 L195,100 Z" fill="#dc3545"/>
+  
+  <!-- 图标元素：比重瓶 -->
+  <circle cx="250" cy="85" r="10" fill="#ffc107"/>
+  <rect x="248" y="75" width="4" height="15" fill="#ffc107"/>
+  
+  <!-- 图标元素：筛子 -->
+  <circle cx="310" cy="85" r="10" fill="#20c997"/>
+  <circle cx="310" cy="85" r="8" fill="none" stroke="#212529" stroke-width="1"/>
+  <circle cx="310" cy="85" r="5" fill="none" stroke="#212529" stroke-width="1"/>
+</svg>

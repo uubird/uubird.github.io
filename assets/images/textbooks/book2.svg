@@ -1,0 +1,31 @@
+<svg width="300" height="450" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="300" height="450" fill="#f8f9fa" rx="4" ry="4"/>
+  
+  <!-- 书籍封面 -->
+  <rect x="30" y="40" width="240" height="350" fill="#e74c3c" rx="4" ry="4"/>
+  
+  <!-- 书籍标题 -->
+  <text x="150" y="180" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle">土力学地基基础</text>
+  <text x="150" y="220" font-family="Arial, sans-serif" font-size="18" fill="white" text-anchor="middle">第4版</text>
+  
+  <!-- 作者信息 -->
+  <text x="150" y="270" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle">陈希哲 叶书麟</text>
+  
+  <!-- 出版社信息 -->
+  <text x="150" y="320" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">清华大学出版社</text>
+  <text x="150" y="340" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">2013年</text>
+  
+  <!-- 装饰元素 - 地基图案 -->
+  <rect x="70" y="100" width="30" height="10" fill="rgba(255,255,255,0.3)"/>
+  <rect x="110" y="95" width="30" height="15" fill="rgba(255,255,255,0.3)"/>
+  <rect x="150" y="90" width="30" height="20" fill="rgba(255,255,255,0.3)"/>
+  <rect x="190" y="95" width="30" height="15" fill="rgba(255,255,255,0.3)"/>
+  
+  <rect x="80" y="380" width="40" height="10" fill="rgba(255,255,255,0.3)"/>
+  <rect x="140" y="375" width="40" height="10" fill="rgba(255,255,255,0.3)"/>
+  <rect x="200" y="380" width="40" height="10" fill="rgba(255,255,255,0.3)"/>
+  
+  <!-- 阴影效果 -->
+  <rect x="30" y="390" width="240" height="5" fill="rgba(0,0,0,0.1)" rx="2" ry="2"/>
+</svg>

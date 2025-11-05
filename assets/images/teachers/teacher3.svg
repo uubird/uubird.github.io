@@ -1,0 +1,28 @@
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="400" height="300" fill="#f0f0f0"/>
+  
+  <!-- 头像轮廓 -->
+  <circle cx="200" cy="150" r="100" fill="#e0e0e0" stroke="#333" stroke-width="2"/>
+  
+  <!-- 人物剪影 -->
+  <ellipse cx="200" cy="150" rx="70" ry="90" fill="#6c757d"/>
+  
+  <!-- 眼睛 -->
+  <circle cx="180" cy="140" r="5" fill="white"/>
+  <circle cx="220" cy="140" r="5" fill="white"/>
+  
+  <!-- 鼻子 -->
+  <line x1="200" y1="150" x2="200" y2="165" stroke="white" stroke-width="2"/>
+  
+  <!-- 嘴巴 -->
+  <path d="M180,180 Q200,190 220,180" fill="none" stroke="white" stroke-width="2"/>
+  
+  <!-- 短头发 -->
+  <path d="M130,100 Q200,60 270,100 Q280,120 270,140 Q130,140 120,120 Z" fill="#2c3e50"/>
+  <line x1="170" y1="100" x2="230" y2="100" stroke="#f0f0f0" stroke-width="1"/>
+  
+  <!-- 副教授标识 -->
+  <text x="200" y="280" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#2c3e50">张亮 副教授</text>
+  <text x="200" y="300" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#666">地基处理技术专家</text>
+</svg>

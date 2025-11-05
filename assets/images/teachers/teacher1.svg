@@ -1,0 +1,27 @@
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="400" height="300" fill="#f0f0f0"/>
+  
+  <!-- 头像轮廓 -->
+  <circle cx="200" cy="150" r="100" fill="#e0e0e0" stroke="#333" stroke-width="2"/>
+  
+  <!-- 人物剪影 -->
+  <ellipse cx="200" cy="150" rx="70" ry="90" fill="#6c757d"/>
+  
+  <!-- 眼睛 -->
+  <circle cx="180" cy="140" r="5" fill="white"/>
+  <circle cx="220" cy="140" r="5" fill="white"/>
+  
+  <!-- 鼻子 -->
+  <line x1="200" y1="150" x2="200" y2="165" stroke="white" stroke-width="2"/>
+  
+  <!-- 嘴巴 -->
+  <path d="M180,180 Q200,190 220,180" fill="none" stroke="white" stroke-width="2"/>
+  
+  <!-- 帽子/头发 -->
+  <path d="M130,110 Q200,60 270,110" fill="#2c3e50"/>
+  
+  <!-- 教授标识 -->
+  <text x="200" y="280" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#2c3e50">吉植强 教授</text>
+  <text x="200" y="300" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#666">土木工程学院副院长</text>
+</svg>

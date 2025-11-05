@@ -1,0 +1,62 @@
+<svg width="400" height="200" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="400" height="200" fill="#f8f9fa" rx="4" ry="4"/>
+  
+  <!-- 实验标题 -->
+  <text x="200" y="30" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#212529" text-anchor="middle">压缩试验</text>
+  
+  <!-- 压缩仪模型 -->
+  <g transform="translate(200, 100)">
+    <!-- 底座 -->
+    <rect x="-60" y="40" width="120" height="10" fill="#6c757d" rx="2" ry="2"/>
+    
+    <!-- 刚性护环 -->
+    <rect x="-40" y="-20" width="80" height="80" fill="none" stroke="#212529" stroke-width="2"/>
+    
+    <!-- 土样 -->
+    <rect x="-35" y="0" width="70" height="40" fill="#8b5a2b"/>
+    
+    <!-- 透水石 -->
+    <rect x="-35" y="-5" width="70" height="5" fill="#6c757d" opacity="0.7"/>
+    <rect x="-35" y="40" width="70" height="5" fill="#6c757d" opacity="0.7"/>
+    
+    <!-- 加载板 -->
+    <rect x="-40" y="-30" width="80" height="10" fill="#495057" rx="2" ry="2"/>
+    
+    <!-- 加载压力 -->
+    <rect x="-25" y="-60" width="50" height="30" fill="#dc3545" rx="4" ry="4"/>
+    <text x="0" y="-40" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">P</text>
+    
+    <!-- 加压柱 -->
+    <rect x="-5" y="-30" width="10" height="30" fill="#495057"/>
+    
+    <!-- 位移计 -->
+    <line x1="60" y1="-30" x2="60" y2="-50" stroke="#212529" stroke-width="1"/>
+    <rect x="55" y="-55" width="10" height="5" fill="#212529"/>
+    <rect x="50" y="-50" width="20" height="2" fill="#dc3545"/>
+    
+    <!-- 测量刻度 -->
+    <line x1="65" y1="-50" x2="70" y2="-50" stroke="#212529" stroke-width="1"/>
+    <line x1="65" y1="-45" x2="70" y2="-45" stroke="#212529" stroke-width="1"/>
+    <line x1="65" y1="-40" x2="70" y2="-40" stroke="#212529" stroke-width="1"/>
+    <line x1="65" y1="-35" x2="70" y2="-35" stroke="#212529" stroke-width="1"/>
+    <line x1="65" y1="-30" x2="70" y2="-30" stroke="#212529" stroke-width="1"/>
+  </g>
+  
+  <!-- 压缩曲线示意图 -->
+  <g transform="translate(80, 150)">
+    <rect x="-50" y="-30" width="90" height="50" fill="white" stroke="#dee2e6" stroke-width="1" rx="2" ry="2"/>
+    <!-- 坐标轴 -->
+    <line x1="0" y1="0" x2="80" y2="0" stroke="#212529" stroke-width="1"/>
+    <line x1="0" y1="0" x2="0" y2="-40" stroke="#212529" stroke-width="1"/>
+    <!-- 曲线 -->
+    <path d="M0,0 Q20,-10 40,-15 T80,-25" fill="none" stroke="#0d6efd" stroke-width="2"/>
+    <!-- 坐标轴标签 -->
+    <text x="60" y="15" font-family="Arial, sans-serif" font-size="8" fill="#212529">压力</text>
+    <text x="-15" y="-30" font-family="Arial, sans-serif" font-size="8" fill="#212529">e</text>
+  </g>
+  
+  <!-- 压缩指标 -->
+  <text x="320" y="160" font-family="Arial, sans-serif" font-size="12" fill="#212529">压缩系数: av</text>
+  <text x="320" y="180" font-family="Arial, sans-serif" font-size="12" fill="#212529">压缩模量: Es</text>
+</svg>

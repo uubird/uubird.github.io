@@ -1,0 +1,20 @@
+<svg width="400" height="200" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="400" height="200" fill="#f8f9fa" rx="8" ry="8"/>
+  
+  <!-- 演示文稿图标 -->
+  <g transform="translate(150, 70)">
+    <!-- 第一张幻灯片 -->
+    <rect x="-50" y="-30" width="100" height="60" fill="#4285f4" rx="4" ry="4"/>
+    
+    <!-- 第二张幻灯片 -->
+    <rect x="-40" y="-10" width="80" height="40" fill="#34a853" rx="3" ry="3"/>
+    
+    <!-- 第三张幻灯片 -->
+    <rect x="-30" y="10" width="60" height="20" fill="#fbbc05" rx="2" ry="2"/>
+    
+    <!-- 播放按钮 -->
+    <circle cx="50" cy="0" r="20" fill="#ea4335"/>
+    <polygon points="42,-15 62,0 42,15" fill="white"/>
+  </g>
+</svg>
