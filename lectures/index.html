@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>授课内容 - 土力学课程网站</title>
+    <!-- 引入Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- 自定义CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        .lectures-container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .chapter-card {
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .chapter-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+        .chapter-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .chapter-number {
+            background-color: #3498db;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <i class="fas fa-landmark mr-2"></i>土力学
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#course-info">课程简介</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../index.html#lectures">授课内容</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#materials">教学资料</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#exercises">习题与实验</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#resources">参考资源</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#contact">联系我们</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <header class="jumbotron jumbotron-fluid py-5">
+        <div class="container">
+            <h1 class="display-5">授课内容</h1>
+            <p class="lead">系统学习土力学的基本理论和方法</p>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <div class="lectures-container">
+            <!-- 课程介绍 -->
+            <div class="mb-5">
+                <h2 class="section-title">课程内容概述</h2>
+                <p class="lead">《土力学》课程系统地介绍土的物理力学性质及其在工程中的应用。通过本课程的学习，学生将掌握土力学的基本理论和分析方法，为后续专业课程的学习奠定坚实的基础。</p>
+            </div>
+
+            <!-- 章节列表 -->
+            <div class="row">
+                <!-- 第1章 -->
+                <div class="col-md-6">
+                    <div class="card chapter-card">
+                        <div class="card-header bg-primary text-white chapter-header">
+                            <div style="display: flex; align-items: center;">
+                                <div class="chapter-number">1</div>
+                                <h3 class="card-title h5 mb-0">土的物理性质及工程分类</h3>
+                            </div>
+                            <span class="badge bg-light text-primary">基础理论</span>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text mb-3">本章介绍土的形成与结构、三相组成、物理性质指标、物理状态指标及工程分类方法。</p>
+                            <ul class="list-group list-group-flush mb-3">
+                                <li class="list-group-item">1.1 土的形成与结构</li>
+                                <li class="list-group-item">1.2 土的三相组成</li>
+                                <li class="list-group-item">1.3 土的物理性质指标</li>
+                            </ul>
+                            <div class="d-flex justify-content-between">
+                                <a href="chapter1.html" class="btn btn-primary">查看详情</a>
+                                <a href="../exercises/chapter1-exercises.html" class="btn btn-outline-primary">章节习题</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第2章 -->
+                <div class="col-md-6">
+                    <div class="card chapter-card">
+                        <div class="card-header bg-primary text-white chapter-header">
+                            <div style="display: flex; align-items: center;">
+                                <div class="chapter-number">2</div>
+                                <h3 class="card-title h5 mb-0">土的渗透性与渗流</h3>
+                            </div>
+                            <span class="badge bg-light text-primary">重要原理</span>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text mb-3">本章介绍土的渗透性概念、达西定律、渗透系数测定方法、二维渗流与流网分析及渗透破坏防治。</p>
+                            <ul class="list-group list-group-flush mb-3">
+                                <li class="list-group-item">2.1 土的渗透性</li>
+                                <li class="list-group-item">2.2 达西定律</li>
+                                <li class="list-group-item">2.3 渗透系数的测定</li>
+                            </ul>
+                            <div class="d-flex justify-content-between">
+                                <a href="chapter2.html" class="btn btn-primary">查看详情</a>
+                                <a href="../exercises/chapter2-exercises.html" class="btn btn-outline-primary">章节习题</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第3章 -->
+                <div class="col-md-6">
+                    <div class="card chapter-card">
+                        <div class="card-header bg-primary text-white chapter-header">
+                            <div style="display: flex; align-items: center;">
+                                <div class="chapter-number">3</div>
+                                <h3 class="card-title h5 mb-0">土中应力计算</h3>
+                            </div>
+                            <span class="badge bg-light text-primary">计算方法</span>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text mb-3">本章介绍土中自重应力计算、基底压力分布、地基附加应力计算及应力路径概念。</p>
+                            <ul class="list-group list-group-flush mb-3">
+                                <li class="list-group-item">3.1 土中自重应力</li>
+                                <li class="list-group-item">3.2 基底压力</li>
+                                <li class="list-group-item">3.3 地基附加应力</li>
+                            </ul>
+                            <div class="d-flex justify-content-between">
+                                <a href="chapter3.html" class="btn btn-primary">查看详情</a>
+                                <a href="../exercises/chapter3-exercises.html" class="btn btn-outline-primary">章节习题</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第4章 -->
+                <div class="col-md-6">
+                    <div class="card chapter-card">
+                        <div class="card-header bg-primary text-white chapter-header">
+                            <div style="display: flex; align-items: center;">
+                                <div class="chapter-number">4</div>
+                                <h3 class="card-title h5 mb-0">土的压缩性与地基沉降</h3>
+                            </div>
+                            <span class="badge bg-light text-primary">工程应用</span>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text mb-3">本章介绍土的压缩性概念、地基最终沉降量计算、沉降与时间关系及地基容许沉降量。</p>
+                            <ul class="list-group list-group-flush mb-3">
+                                <li class="list-group-item">4.1 土的压缩性</li>
+                                <li class="list-group-item">4.2 地基最终沉降量计算</li>
+                                <li class="list-group-item">4.3 地基沉降与时间的关系</li>
+                            </ul>
+                            <div class="d-flex justify-content-between">
+                                <a href="chapter4.html" class="btn btn-primary">查看详情</a>
+                                <a href="../exercises/chapter4-exercises.html" class="btn btn-outline-primary">章节习题</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第5章 -->
+                <div class="col-md-6">
+                    <div class="card chapter-card">
+                        <div class="card-header bg-primary text-white chapter-header">
+                            <div style="display: flex; align-items: center;">
+                                <div class="chapter-number">5</div>
+                                <h3 class="card-title h5 mb-0">土的抗剪强度</h3>
+                            </div>
+                            <span class="badge bg-light text-primary">核心理论</span>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text mb-3">本章介绍土的抗剪强度概念、莫尔-库仑强度理论、抗剪强度指标测定及影响因素分析。</p>
+                            <ul class="list-group list-group-flush mb-3">
+                                <li class="list-group-item">5.1 土的抗剪强度概述</li>
+                                <li class="list-group-item">5.2 莫尔-库仑强度理论</li>
+                                <li class="list-group-item">5.3 抗剪强度指标的测定</li>
+                            </ul>
+                            <div class="d-flex justify-content-between">
+                                <a href="chapter5.html" class="btn btn-primary">查看详情</a>
+                                <a href="../exercises/chapter5-exercises.html" class="btn btn-outline-primary">章节习题</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第6章 -->
+                <div class="col-md-6">
+                    <div class="card chapter-card">
+                        <div class="card-header bg-primary text-white chapter-header">
+                            <div style="display: flex; align-items: center;">
+                                <div class="chapter-number">6</div>
+                                <h3 class="card-title h5 mb-0">土压力理论</h3>
+                            </div>
+                            <span class="badge bg-light text-primary">经典理论</span>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text mb-3">本章介绍土压力的基本概念、朗肯土压力理论、库仑土压力理论及挡土墙设计要点。</p>
+                            <ul class="list-group list-group-flush mb-3">
+                                <li class="list-group-item">6.1 土压力概述</li>
+                                <li class="list-group-item">6.2 朗肯土压力理论</li>
+                                <li class="list-group-item">6.3 库仑土压力理论</li>
+                            </ul>
+                            <div class="d-flex justify-content-between">
+                                <a href="chapter6.html" class="btn btn-primary">查看详情</a>
+                                <a href="../exercises/chapter6-exercises.html" class="btn btn-outline-primary">章节习题</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第7章 -->
+                <div class="col-md-6">
+                    <div class="card chapter-card">
+                        <div class="card-header bg-primary text-white chapter-header">
+                            <div style="display: flex; align-items: center;">
+                                <div class="chapter-number">7</div>
+                                <h3 class="card-title h5 mb-0">地基承载力</h3>
+                            </div>
+                            <span class="badge bg-light text-primary">工程设计</span>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text mb-3">本章介绍地基承载力的基本概念、地基破坏形式、承载力理论计算方法及地基稳定性分析。</p>
+                            <ul class="list-group list-group-flush mb-3">
+                                <li class="list-group-item">7.1 地基承载力概述</li>
+                                <li class="list-group-item">7.2 地基破坏形式</li>
+                                <li class="list-group-item">7.3 地基承载力理论</li>
+                            </ul>
+                            <div class="d-flex justify-content-between">
+                                <a href="chapter7.html" class="btn btn-primary">查看详情</a>
+                                <a href="../exercises/chapter7-exercises.html" class="btn btn-outline-primary">章节习题</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第8章 -->
+                <div class="col-md-6">
+                    <div class="card chapter-card">
+                        <div class="card-header bg-primary text-white chapter-header">
+                            <div style="display: flex; align-items: center;">
+                                <div class="chapter-number">8</div>
+                                <h3 class="card-title h5 mb-0">土坡稳定分析</h3>
+                            </div>
+                            <span class="badge bg-light text-primary">工程应用</span>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text mb-3">本章介绍土坡稳定的基本概念、土坡稳定分析方法（条分法）、土坡稳定性影响因素及防治措施。</p>
+                            <ul class="list-group list-group-flush mb-3">
+                                <li class="list-group-item">8.1 土坡稳定概述</li>
+                                <li class="list-group-item">8.2 土坡稳定分析方法</li>
+                                <li class="list-group-item">8.3 土坡稳定性影响因素</li>
+                            </ul>
+                            <div class="d-flex justify-content-between">
+                                <a href="chapter8.html" class="btn btn-primary">查看详情</a>
+                                <a href="../exercises/chapter8-exercises.html" class="btn btn-outline-primary">章节习题</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>关于课程</h4>
+                    <p>《土力学》是土木工程专业的核心课程，本网站提供课程相关的教学资源和学习资料。</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>快速链接</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="../index.html#course-info" class="text-white">课程简介</a></li>
+                        <li><a href="../index.html#lectures" class="text-white">授课内容</a></li>
+                        <li><a href="../index.html#materials" class="text-white">教学资料</a></li>
+                        <li><a href="../index.html#exercises" class="text-white">习题与实验</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4>版权信息</h4>
+                    <p>&copy; 2025 岩土教研室土力学教学团队</p>
+                    <p>All rights reserved.</p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- 引入Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

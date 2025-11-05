@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第4章 土的压缩性与地基沉降 - 土力学课程</title>
+    <!-- 引入Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <!-- 引入Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- 自定义CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
+        }
+        .nav-link {
+            color: white !important;
+        }
+        .nav-link:hover {
+            color: #1abc9c !important;
+        }
+        .main-content {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        .section-title {
+            color: #2c3e50;
+            border-bottom: 2px solid #1abc9c;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .knowledge-point {
+            background-color: #f8f9fa;
+            border-left: 4px solid #1abc9c;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .formula {
+            background-color: #e9ecef;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .note-box {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .nav-pills .nav-link.active {
+            background-color: #1abc9c;
+            color: white;
+        }
+        .nav-pills .nav-link {
+            color: #2c3e50;
+        }
+        .footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 30px 0;
+        }
+        .footer a {
+            color: #bdc3c7;
+        }
+        .footer a:hover {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">土力学课程</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#course-info">课程简介</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../index.html#lectures">授课内容</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#materials">教学资料</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#exercises">习题与实验</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center mb-4">第4章 土的压缩性与地基沉降</h1>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主要内容 -->
+    <div class="container mb-5">
+        <div class="row">
+            <!-- 章节导航 -->
+            <div class="col-md-3">
+                <div class="sticky-top" style="top: 80px;">
+                    <div class="card">
+                        <div class="card-header bg-dark text-white">
+                            <h5 class="mb-0">章节导航</h5>
+                        </div>
+                        <ul class="nav nav-pills flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#section4-1">4.1 概述</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#section4-2">4.2 土的压缩性指标</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#section4-3">4.3 地基最终沉降量计算</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#section4-4">4.4 地基沉降与时间的关系</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#section4-5">4.5 建筑物沉降观测与控制</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#exercises">章节习题</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 章节内容 -->
+            <div class="col-md-9">
+                <div class="main-content">
+                    <!-- 4.1 概述 -->
+                    <section id="section4-1" class="mb-5">
+                        <h2 class="section-title">4.1 概述</h2>
+                        <p>土的压缩性是指土在压力作用下体积缩小的特性，地基沉降是建筑物荷载引起的地基表面下沉现象。</p>
+                        
+                        <div class="knowledge-point">
+                            <h4>4.1.1 地基沉降的原因</h4>
+                            <ul>
+                                <li><strong>瞬时沉降</strong>：加载后立即发生的沉降，由土的弹性变形引起</li>
+                                <li><strong>固结沉降</strong>：由于孔隙水压力消散、有效应力增加而引起的沉降</li>
+                                <li><strong>次固结沉降</strong>：在有效应力基本不变的情况下，由土颗粒骨架蠕变引起的沉降</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>4.1.2 地基沉降计算的目的</h4>
+                            <ul>
+                                <li>确定建筑物的总沉降量</li>
+                                <li>计算沉降差和倾斜</li>
+                                <li>预测沉降随时间的发展</li>
+                                <li>验证地基设计的合理性</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- 4.2 土的压缩性指标 -->
+                    <section id="section4-2" class="mb-5">
+                        <h2 class="section-title">4.2 土的压缩性指标</h2>
+                        
+                        <div class="knowledge-point">
+                            <h4>4.2.1 压缩试验与压缩曲线</h4>
+                            <p>通过室内侧限压缩试验（固结试验）可以测定土的压缩性指标。试验得到的孔隙比e与压力p的关系曲线称为压缩曲线。</p>
+                        </div>
+
+                        <!-- 图片：压缩曲线 -->
+                        <div class="text-center my-4">
+                            <img src="../assets/images/course/chapter4_compression_curve.png" class="img-fluid rounded shadow" style="max-width: 80%;" alt="压缩曲线示意图">
+                            <p class="text-muted mt-2"><strong>图4.1</strong> 压缩曲线示意图</p>
+                        </div>
+
+                        <!-- 图片：固结仪试验 -->
+                        <div class="text-center my-4">
+                            <img src="../assets/images/course/chapter4_oedometer_test.png" class="img-fluid rounded shadow" style="max-width: 80%;" alt="固结仪试验示意图">
+                            <p class="text-muted mt-2"><strong>图4.2</strong> 固结仪试验示意图</p>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>4.2.2 压缩系数</h4>
+                            <p>压缩系数a是评价土压缩性的重要指标：</p>
+                            <div class="formula">
+                                a = (e1 - e2)/(p2 - p1)
+                            </div>
+                            <p>其中：</p>
+                            <ul>
+                                <li>e1, e2：压力p1, p2作用下的孔隙比</li>
+                            </ul>
+                            <p>工程上常用a1-2（p1=100kPa，p2=200kPa时的压缩系数）评价土的压缩性：</p>
+                            <ul>
+                                <li>a1-2 < 0.1MPa⁻¹：低压缩性土</li>
+                                <li>0.1MPa⁻¹ ≤ a1-2 < 0.5MPa⁻¹：中压缩性土</li>
+                                <li>a1-2 ≥ 0.5MPa⁻¹：高压缩性土</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>4.2.3 压缩模量</h4>
+                            <p>压缩模量Es是指土在侧限条件下竖向应力与竖向应变的比值：</p>
+                            <div class="formula">
+                                Es = (1+e1)/a
+                            </div>
+                            <p>其中：</p>
+                            <ul>
+                                <li>e1：初始孔隙比</li>
+                                <li>a：压缩系数</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>4.2.4 体积压缩系数</h4>
+                            <p>体积压缩系数mv是指单位体积应变所需的压力增量：</p>
+                            <div class="formula">
+                                mv = a/(1+e1)
+                            </div>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>4.2.5 回弹指数与再压缩曲线</h4>
+                            <p>土在卸载和再加载过程中表现出弹性变形特性，卸载曲线与再加载曲线围成的区域称为滞回环。回弹指数Cs通常小于压缩指数Cc。</p>
+                        </div>
+                        
+                        <div class="note-box">
+                            <h5><i class="fas fa-lightbulb text-warning"></i> 注意</h5>
+                            <p>土的压缩性指标受土的种类、结构、应力历史等多种因素影响。</p>
+                        </div>
+                    </section>
+
+                    <!-- 4.3 地基最终沉降量计算 -->
+                    <section id="section4-3" class="mb-5">
+                        <h2 class="section-title">4.3 地基最终沉降量计算</h2>
+                        
+                        <div class="knowledge-point">
+                            <h4>4.3.1 分层总和法</h4>
+                            <p>分层总和法是计算地基最终沉降量的基本方法，其基本原理是将地基土分层，分别计算各层土的压缩量，然后求和。</p>
+                            <div class="formula">
+                                s = Σ(Δsi) = Σ[(e1i - e2i)/(1+e1i)] · hi = Σ[ai/(1+e1i)] · Δpi · hi = Σ[mi · Δpi · hi]
+                            </div>
+                            <p>其中：</p>
+                            <ul>
+                                <li>e1i, e2i：第i层土在平均附加应力作用前后的孔隙比</li>
+                                <li>ai：第i层土的压缩系数</li>
+                                <li>mi：第i层土的体积压缩系数</li>
+                                <li>Δpi：第i层土的平均附加应力</li>
+                                <li>hi：第i层土的厚度</li>
+                            </ul>
+                        </div>
+
+                        <!-- 图片：地基固结沉降 -->
+                        <div class="text-center my-4">
+                            <img src="../assets/images/course/chapter4_consolidation_settlement.png" class="img-fluid rounded shadow" style="max-width: 80%;" alt="地基固结沉降示意图">
+                            <p class="text-muted mt-2"><strong>图4.3</strong> 地基固结沉降示意图</p>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>4.3.2 《建筑地基基础设计规范》方法</h4>
+                            <p>《建筑地基基础设计规范》（GB 50007-2011）推荐的地基最终沉降量计算公式：</p>
+                            <div class="formula">
+                                s = ψs · Σ[pi/(Es,i)] · z_i α_i - z_{i-1} α_{i-1}
+                            </div>
+                            <p>其中：</p>
+                            <ul>
+                                <li>ψs：沉降计算经验系数</li>
+                                <li>pi：基础底面处的附加压力</li>
+                                <li>Es,i：第i层土的压缩模量</li>
+                                <li>z_i, z_{i-1}：基础底面至第i层和第i-1层底面的距离</li>
+                                <li>α_i, α_{i-1}：平均附加应力系数</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>4.3.3 应力历史对沉降的影响</h4>
+                            <p>考虑土的应力历史，需要区分：</p>
+                            <ul>
+                                <li><strong>正常固结土</strong>：前期固结压力pc等于现有覆盖压力p0</li>
+                                <li><strong>超固结土</strong>：前期固结压力pc大于现有覆盖压力p0</li>
+                                <li><strong>欠固结土</strong>：前期固结压力pc小于现有覆盖压力p0</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>4.3.4 计算步骤</h4>
+                            <ol>
+                                <li>绘制地基剖面图，确定各层土的压缩性指标</li>
+                                <li>计算基底附加压力</li>
+                                <li>计算地基中的附加应力分布</li>
+                                <li>按压缩性指标相似的原则分层</li>
+                                <li>计算各层土的压缩量</li>
+                                <li>求和得到总沉降量</li>
+                            </ol>
+                        </div>
+                    </section>
+
+                    <!-- 4.4 地基沉降与时间的关系 -->
+                    <section id="section4-4" class="mb-5">
+                        <h2 class="section-title">4.4 地基沉降与时间的关系</h2>
+                        
+                        <div class="knowledge-point">
+                            <h4>4.4.1 太沙基一维固结理论</h4>
+                            <p>太沙基一维固结理论假设土是均质、饱和的，在侧限条件下发生压缩，孔隙水的渗流符合达西定律。</p>
+                            <div class="formula">
+                                ∂u/∂t = cv ∂²u/∂z²
+                            </div>
+                            <p>其中：</p>
+                            <ul>
+                                <li>u：孔隙水压力</li>
+                                <li>t：时间</li>
+                                <li>cv：固结系数（m²/s）</li>
+                                <li>z：深度</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>4.4.2 固结度计算</h4>
+                            <p>固结度U是指某一时刻的沉降量与最终沉降量的比值：</p>
+                            <div class="formula">
+                                U = s_t / s
+                            </div>
+                            <p>对于竖向排水情况，固结度也可以表示为：</p>
+                            <div class="formula">
+                                U = 1 - (8/π²) Σ[1/(2n+1)²] exp[-(2n+1)² π² Tv/4]
+                            </div>
+                            <p>其中：</p>
+                            <ul>
+                                <li>Tv：时间因数，Tv = cv t / H²</li>
+                                <li>H：最大排水距离</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>4.4.3 时间因数与固结度的关系</h4>
+                            <p>当Tv > 0.1时，可采用简化公式计算固结度：</p>
+                            <div class="formula">
+                                U = 1 - exp(-π² Tv/4)
+                            </div>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>4.4.4 地基沉降时间曲线</h4>
+                            <p>地基沉降时间曲线通常分为三个阶段：</p>
+                            <ul>
+                                <li><strong>初始阶段</strong>：沉降速率较快</li>
+                                <li><strong>主固结阶段</strong>：沉降随时间近似线性增长</li>
+                                <li><strong>次固结阶段</strong>：沉降速率减缓</li>
+                            </ul>
+                        </div>
+
+                        <!-- 图片：沉降时间曲线 -->
+                        <div class="text-center my-4">
+                            <img src="../assets/images/course/chapter4_settlement_time.png" class="img-fluid rounded shadow" style="max-width: 80%;" alt="沉降时间曲线示意图">
+                            <p class="text-muted mt-2"><strong>图4.4</strong> 沉降时间曲线示意图</p>
+                        </div>
+                        
+                        <div class="note-box">
+                            <h5><i class="fas fa-info-circle text-warning"></i> 知识拓展</h5>
+                            <p>对于大型工程，也可以通过现场监测数据反演固结参数，预测后期沉降。</p>
+                        </div>
+                    </section>
+
+                    <!-- 4.5 建筑物沉降观测与控制 -->
+                    <section id="section4-5" class="mb-5">
+                        <h2 class="section-title">4.5 建筑物沉降观测与控制</h2>
+                        
+                        <div class="knowledge-point">
+                            <h4>4.5.1 沉降观测的目的</h4>
+                            <ul>
+                                <li>验证设计计算的正确性</li>
+                                <li>及时发现异常沉降</li>
+                                <li>指导施工和使用</li>
+                                <li>为地基处理提供依据</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>4.5.2 沉降观测点的布置</h4>
+                            <p>沉降观测点的布置应考虑：</p>
+                            <ul>
+                                <li>建筑物的体型和结构特点</li>
+                                <li>荷载分布情况</li>
+                                <li>地质条件</li>
+                                <li>施工和使用过程中的监测需要</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>4.5.3 沉降允许值</h4>
+                            <p>《建筑地基基础设计规范》规定了不同类型建筑物的沉降允许值，包括：</p>
+                            <ul>
+                                <li>建筑物的整体沉降</li>
+                                <li>相邻柱基的沉降差</li>
+                                <li>基础的倾斜</li>
+                                <li>局部倾斜</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>4.5.4 减少地基沉降的措施</h4>
+                            <ul>
+                                <li><strong>地基处理</strong>：采用压实、换填、强夯等方法</li>
+                                <li><strong>调整基础形式</strong>：采用桩基础、箱形基础等</li>
+                                <li><strong>合理安排施工顺序</strong>：先施工荷载大的部分</li>
+                                <li><strong>设置沉降缝</strong>：将建筑物分成若干独立单元</li>
+                                <li><strong>预留沉降量</strong>：在设计中考虑预期沉降</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- 本章小结 -->
+                    <section class="mb-5">
+                        <h2 class="section-title">本章小结</h2>
+                        <div class="card">
+                            <div class="card-body">
+                                <ul>
+                                    <li>土的压缩性指标包括压缩系数、压缩模量、体积压缩系数等</li>
+                                    <li>地基最终沉降量计算方法主要有分层总和法和规范推荐方法</li>
+                                    <li>太沙基一维固结理论可用于计算地基沉降随时间的发展</li>
+                                    <li>地基沉降观测是确保建筑物安全的重要手段</li>
+                                    <li>可通过多种措施减少地基沉降对建筑物的影响</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 课后作业 -->
+                    <section id="exercises">
+                        <h2 class="section-title">课后作业</h2>
+                        <div class="card">
+                            <div class="card-body">
+                                <a href="../exercises/chapter4-exercises.html" class="btn btn-primary">查看详细习题</a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>关于课程</h4>
+                    <p>《土力学》是土木工程专业的核心课程，本网站提供课程相关的教学资源和学习资料。</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>快速链接</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="../index.html#course-info" class="text-white">课程简介</a></li>
+                        <li><a href="../index.html#lectures" class="text-white">授课内容</a></li>
+                        <li><a href="../index.html#materials" class="text-white">教学资料</a></li>
+                        <li><a href="../index.html#exercises" class="text-white">习题与实验</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4>版权信息</h4>
+                    <p>&copy; 2025 岩土教研室土力学教学团队</p>
+                    <p>All rights reserved.</p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- 引入Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- 自定义JS -->
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>

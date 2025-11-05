@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第5章 土的抗剪强度 - 土力学课程</title>
+    <!-- 引入Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <!-- 引入Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- 自定义CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
+        }
+        .nav-link {
+            color: white !important;
+        }
+        .nav-link:hover {
+            color: #1abc9c !important;
+        }
+        .main-content {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        .section-title {
+            color: #2c3e50;
+            border-bottom: 2px solid #1abc9c;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .knowledge-point {
+            background-color: #f8f9fa;
+            border-left: 4px solid #1abc9c;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .formula {
+            background-color: #e9ecef;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .note-box {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .nav-pills .nav-link.active {
+            background-color: #1abc9c;
+            color: white;
+        }
+        .nav-pills .nav-link {
+            color: #2c3e50;
+        }
+        .footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 30px 0;
+        }
+        .footer a {
+            color: #bdc3c7;
+        }
+        .footer a:hover {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">土力学课程</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#course-info">课程简介</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../index.html#lectures">授课内容</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#materials">教学资料</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#exercises">习题与实验</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center mb-4">第5章 土的抗剪强度</h1>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主要内容 -->
+    <div class="container mb-5">
+        <div class="row">
+            <!-- 章节导航 -->
+            <div class="col-md-3">
+                <div class="sticky-top" style="top: 80px;">
+                    <div class="card">
+                        <div class="card-header bg-dark text-white">
+                            <h5 class="mb-0">章节导航</h5>
+                        </div>
+                        <ul class="nav nav-pills flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#section5-1">5.1 概述</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#section5-2">5.2 库仑定律与莫尔-库仑强度理论</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#section5-3">5.3 土的抗剪强度试验</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#section5-4">5.4 应力状态对土抗剪强度的影响</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#section5-5">5.5 土的抗剪强度特性</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#exercises">章节习题</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 章节内容 -->
+            <div class="col-md-9">
+                <div class="main-content">
+                    <!-- 5.1 概述 -->
+                    <section id="section5-1" class="mb-5">
+                        <h2 class="section-title">5.1 概述</h2>
+                        <p>土的抗剪强度是指土体抵抗剪切破坏的能力，是土的重要力学性质之一。</p>
+                        
+                        <div class="knowledge-point">
+                            <h4>5.1.1 抗剪强度的重要性</h4>
+                            <ul>
+                                <li>地基承载力计算</li>
+                                <li>边坡稳定性分析</li>
+                                <li>挡土墙土压力计算</li>
+                                <li>隧道和基坑的支护设计</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>5.1.2 土的剪切破坏形式</h4>
+                            <ul>
+                                <li><strong>脆性破坏</strong>：无黏性土在剪切过程中常表现为脆性破坏</li>
+                                <li><strong>塑性破坏</strong>：黏性土在剪切过程中常表现为塑性破坏</li>
+                                <li><strong>流动破坏</strong>：饱和软黏土在快速加载下可能发生流动破坏</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- 5.2 库仑定律与莫尔-库仑强度理论 -->
+                    <section id="section5-2" class="mb-5">
+                        <h2 class="section-title">5.2 库仑定律与莫尔-库仑强度理论</h2>
+                        
+                        <div class="knowledge-point">
+                            <h4>5.2.1 库仑定律</h4>
+                            <p>1776年，法国科学家库仑通过试验提出了土的抗剪强度公式：</p>
+                            <div class="formula">
+                                τ_f = c + σ tanφ
+                            </div>
+                            <p>其中：</p>
+                            <ul>
+                                <li>τ_f：土的抗剪强度（kPa）</li>
+                                <li>c：土的黏聚力（kPa）</li>
+                                <li>σ：剪切破坏面上的法向应力（kPa）</li>
+                                <li>φ：土的内摩擦角（°）</li>
+                            </ul>
+                            <p>对于无黏性土（如砂土），c=0，抗剪强度公式简化为：</p>
+                            <div class="formula">
+                                τ_f = σ tanφ
+                            </div>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>5.2.2 莫尔-库仑强度理论</h4>
+                            <p>莫尔-库仑强度理论认为，土的剪切破坏是由于土中某一平面上的剪应力达到土的抗剪强度所致。</p>
+                            <p>莫尔圆表示土中某点的应力状态，强度包线表示土的抗剪强度。当莫尔圆与强度包线相切时，土体达到极限平衡状态。</p>
+                        </div>
+
+                        <!-- 图片：莫尔-库仑强度理论 -->
+                        <div class="text-center my-4">
+                            <img src="../assets/images/course/chapter5_mohr_coulomb.png" class="img-fluid rounded shadow" style="max-width: 80%;" alt="莫尔-库仑强度理论示意图">
+                            <p class="text-muted mt-2"><strong>图5.1</strong> 莫尔-库仑强度理论示意图</p>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>5.2.3 极限平衡条件</h4>
+                            <p>对于平面应力状态，极限平衡条件可以表示为：</p>
+                            <div class="formula">
+                                σ1 = σ3 tan²(45°+φ/2) + 2c tan(45°+φ/2)
+                            </div>
+                            <p>或</p>
+                            <div class="formula">
+                                τ = c + (σ1 + σ3)/2(1 - sinφ) + (σ1 - σ3)/2 cosθ sinφ
+                            </div>
+                            <p>其中：</p>
+                            <ul>
+                                <li>σ1, σ3：最大和最小主应力（kPa）</li>
+                                <li>θ：剪切面与大主应力面的夹角</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="note-box">
+                            <h5><i class="fas fa-lightbulb text-warning"></i> 注意</h5>
+                            <p>库仑定律和莫尔-库仑强度理论是土力学中最基本的强度理论，但它们是经验性的，有一定的适用范围。</p>
+                        </div>
+                    </section>
+
+                    <!-- 5.3 土的抗剪强度试验 -->
+                    <section id="section5-3" class="mb-5">
+                        <h2 class="section-title">5.3 土的抗剪强度试验</h2>
+                        
+                        <div class="knowledge-point">
+                            <h4>5.3.1 直接剪切试验</h4>
+                            <p>直接剪切试验是测定土抗剪强度的常用方法，分为：</p>
+                            <ul>
+                                <li><strong>快剪（Q）</strong>：在试件上快速施加剪切力，不允许孔隙水排出</li>
+                                <li><strong>固结快剪（CQ）</strong>：先使试件在垂直压力下充分固结，然后快速施加剪切力</li>
+                                <li><strong>慢剪（S）</strong>：在慢速剪切过程中允许孔隙水排出</li>
+                            </ul>
+                        </div>
+
+                        <!-- 图片：直接剪切试验 -->
+                        <div class="text-center my-4">
+                            <img src="../assets/images/course/chapter5_direct_shear_test.png" class="img-fluid rounded shadow" style="max-width: 80%;" alt="直接剪切试验示意图">
+                            <p class="text-muted mt-2"><strong>图5.2</strong> 直接剪切试验示意图</p>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>5.3.2 三轴剪切试验</h4>
+                            <p>三轴剪切试验是一种更精确的抗剪强度试验方法，分为：</p>
+                            <ul>
+                                <li><strong>不固结不排水试验（UU）</strong>：在试验过程中不允许排水</li>
+                                <li><strong>固结不排水试验（CU）</strong>：先固结，后不排水剪切</li>
+                                <li><strong>固结排水试验（CD）</strong>：在试验过程中允许排水</li>
+                            </ul>
+                        </div>
+
+                        <!-- 图片：三轴剪切试验 -->
+                        <div class="text-center my-4">
+                            <img src="../assets/images/course/chapter5_triaxial_test.png" class="img-fluid rounded shadow" style="max-width: 80%;" alt="三轴剪切试验示意图">
+                            <p class="text-muted mt-2"><strong>图5.3</strong> 三轴剪切试验示意图</p>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>5.3.3 无侧限抗压强度试验</h4>
+                            <p>无侧限抗压强度试验是三轴试验的特殊情况（围压为零），主要用于测定饱和黏性土的不排水抗剪强度：</p>
+                            <div class="formula">
+                                cu = qu / 2
+                            </div>
+                            <p>其中：</p>
+                            <ul>
+                                <li>cu：不排水抗剪强度（kPa）</li>
+                                <li>qu：无侧限抗压强度（kPa）</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>5.3.4 十字板剪切试验</h4>
+                            <p>十字板剪切试验是一种现场测试方法，适用于饱和软黏土，可直接测定土的原位抗剪强度。</p>
+                        </div>
+                    </section>
+
+                    <!-- 5.4 应力状态对土抗剪强度的影响 -->
+                    <section id="section5-4" class="mb-5">
+                        <h2 class="section-title">5.4 应力状态对土抗剪强度的影响</h2>
+                        
+                        <div class="knowledge-point">
+                            <h4>5.4.1 排水条件的影响</h4>
+                            <p>不同排水条件下，土的抗剪强度表现不同：</p>
+                            <ul>
+                                <li><strong>不排水条件</strong>：饱和黏性土在不排水条件下，抗剪强度主要由黏聚力控制</li>
+                                <li><strong>排水条件</strong>：排水条件下，土的抗剪强度随有效应力的增加而增大</li>
+                            </ul>
+                        </div>
+
+                        <!-- 图片：排水条件影响 -->
+                        <div class="text-center my-4">
+                            <img src="../assets/images/course/chapter5_drainage_conditions.png" class="img-fluid rounded shadow" style="max-width: 80%;" alt="不同排水条件下的抗剪强度示意图">
+                            <p class="text-muted mt-2"><strong>图5.4</strong> 不同排水条件下的抗剪强度示意图</p>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>5.4.2 应力路径的影响</h4>
+                            <p>不同的应力路径会导致土的抗剪强度不同，常见的应力路径包括：</p>
+                            <ul>
+                                <li><strong>压缩路径</strong>：σ3保持不变，σ1增加</li>
+                                <li><strong>伸长路径</strong>：σ1保持不变，σ3减小</li>
+                                <li><strong>剪切路径</strong>：平均应力p保持不变，剪应力q增加</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>5.4.3 应力历史的影响</h4>
+                            <p>土的应力历史对其抗剪强度有显著影响：</p>
+                            <ul>
+                                <li><strong>超固结土</strong>：由于历史上受过较大的压力，具有较高的抗剪强度</li>
+                                <li><strong>正常固结土</strong>：抗剪强度随有效应力线性增加</li>
+                                <li><strong>欠固结土</strong>：抗剪强度较低，在荷载作用下易发生变形</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>5.4.4 各向异性的影响</h4>
+                            <p>由于土的层理结构和颗粒排列，土的抗剪强度具有各向异性，不同方向上的强度可能不同。</p>
+                        </div>
+                    </section>
+
+                    <!-- 5.5 土的抗剪强度特性 -->
+                    <section id="section5-5" class="mb-5">
+                        <h2 class="section-title">5.5 土的抗剪强度特性</h2>
+                        
+                        <div class="knowledge-point">
+                            <h4>5.5.1 砂土的抗剪强度特性</h4>
+                            <ul>
+                                <li>砂土的抗剪强度主要来源于颗粒间的摩擦力和咬合力</li>
+                                <li>内摩擦角与颗粒形状、大小、级配和密实度有关</li>
+                                <li>密实度越高，内摩擦角越大</li>
+                                <li>振动可能导致砂土液化，抗剪强度急剧降低</li>
+                            </ul>
+                        </div>
+
+                        <!-- 图片：抗剪强度参数 -->
+                        <div class="text-center my-4">
+                            <img src="../assets/images/course/chapter5_shear_strength_params.png" class="img-fluid rounded shadow" style="max-width: 80%;" alt="土的抗剪强度参数示意图">
+                            <p class="text-muted mt-2"><strong>图5.5</strong> 土的抗剪强度参数示意图</p>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>5.5.2 黏性土的抗剪强度特性</h4>
+                            <ul>
+                                <li>黏性土的抗剪强度包括黏聚力和摩擦力两部分</li>
+                                <li>黏聚力来源于颗粒间的分子引力和结合水膜的作用</li>
+                                <li>含水率对黏性土的抗剪强度影响显著</li>
+                                <li>在不排水条件下，饱和黏性土的抗剪强度近似为常数</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>5.5.3 软土的抗剪强度特性</h4>
+                            <ul>
+                                <li>软土具有高含水率、高孔隙比、低强度的特点</li>
+                                <li>灵敏度高，扰动后强度降低明显</li>
+                                <li>触变性：扰动后的软土静置一段时间后，强度会部分恢复</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>5.5.4 特殊土的抗剪强度特性</h4>
+                            <ul>
+                                <li><strong>膨胀土</strong>：吸水膨胀，失水收缩，强度随含水率变化显著</li>
+                                <li><strong>红黏土</strong>：含水率高但强度较高，具有明显的收缩特性</li>
+                                <li><strong>冻土</strong>：冻结状态下强度高，融化后强度显著降低</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="note-box">
+                            <h5><i class="fas fa-info-circle text-warning"></i> 知识拓展</h5>
+                            <p>在实际工程中，应根据土的类型、状态和工程条件，选择合适的抗剪强度指标进行设计计算。</p>
+                        </div>
+                    </section>
+
+                    <!-- 本章小结 -->
+                    <section class="mb-5">
+                        <h2 class="section-title">本章小结</h2>
+                        <div class="card">
+                            <div class="card-body">
+                                <ul>
+                                    <li>土的抗剪强度是土体抵抗剪切破坏的能力，是土力学的核心概念之一</li>
+                                    <li>库仑定律和莫尔-库仑强度理论是描述土抗剪强度的基本理论</li>
+                                    <li>常用的抗剪强度试验方法包括直剪试验、三轴试验、无侧限抗压试验等</li>
+                                    <li>排水条件、应力路径、应力历史等因素都会影响土的抗剪强度</li>
+                                    <li>不同类型的土具有不同的抗剪强度特性</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 课后作业 -->
+                    <section id="exercises">
+                        <h2 class="section-title">课后作业</h2>
+                        <div class="card">
+                            <div class="card-body">
+                                <a href="../exercises/chapter5-exercises.html" class="btn btn-primary">查看详细习题</a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>关于课程</h4>
+                    <p>《土力学》是土木工程专业的核心课程，本网站提供课程相关的教学资源和学习资料。</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>快速链接</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="../index.html#course-info" class="text-white">课程简介</a></li>
+                        <li><a href="../index.html#lectures" class="text-white">授课内容</a></li>
+                        <li><a href="../index.html#materials" class="text-white">教学资料</a></li>
+                        <li><a href="../index.html#exercises" class="text-white">习题与实验</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4>版权信息</h4>
+                    <p>&copy; 2025 岩土教研室土力学教学团队</p>
+                    <p>All rights reserved.</p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- 引入Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- 自定义JS -->
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>

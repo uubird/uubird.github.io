@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第8章 地基承载力 - 土力学课程</title>
+    <!-- 引入Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <!-- 引入Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- 自定义CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
+        }
+        .nav-link {
+            color: white !important;
+        }
+        .nav-link:hover {
+            color: #1abc9c !important;
+        }
+        .main-content {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        .section-title {
+            color: #2c3e50;
+            border-bottom: 2px solid #1abc9c;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .knowledge-point {
+            background-color: #f8f9fa;
+            border-left: 4px solid #1abc9c;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .formula {
+            background-color: #e9ecef;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .note-box {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .nav-pills .nav-link.active {
+            background-color: #1abc9c;
+            color: white;
+        }
+        .nav-pills .nav-link {
+            color: #2c3e50;
+        }
+        .footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 30px 0;
+        }
+        .footer a {
+            color: #bdc3c7;
+        }
+        .footer a:hover {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">土力学课程</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#course-info">课程简介</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../index.html#lectures">授课内容</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#materials">教学资料</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#exercises">习题与实验</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center mb-4">第8章 地基承载力</h1>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主要内容 -->
+    <div class="container mb-5">
+        <div class="row">
+            <!-- 章节导航 -->
+            <div class="col-md-3">
+                <div class="sticky-top" style="top: 80px;">
+                    <div class="card">
+                        <div class="card-header bg-dark text-white">
+                            <h5 class="mb-0">章节导航</h5>
+                        </div>
+                        <ul class="nav nav-pills flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#section8-1">8.1 概述</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#section8-2">8.2 地基的破坏形式</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#section8-3">8.3 地基承载力理论</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#section8-4">8.4 地基承载力的确定方法</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#section8-5">8.5 地基承载力的修正</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#exercises">章节习题</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 章节内容 -->
+            <div class="col-md-9">
+                <div class="main-content">
+                    <!-- 8.1 概述 -->
+                    <section id="section8-1" class="mb-5">
+                        <h2 class="section-title">8.1 概述</h2>
+                        <p>地基承载力是指地基土单位面积上所能承受的最大荷载，是地基设计的重要依据。</p>
+                        
+                        <div class="knowledge-point">
+                            <h4>8.1.1 地基承载力的基本概念</h4>
+                            <ul>
+                                <li><strong>临塑荷载（p₁）</strong>：地基中将要出现但尚未出现塑性区时的基底压力</li>
+                                <li><strong>临界荷载（p₁/4、p₁/3）</strong>：地基中塑性区最大深度达到基础宽度的1/4或1/3时的基底压力</li>
+                                <li><strong>极限承载力（pᵤ）</strong>：地基达到整体剪切破坏时的最小基底压力</li>
+                                <li><strong>容许承载力（[p]）</strong>：保证地基稳定且变形不超过允许值的最大基底压力</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>8.1.2 地基承载力的重要性</h4>
+                            <ul>
+                                <li>确保建筑物安全稳定，防止地基破坏</li>
+                                <li>控制地基变形在允许范围内</li>
+                                <li>为基础设计提供依据</li>
+                                <li>影响工程造价和结构安全性</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- 8.2 地基的破坏形式 -->
+                    <section id="section8-2" class="mb-5">
+                        <h2 class="section-title">8.2 地基的破坏形式</h2>
+                        
+                        <div class="knowledge-point">
+                            <h4>8.2.1 整体剪切破坏</h4>
+                            <p>整体剪切破坏的主要特征：</p>
+                            <ul>
+                                <li>地基形成连续的滑动面</li>
+                                <li>基础突然急剧下沉或向一侧倾斜</li>
+                                <li>基础周围地面明显隆起</li>
+                                <li>荷载-沉降曲线有明显的转折点</li>
+                                <li>发生在密实的砂土或硬黏土中</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>8.2.2 局部剪切破坏</h4>
+                            <p>局部剪切破坏的主要特征：</p>
+                            <ul>
+                                <li>地基中形成局部滑动面，但未延伸到地面</li>
+                                <li>基础下沉量较大，但没有明显的急剧下沉阶段</li>
+                                <li>基础周围地面有轻微隆起</li>
+                                <li>荷载-沉降曲线没有明显的转折点</li>
+                                <li>发生在中等密实的砂土或较软的黏土中</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>8.2.3 冲剪破坏</h4>
+                            <p>冲剪破坏（又称刺入破坏）的主要特征：</p>
+                            <ul>
+                                <li>基础下的地基土发生垂直剪切破坏</li>
+                                <li>基础像是被"刺入"地基中</li>
+                                <li>基础周围地面无隆起现象</li>
+                                <li>荷载-沉降曲线没有明显的转折点</li>
+                                <li>发生在松砂或软土地基中</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="note-box">
+                            <h5><i class="fas fa-lightbulb text-warning"></i> 注意</h5>
+                            <p>地基的破坏形式主要取决于地基土的性质、基础埋深和加载速率等因素。</p>
+                        </div>
+                    </section>
+
+                    <!-- 8.3 地基承载力理论 -->
+                    <section id="section8-3" class="mb-5">
+                        <h2 class="section-title">8.3 地基承载力理论</h2>
+                        
+                        <div class="knowledge-point">
+                            <h4>8.3.1 太沙基地基承载力理论</h4>
+                            <p>太沙基（Terzaghi）承载力公式适用于条形基础，假设基底粗糙，地基发生整体剪切破坏：</p>
+                            <div class="formula">
+                                pᵤ = cNc + qNq + 0.5γBNγ
+                            </div>
+                            <p>其中：</p>
+                            <ul>
+                                <li>pᵤ：地基极限承载力（kPa）</li>
+                                <li>c：地基土的黏聚力（kPa）</li>
+                                <li>q：基底处的有效超载（q=γ₀Df）（kPa）</li>
+                                <li>γ：地基土的重度（kN/m³）</li>
+                                <li>B：基础宽度（m）</li>
+                                <li>Nc、Nq、Nγ：承载力系数，仅与内摩擦角φ有关</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>8.3.2 迈耶霍夫地基承载力理论</h4>
+                            <p>迈耶霍夫（Meyerhof）承载力公式适用于各种形状的基础，考虑了基础形状和埋深的影响：</p>
+                            <div class="formula">
+                                pᵤ = cNcScdcic + qNqSqdqiq + 0.5γBNγSγdγiγ
+                            </div>
+                            <p>其中，S、d、i分别为形状系数、深度系数和倾斜系数。</p>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>8.3.3 汉森地基承载力理论</h4>
+                            <p>汉森（Hansen）承载力公式考虑了更多因素，如基础形状、埋深、倾斜、地面倾斜等：</p>
+                            <div class="formula">
+                                pᵤ = cNcScdcicicγ + qNqSqdqiqγ + 0.5γBNγSγdγiγ
+                            </div>
+                            <p>汉森公式提供了更全面的修正系数，可以适用于更复杂的工程情况。</p>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>8.3.4 斯肯普顿地基承载力理论</h4>
+                            <p>斯肯普顿（Skempton）承载力公式主要适用于饱和软黏土（φ≈0）：</p>
+                            <div class="formula">
+                                pᵤ = 5.14c(1+0.2B/L)(1+0.2Df/B) + γ₀Df
+                            </div>
+                            <p>其中L为基础长度。</p>
+                        </div>
+                    </section>
+
+                    <!-- 8.4 地基承载力的确定方法 -->
+                    <section id="section8-4" class="mb-5">
+                        <h2 class="section-title">8.4 地基承载力的确定方法</h2>
+                        
+                        <div class="knowledge-point">
+                            <h4>8.4.1 原位试验法</h4>
+                            <ul>
+                                <li><strong>静力触探试验（CPT）</strong>：通过探头阻力确定承载力</li>
+                                <li><strong>标准贯入试验（SPT）</strong>：通过锤击数N值确定承载力</li>
+                                <li><strong>载荷试验</strong>：直接测定地基的承载力和变形特性</li>
+                                <li><strong>旁压试验</strong>：通过旁压器测量土的极限压力</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>8.4.2 理论公式法</h4>
+                            <p>根据土的物理力学性质指标，使用承载力理论公式计算地基承载力，如太沙基公式、迈耶霍夫公式等。</p>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>8.4.3 规范法</h4>
+                            <p>根据《建筑地基基础设计规范》（GB 51007-2011），地基承载力特征值可按下式确定：</p>
+                            <div class="formula">
+                                fₐ = Mᵦγb + Mᵈγₘd + Mᶜcₖ
+                            </div>
+                            <p>其中：</p>
+                            <ul>
+                                <li>fₐ：地基承载力特征值（kPa）</li>
+                                <li>Mᵦ、Mᵈ、Mᶜ：承载力系数</li>
+                                <li>γ：基础底面以下土的重度（kN/m³）</li>
+                                <li>b：基础底面宽度（m）</li>
+                                <li>γₘ：基础底面以上土的加权平均重度（kN/m³）</li>
+                                <li>d：基础埋置深度（m）</li>
+                                <li>cₖ：基底下一倍短边宽深度内土的黏聚力标准值（kPa）</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>8.4.4 经验法</h4>
+                            <p>根据当地工程经验和土的分类指标，确定地基承载力。常用于初步设计或小型工程。</p>
+                        </div>
+                    </section>
+
+                    <!-- 8.5 地基承载力的修正 -->
+                    <section id="section8-5" class="mb-5">
+                        <h2 class="section-title">8.5 地基承载力的修正</h2>
+                        
+                        <div class="knowledge-point">
+                            <h4>8.5.1 基础宽度修正</h4>
+                            <p>当基础宽度大于3m时，地基承载力应进行宽度修正：</p>
+                            <div class="formula">
+                                fₐ = fₐₖ + ηᵦγ(b-3)
+                            </div>
+                            <p>其中：</p>
+                            <ul>
+                                <li>fₐₖ：地基承载力特征值（kPa）</li>
+                                <li>ηᵦ：基础宽度的承载力修正系数</li>
+                                <li>γ：基础底面以下土的重度（kN/m³）</li>
+                                <li>b：基础底面宽度（m），当b<3m时按3m取值，当b>6m时按6m取值</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>8.5.2 基础埋深修正</h4>
+                            <p>当基础埋深大于0.5m时，地基承载力应进行深度修正：</p>
+                            <div class="formula">
+                                fₐ = fₐₖ + ηᵈγₘ(d-0.5)
+                            </div>
+                            <p>其中：</p>
+                            <ul>
+                                <li>ηᵈ：基础深度的承载力修正系数</li>
+                                <li>γₘ：基础底面以上土的加权平均重度（kN/m³）</li>
+                                <li>d：基础埋置深度（m）</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>8.5.3 特殊条件下的承载力修正</h4>
+                            <ul>
+                                <li><strong>倾斜荷载</strong>：需要考虑荷载倾斜对承载力的影响</li>
+                                <li><strong>偏心荷载</strong>：应取基础边缘压力进行验算</li>
+                                <li><strong>地震作用</strong>：抗震设计时需要进行地震承载力调整</li>
+                                <li><strong>季节性冻土</strong>：需要考虑冻胀和融陷的影响</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>8.5.4 地基承载力与地基沉降的关系</h4>
+                            <p>地基设计不仅要满足承载力要求，还要满足沉降要求：</p>
+                            <ul>
+                                <li>按承载力确定的基底压力不应超过地基承载力特征值</li>
+                                <li>地基沉降量和沉降差应满足建筑物的允许值</li>
+                                <li>对于重要建筑物或软弱地基，应进行沉降计算</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="note-box">
+                            <h5><i class="fas fa-info-circle text-warning"></i> 重要提示</h5>
+                            <p>地基承载力的修正系数应根据地基土的类别按《建筑地基基础设计规范》（GB 51007-2011）的规定取值。</p>
+                        </div>
+                    </section>
+
+                    <!-- 本章小结 -->
+                    <section class="mb-5">
+                        <h2 class="section-title">本章小结</h2>
+                        <div class="card">
+                            <div class="card-body">
+                                <ul>
+                                    <li>地基承载力是地基单位面积上所能承受的最大荷载，是地基设计的重要依据</li>
+                                    <li>地基的破坏形式主要有整体剪切破坏、局部剪切破坏和冲剪破坏三种</li>
+                                    <li>常用的地基承载力理论包括太沙基理论、迈耶霍夫理论、汉森理论和斯肯普顿理论等</li>
+                                    <li>地基承载力的确定方法包括原位试验法、理论公式法、规范法和经验法</li>
+                                    <li>当基础宽度大于3m或埋深大于0.5m时，地基承载力应进行宽度和深度修正</li>
+                                    <li>地基设计应同时满足承载力和沉降要求</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 课后作业 -->
+                    <section id="exercises">
+                        <h2 class="section-title">课后作业</h2>
+                        <div class="card">
+                            <div class="card-body">
+                                <a href="../exercises/chapter8-exercises.html" class="btn btn-primary">查看详细习题</a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>关于课程</h4>
+                    <p>《土力学》是土木工程专业的核心课程，本网站提供课程相关的教学资源和学习资料。</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>快速链接</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="../index.html#course-info" class="text-white">课程简介</a></li>
+                        <li><a href="../index.html#lectures" class="text-white">授课内容</a></li>
+                        <li><a href="../index.html#materials" class="text-white">教学资料</a></li>
+                        <li><a href="../index.html#exercises" class="text-white">习题与实验</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4>版权信息</h4>
+                    <p>&copy; 2025 岩土教研室土力学教学团队</p>
+                    <p>All rights reserved.</p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- 引入Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- 自定义JS -->
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>

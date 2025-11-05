@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第6章 土压力计算 - 土力学课程</title>
+    <!-- 引入Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <!-- 引入Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- 自定义CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
+        }
+        .nav-link {
+            color: white !important;
+        }
+        .nav-link:hover {
+            color: #1abc9c !important;
+        }
+        .main-content {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        .section-title {
+            color: #2c3e50;
+            border-bottom: 2px solid #1abc9c;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .knowledge-point {
+            background-color: #f8f9fa;
+            border-left: 4px solid #1abc9c;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .formula {
+            background-color: #e9ecef;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .note-box {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .nav-pills .nav-link.active {
+            background-color: #1abc9c;
+            color: white;
+        }
+        .nav-pills .nav-link {
+            color: #2c3e50;
+        }
+        .footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 30px 0;
+        }
+        .footer a {
+            color: #bdc3c7;
+        }
+        .footer a:hover {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">土力学课程</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#course-info">课程简介</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../index.html#lectures">授课内容</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#materials">教学资料</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#exercises">习题与实验</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center mb-4">第6章 土压力计算</h1>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主要内容 -->
+    <div class="container mb-5">
+        <div class="row">
+            <!-- 章节导航 -->
+            <div class="col-md-3">
+                <div class="sticky-top" style="top: 80px;">
+                    <div class="card">
+                        <div class="card-header bg-dark text-white">
+                            <h5 class="mb-0">章节导航</h5>
+                        </div>
+                        <ul class="nav nav-pills flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#section6-1">6.1 概述</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#section6-2">6.2 静止土压力计算</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#section6-3">6.3 朗肯土压力理论</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#section6-4">6.4 库仑土压力理论</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#section6-5">6.5 特殊情况下的土压力计算</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#exercises">章节习题</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 章节内容 -->
+            <div class="col-md-9">
+                <div class="main-content">
+                    <!-- 6.1 概述 -->
+                    <section id="section6-1" class="mb-5">
+                        <h2 class="section-title">6.1 概述</h2>
+                        <p>土压力是指挡土墙、基坑支护等结构物挡土时，墙后土体因自重、超载或地下水等因素对结构物产生的侧压力。</p>
+                        
+                        <div class="knowledge-point">
+                            <h4>6.1.1 土压力的分类</h4>
+                            <ul>
+                                <li><strong>静止土压力（E₀）</strong>：挡墙不发生任何移动或转动时，墙后土体处于弹性平衡状态，此时作用在墙上的土压力</li>
+                                <li><strong>主动土压力（Eₐ）</strong>：挡墙在土压力作用下向前移动或转动，墙后土体达到主动极限平衡状态时，作用在墙上的土压力</li>
+                                <li><strong>被动土压力（Eₚ）</strong>：挡墙在外力作用下向后移动或转动，墙后土体达到被动极限平衡状态时，作用在墙上的土压力</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- 土压力类型示意图 -->
+                        <div class="text-center my-4">
+                            <img src="../assets/images/course/chapter6_earth_pressure_types.png" alt="土压力的三种类型" class="img-fluid rounded shadow" style="max-width: 80%;">
+                            <p class="text-center mt-2 text-muted">图6.1 土压力的三种类型示意图</p>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>6.1.2 土压力的影响因素</h4>
+                            <ul>
+                                <li>土的物理力学性质（重度、内摩擦角、黏聚力等）</li>
+                                <li>墙背形状和粗糙度</li>
+                                <li>墙背位移的方向和大小</li>
+                                <li>填土面的坡度和超载情况</li>
+                                <li>地下水的影响</li>
+                                <li>时间效应（黏性土的蠕变）</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>6.1.3 土压力理论的发展</h4>
+                            <p>土压力理论主要有两大理论体系：</p>
+                            <ul>
+                                <li><strong>朗肯土压力理论</strong>：由英国学者朗肯（Rankine）于1857年提出</li>
+                                <li><strong>库仑土压力理论</strong>：由法国学者库仑（Coulomb）于1776年提出</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- 6.2 静止土压力计算 -->
+                    <section id="section6-2" class="mb-5">
+                        <h2 class="section-title">6.2 静止土压力计算</h2>
+                        
+                        <div class="knowledge-point">
+                            <h4>6.2.1 静止土压力系数</h4>
+                            <p>静止土压力系数（K₀）是指静止土压力与竖向有效应力的比值：</p>
+                            <div class="formula">
+                                K₀ = σₕ/σᵥ
+                            </div>
+                            <p>其中：</p>
+                            <ul>
+                                <li>σₕ：水平向静止土压力（kPa）</li>
+                                <li>σᵥ：竖向有效应力（kPa）</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>6.2.2 静止土压力系数的确定方法</h4>
+                            <ul>
+                                <li><strong>经验公式法</strong>：K₀ = 1 - sinφ'（适用于正常固结土）</li>
+                                <li><strong>超固结土修正</strong>：K₀ = (1 - sinφ')OCR^sinφ'，其中OCR为超固结比</li>
+                                <li><strong>现场测试法</strong>：如旁压试验、自钻式旁压试验等</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>6.2.3 静止土压力的分布与合力计算</h4>
+                            <p>对于垂直墙背、水平填土面的情况：</p>
+                            <div class="formula">
+                                p₀(z) = K₀γz<br>
+                                E₀ = (1/2)K₀γH²
+                            </div>
+                            <p>合力作用点距墙底的距离为H/3。</p>
+                            <p>其中：</p>
+                            <ul>
+                                <li>p₀(z)：深度z处的静止土压力强度（kPa）</li>
+                                <li>E₀：总静止土压力（kN/m）</li>
+                                <li>γ：土的重度（kN/m³）</li>
+                                <li>H：挡墙高度（m）</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="note-box">
+                            <h5><i class="fas fa-lightbulb text-warning"></i> 注意</h5>
+                            <p>静止土压力通常发生在刚性较大的结构物中，如地下室侧墙、桥梁桥台等。</p>
+                        </div>
+                    </section>
+
+                    <!-- 6.3 朗肯土压力理论 -->
+                    <section id="section6-3" class="mb-5">
+                        <h2 class="section-title">6.3 朗肯土压力理论</h2>
+                        
+                        <div class="knowledge-point">
+                            <h4>6.3.1 朗肯土压力理论的基本假设</h4>
+                            <ul>
+                                <li>挡墙墙背垂直且光滑</li>
+                                <li>填土面水平</li>
+                                <li>墙后填土处于极限平衡状态</li>
+                                <li>忽略墙背与填土之间的摩擦力</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>6.3.2 主动土压力计算</h4>
+                            <p><strong>主动土压力系数</strong>：</p>
+                            <div class="formula">
+                                Kₐ = tan²(45° - φ/2)
+                            </div>
+                            <p><strong>无黏性土的主动土压力强度</strong>：</p>
+                            <div class="formula">
+                                pₐ(z) = γzKₐ
+                            </div>
+                            <p><strong>黏性土的主动土压力强度</strong>：</p>
+                            <div class="formula">
+                                pₐ(z) = γzKₐ - 2c√Kₐ
+                            </div>
+                            <p><strong>临界深度</strong>：</p>
+                            <div class="formula">
+                                z₀ = 2c/(γ√Kₐ)
+                            </div>
+                            <p><strong>总主动土压力</strong>：</p>
+                            <div class="formula">
+                                Eₐ = (1/2)γH²Kₐ - 2cH√Kₐ + (2c²)/(γ)
+                            </div>
+                        </div>
+                        
+                        <!-- 朗肯土压力理论示意图 -->
+                        <div class="text-center my-4">
+                            <img src="../assets/images/course/chapter6_rankine_theory.png" alt="朗肯土压力理论" class="img-fluid rounded shadow" style="max-width: 80%;">
+                            <p class="text-center mt-2 text-muted">图6.2 朗肯土压力理论示意图</p>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>6.3.3 被动土压力计算</h4>
+                            <p><strong>被动土压力系数</strong>：</p>
+                            <div class="formula">
+                                Kₚ = tan²(45° + φ/2)
+                            </div>
+                            <p><strong>无黏性土的被动土压力强度</strong>：</p>
+                            <div class="formula">
+                                pₚ(z) = γzKₚ
+                            </div>
+                            <p><strong>黏性土的被动土压力强度</strong>：</p>
+                            <div class="formula">
+                                pₚ(z) = γzKₚ + 2c√Kₚ
+                            </div>
+                            <p><strong>总被动土压力</strong>：</p>
+                            <div class="formula">
+                                Eₚ = (1/2)γH²Kₚ + 2cH√Kₚ
+                            </div>
+                        </div>
+                        
+                        <div class="note-box">
+                            <h5><i class="fas fa-info-circle text-warning"></i> 重要关系</h5>
+                            <p>朗肯理论中，主动土压力系数和被动土压力系数满足：Kₚ = 1/Kₐ</p>
+                        </div>
+                    </section>
+
+                    <!-- 6.4 库仑土压力理论 -->
+                    <section id="section6-4" class="mb-5">
+                        <h2 class="section-title">6.4 库仑土压力理论</h2>
+                        
+                        <div class="knowledge-point">
+                            <h4>6.4.1 库仑土压力理论的基本假设</h4>
+                            <ul>
+                                <li>墙后填土为无黏性土（c=0）</li>
+                                <li>当墙发生位移时，墙后土体形成一个滑动楔体</li>
+                                <li>滑动面为一平面</li>
+                                <li>滑动楔体处于极限平衡状态</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>6.4.2 库仑主动土压力计算</h4>
+                            <p><strong>主动土压力系数</strong>：</p>
+                            <div class="formula">
+                                Kₐ = [cos²(φ-δ)] / [cos²δ cos(δ+ε) [1+√(sin(φ+δ)sin(φ-β)/cos(δ+ε)cos(ε-β))]^2]
+                            </div>
+                            <p><strong>总主动土压力</strong>：</p>
+                            <div class="formula">
+                                Eₐ = (1/2)γH²Kₐ
+                            </div>
+                            <p>其中：</p>
+                            <ul>
+                                <li>δ：墙背与填土之间的摩擦角（°）</li>
+                                <li>ε：墙背倾角（°），俯斜为正</li>
+                                <li>β：填土面倾角（°）</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- 库仑土压力理论示意图 -->
+                        <div class="text-center my-4">
+                            <img src="../assets/images/course/chapter6_coulomb_theory.png" alt="库仑土压力理论" class="img-fluid rounded shadow" style="max-width: 80%;">
+                            <p class="text-center mt-2 text-muted">图6.3 库仑土压力理论示意图</p>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>6.4.3 库仑被动土压力计算</h4>
+                            <p><strong>被动土压力系数</strong>：</p>
+                            <div class="formula">
+                                Kₚ = [cos²(φ+δ)] / [cos²δ cos(δ-ε) [1-√(sin(φ+δ)sin(φ+β)/cos(δ-ε)cos(ε+β))]^2]
+                            </div>
+                            <p><strong>总被动土压力</strong>：</p>
+                            <div class="formula">
+                                Eₚ = (1/2)γH²Kₚ
+                            </div>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>6.4.4 朗肯理论与库仑理论的比较</h4>
+                            <table class="table table-bordered">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>比较项目</th>
+                                        <th>朗肯土压力理论</th>
+                                        <th>库仑土压力理论</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>基本假设</td>
+                                        <td>墙背垂直、光滑，填土面水平</td>
+                                        <td>墙背可倾斜，填土面可倾斜，考虑墙背摩擦力</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <!-- 挡土墙设计示意图 -->
+                        <div class="text-center my-4">
+                            <img src="../assets/images/course/chapter6_retaining_wall_design.png" alt="挡土墙设计" class="img-fluid rounded shadow" style="max-width: 80%;">
+                            <p class="text-center mt-2 text-muted">图6.4 挡土墙设计示意图</p>
+                        </div>
+                    </section>
+
+                    <!-- 6.5 特殊情况下的土压力计算 -->
+                    <section id="section6-5" class="mb-5">
+                        <h2 class="section-title">6.5 特殊情况下的土压力计算</h2>
+                        
+                        <div class="knowledge-point">
+                            <h4>6.5.1 填土面有均布荷载</h4>
+                            <p>当填土面有均布荷载q时，可以将其转换为等效的土柱高度：</p>
+                            <div class="formula">
+                                h = q/γ
+                            </div>
+                            <p>然后将墙高视为H+h进行计算。</p>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>6.5.2 成层填土</h4>
+                            <p>对于成层填土，应分层计算土压力，然后叠加。每层土的压力分布为：</p>
+                            <div class="formula">
+                                第一层：pₐ₁(z) = γ₁zKₐ₁ - 2c₁√Kₐ₁<br>
+                                第二层：pₐ₂(z) = (γ₁H₁ + γ₂(z-H₁))Kₐ₂ - 2c₂√Kₐ₂
+                            </div>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>6.5.3 填土中有地下水</h4>
+                            <p>当填土中有地下水时，应考虑水土分算或水土合算：</p>
+                            <ul>
+                                <li><strong>水土分算</strong>：分别计算土压力和水压力，然后叠加</li>
+                                <li><strong>水土合算</strong>：采用饱和重度和有效应力指标进行计算</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>6.5.4 地震作用下的土压力</h4>
+                            <p>地震作用下的土压力可采用拟静力法计算，引入地震系数Kₕ：</p>
+                            <div class="formula">
+                                Kₐₑ = [1 ± Kₕ tanφ] / [1 ∓ Kₕ/tanφ] * Kₐ
+                            </div>
+                            <p>其中，上标符号用于主动土压力，下标符号用于被动土压力。</p>
+                        </div>
+                        
+                        <!-- 地震作用下的土压力示意图 -->
+                        <div class="text-center my-4">
+                            <img src="../assets/images/course/chapter6_earthquake_effects.png" alt="地震作用下的土压力" class="img-fluid rounded shadow" style="max-width: 80%;">
+                            <p class="text-center mt-2 text-muted">图6.5 地震作用下的土压力示意图</p>
+                        </div>
+                    </section>
+
+                    <!-- 本章小结 -->
+                    <section class="mb-5">
+                        <h2 class="section-title">本章小结</h2>
+                        <div class="card">
+                            <div class="card-body">
+                                <ul>
+                                    <li>土压力分为静止土压力、主动土压力和被动土压力三种类型</li>
+                                    <li>朗肯土压力理论基于半无限弹性体的极限平衡状态，假设墙背垂直光滑</li>
+                                    <li>库仑土压力理论基于滑动楔体的极限平衡，考虑了墙背倾角、填土面坡度和墙背摩擦</li>
+                                    <li>特殊情况下的土压力计算需要考虑填土面荷载、成层填土、地下水和地震作用等因素</li>
+                                    <li>实际工程中应根据具体情况选择合适的土压力计算方法</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 课后作业 -->
+                    <section id="exercises">
+                        <h2 class="section-title">课后作业</h2>
+                        <div class="card">
+                            <div class="card-body">
+                                <a href="../exercises/chapter6-exercises.html" class="btn btn-primary">查看详细习题</a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>关于课程</h4>
+                    <p>《土力学》是土木工程专业的核心课程，本网站提供课程相关的教学资源和学习资料。</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>快速链接</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="../index.html#course-info" class="text-white">课程简介</a></li>
+                        <li><a href="../index.html#lectures" class="text-white">授课内容</a></li>
+                        <li><a href="../index.html#materials" class="text-white">教学资料</a></li>
+                        <li><a href="../index.html#exercises" class="text-white">习题与实验</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4>版权信息</h4>
+                    <p>&copy; 2025 岩土教研室土力学教学团队</p>
+                    <p>All rights reserved.</p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- 引入Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- 自定义JS -->
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>

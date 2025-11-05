@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第7章 土坡稳定性分析 - 土力学课程</title>
+    <!-- 引入Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <!-- 引入Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- 自定义CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
+        }
+        .nav-link {
+            color: white !important;
+        }
+        .nav-link:hover {
+            color: #1abc9c !important;
+        }
+        .main-content {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        .section-title {
+            color: #2c3e50;
+            border-bottom: 2px solid #1abc9c;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .knowledge-point {
+            background-color: #f8f9fa;
+            border-left: 4px solid #1abc9c;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .formula {
+            background-color: #e9ecef;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .note-box {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .nav-pills .nav-link.active {
+            background-color: #1abc9c;
+            color: white;
+        }
+        .nav-pills .nav-link {
+            color: #2c3e50;
+        }
+        .footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 30px 0;
+        }
+        .footer a {
+            color: #bdc3c7;
+        }
+        .footer a:hover {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">土力学课程</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#course-info">课程简介</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../index.html#lectures">授课内容</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#materials">教学资料</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#exercises">习题与实验</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center mb-4">第7章 土坡稳定性分析</h1>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主要内容 -->
+    <div class="container mb-5">
+        <div class="row">
+            <!-- 章节导航 -->
+            <div class="col-md-3">
+                <div class="sticky-top" style="top: 80px;">
+                    <div class="card">
+                        <div class="card-header bg-dark text-white">
+                            <h5 class="mb-0">章节导航</h5>
+                        </div>
+                        <ul class="nav nav-pills flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#section7-1">7.1 概述</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#section7-2">7.2 无黏性土坡的稳定性分析</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#section7-3">7.3 黏性土坡的稳定性分析</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#section7-4">7.4 特殊情况下的土坡稳定性分析</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#section7-5">7.5 土坡稳定的影响因素与防治措施</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#exercises">章节习题</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 章节内容 -->
+            <div class="col-md-9">
+                <div class="main-content">
+                    <!-- 7.1 概述 -->
+                    <section id="section7-1" class="mb-5">
+                        <h2 class="section-title">7.1 概述</h2>
+                        <p>土坡稳定性分析是土力学中的重要内容，它涉及到土木工程中的边坡、基坑、堤坝等工程的安全设计。</p>
+                        
+                        <div class="knowledge-point">
+                            <h4>7.1.1 土坡的类型</h4>
+                            <ul>
+                                <li><strong>天然土坡</strong>：自然形成的山坡、河岸、海岸等</li>
+                                <li><strong>人工土坡</strong>：如路堤、路堑、基坑边坡、堤坝等</li>
+                                <li><strong>简单土坡</strong>：均质、坡面单一、无地下水的土坡</li>
+                                <li><strong>复杂土坡</strong>：非均质、多层、有地下水或渗流的土坡</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>7.1.2 土坡失稳的主要原因</h4>
+                            <ul>
+                                <li>土坡过陡，超过了土体的自然休止角</li>
+                                <li>土的抗剪强度降低（如雨水入渗、振动等）</li>
+                                <li>土坡顶部荷载过大</li>
+                                <li>地下水或渗流的影响</li>
+                                <li>地震、爆破等动力荷载</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>7.1.3 土坡稳定分析的方法分类</h4>
+                            <ul>
+                                <li><strong>极限平衡法</strong>：条分法、滑楔法等</li>
+                                <li><strong>极限分析法</strong>：上限法、下限法</li>
+                                <li><strong>数值分析方法</strong>：有限元法、有限差分法等</li>
+                                <li><strong>可靠度分析法</strong>：考虑参数的随机性</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- 7.2 无黏性土坡的稳定性分析 -->
+                    <section id="section7-2" class="mb-5">
+                        <h2 class="section-title">7.2 无黏性土坡的稳定性分析</h2>
+                        
+                        <div class="knowledge-point">
+                            <h4>7.2.1 基本原理</h4>
+                            <p>无黏性土坡的稳定性主要取决于土的内摩擦角和土坡坡度。</p>
+                            <p>对于均质无黏性土坡，其稳定安全系数定义为：</p>
+                            <div class="formula">
+                                Fs = tanφ / tanβ
+                            </div>
+                            <p>其中：</p>
+                            <ul>
+                                <li>Fs：稳定安全系数</li>
+                                <li>φ：土的内摩擦角（°）</li>
+                                <li>β：土坡的坡角（°）</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>7.2.2 无黏性土坡的稳定性条件</h4>
+                            <ul>
+                                <li>当Fs > 1时，土坡稳定</li>
+                                <li>当Fs = 1时，土坡处于极限平衡状态</li>
+                                <li>当Fs < 1时，土坡不稳定</li>
+                            </ul>
+                            <p>为了保证工程安全，实际设计中通常要求Fs ≥ 1.2~1.5。</p>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>7.2.3 有渗流时的稳定性分析</h4>
+                            <p>当无黏性土坡中有渗流且溢出坡脚时，应考虑渗透力的影响。此时，稳定安全系数为：</p>
+                            <div class="formula">
+                                Fs = γ'(tanφ) / [γsat(tanβ)]
+                            </div>
+                            <p>其中：</p>
+                            <ul>
+                                <li>γ'：土的有效重度（kN/m³）</li>
+                                <li>γsat：土的饱和重度（kN/m³）</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="note-box">
+                            <h5><i class="fas fa-lightbulb text-warning"></i> 注意</h5>
+                            <p>无黏性土坡的稳定性与坡高无关，只与坡角和内摩擦角有关。</p>
+                        </div>
+                    </section>
+
+                    <!-- 7.3 黏性土坡的稳定性分析 -->
+                    <section id="section7-3" class="mb-5">
+                        <h2 class="section-title">7.3 黏性土坡的稳定性分析</h2>
+                        
+                        <div class="knowledge-point">
+                            <h4>7.3.1 条分法的基本原理</h4>
+                            <p>条分法是分析黏性土坡稳定性的常用方法，其基本思想是将滑动土体划分为若干土条，计算各土条的抗滑力矩和滑动力矩，然后求稳定安全系数。</p>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>7.3.2 瑞典条分法（Fellenius法）</h4>
+                            <p>瑞典条分法假设滑动面为圆弧，忽略土条间的相互作用力。稳定安全系数计算公式为：</p>
+                            <div class="formula">
+                                Fs = Σ[(cᵢlᵢ + Wᵢcosθᵢtanφᵢ)] / Σ(Wᵢsinθᵢ)
+                            </div>
+                            <p>其中：</p>
+                            <ul>
+                                <li>cᵢ：第i条土的黏聚力（kPa）</li>
+                                <li>lᵢ：第i条土滑动面的长度（m）</li>
+                                <li>Wᵢ：第i条土的重量（kN）</li>
+                                <li>θᵢ：第i条土滑动面中点处的法线与垂线的夹角（°）</li>
+                                <li>φᵢ：第i条土的内摩擦角（°）</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>7.3.3 毕肖普条分法（Bishop法）</h4>
+                            <p>毕肖普条分法考虑了土条间的水平作用力，是一种更精确的方法。稳定安全系数计算公式为：</p>
+                            <div class="formula">
+                                Fs = Σ[(cᵢbᵢ + (Wᵢ - uᵢbᵢ)tanφᵢ) / (1 + sinθᵢtanφᵢ/Fs)] / Σ(Wᵢsinθᵢ)
+                            </div>
+                            <p>其中：</p>
+                            <ul>
+                                <li>bᵢ：第i条土的宽度（m）</li>
+                                <li>uᵢ：第i条土滑动面上的孔隙水压力（kPa）</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>7.3.4 滑动面的确定</h4>
+                            <p>对于均质黏性土坡，临界滑动面通常通过试算确定：</p>
+                            <ul>
+                                <li>对于简单土坡，可假设滑动圆心位于法向平面内</li>
+                                <li>对于复杂土坡，需要考虑多种可能的滑动面</li>
+                                <li>通过计算不同滑动面的安全系数，找到最小安全系数对应的滑动面</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="note-box">
+                            <h5><i class="fas fa-info-circle text-warning"></i> 重要说明</h5>
+                            <p>毕肖普条分法比瑞典条分法更精确，计算结果通常更接近实际，但计算过程需要迭代求解。</p>
+                        </div>
+                    </section>
+
+                    <!-- 7.4 特殊情况下的土坡稳定性分析 -->
+                    <section id="section7-4" class="mb-5">
+                        <h2 class="section-title">7.4 特殊情况下的土坡稳定性分析</h2>
+                        
+                        <div class="knowledge-point">
+                            <h4>7.4.1 成层土坡的稳定性分析</h4>
+                            <p>成层土坡的稳定性分析需要考虑各土层的物理力学性质差异：</p>
+                            <ul>
+                                <li>滑动面可能穿过不同的土层</li>
+                                <li>各层土的抗剪强度参数不同</li>
+                                <li>需要采用条分法进行分析，对不同土层采用不同的强度参数</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>7.4.2 有地下水时的稳定性分析</h4>
+                            <p>地下水对土坡稳定性的影响主要表现为：</p>
+                            <ul>
+                                <li>增加了土的自重</li>
+                                <li>产生孔隙水压力，降低了有效应力</li>
+                                <li>可能产生渗透力，增加下滑力</li>
+                            </ul>
+                            <p>计算时应采用有效应力法，考虑孔隙水压力的影响。</p>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>7.4.3 地震作用下的土坡稳定性分析</h4>
+                            <p>地震作用下的土坡稳定性分析通常采用拟静力法：</p>
+                            <div class="formula">
+                                Fs = Σ[(cᵢlᵢ + Wᵢcosθᵢtanφᵢ)] / Σ[Wᵢ(sinθᵢ + Kₕcosθᵢ)]
+                            </div>
+                            <p>其中Kₕ为水平地震系数。</p>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>7.4.4 非圆弧滑动面的稳定性分析</h4>
+                            <p>对于某些特殊土坡，滑动面可能不是圆弧，此时可采用：</p>
+                            <ul>
+                                <li>传递系数法（不平衡推力法）</li>
+                                <li>简化Bishop法的扩展形式</li>
+                                <li>有限元法等数值分析方法</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- 7.5 土坡稳定的影响因素与防治措施 -->
+                    <section id="section7-5" class="mb-5">
+                        <h2 class="section-title">7.5 土坡稳定的影响因素与防治措施</h2>
+                        
+                        <div class="knowledge-point">
+                            <h4>7.5.1 土坡稳定的主要影响因素</h4>
+                            <ul>
+                                <li><strong>土的性质</strong>：土的重度、内摩擦角、黏聚力等</li>
+                                <li><strong>土坡形态</strong>：坡高、坡角、坡面形态等</li>
+                                <li><strong>外部荷载</strong>：坡顶荷载、地震荷载等</li>
+                                <li><strong>地下水</strong>：水位变化、渗流情况等</li>
+                                <li><strong>时间效应</strong>：土体的蠕变、长期强度降低等</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>7.5.2 土坡失稳的防治措施</h4>
+                            <p><strong>1. 削坡减载</strong></p>
+                            <ul>
+                                <li>放缓坡角</li>
+                                <li>降低坡高</li>
+                                <li>在坡顶卸载</li>
+                            </ul>
+                            
+                            <p><strong>2. 支挡结构</strong></p>
+                            <ul>
+                                <li>挡土墙</li>
+                                <li>抗滑桩</li>
+                                <li>锚杆（索）</li>
+                                <li>土钉墙</li>
+                            </ul>
+                            
+                            <p><strong>3. 排水措施</strong></p>
+                            <ul>
+                                <li>地表排水：截水沟、排水沟</li>
+                                <li>地下排水：盲沟、排水孔、井点降水</li>
+                            </ul>
+                            
+                            <p><strong>4. 改良土性</strong></p>
+                            <ul>
+                                <li>灌浆加固</li>
+                                <li>水泥土搅拌桩</li>
+                                <li>加筋土</li>
+                                <li>土工合成材料应用</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="knowledge-point">
+                            <h4>7.5.3 土坡监测与预警</h4>
+                            <p>为了及时发现土坡的不稳定迹象，需要进行以下监测：</p>
+                            <ul>
+                                <li>地表位移监测</li>
+                                <li>地下位移监测（测斜仪）</li>
+                                <li>孔隙水压力监测</li>
+                                <li>应力监测</li>
+                                <li>降雨监测</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- 本章小结 -->
+                    <section class="mb-5">
+                        <h2 class="section-title">本章小结</h2>
+                        <div class="card">
+                            <div class="card-body">
+                                <ul>
+                                    <li>土坡稳定性分析是土力学中的重要内容，涉及多种工程领域</li>
+                                    <li>无黏性土坡的稳定性主要取决于坡角和内摩擦角，与坡高无关</li>
+                                    <li>黏性土坡的稳定性分析常用条分法，包括瑞典条分法和毕肖普条分法等</li>
+                                    <li>特殊情况下的土坡稳定性分析需要考虑成层土、地下水、地震等因素</li>
+                                    <li>土坡失稳的防治措施包括削坡减载、支挡结构、排水措施和改良土性等</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 课后作业 -->
+                    <section id="exercises">
+                        <h2 class="section-title">课后作业</h2>
+                        <div class="card">
+                            <div class="card-body">
+                                <a href="../exercises/chapter7-exercises.html" class="btn btn-primary">查看详细习题</a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>关于课程</h4>
+                    <p>《土力学》是土木工程专业的核心课程，本网站提供课程相关的教学资源和学习资料。</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>快速链接</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="../index.html#course-info" class="text-white">课程简介</a></li>
+                        <li><a href="../index.html#lectures" class="text-white">授课内容</a></li>
+                        <li><a href="../index.html#materials" class="text-white">教学资料</a></li>
+                        <li><a href="../index.html#exercises" class="text-white">习题与实验</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4>版权信息</h4>
+                    <p>&copy; 2025 岩土教研室土力学教学团队</p>
+                    <p>All rights reserved.</p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- 引入Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- 自定义JS -->
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>
