@@ -68,21 +68,45 @@
         </div>
     </div>
 
+    <!-- 导航栏（仅在管理页面显示） -->
+    <nav id="adminNavbar" class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top d-none">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <i class="fas fa-landmark mr-2"></i>土力学课程
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <button id="logoutBtn" class="nav-link text-white bg-transparent border-0 p-2">
+                            <i class="fas fa-sign-out-alt mr-1"></i> 退出登录
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <!-- 管理页面（默认隐藏） -->
     <div id="adminPage" class="container my-5 d-none">
-        <button id="logoutBtn" class="btn btn-danger logout-btn">
-            <i class="fas fa-sign-out-alt"></i> 退出登录
-        </button>
         
         <h1 class="mb-5">学生留言管理</h1>
         
-        <!-- 状态筛选 -->
+        <!-- 功能按钮区 -->
         <div class="mb-4">
-            <div class="btn-group" role="group">
+            <div class="btn-group" role="group" style="margin-right: 10px;">
                 <button type="button" class="btn btn-primary" data-status="all">全部留言</button>
                 <button type="button" class="btn btn-outline-primary" data-status="待回复">待回复</button>
                 <button type="button" class="btn btn-outline-primary" data-status="已回复">已回复</button>
             </div>
+            <button type="button" class="btn btn-success" id="addMessageBtn">
+                <i class="fas fa-plus"></i> 添加新留言
+            </button>
         </div>
         
         <!-- 留言列表 -->
@@ -94,6 +118,83 @@
             </div>
             <div id="noMessages" class="text-center py-5 d-none">
                 <p>暂无留言</p>
+            </div>
+        </div>
+        
+        <!-- 添加留言模态框 -->
+        <div class="modal fade" id="addMessageModal" tabindex="-1" aria-labelledby="addMessageModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addMessageModalLabel">添加新留言</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="addMessageForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="newStudentName" class="form-label">学生姓名</label>
+                                    <input type="text" class="form-control" id="newStudentName" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="newStudentId" class="form-label">学号</label>
+                                    <input type="text" class="form-control" id="newStudentId" required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="newClassName" class="form-label">班级</label>
+                                <input type="text" class="form-control" id="newClassName" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="newMessageTitle" class="form-label">留言标题</label>
+                                <input type="text" class="form-control" id="newMessageTitle" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="newMessageContent" class="form-label">留言内容</label>
+                                <textarea class="form-control" id="newMessageContent" rows="5" required></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="newMessageTimestamp" class="form-label">留言时间</label>
+                                <input type="datetime-local" class="form-control" id="newMessageTimestamp" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="newMessageStatus" class="form-label">状态</label>
+                                <select class="form-control" id="newMessageStatus" required>
+                                    <option value="待回复">待回复</option>
+                                    <option value="已回复">已回复</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-primary" id="saveNewMessageBtn">保存留言</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 修改时间模态框 -->
+        <div class="modal fade" id="editTimeModal" tabindex="-1" aria-labelledby="editTimeModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editTimeModalLabel">修改留言时间</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="editTimeForm">
+                            <div class="mb-3">
+                                <label for="editTimestamp" class="form-label">选择新时间</label>
+                                <input type="datetime-local" class="form-control" id="editTimestamp" required>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-primary" id="saveTimeBtn">保存时间</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -111,6 +212,7 @@
         // DOM元素
         const loginPage = document.getElementById('loginPage');
         const adminPage = document.getElementById('adminPage');
+        const adminNavbar = document.getElementById('adminNavbar');
         const loginForm = document.getElementById('loginForm');
         const loginError = document.getElementById('loginError');
         const logoutBtn = document.getElementById('logoutBtn');
@@ -132,14 +234,26 @@
         function showLoginPage() {
             loginPage.classList.remove('d-none');
             adminPage.classList.add('d-none');
+            adminNavbar.classList.add('d-none');
+            // 确保密码输入框可以输入
+            const passwordInput = document.getElementById('password');
+            if (passwordInput) {
+                passwordInput.value = '';
+                passwordInput.disabled = false;
+                passwordInput.focus();
+                loginError.classList.add('d-none');
+            }
         }
         
-        // 显示管理页面
-        function showAdminPage() {
-            loginPage.classList.add('d-none');
-            adminPage.classList.remove('d-none');
-            loadMessages();
-        }
+
+    
+    // 显示管理页面
+    function showAdminPage() {
+        loginPage.classList.add('d-none');
+        adminPage.classList.remove('d-none');
+        adminNavbar.classList.remove('d-none');
+        loadMessages();
+    }
         
         // 登录处理
         loginForm.addEventListener('submit', function(e) {
@@ -224,23 +338,40 @@
             ` : '';
             
             // 构建回复HTML
-            const replyHTML = message.reply ? `
-                <div class="card mt-3" style="border-left: 4px solid #3498db;">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between mb-2">
-                            <strong>${message.reply.teacher}</strong>
-                            <small class="text-muted">${message.reply.timestamp}</small>
+            let replyHTML = '';
+            if (message.reply) {
+                replyHTML = `
+                    <div class="card mt-3" style="border-left: 4px solid #3498db;">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between mb-2">
+                                <strong>${message.reply.teacher}</strong>
+                                <small class="text-muted">${message.reply.timestamp}</small>
+                            </div>
+                            <p class="card-text">${message.reply.content}</p>
                         </div>
-                        <p class="card-text">${message.reply.content}</p>
                     </div>
-                </div>
-            ` : '';
+                `;
+            } else if (message.replies && message.replies.length > 0) {
+                message.replies.forEach(reply => {
+                    replyHTML += `
+                        <div class="card mt-3" style="border-left: 4px solid #3498db;">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <strong>${reply.teacher}</strong>
+                                    <small class="text-muted">${reply.timestamp}</small>
+                                </div>
+                                <p class="card-text">${reply.content}</p>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
             
             messageCard.innerHTML = `
                 <div class="card-header message-header">
                     <div>
                         <h5 class="card-title mb-0">${message.studentName} (${message.studentId}) - ${message.className}</h5>
-                        <small class="text-muted">${message.timestamp}</small>
+                        <small class="text-muted message-timestamp">${message.timestamp}</small>
                     </div>
                     <div>
                         <span class="badge ${message.status === '已回复' ? 'bg-success' : 'bg-warning text-dark'}">${message.status}</span>
@@ -253,6 +384,9 @@
                     ${replyFormHTML}
                 </div>
                 <div class="card-footer bg-light">
+                    <button type="button" class="btn btn-warning btn-sm btn-action edit-time-btn" data-id="${message.id}">
+                        <i class="fas fa-clock"></i> 修改时间
+                    </button>
                     <button type="button" class="btn btn-danger btn-sm btn-action delete-btn" data-id="${message.id}">
                         <i class="fas fa-trash-alt"></i> 删除
                     </button>
@@ -262,8 +396,8 @@
             adminMessagesContainer.appendChild(messageCard);
         }
         
-        // 添加事件委托处理回复和删除按钮
-        adminMessagesContainer.addEventListener('click', function(e) {
+        // 添加事件委托处理回复、删除和修改时间按钮
+        adminMessagesContainer.addEventListener('click', async function(e) {
             // 回复按钮点击处理
             if (e.target.closest('.reply-btn')) {
                 const btn = e.target.closest('.reply-btn');
@@ -291,35 +425,77 @@
                 }
                 
                 // 构建回复对象
-                    const replyData = {
-                        teacher: replyTeacher,
-                        content: replyContent,
-                        timestamp: timestamp
-                    };
+                const replyData = {
+                    teacher: replyTeacher,
+                    content: replyContent,
+                    timestamp: timestamp
+                };
+                
+                try {
+                    let success = false;
                     
-                    try {
-                        let success = false;
+                    // 更新按钮状态
+                    btn.disabled = true;
+                    btn.textContent = '提交中...';
+                    
+                    // 尝试使用DataManager更新
+                    if (typeof DataManager !== 'undefined' && DataManager.updateMessage) {
+                        // 确保正确传递更新的数据结构
+                        success = await DataManager.updateMessage(messageId, {
+                            status: '已回复',
+                            replies: [replyData]
+                        });
+                    } else {
+                        // 模拟更新成功
+                        console.log('回复留言:', messageId, replyData);
                         
-                        // 尝试使用DataManager更新
-                        if (typeof DataManager !== 'undefined' && DataManager.updateMessage) {
-                            success = await DataManager.updateMessage(messageId, replyData);
-                        } else {
-                            // 模拟更新成功
-                            console.log('回复留言:', messageId, replyData);
-                            success = true;
+                        // 直接更新DOM以显示回复
+                        const messageCard = document.querySelector(`.message-card[data-id="${messageId}"]`);
+                        const cardBody = messageCard.querySelector('.card-body');
+                        
+                        // 移除回复表单
+                        const replyForm = messageCard.querySelector('.reply-form');
+                        if (replyForm) {
+                            replyForm.remove();
                         }
                         
-                        if (success) {
-                            alert('回复成功！实际应用中会保存到服务器');
-                            // 重新加载留言列表
-                            loadMessages();
-                        } else {
-                            throw new Error('回复操作失败');
-                        }
-                    } catch (error) {
-                        console.error('回复失败:', error);
-                        alert('回复失败，请稍后重试');
+                        // 添加回复内容
+                        const replyHTML = `
+                            <div class="card mt-3 reply-card">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <strong>${replyData.teacher}</strong>
+                                        <small class="text-muted">${replyData.timestamp}</small>
+                                    </div>
+                                    <p class="card-text">${replyData.content}</p>
+                                </div>
+                            </div>
+                        `;
+                        cardBody.insertAdjacentHTML('beforeend', replyHTML);
+                        
+                        // 更新状态标签
+                        const statusBadge = messageCard.querySelector('.badge');
+                        statusBadge.textContent = '已回复';
+                        statusBadge.className = 'badge bg-success';
+                        messageCard.dataset.status = '已回复';
+                        
+                        success = true;
                     }
+                    
+                    if (success) {
+                        alert('回复成功！');
+                        // 无需重新加载整个列表，已直接更新DOM
+                    } else {
+                        throw new Error('回复操作失败');
+                    }
+                } catch (error) {
+                    console.error('回复失败:', error);
+                    alert('回复失败，请稍后重试');
+                } finally {
+                    // 恢复按钮状态
+                    btn.disabled = false;
+                    btn.textContent = '提交回复';
+                }
             }
             
             // 删除按钮点击处理
@@ -341,8 +517,13 @@
                         }
                         
                         if (success) {
-                            alert('删除成功！实际应用中会从服务器删除');
-                            // 重新加载留言列表
+                            alert('删除成功！');
+                            // 立即从DOM中移除该留言卡片，然后重新加载列表
+                            const messageCard = document.querySelector(`.message-card[data-id="${messageId}"]`);
+                            if (messageCard) {
+                                messageCard.remove();
+                            }
+                            // 重新加载留言列表确保数据一致性
                             loadMessages();
                         } else {
                             throw new Error('删除操作失败');
@@ -352,6 +533,224 @@
                         alert('删除失败，请稍后重试');
                     }
                 }
+            }
+            
+            // 修改时间按钮点击处理
+            if (e.target.closest('.edit-time-btn')) {
+                const btn = e.target.closest('.edit-time-btn');
+                const messageId = btn.dataset.id;
+                const messageCard = document.querySelector(`.message-card[data-id="${messageId}"]`);
+                const currentTime = messageCard.querySelector('.message-timestamp').textContent;
+                
+                // 保存当前要修改的消息ID
+                editTimeModal.dataset.messageId = messageId;
+                
+                // 格式化当前时间为datetime-local格式
+                try {
+                    // 尝试解析各种时间格式
+                    let date;
+                    if (currentTime.includes(' ')) {
+                        const [datePart, timePart] = currentTime.split(' ');
+                        let year, month, day, hours, minutes;
+                        
+                        if (datePart.includes('-')) {
+                            [year, month, day] = datePart.split('-');
+                        } else {
+                            [year, month, day] = datePart.split('/');
+                        }
+                        
+                        if (timePart.includes(':')) {
+                            [hours, minutes] = timePart.split(':');
+                        }
+                        
+                        date = new Date(year, month - 1, day, hours, minutes);
+                    } else {
+                        date = new Date(currentTime);
+                    }
+                    
+                    // 设置输入框时间
+                    const formattedTime = date.toISOString().slice(0, 16); // YYYY-MM-DDThh:mm
+                    document.getElementById('editTimestamp').value = formattedTime;
+                } catch (error) {
+                    console.error('时间格式化失败:', error);
+                    // 设置为当前时间
+                    const now = new Date();
+                    const formattedTime = now.toISOString().slice(0, 16);
+                    document.getElementById('editTimestamp').value = formattedTime;
+                }
+                
+                // 显示模态框
+                bootstrap.Modal.getInstance(editTimeModal).show();
+            }
+        });
+        
+        // 生成唯一ID
+        function generateId() {
+            return Date.now().toString(36) + Math.random().toString(36).substr(2);
+        }
+        
+        // 初始化添加留言功能
+        const addMessageBtn = document.getElementById('addMessageBtn');
+        const addMessageModal = new bootstrap.Modal(document.getElementById('addMessageModal'));
+        const saveNewMessageBtn = document.getElementById('saveNewMessageBtn');
+        
+        // 添加留言按钮点击事件
+        addMessageBtn.addEventListener('click', function() {
+            // 清空表单
+            document.getElementById('addMessageForm').reset();
+            
+            // 设置默认时间为当前时间
+            const now = new Date();
+            const formattedTime = now.toISOString().slice(0, 16); // YYYY-MM-DDThh:mm
+            document.getElementById('newMessageTimestamp').value = formattedTime;
+            
+            // 显示模态框
+            addMessageModal.show();
+        });
+        
+        // 保存新留言按钮点击事件
+        saveNewMessageBtn.addEventListener('click', async function() {
+            const form = document.getElementById('addMessageForm');
+            
+            // 验证表单
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+            
+            // 获取表单数据
+            const studentName = document.getElementById('newStudentName').value;
+            const studentId = document.getElementById('newStudentId').value;
+            const className = document.getElementById('newClassName').value;
+            const title = document.getElementById('newMessageTitle').value;
+            const content = document.getElementById('newMessageContent').value;
+            const timestamp = document.getElementById('newMessageTimestamp').value;
+            const status = document.getElementById('newMessageStatus').value;
+            
+            // 格式化时间
+            const date = new Date(timestamp);
+            const formattedTimestamp = date.getFullYear() + '-' + 
+                                       String(date.getMonth() + 1).padStart(2, '0') + '-' + 
+                                       String(date.getDate()).padStart(2, '0') + ' ' + 
+                                       String(date.getHours()).padStart(2, '0') + ':' + 
+                                       String(date.getMinutes()).padStart(2, '0');
+            
+            // 创建新留言对象
+            const newMessage = {
+                id: generateId(),
+                studentName: studentName,
+                studentId: studentId,
+                className: className,
+                title: title,
+                content: content,
+                timestamp: formattedTimestamp,
+                status: status,
+                replies: []
+            };
+            
+            try {
+                // 更新按钮状态
+                saveNewMessageBtn.disabled = true;
+                saveNewMessageBtn.textContent = '保存中...';
+                
+                let success = false;
+                
+                // 尝试使用DataManager保存
+                if (typeof DataManager !== 'undefined' && DataManager.saveMessage) {
+                    success = await DataManager.saveMessage(newMessage);
+                } else {
+                    // 模拟保存成功
+                    console.log('添加新留言:', newMessage);
+                    success = true;
+                }
+                
+                if (success) {
+                    alert('留言添加成功！');
+                    // 关闭模态框
+                    addMessageModal.hide();
+                    // 重新加载留言列表
+                    await loadMessages();
+                } else {
+                    throw new Error('添加留言失败');
+                }
+            } catch (error) {
+                console.error('添加留言失败:', error);
+                alert('添加留言失败，请稍后重试');
+            } finally {
+                // 恢复按钮状态
+                saveNewMessageBtn.disabled = false;
+                saveNewMessageBtn.textContent = '保存留言';
+            }
+        });
+        
+        // 初始化修改时间功能
+        const editTimeModal = new bootstrap.Modal(document.getElementById('editTimeModal'));
+        const saveTimeBtn = document.getElementById('saveTimeBtn');
+        
+        // 保存修改时间按钮点击事件
+        saveTimeBtn.addEventListener('click', async function() {
+            const form = document.getElementById('editTimeForm');
+            
+            // 验证表单
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+            
+            // 获取消息ID和新时间
+            const messageId = editTimeModal._element.dataset.messageId;
+            const newTimestamp = document.getElementById('editTimestamp').value;
+            
+            // 格式化时间
+            const date = new Date(newTimestamp);
+            const formattedTimestamp = date.getFullYear() + '-' + 
+                                       String(date.getMonth() + 1).padStart(2, '0') + '-' + 
+                                       String(date.getDate()).padStart(2, '0') + ' ' + 
+                                       String(date.getHours()).padStart(2, '0') + ':' + 
+                                       String(date.getMinutes()).padStart(2, '0');
+            
+            try {
+                // 更新按钮状态
+                saveTimeBtn.disabled = true;
+                saveTimeBtn.textContent = '保存中...';
+                
+                let success = false;
+                
+                // 尝试使用DataManager更新
+                if (typeof DataManager !== 'undefined' && DataManager.updateMessage) {
+                    success = await DataManager.updateMessage(messageId, {
+                        timestamp: formattedTimestamp
+                    });
+                } else {
+                    // 模拟更新成功
+                    console.log('更新留言时间:', messageId, formattedTimestamp);
+                    
+                    // 直接更新DOM
+                    const messageCard = document.querySelector(`.message-card[data-id="${messageId}"]`);
+                    if (messageCard) {
+                        const timeElement = messageCard.querySelector('.message-timestamp');
+                        timeElement.textContent = formattedTimestamp;
+                    }
+                    
+                    success = true;
+                }
+                
+                if (success) {
+                    alert('时间修改成功！');
+                    // 关闭模态框
+                    editTimeModal.hide();
+                    // 重新加载留言列表以更新排序
+                    await loadMessages();
+                } else {
+                    throw new Error('时间修改失败');
+                }
+            } catch (error) {
+                console.error('时间修改失败:', error);
+                alert('时间修改失败，请稍后重试');
+            } finally {
+                // 恢复按钮状态
+                saveTimeBtn.disabled = false;
+                saveTimeBtn.textContent = '保存时间';
             }
         });
         
