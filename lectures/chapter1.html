@@ -11,57 +11,90 @@
     <!-- 自定义CSS -->
     <link rel="stylesheet" href="../assets/css/style.css">
     <style>
-        /* 章节页面特定样式 */
-        .chapter-content {
-            background-color: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
-        
-        .chapter-nav {
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
             background-color: #f8f9fa;
-            padding: 1.5rem;
+        }
+        .header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
+        }
+
+        .main-content {
+            background-color: white;
             border-radius: 8px;
-            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin-bottom: 30px;
         }
-        
+        .section-title {
+            color: #2c3e50;
+            border-bottom: 2px solid #1abc9c;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
         .knowledge-point {
-            margin-bottom: 1.5rem;
-            padding-left: 1.5rem;
-            border-left: 3px solid #3498db;
+            background-color: #f8f9fa;
+            border-left: 4px solid #1abc9c;
+            padding: 15px;
+            margin-bottom: 20px;
         }
-        
+        .formula {
+            background-color: #e9ecef;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
         .note-box {
             background-color: #fff3cd;
             border: 1px solid #ffeaa7;
-            border-radius: 4px;
-            padding: 1rem;
-            margin: 1.5rem 0;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        /* 章节导航样式 */
+        .nav-pills .nav-link {
+            color: #1a202c;
+            font-weight: 500;
+            font-size: 15px;
+            background-color: #f8f9fa;
+            border-radius: 0;
+            margin-bottom: 1px;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+            padding: 10px 15px;
         }
         
-        .formula {
-            background-color: #f8f9fa;
-            padding: 1rem;
-            border-radius: 4px;
-            text-align: center;
-            margin: 1rem 0;
-            font-family: "Courier New", monospace;
+        .nav-pills .nav-link:hover {
+            color: #1a202c;
+            background-color: #e2e8f0;
+            border-left-color: #1abc9c;
+        }
+        
+        .nav-pills .nav-link.active {
+            color: #fff;
+            background-color: #1abc9c;
+            border-left-color: #138496;
+            font-weight: 600;
         }
     </style>
 </head>
 <body>
     <!-- 导航栏 -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="../index.html">
-                <i class="fas fa-landmark mr-2"></i>土力学
-            </a>
+            <a class="navbar-brand" href="../index.html">土力学课程</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">首页</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../index.html#course-info">课程简介</a>
                     </li>
@@ -73,12 +106,6 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../index.html#exercises">习题与实验</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../index.html#resources">参考资源</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../index.html#contact">联系我们</a>
                     </li>
                 </ul>
             </div>
@@ -94,33 +121,47 @@
     </header>
 
     <main class="container my-5">
-        <!-- 章节导航 -->
-        <div class="chapter-nav">
-            <h3 class="mb-3">章节导航</h3>
-            <div class="row">
-                <div class="col-md-6">
-                    <ul class="list-unstyled">
-                        <li><a href="#section1-1" class="text-primary">1.1 土的形成与结构</a></li>
-                        <li><a href="#section1-2" class="text-primary">1.2 土的三相组成</a></li>
-                        <li><a href="#section1-3" class="text-primary">1.3 土的物理性质指标</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-6">
-                    <ul class="list-unstyled">
-                        <li><a href="#section1-4" class="text-primary">1.4 土的物理状态指标</a></li>
-                        <li><a href="#section1-5" class="text-primary">1.5 土的工程分类</a></li>
-                        <li><a href="../exercises/chapter1-exercises.html" class="text-success">章节习题</a></li>
-                    </ul>
+        <div class="row">
+            <!-- 章节导航 -->
+            <div class="col-md-3">
+                <div class="sticky-top" style="top: 80px;">
+                    <div class="card">
+                        <div class="card-header bg-dark text-white">
+                            <h5 class="mb-0">章节导航</h5>
+                        </div>
+                        <ul class="nav nav-pills flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#section1-1">1.1 土的形成与结构</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#section1-2">1.2 土的三相组成</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#section1-3">1.3 土的物理性质指标</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#section1-4">1.4 土的物理状态指标</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#section1-5">1.5 土的工程分类</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../exercises/chapter1-exercises.html">章节习题</a>
+                            </li>
+                        </ul>
+                        <div class="card-footer p-3">
+                            <a href="index.html" class="btn btn-outline-primary btn-sm w-100 mb-2">返回章节列表</a>
+                            <a href="chapter2.html" class="btn btn-primary btn-sm w-100">下一章 <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="mt-4">
-                <a href="index.html" class="btn btn-outline-primary btn-sm">返回章节列表</a>
-                <a href="chapter2.html" class="btn btn-primary btn-sm float-end">下一章 <i class="fas fa-arrow-right"></i></a>
-            </div>
-        </div>
+            
+            <!-- 章节内容 -->
+            <div class="col-md-9">
 
         <!-- 章节内容 -->
-        <div class="chapter-content">
+        <div class="main-content">
             <!-- 1.1 土的形成与结构 -->
             <section id="section1-1" class="mb-5">
                 <h2 class="section-title">1.1 土的形成与结构</h2>
@@ -343,6 +384,8 @@
                     </div>
                 </div>
             </section>
+        </div>
+        </div>
         </div>
     </main>
 

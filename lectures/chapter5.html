@@ -21,7 +21,7 @@
             padding: 20px 0;
         }
         .nav-link {
-            color: white !important;
+            color: black !important;
         }
         .nav-link:hover {
             color: #1abc9c !important;
@@ -60,12 +60,30 @@
             padding: 15px;
             margin: 20px 0;
         }
-        .nav-pills .nav-link.active {
-            background-color: #1abc9c;
-            color: white;
-        }
+        /* 章节导航样式 */
         .nav-pills .nav-link {
             color: #2c3e50;
+            font-weight: 500;
+            font-size: 15px;
+            background-color: #f8f9fa;
+            border-radius: 0;
+            margin-bottom: 1px;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+            padding: 10px 15px;
+        }
+        
+        .nav-pills .nav-link:hover {
+            color: #2c3e50;
+            background-color: #e2e8f0;
+            border-left-color: #1abc9c;
+        }
+        
+        .nav-pills .nav-link.active {
+            color: white;
+            background-color: #1abc9c;
+            border-left-color: #16a085;
+            font-weight: 600;
         }
         .footer {
             background-color: #2c3e50;
@@ -150,6 +168,10 @@
                                 <a class="nav-link" href="#exercises">章节习题</a>
                             </li>
                         </ul>
+                        <div class="card-footer p-3">
+                            <a href="index.html" class="btn btn-outline-primary btn-sm w-100 mb-2">返回章节列表</a>
+                            <a href="chapter6.html" class="btn btn-primary btn-sm w-100">下一章 <i class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
