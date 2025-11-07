@@ -81,7 +81,7 @@
 </head>
 <body>
     <!-- 导航栏 -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
         <div class="container">
             <a class="navbar-brand" href="../index.html">
                 <i class="fas fa-landmark mr-2"></i>
@@ -114,7 +114,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../feedback.html">学生留言</a>
+                        <a class="nav-link" href="../robust-message-board.html">学生留言</a>
                     </li>
                 </ul>
             </div>
@@ -178,6 +178,10 @@
         <!-- 实验设备 -->
         <section class="content-card">
             <h2 class="section-title">三、实验设备</h2>
+            <div class="mb-4 text-center">
+                <img src="../assets/images/experiments/equipment1.jpg" class="img-fluid rounded shadow mb-2" alt="土的基本物理性质试验设备" style="max-height: 400px; object-fit: cover;">
+                <p class="text-muted italic">图1：土的基本物理性质试验常用设备</p>
+            </div>
             <div class="row">
                 <div class="col-md-6">
                     <h3 class="h5 mb-3">3.1 密度试验设备</h3>
@@ -217,6 +221,10 @@
         <section class="content-card">
             <h2 class="section-title">四、实验步骤</h2>
             
+            <div class="mb-4 text-center">
+                <img src="../assets/images/experiments/experiment1_1.jpg" class="img-fluid rounded shadow mb-2" alt="环刀法测定密度" style="max-height: 400px; object-fit: cover;">
+                <p class="text-muted italic">图2：环刀法测定土的密度</p>
+            </div>
             <h3 class="h5 mt-4">4.1 密度试验（环刀法）</h3>
             <ol class="list-decimal procedure-list">
                 <li>用天平称取环刀的质量（m₁），准确至0.1g</li>
@@ -228,6 +236,10 @@
                 <li>计算土的密度：ρ = (m₂ - m₁) / V，其中V为环刀的容积</li>
             </ol>
             
+            <div class="mb-4 text-center">
+                <img src="../assets/images/experiments/experiment1_2.jpg" class="img-fluid rounded shadow mb-2" alt="烘干法测定含水率" style="max-height: 400px; object-fit: cover;">
+                <p class="text-muted italic">图3：烘干法测定土的含水率</p>
+            </div>
             <h3 class="h5 mt-4">4.2 含水率试验（烘干法）</h3>
             <ol class="list-decimal procedure-list">
                 <li>用天平称取铝盒的质量（m₀），准确至0.01g</li>
@@ -238,6 +250,10 @@
                 <li>计算土的含水率：w = [(m₁ - m₂) / (m₂ - m₀)] × 100%</li>
             </ol>
             
+            <div class="mb-4 text-center">
+                <img src="../assets/images/experiments/experiment1_3.jpg" class="img-fluid rounded shadow mb-2" alt="比重瓶法测定土粒比重" style="max-height: 400px; object-fit: cover;">
+                <p class="text-muted italic">图4：比重瓶法测定土粒比重</p>
+            </div>
             <h3 class="h5 mt-4">4.3 比重试验（比重瓶法）</h3>
             <ol class="list-decimal procedure-list">
                 <li>将比重瓶洗净、烘干，称取比重瓶的质量（m₀），准确至0.001g</li>
@@ -421,7 +437,7 @@
                         <li><a href="../index.html#materials" class="text-white">教学资料</a></li>
                         <li><a href="../exercises/index.html" class="text-white">习题</a></li>
                         <li><a href="index.html" class="text-white">实验</a></li>
-                        <li><a href="../feedback.html" class="text-white">学生留言</a></li>
+                        <li><a href="../robust-message-board.html" class="text-white">学生留言</a></li>
                     </ul>
                 </div>
             </div>
@@ -443,11 +459,9 @@
         // 导航栏滚动效果
         $(window).scroll(function() {
             if ($(this).scrollTop() > 50) {
-                $('.navbar').addClass('bg-dark');
-                $('.navbar').removeClass('bg-transparent');
+                $('.navbar').addClass('shadow-lg');
             } else {
-                $('.navbar').removeClass('bg-dark');
-                $('.navbar').addClass('bg-transparent');
+                $('.navbar').removeClass('shadow-lg');
             }
             
             // 返回顶部按钮显示/隐藏

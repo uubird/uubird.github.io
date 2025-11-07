@@ -102,7 +102,7 @@
 </head>
 <body>
     <!-- 导航栏 -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
         <div class="container">
             <a class="navbar-brand" href="../index.html">
                 <i class="fas fa-landmark mr-2"></i>
@@ -135,7 +135,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../feedback.html">学生留言</a>
+                        <a class="nav-link" href="../robust-message-board.html">学生留言</a>
                     </li>
                 </ul>
             </div>
@@ -216,6 +216,10 @@
         <!-- 实验设备 -->
         <section class="content-card">
             <h2 class="section-title">三、实验设备</h2>
+            <div class="image-container">
+                <img src="../assets/images/experiments/equipment3.jpg" alt="土的压缩试验设备" class="img-fluid rounded shadow">
+                <div class="image-caption">图1：土的压缩试验常用设备</div>
+            </div>
             <div class="row">
                 <div class="col-md-8">
                     <ul class="list-disc equipment-list">
@@ -242,6 +246,10 @@
         <section class="content-card">
             <h2 class="section-title">四、实验步骤</h2>
             
+            <div class="image-container">
+                <img src="../assets/images/experiments/experiment3_1.jpg" alt="压缩试验准备" class="img-fluid rounded shadow">
+                <div class="image-caption">图2：压缩试验土样制备</div>
+            </div>
             <h3 class="h5 mt-4">4.1 土样制备</h3>
             <ol class="list-decimal procedure-list">
                 <li>取具有代表性的扰动土样200g，放入蒸发皿中</li>
@@ -252,6 +260,10 @@
                 <li>称量环刀和土样的总质量，计算土的密度</li>
             </ol>
             
+            <div class="image-container">
+                <img src="../assets/images/experiments/experiment3_2.jpg" alt="压缩试验加载过程" class="img-fluid rounded shadow">
+                <div class="image-caption">图3：压缩试验加载过程</div>
+            </div>
             <h3 class="h5 mt-4">4.2 压缩试验操作</h3>
             <ol class="list-decimal procedure-list">
                 <li>将压缩容器的刚性护环、透水石和滤纸放入容器中</li>
@@ -472,7 +484,7 @@
                         <li><a href="../index.html#materials" class="text-white">教学资料</a></li>
                         <li><a href="../exercises/index.html" class="text-white">习题</a></li>
                         <li><a href="index.html" class="text-white">实验</a></li>
-                        <li><a href="../feedback.html" class="text-white">学生留言</a></li>
+                        <li><a href="../robust-message-board.html" class="text-white">学生留言</a></li>
                     </ul>
                 </div>
             </div>
@@ -494,11 +506,9 @@
         // 导航栏滚动效果
         $(window).scroll(function() {
             if ($(this).scrollTop() > 50) {
-                $('.navbar').addClass('bg-dark');
-                $('.navbar').removeClass('bg-transparent');
+                $('.navbar').addClass('shadow-lg');
             } else {
-                $('.navbar').removeClass('bg-dark');
-                $('.navbar').addClass('bg-transparent');
+                $('.navbar').removeClass('shadow-lg');
             }
             
             // 返回顶部按钮显示/隐藏
