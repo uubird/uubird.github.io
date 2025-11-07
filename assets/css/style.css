@@ -8,15 +8,15 @@ body {
     line-height: 1.6;
 }
 
-/* 导航栏 */
+/* 导航栏 - 全局统一样式 */
 .navbar {
-    background-color: #1a5276;
+    background-color: #1a5276 !important;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
 }
 
-.navbar-brand {
+.navbar-dark .navbar-brand {
     color: #fff !important;
     font-size: 1.5rem;
     font-weight: bold;
@@ -26,14 +26,14 @@ body {
     margin-right: 0.5rem;
 }
 
-.nav-link {
+.navbar-dark .nav-link {
     color: #fff !important;
     font-size: 1.1rem;
     margin-left: 1rem;
     transition: color 0.3s ease;
 }
 
-.nav-link:hover {
+.navbar-dark .nav-link:hover {
     color: #aed6f1 !important;
 }
 

@@ -32,12 +32,31 @@ const DataManager = {
      */
     async getMessages() {
         try {
+            // 优先从localStorage获取数据
+            let messages = this.getMessagesFromStorage();
+            
+            // 如果localStorage中有数据，直接返回
+            if (messages.length > 0) {
+                console.log('[DataManager] 从localStorage返回', messages.length, '条留言');
+                return messages;
+            }
+            
+            // 如果localStorage没有数据，尝试从文件获取
+            console.log('[DataManager] localStorage为空，尝试从文件获取数据');
             const response = await fetch(this.MESSAGES_FILE);
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             const data = await response.json();
-            return data.messages || [];
+            const fileMessages = data.messages || [];
+            
+            // 将文件中的数据保存到localStorage
+            if (fileMessages.length > 0) {
+                this.saveMessagesToStorage(fileMessages);
+                console.log('[DataManager] 已从文件加载并保存到localStorage', fileMessages.length, '条留言');
+            }
+            
+            return fileMessages;
         } catch (error) {
             console.error('获取留言列表失败:', error);
             // 返回模拟数据作为备用
@@ -67,13 +86,21 @@ const DataManager = {
      */
     async saveMessage(message) {
         try {
-            // 在实际应用中，这里应该发送POST请求到后端API
-            console.log('保存新留言:', message);
+            console.log('[DataManager] 开始保存新留言:', message.id);
             
-            // 由于是前端演示，这里模拟成功
+            // 使用localStorage保存数据
+            let messages = this.getMessagesFromStorage();
+            console.log('[DataManager] 保存前已有', messages.length, '条留言');
+            
+            messages.push(message);
+            console.log('[DataManager] 保存后共有', messages.length, '条留言');
+            
+            this.saveMessagesToStorage(messages);
+            console.log('[DataManager] 留言保存成功:', message.id);
+            
             return true;
         } catch (error) {
-            console.error('保存留言失败:', error);
+            console.error('[DataManager] 保存留言失败:', error);
             return false;
         }
     },
@@ -86,11 +113,38 @@ const DataManager = {
      */
     async updateMessage(messageId, replyData) {
         try {
-            // 在实际应用中，这里应该发送PUT请求到后端API
-            console.log(`更新留言[${messageId}]，添加回复:`, replyData);
+            let messages = this.getMessagesFromStorage();
+            const messageIndex = messages.findIndex(msg => msg.id === messageId);
             
-            // 模拟成功
-            return true;
+            if (messageIndex !== -1) {
+                // 更新状态
+                if (replyData.status) {
+                    messages[messageIndex].status = replyData.status;
+                }
+                
+                // 更新时间
+                if (replyData.timestamp) {
+                    messages[messageIndex].timestamp = replyData.timestamp;
+                }
+                
+                // 添加回复
+                if (replyData.replies && replyData.replies.length > 0) {
+                    // 确保replies数组存在
+                    if (!messages[messageIndex].replies) {
+                        messages[messageIndex].replies = [];
+                    }
+                    // 添加新回复
+                    messages[messageIndex].replies.push(...replyData.replies);
+                }
+                
+                // 保存更新后的数据
+                this.saveMessagesToStorage(messages);
+                console.log(`更新留言[${messageId}]成功:`, replyData);
+                return true;
+            }
+            
+            console.error(`未找到ID为${messageId}的留言`);
+            return false;
         } catch (error) {
             console.error(`更新留言[${messageId}]失败:`, error);
             return false;
@@ -104,14 +158,51 @@ const DataManager = {
      */
     async deleteMessage(messageId) {
         try {
-            // 在实际应用中，这里应该发送DELETE请求到后端API
-            console.log(`删除留言[${messageId}]`);
+            let messages = this.getMessagesFromStorage();
+            // 过滤掉要删除的留言
+            messages = messages.filter(msg => msg.id !== messageId);
+            // 保存更新后的数据
+            this.saveMessagesToStorage(messages);
             
-            // 模拟成功
+            console.log(`删除留言[${messageId}]成功`);
             return true;
         } catch (error) {
             console.error(`删除留言[${messageId}]失败:`, error);
             return false;
+        }
+    },
+    
+    /**
+     * 从localStorage获取留言数据
+     * @returns {Array} 留言列表
+     */
+    getMessagesFromStorage() {
+        try {
+            const storedMessages = localStorage.getItem('messages');
+            if (storedMessages) {
+                const messages = JSON.parse(storedMessages);
+                console.log('[DataManager] 从localStorage获取到', messages.length, '条留言');
+                return messages;
+            }
+            // 如果没有存储数据，返回空数组而不是模拟数据
+            // 这样getMessages方法会继续尝试从文件加载数据
+            console.log('[DataManager] localStorage中没有留言数据，返回空数组');
+            return [];
+        } catch (error) {
+            console.error('从localStorage读取留言数据失败:', error);
+            return [];
+        }
+    },
+    
+    /**
+     * 将留言数据保存到localStorage
+     * @param {Array} messages 留言列表
+     */
+    saveMessagesToStorage(messages) {
+        try {
+            localStorage.setItem('messages', JSON.stringify(messages));
+        } catch (error) {
+            console.error('保存留言数据到localStorage失败:', error);
         }
     },
     
@@ -127,9 +218,10 @@ const DataManager = {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
-            const students = await response.json();
+            const data = await response.json();
             
-            const student = students.find(s => s.name === name && s.studentId === studentId);
+            const student = data.students.find(s => s.name === name && s.studentId === studentId);
+            console.log('DataManager验证搜索结果:', {name, studentId, foundStudent: student});
             return {
                 valid: !!student,
                 student: student || null
